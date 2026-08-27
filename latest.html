@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年8月27日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6;
+    color: #1a2233;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
+    padding: 40px 26px 34px;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background: radial-gradient(circle, rgba(232,72,85,.32) 0%, transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:280px; height:280px; border-radius:50%;
+    background: radial-gradient(circle, rgba(64,158,255,.24) 0%, transparent 70%);
+    bottom:-160px; left:-90px;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .kicker {
+    display:inline-block; font-size:11px; letter-spacing:3px; font-weight:600;
+    background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1 { font-size:26px; font-weight:800; letter-spacing:-.6px; line-height:1.32; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; color:#ff9aa5; }
+  .hero h1 i { font-style:normal; color:#7ee2a8; }
+  .hero .sub { font-size:13.5px; color:rgba(255,255,255,.72); }
+  .hero .datebar {
+    margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
+    display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
+  }
+  .pulse { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
+
+  /* ============ SECTION ============ */
+  .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
+  .sec:last-of-type { border-bottom: none; }
+  .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .sec-ico {
+    width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
+
+  /* ============ INDEX GRID ============ */
+  .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .idx {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
+    padding:12px 9px 11px; position:relative; overflow:hidden;
+  }
+  .idx::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .idx.up::before { background:#e84855; }
+  .idx.down::before { background:#12a05c; }
+  .idx .n { font-size:11px; color:#7c8698; margin-bottom:5px; font-weight:500; }
+  .idx .v { font-size:15.5px; font-weight:800; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+  .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .up .v, .up .c { color:#e84855; }
+  .down .v, .down .c { color:#12a05c; }
+
+  /* ============ STAT BAR ============ */
+  .statbar {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
+  }
+  .stat { background:#fff; padding:12px 6px; text-align:center; }
+  .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
+  .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
+
+  /* ============ CALLOUT ============ */
+  .callout {
+    margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
+    border:1px solid #ffdcd8; border-left:3px solid #e84855;
+    border-radius:10px; padding:13px 15px; font-size:13.5px; color:#5a3a3a;
+  }
+  .callout b { color:#c9313e; }
+  .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
+  .callout.blue b { color:#2456c4; }
+
+  /* ============ NEWS ============ */
+  .news-legend {
+    display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .news-legend span { display:flex; align-items:center; gap:5px; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .tag.a { background:#ffe4e6; color:#c9313e; }
+  .tag.b { background:#fff0dc; color:#b8690f; }
+  .tag.c { background:#e2ecfd; color:#2456c4; }
+  .tag.mini { font-size:10px; padding:2px 8px; }
+  .src { font-size:10px; padding:2px 8px; border-radius:12px; background:#eef2f8; color:#6b7688; }
+  .src.intl { background:#eae4fb; color:#6a4bb8; }
+  .src.x { background:#e0f0ff; color:#1a73e8; }
+
+  .news {
+    position:relative; margin-bottom:16px; border-radius:12px; padding:16px 18px;
+    border:1px solid transparent;
+  }
+  .news:last-child { margin-bottom:0; }
+  .news.a { background:linear-gradient(135deg,#fff5f5,#fff0f0); border-color:#ffd5d5; }
+  .news.b { background:linear-gradient(135deg,#fff9f0,#fff5e8); border-color:#ffe4c4; }
+  .news.c { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); border-color:#d0dff8; }
+  .news-top { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; align-items:center; }
+  .news h3 { font-size:15px; font-weight:800; line-height:1.5; margin-bottom:7px; letter-spacing:-.2px; }
+  .news p { font-size:13px; line-height:1.85; color:#3d4660; margin-bottom:7px; }
+  .news p:last-of-type { margin-bottom:0; }
+  .hl { color:#e84855; font-weight:700; }
+  .num { color:#e84855; font-weight:700; font-variant-numeric:tabular-nums; }
+  .numg { color:#12a05c; font-weight:700; font-variant-numeric:tabular-nums; }
+  .ph { color:#3b6fe0; font-weight:700; }
+  .pl { color:#12a05c; font-weight:700; }
+  .impact {
+    margin-top:10px; padding:10px 13px; background:rgba(255,255,255,.65);
+    border-radius:8px; border:1px solid rgba(0,0,0,.04);
+    font-size:12.5px; color:#4a5568; line-height:1.8;
+  }
+
+  /* ============ FIVE DIM ============ */
+  .dim {
+    border-radius:12px; padding:16px 18px; margin-bottom:12px; position:relative; overflow:hidden;
+  }
+  .dim:last-child { margin-bottom:0; }
+  .dim::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .dim.d1::before { background:#e84855; }
+  .dim.d2::before { background:#f0932b; }
+  .dim.d3::before { background:#3b6fe0; }
+  .dim.d4::before { background:#6a4bb8; }
+  .dim.d5::before { background:#12a05c; }
+  .dim.d1 { background:linear-gradient(135deg,#fff5f5,#fff0f0); }
+  .dim.d2 { background:linear-gradient(135deg,#fff9f0,#fff5e8); }
+  .dim.d3 { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); }
+  .dim.d4 { background:linear-gradient(135deg,#f8f5ff,#f5f0ff); }
+  .dim.d5 { background:linear-gradient(135deg,#f0fff5,#e8fff0); }
+  .dim-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .dim-h .e { font-size:18px; }
+  .dim-h .t { font-size:15px; font-weight:800; letter-spacing:-.2px; }
+  .dim-h .score { margin-left:auto; font-size:11px; font-weight:600; color:#7c8698; }
+  .dim ul { list-style:none; }
+  .dim li {
+    position:relative; padding:7px 0 7px 16px; font-size:13px; line-height:1.8;
+    color:#3d4660; border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  .dim li:last-child { border-bottom:none; }
+  .dim li::before {
+    content:''; position:absolute; left:0; top:15px; width:5px; height:5px;
+    border-radius:50%; background:#b8c0ce;
+  }
+  .dim li b { color:#1a2233; }
+
+  /* ============ HEAT ============ */
+  .heat { margin-bottom:10px; }
+  .heat-row { display:flex; align-items:center; gap:8px; }
+  .heat-name { width:90px; font-size:12.5px; font-weight:700; text-align:right; color:#3d4660; flex-shrink:0; }
+  .heat-track { flex:1; height:22px; background:#f1f4f9; border-radius:11px; overflow:hidden; position:relative; }
+  .heat-fill { height:100%; border-radius:11px; transition:width .6s ease; }
+  .heat-fill.up { background:linear-gradient(90deg,#ffe4e6,#ff9aa5); }
+  .heat-fill.down { background:linear-gradient(90deg,#d1fae5,#6ee7b7); }
+  .heat-val { width:70px; font-size:11.5px; font-weight:700; }
+  .heat-val.r { color:#e84855; }
+  .heat-val.g { color:#12a05c; }
+
+  /* ============ CHIPS ============ */
+  .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .chip {
+    display:flex; align-items:center; gap:8px;
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:10px; padding:9px 12px;
+  }
+  .chip .cn { font-size:13px; font-weight:700; flex:1; }
+  .chip .lim { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#ffe4e6; color:#c9313e; }
+  .chip .tagi { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#eae4fb; color:#6a4bb8; }
+  .chip .taga { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e2ecfd; color:#2456c4; }
+  .chip .limg { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e8ecf3; color:#5a6678; }
+  .chip .cv { font-size:12px; font-weight:800; font-variant-numeric:tabular-nums; }
+
+  /* ============ TABLE ============ */
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th { text-align:left; padding:10px 8px; font-size:11px; color:#8892a6; font-weight:600; border-bottom:1px solid #e8ecf3; }
+  .tbl td { padding:10px 8px; border-bottom:1px solid #f1f4f9; }
+  .tbl .name { font-weight:600; }
+  .tbl .r { color:#e84855; font-weight:700; }
+  .tbl .g { color:#12a05c; font-weight:700; }
+  .tbl .n0 { color:#1a2233; font-weight:600; }
+  .tbl tr.grp td { font-size:12px; font-weight:700; color:#5a6678; background:#f7f9fc; padding:8px; }
+  .tbl tr.hot td { background:#fff9f0; }
+  .tbl .st { font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; margin-left:6px; }
+  .tbl .st.close { background:#e2ecfd; color:#2456c4; }
+  .tbl .st.live { background:#fff0dc; color:#b8690f; }
+  .tbl .st.ovn { background:#eae4fb; color:#6a4bb8; }
+  .mkt-legend {
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .mkt-legend span { display:flex; align-items:center; gap:5px; }
+  .mkt-legend .dot { width:6px; height:6px; border-radius:50%; }
+  .mkt-legend .dot.close { background:#3b6fe0; }
+  .mkt-legend .dot.live { background:#f0932b; }
+  .mkt-legend .dot.ovn { background:#6a4bb8; }
+
+  /* ============ GRASSROOTS ============ */
+  .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .gf-card {
+    background:#fff; border:1px solid #e8ecf3; border-radius:12px;
+    padding:14px 15px; position:relative; overflow:hidden;
+  }
+  .gf-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .gf-card.hot::before { background:#e84855; }
+  .gf-card.warm::before { background:#f0932b; }
+  .gf-card.cool::before { background:#3b6fe0; }
+  .gf-card.neut::before { background:#9aa6b8; }
+  .gf-top { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .gf-ico { font-size:20px; }
+  .gf-name { font-size:14px; font-weight:800; flex:1; }
+  .gf-status {
+    font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px;
+  }
+  .gf-status.hot { background:#ffe4e6; color:#c9313e; }
+  .gf-status.warm { background:#fff0dc; color:#b8690f; }
+  .gf-status.cool { background:#e2ecfd; color:#2456c4; }
+  .gf-status.neut { background:#eef1f6; color:#5a6678; }
+  .gf-card ul { list-style:none; }
+  .gf-card li {
+    position:relative; padding:6px 0 6px 14px; font-size:12.5px; line-height:1.7;
+    color:#3d4660; border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  .gf-card li:last-child { border-bottom:none; }
+  .gf-card li::before {
+    content:''; position:absolute; left:0; top:13px; width:4px; height:4px;
+    border-radius:50%; background:#b8c0ce;
+  }
+  .gf-card li b { color:#1a2233; }
+  .gf-card li .up { color:#e84855; font-weight:700; }
+  .gf-card li .dn { color:#12a05c; font-weight:700; }
+  .gf-src { font-size:10px; color:#9aa2b0; margin-top:7px; }
+  @media (max-width:480px) { .gf-grid { grid-template-columns:1fr; } }
+
+  /* ============ STRATEGY ============ */
+  .strat {
+    background:linear-gradient(145deg,#1a2233,#2a3550); border-radius:14px;
+    padding:22px 20px; color:#fff; margin-bottom:14px;
+  }
+  .strat-in h4 { font-size:16px; font-weight:800; margin-bottom:12px; }
+  .strat-in ul { list-style:none; }
+  .strat-in li {
+    position:relative; padding:8px 0 8px 18px; font-size:13px; line-height:1.85;
+    color:rgba(255,255,255,.82); border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .strat-in li:last-child { border-bottom:none; }
+  .strat-in li::before {
+    content:''; position:absolute; left:0; top:16px; width:6px; height:6px;
+    border-radius:50%; background:#4ade80;
+  }
+  .strat-in li b { color:#fff; }
+  .strat-in li .ph { color:#ff9aa5; font-weight:700; }
+  .strat-in li .pl { color:#7ee2a8; font-weight:700; }
+  .dirs { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .dir {
+    font-size:12px; font-weight:700; padding:6px 13px; border-radius:20px;
+    background:rgba(232,72,85,.2); color:#ff9aa5; border:1px solid rgba(232,72,85,.3);
+  }
+  .dir.cool {
+    background:rgba(59,111,224,.15); color:#93b5ff; border-color:rgba(59,111,224,.25);
+  }
+
+  .risk {
+    background:#fff5f5; border:1px solid #ffd5d5; border-radius:12px;
+    padding:16px 18px;
+  }
+  .risk h4 { font-size:14px; font-weight:800; color:#c9313e; margin-bottom:10px; }
+  .risk ul { list-style:none; }
+  .risk li {
+    position:relative; padding:7px 0 7px 18px; font-size:12.5px; line-height:1.8;
+    color:#5a3a3a; border-bottom:1px solid rgba(201,49,62,.08);
+  }
+  .risk li:last-child { border-bottom:none; }
+  .risk li::before {
+    content:'⚠'; position:absolute; left:0; top:7px; font-size:10px;
+  }
+  .risk li b { color:#c9313e; }
+
+  /* ============ FOOT ============ */
+  .foot {
+    padding:28px 26px 34px; background:linear-gradient(145deg,#1a2233,#131a2e);
+    color:rgba(255,255,255,.55); font-size:11.5px; line-height:1.8; text-align:center;
+  }
+  .foot .bk { font-size:14px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:10px; letter-spacing:1px; }
+
+  /* ============ NAV ============ */
+  .sec-nav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,.95); backdrop-filter:blur(12px);
+    border-bottom:1px solid #e8ecf3; padding:10px 26px;
+    display:flex; align-items:center; gap:8px; overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .sec-nav::-webkit-scrollbar { display:none; }
+  .sec-nav-label {
+    font-size:12px; font-weight:700; color:#8892a6; white-space:nowrap;
+    margin-right:8px; flex-shrink:0;
+  }
+  .sec-nav a {
+    display:inline-block; font-size:12px; font-weight:600; color:#5a6678;
+    padding:5px 14px; border-radius:20px; white-space:nowrap;
+    background:#f1f4f9; text-decoration:none; transition:all .2s;
+    flex-shrink:0;
+  }
+  .sec-nav a:hover { background:#e2ecfd; color:#2456c4; }
+  .sec-nav a.active { background:#3b6fe0; color:#fff; }
+
+  .sec.active {
+    animation: sec-highlight 1.5s ease;
+  }
+  @keyframes sec-highlight {
+    0% { background:#fffde0; }
+    100% { background:#fff; }
+  }
+
+  @media (max-width:480px) {
+    .idx-grid { grid-template-columns:repeat(2,1fr); }
+    .chips { grid-template-columns:1fr; }
+    .heat-name { width:78px; font-size:11.5px; }
+    .heat-val { width:60px; font-size:12px; }
+    .hero h1 { font-size:23px; }
+    .sec-nav { padding:10px 12px; }
+    .sec-nav-label { font-size:12px; margin-right:6px; }
+    .sec-nav a { font-size:11px; padding:5px 12px; }
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var navLinks = document.querySelectorAll('.sec-nav a');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href').substring(1);
+      var target = document.getElementById(targetId);
+      if (target) {
+        var nav = document.querySelector('.sec-nav');
+        var navH = nav.offsetHeight;
+        var targetPos = target.getBoundingClientRect().top + window.pageYOffset - navH - 10;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        target.classList.add('active');
+        setTimeout(function() { target.classList.remove('active'); }, 1500);
+      }
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      this.classList.add('active');
+      setTimeout(function() { link.classList.remove('active'); }, 1500);
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="kicker">DAILY GLOBAL MARKET WATCH</div>
+      <h1>英伟达营收962亿<em>碾压预期</em> · <i>算力全线暴涨</i><br>科创50+3.77%领涨全球 · <em>PCE通胀升温加息预期</em></h1>
+      <div class="sub">沪指+1.13%至3956 · 成交2.13万亿放量3172亿 · 存储芯片/PCB/CPO涨停潮 · 韩国央行加息至3% · 美国PCE 3.7%超预期</div>
+      <div class="datebar">
+        <span>2026年8月27日 · 周四 · 收盘全维度分析</span>
+        <span class="pulse"><span class="dot"></span> LIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 板块导航 -->
+  <div class="sec-nav">
+    <span class="sec-nav-label">快速跳转：</span>
+    <a href="#sec-overview">📈 A股速览</a>
+    <a href="#sec-global">🌍 全球市场</a>
+    <a href="#sec-news">📰 环球要闻</a>
+    <a href="#sec-five">🔍 五维分析</a>
+    <a href="#sec-heat">🔥 板块热力</a>
+    <a href="#sec-stock">💰 焦点个股</a>
+    <a href="#sec-commodity">🛢️ 大宗商品</a>
+    <a href="#sec-grassroots">🏭 产业高频</a>
+    <a href="#sec-strategy">🎯 策略研判</a>
+  </div>
+
+  <!-- A股收盘速览 -->
+  <div class="sec" id="sec-overview">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">📈</div>
+      <div class="sec-title">A股收盘速览</div>
+      <div class="sec-note">8/27 15:00 收盘</div>
+    </div>
+
+    <div class="idx-grid">
+      <div class="idx up"><div class="n">上证指数</div><div class="v">3956.57</div><div class="c">+1.13%</div></div>
+      <div class="idx up"><div class="n">深证成指</div><div class="v">14048.88</div><div class="c">+1.50%</div></div>
+      <div class="idx up"><div class="n">创业板指</div><div class="v">3473.35</div><div class="c">+1.71%</div></div>
+      <div class="idx up"><div class="n">科创50</div><div class="v">1693.48</div><div class="c">+3.77%</div></div>
+    </div>
+
+    <div class="statbar">
+      <div class="stat"><div class="k">两市成交</div><div class="v n0">2.13万亿</div></div>
+      <div class="stat"><div class="k">较昨日</div><div class="v r">+3172亿</div></div>
+      <div class="stat"><div class="k">涨停家数</div><div class="v r">82</div></div>
+      <div class="stat"><div class="k">跌停家数</div><div class="v g">3</div></div>
+    </div>
+
+    <div class="callout">
+      <b>今日定性：英伟达碾压预期 · 算力全线暴涨 · 科创50领涨全球。</b>三大指数全线收涨，<b>科创50暴涨3.77%</b>领跑全场。英伟达Q2营收<span class="num">962亿美元</span>碾压预期+Q3指引1080亿+2028财年+70%增长指引，直接引爆A股AI硬件链——<b>存储芯片掀涨停潮（德明利/大普微/三孚股份等7+涨停）、PCB（金安国纪/宏昌电子涨停）、CPO（赛微电子20CM涨停/长飞光纤涨停）、液冷服务器（飞龙股份/康盛股份涨停）</b>全面开花。种业/粮食延续强势（万向德农3连板/金健米业9天6板）。成交<span class="num">2.13万亿</span>放量3172亿，为近5日最大量能。银行、酿酒、水务逆势下跌——资金从防御大幅切换至科技进攻。
+    </div>
+  </div>
+
+  <!-- 全球市场 -->
+  <div class="sec" id="sec-global">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">🌏</div>
+      <div class="sec-title">全球市场全景</div>
+      <div class="sec-note">数据截至 8/27 16:30</div>
+    </div>
+
+    <div class="mkt-legend">
+      <span><span class="dot close"></span><b>收盘</b>：日韩/A股/港股 8/27</span>
+      <span><span class="dot ovn"></span><b>昨夜</b>：美股 8/26 收盘</span>
+      <span><span class="dot live"></span><b>盘中</b>：欧股 8/27</span>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>市场 / 指数</th><th>点位</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="3">亚太 <span class="st close">8/27 收盘</span></td></tr>
+        <tr class="hot"><td class="name">韩国 KOSPI</td><td>6912.37</td><td class="r">+1.53%（央行加息25bp至3%）</td></tr>
+        <tr><td class="name">日经225</td><td>66131.98</td><td class="g">−0.20% 高开低走</td></tr>
+        <tr class="hot"><td class="name">恒生指数</td><td>25565.74</td><td class="g">−0.34%</td></tr>
+        <tr><td class="name">恒生科技</td><td>4620.29</td><td class="g">−0.13%</td></tr>
+        <tr><td class="name">恒生国企</td><td>8490.31</td><td class="g">−0.51%</td></tr>
+
+        <tr class="grp"><td colspan="3">美股 <span class="st ovn">8/26 昨夜收盘</span></td></tr>
+        <tr><td class="name">道琼斯</td><td>53463.88</td><td class="g">−0.21%</td></tr>
+        <tr><td class="name">标普500</td><td>7675.70</td><td class="g">−0.02%</td></tr>
+        <tr><td class="name">纳斯达克</td><td>26130.20</td><td class="g">−0.08%</td></tr>
+        <tr class="hot"><td class="name">英伟达盘后</td><td>—</td><td class="r">+4.7% 营收962亿碾压预期</td></tr>
+
+        <tr class="grp"><td colspan="3">欧股 <span class="st live">8/27 盘中</span></td></tr>
+        <tr><td class="name">欧洲 Stoxx50</td><td>6475</td><td class="r">+0.30%</td></tr>
+        <tr><td class="name">德国 DAX</td><td>26316</td><td class="r">+0.19%</td></tr>
+        <tr><td class="name">英国 富时100</td><td>10878</td><td class="g">−0.07%</td></tr>
+        <tr><td class="name">法国 CAC40</td><td>8462</td><td class="r">+0.27%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue">
+      <b>全球图景：英伟达碾压预期引爆算力链+韩国加息无视+PCE通胀升温。</b>
+      英伟达Q2营收<span class="num">962亿美元</span>碾压预期+Q3指引1080亿+2028财年+70%增长指引 → 盘后大涨4.7% → 亚太AI硬件链全线狂欢。<b>KOSPI+1.53%</b>——韩国央行加息25bp至3%但上调GDP至3.3%，加息反而是利好。日经高开低走-0.20%（日元走强+BOJ加息预期压制）。港股恒指-0.34%逆势调整（获利回吐）。<b>美国7月PCE 3.7%超预期</b>→ 9月加息概率升至42%。欧股盘中涨跌不一。美股期货纳指+1%+，今夜开盘大概率跳空高开。
+    </div>
+  </div>
+
+  <!-- 环球要闻 -->
+  <div class="sec" id="sec-news">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">📰</div>
+      <div class="sec-title">环球要闻 · 深度解读</div>
+      <div class="sec-note">10条核心新闻</div>
+    </div>
+
+    <div class="news-legend">
+      <span class="tag mini a">🔴 极重要</span>
+      <span class="tag mini b">🟠 重要</span>
+      <span class="tag mini c">🔵 关注</span>
+    </div>
+
+    <!-- 极重要 1 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src intl">CNBC</span>
+        <span class="src x">@walterbloomberg X</span>
+      </div>
+      <h3>英伟达Q2营收962亿美元碾压预期，盘后大涨4.7%，AI"算力即收入"时代确认</h3>
+      <p>英伟达Q2营收<span class="num">962亿美元</span>，同比翻倍+106%，远超预期的923亿。净利润<span class="num">597亿美元</span>，EPS 2.22美元（预期2.09）。更炸裂的是指引——Q3预计<span class="num">1080亿美元</span>（预期1051亿），2028财年还要增长70%（预期仅45%）。数据中心收入890亿（占比92%），亚马逊追加200万块GPU订单。黄仁勋："AI到了拐点，算力即收入。"<span class="hl">盘后先跌3%后暴拉至+4.7%</span>，美股期货纳指+1%。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>全球AI硬件链今日集体狂欢——A股科创50暴涨3.77%，PCB/存储/CPO涨停潮。但注意盘后曾跌3%（毛利率指引74%略低），说明市场"门槛"极高，追高需谨慎。
+      </div>
+    </div>
+
+    <!-- 极重要 2 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src intl">WSJ</span>
+        <span class="src intl">CNBC</span>
+      </div>
+      <h3>美国7月通胀数据偏高：PCE同比3.7%，9月加息概率升至42%</h3>
+      <p>美国7月PCE物价指数同比涨<span class="num">3.7%</span>（预期3.6%），核心PCE同比+3.3%持平前值。简单说：美国的物价还是太顽固，离美联储2%的目标差得远。数据出来后，市场定价<span class="num">9月加息概率从36%升至42%</span>。10年期美债收益率升至4.649%，30年期5.169%。<span class="hl">钱继续贵，降息遥遥无期</span>。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>美联储可能不仅不降息，还可能再加息。这会让全球借钱成本继续高企，对A股科技成长股的估值有压制。但A股有自己的节奏——今天就没怎么受PCE影响，反而跟着英伟达嗨。
+      </div>
+    </div>
+
+    <!-- 极重要 3 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src intl">MT Newswires</span>
+      </div>
+      <h3>韩国央行罕见连续加息至3%，但上调GDP至3.3% → KOSPI+1.53%无视紧缩</h3>
+      <p>韩国央行8/27加息25bp至<span class="num">3.00%</span>，三年来首次连续加息。但同步把2026年GDP增长预测从2.6%大幅上调至<span class="num">3.3%</span>（2021年以来最高），理由是半导体繁荣周期持续到明年。市场反应：KOSPI高开冲+2.5%后回落收+1.53%至6912点。<span class="hl">加息反而是利好——因为经济太好了</span>。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>韩国"加息还涨"的逻辑是半导体周期太猛——三星/SK海力士赚疯了。这对A股存储芯片（今天涨停潮）是直接利好，印证了英伟达带动的全球AI硬件景气度。
+      </div>
+    </div>
+
+    <!-- 极重要 4 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src">证券时报</span>
+        <span class="src">上证报</span>
+        <span class="src">财联社</span>
+      </div>
+      <h3>A股算力硬件全线爆发：PCB/CPO/存储芯片涨停潮，科创50+3.77%全球最强</h3>
+      <p>受英伟达超预期财报提振，A股AI硬件链今日全面爆发。<b>PCB</b>——金安国纪、宏昌电子、合锻智能涨停；<b>CPO</b>——赛微电子20CM涨停、长飞光纤涨停；<b>存储芯片</b>——德明利、大普微、三孚股份、凯瑞德、先导基电等7+只涨停；<b>液冷服务器</b>——飞龙股份、康盛股份涨停。科创50指数暴涨<span class="num">3.77%</span>，成交<span class="num">2.13万亿</span>放量3172亿，为近5日最大量能。<span class="hl">这是英伟达财报最直接的中国映射</span>。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>如果你持有AI/算力/半导体相关股票或基金，今天是近一周最爽的一天。但注意——银行/酿酒/水务等防御板块逆天下跌，说明资金在做"大搬家"，从防御切换到进攻。追高有风险，因为英伟达盘后也曾跌3%。
+      </div>
+    </div>
+
+    <!-- 重要 5 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">CNBC</span>
+        <span class="src">新华社</span>
+      </div>
+      <h3>苹果确认9月9日发布折叠屏iPhone，新CEO首场发布会</h3>
+      <p>苹果宣布9月9日举行秋季新品发布会，最大看点是<b>首款折叠屏iPhone</b>，同时推出iPhone 18 Pro/Pro Max。这也是新CEO约翰·特努斯上任后首场重大发布会（库克转任执行董事长）。A股苹果产业链今日表现分化——折叠屏概念股活跃，但整体消费电子板块受AI硬件虹吸效应影响并未大涨。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>苹果折叠屏是今年消费电子最大看点，利好铰链/柔性屏/UTG玻璃等供应链公司。但市场注意力目前全在AI上，苹果产业链可能要到9月发布会前才真正发酵。
+      </div>
+    </div>
+
+    <!-- 重要 6 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src">证券时报</span>
+        <span class="src">财联社</span>
+      </div>
+      <h3>粮食/种业概念持续爆发：万向德农3连板、金健米业9天6板</h3>
+      <p>种业/粮食概念连续多日走强。万向德农3连板、金健米业9天6板、新农开发涨停、新赛股份涨停。催化因素：全球粮食价格反弹+超强厄尔尼诺11-12月达峰（记录以来最强）+CBOT小麦单日暴涨6.4%至748美分/蒲。<span class="hl">粮食概念已成为近期持续性最强的非AI主线</span>。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>粮食安全是全球性主题，厄尔尼诺+地缘冲突持续推高粮价预期。但连板股已高位，接力需谨慎。如果没上车，可以关注尚未启动的农业龙头。
+      </div>
+    </div>
+
+    <!-- 重要 7 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src">财联社</span>
+      </div>
+      <h3>理想汽车Q2由盈转亏：调整后净亏损15亿元，Q3指引大幅低于预期</h3>
+      <p>理想汽车Q2营收<span class="num">256.67亿元</span>同比-15.1%，调整后净亏损15亿元（去年同期盈利）。车辆毛利率收窄至9.4%，交付量98330辆。更惨的是Q3指引——营收中值较市场预期低约17%。理想称将斥资6.3亿美元回购，新MEGA定于9月2日发布。隔夜美股理想跌超4%。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>新能源汽车价格战仍在持续，连理想这样的"优等生"也开始亏钱了。对A股/港股新能源车企的估值形成压制。但9月2日新MEGA发布可能是短期催化。
+      </div>
+    </div>
+
+    <!-- 重要 8 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src">证券时报</span>
+      </div>
+      <h3>百济神州上半年净利+385.8%至4.64亿美元，创新药全球化持续兑现</h3>
+      <p>百济神州上半年收入同比+32.3%至<span class="num">32.19亿美元</span>，净利润同比暴增385.8%至4.64亿美元。旗舰产品百悦泽全球销售23.42亿美元，同比+34.5%。<span class="hl">这是中国创新药企全球化最成功的案例之一</span>。A股创新药板块今日表现平淡（受AI硬件虹吸），但基本面持续向好。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>百济的业绩证明中国创新药已经能在全球市场赚大钱。虽然今天被AI抢了风头，但创新药的长期逻辑没变——等AI热度退潮后可能重新被市场关注。
+      </div>
+    </div>
+
+    <!-- 关注 9 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">The Information</span>
+      </div>
+      <h3>SoftBank拟60亿美元收购1X Technologies多数股权（OpenAI支持的人形机器人公司）</h3>
+      <p>据The Information报道，软银正在谈判收购1X Technologies的多数股权，估值约60亿美元。1X是一家由OpenAI支持的人形机器人开发商。<span class="hl">此举显示孙正义正加速布局"物理AI"——从算力到人形机器人的全产业链</span>。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>人形机器人是AI的"最后一公里"。软银的布局印证了这一赛道的长期价值。A股人形机器人概念此前暴跌过，若软银收购落地可能带来情绪修复。
+      </div>
+    </div>
+
+    <!-- 关注 10 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src x">@unusual_whales X</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src intl">MT Newswires</span>
+        <span class="src intl">Newsquawk</span>
+      </div>
+      <h3>英伟达"循环融资"模式遭质疑 + 欧洲股市分化等待Jackson Hole指引</h3>
+      <p>X平台金融大V @unusual_whales 指出英伟达财报前期权异常活动激增。Bloomberg同时报道英伟达与Apollo/贝莱德等合作的5000亿美元AI基建融资计划引发"循环融资"质疑——英伟达出钱给客户买自己的GPU，然后用收入确认做高业绩。CFO回应称"投入资本将带来极佳股权回报"。MT Newswires报道欧洲市场8/27涨跌不一，英国FTSE 100跌0.51%为最差，市场等待周五Jackson Hole Fed主席Warsh讲话。</p>
+      <div class="impact">
+        <b>对你有啥影响：</b>"循环融资"是英伟达最大的潜在风险——如果AI基建的回报不及预期，整个链条可能反转。但目前业绩还在加速增长，这个风险暂时被掩盖。周五Jackson Hole是短期关键。
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 五维度 -->
+  <div class="sec" id="sec-five">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ede9fe">🎯</div>
+      <div class="sec-title">五维度深度拆解</div>
+      <div class="sec-note">消息 / 情绪 / 技术 / 政策 / 资金</div>
+    </div>
+
+    <div class="dim d1">
+      <div class="dim-h"><span class="e">📰</span><span class="t">消息面</span><span class="score">极强利好 ★★★★★</span></div>
+      <ul>
+        <li><b>最大利好（英伟达财报碾压）：</b>Q2营收962亿美元同比+106%，Q3指引1080亿+2028财年+70%增长指引碾压预期45%。亚马逊追加200万块GPU，数据中心890亿占比92%。<span class="hl">直接确认AI capex周期加速</span>。</li>
+        <li><b>利好（韩国加息+GDP上调）：</b>韩国央行加息25bp至3%但上调GDP至3.3%——半导体繁荣周期持续到明年，对A股存储芯片是直接利好。</li>
+        <li><b>利好（产业催化）：</b>苹果折叠屏9月9日发布；百济神州净利+385.8%；SoftBank收购人形机器人公司；CBOT小麦暴涨6.4%+厄尔尼诺11-12月达峰。</li>
+        <li><b>利空（PCE通胀）：</b>美国7月PCE 3.7%超预期→9月加息概率升至42%；30Y美债5.169%继续走高；英伟达"循环融资"模式遭质疑。</li>
+        <li><b>结论：</b>消息面极强——英伟达财报是近期全球资本市场最大利好。但PCE偏热+长债收益率走高+Jackson Hole不确定性构成对冲力量。</li>
+      </ul>
+    </div>
+
+    <div class="dim d2">
+      <div class="dim-h"><span class="e">🔥</span><span class="t">情绪面</span><span class="score">强势偏热 ★★★★☆</span></div>
+      <ul>
+        <li><b>涨停82 vs 跌停3</b>——涨停数十只（存储芯片/PCB/CPO/种业多线开花），跌停仅3只（安正时尚/地铁设计/思源电气），上涨超3300只占比约60%+。</li>
+        <li><b>成交2.13万亿放量3172亿</b>——<span class="hl">这是最关键的信号：为近5日最大量能，显示资金积极入场</span>。</li>
+        <li><b>风格切换明显：</b>昨日银行/券商领涨的"权重搭台"格局今日切换为<b>"科技主攻"</b>——科创50+3.77%远超沪指+1.13%。银行(-0.5%+)、酿酒(-1%+)逆天下跌。</li>
+        <li><b>粮食概念持续超强：</b>万向德农3连板/金健米业9天6板的赚钱效应延续，是近期持续性最好的非AI主线。</li>
+        <li><b>警惕信号：</b>英伟达盘后曾跌3%（毛利率指引74%低于预期），今夜美股开盘后的走势将决定明日A股AI链能否延续。若翻绿则今日突破可能一日游。</li>
+      </ul>
+    </div>
+
+    <div class="dim d3">
+      <div class="dim-h"><span class="e">📊</span><span class="t">技术面</span><span class="score">放量突破 ★★★★☆</span></div>
+      <ul>
+        <li><b>沪指 3956.57 +1.13%</b>——逼近3960-3970前期密集成交区压力位。若今夜美股因英伟达利好跳空高开，明日有望挑战4000点整数关口。支撑位3920-3930。</li>
+        <li><b>深成指 14048.88 +1.50%</b>——突破14000整数关口，量价配合良好。</li>
+        <li><b>创业板 3473.35 +1.71%</b>——突破前期箱体上沿3450。若能站稳3470上方则打开上行空间至3550。</li>
+        <li><b>科创50 1693.48 +3.77%</b>——放量突破1650-1670阻力区，技术面转强。但短期涨幅过大，1700整数关口有压力。</li>
+        <li><b>关键位：</b>沪指3960-3970压力/3920支撑；创业板3500关口/3430支撑；恒指26000压力/25300支撑。</li>
+      </ul>
+    </div>
+
+    <div class="dim d4">
+      <div class="dim-h"><span class="e">🏛</span><span class="t">政策面</span><span class="score">偏暖 ★★★☆☆</span></div>
+      <ul>
+        <li><b>韩国央行加息25bp至3%：</b>连续第二次加息，但上调GDP至3.3%释放"经济太好了不得不收"的信号。确认全球半导体景气上行。</li>
+        <li><b>美国PCE 3.7%超预期：</b>美联储9月加息概率从36%升至42%。Jackson Hole Warsh讲话（周五）为关键变量。</li>
+        <li><b>上海"十五五"战新产业规划：</b>集成电路/生物医药/AI三大先导产业年均增速10%+，到2030年战新产业增加值2.1万亿。</li>
+        <li><b>智能网联新能源汽车"十五五"规划：</b>工信部透露将培育500家零碳工厂、动力电池数字身份证。</li>
+        <li><b>结论：</b>政策面偏暖——十五五产业规划密集出台，为中长期结构性方向提供政策锚点。但海外PCE偏热+加息预期升温构成外部压力。</li>
+      </ul>
+    </div>
+
+    <div class="dim d5">
+      <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">放量进攻 ★★★★★</span></div>
+      <ul>
+        <li><b>成交2.13万亿放量3172亿</b>——<span class="hl">8/24以来最大量能。放量+上涨+涨停数十只=典型的增量资金入场信号</span>。</li>
+        <li><b>行业主力资金净流入TOP5：</b>①电子<span class="up">+285亿</span>（存储芯片/PCB/CPO涨停潮）；②通信<span class="up">+86.7亿</span>（长飞光纤涨停/天孚通信+7.3%）；③机械设备<span class="up">+22.8亿</span>；④基础化工<span class="up">+16.2亿</span>；⑤计算机<span class="up">+15.9亿</span>。</li>
+        <li><b>行业主力资金净流出TOP5：</b>①电力设备<span class="dn">-49.8亿</span>（阳光电源-12.47%/宁德时代-1.93%）；②医药生物<span class="dn">-23.6亿</span>；③非银金融<span class="dn">-17.9亿</span>（券商/保险获利了结）；④公用事业<span class="dn">-16.7亿</span>（水务/电网）；⑤银行<span class="dn">-12.9亿</span>（前日领涨后获利回吐）。</li>
+        <li><b>概念板块资金动向：</b>芯片概念<span class="up">+234.6亿</span>（今日最强主线）、通信技术<span class="up">+97.3亿</span>、科技风格<span class="up">+96.6亿</span>、5G概念<span class="up">+95.5亿</span>。流出方面：茅指数<span class="dn">-26.4亿</span>、储能概念<span class="dn">-26.4亿</span>（阳光电源拖累）。</li>
+        <li><b>个股主力资金净流入TOP5：</b>①生益科技<span class="up">+13亿</span>（PCB龙头+9.87%）；②长飞光纤<span class="up">+13.05亿</span>（涨停）；③天孚通信（+7.32%）；④中天科技（涨停）；⑤工业富联（+5.93%）。净流出TOP：阳光电源<span class="dn">-13亿</span>、宁德时代、洛阳钼业、思源电气。</li>
+        <li><b>资金风格切换明显：</b>昨日大金融（券商+86亿/银行/保险）领涨→今日科技全面接棒。资金从"权重防御"大幅切换至"科技进攻"，芯片概念单日净流入234.6亿为近期之最。</li>
+        <li><b>港股缩量调整：</b>恒指-0.34%全天成交2335.15亿港元（较前日2548亿缩量）。中资银行股普跌（工行-1.19%/建行-0.87%）。</li>
+        <li><b>关键观察：</b>今日资金面呈现"科技独尊+防御失血"格局。芯片概念+234.6亿是近3个月最大单日净流入。若明日量能维持2万亿以上+芯片概念继续净流入，则AI硬件链行情有望延续；若缩量至1.8万亿以下或科技板块资金净流出，今日突破可能假突破。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 板块热力 -->
+  <div class="sec" id="sec-heat">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">🔥</div>
+      <div class="sec-title">板块热力图</div>
+      <div class="sec-note">红涨绿跌</div>
+    </div>
+
+    <div class="heat"><div class="heat-row"><div class="heat-name">存储芯片</div><div class="heat-track"><div class="heat-fill up" style="width:95%"></div></div><div class="heat-val r">7+涨停潮</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">PCB</div><div class="heat-track"><div class="heat-fill up" style="width:85%"></div></div><div class="heat-val r">金安国纪涨停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">CPO</div><div class="heat-track"><div class="heat-fill up" style="width:80%"></div></div><div class="heat-val r">赛微电子20CM</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">液冷服务器</div><div class="heat-track"><div class="heat-fill up" style="width:72%"></div></div><div class="heat-val r">飞龙股份涨停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">种业/粮食</div><div class="heat-track"><div class="heat-fill up" style="width:70%"></div></div><div class="heat-val r">万向德农3连板</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">贵金属</div><div class="heat-track"><div class="heat-fill up" style="width:55%"></div></div><div class="heat-val r">深中华A涨停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">银行</div><div class="heat-track"><div class="heat-fill down" style="width:60%"></div></div><div class="heat-val g">−0.5%+ 领跌</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">酿酒</div><div class="heat-track"><div class="heat-fill down" style="width:55%"></div></div><div class="heat-val g">−1%+</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">水务</div><div class="heat-track"><div class="heat-fill down" style="width:45%"></div></div><div class="heat-val g">跌幅居前</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">机场航运</div><div class="heat-track"><div class="heat-fill down" style="width:40%"></div></div><div class="heat-val g">跌幅居前</div></div></div>
+
+    <div class="callout">
+      <b>今日格局：AI硬件全面爆发+防御板块资金大搬家，典型的风格切换行情。</b>
+      昨日银行/券商"权重搭台" → 今日存储芯片/PCB/CPO"科技主攻"。科创50+3.77%远超沪指+1.13%，银行/酿酒/水务逆天下跌——<span class="ph">资金从防御大幅切换至进攻</span>。
+      <b>成交2.13万亿放量3172亿</b>——近5日最大量能，增量资金入场信号明确。
+      粮食概念（万向德农3连板/金健米业9天6板）延续超强赚钱效应，是近期持续性最好的非AI主线。
+    </div>
+  </div>
+
+  <!-- 焦点个股 -->
+  <div class="sec" id="sec-stock">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">⭐</div>
+      <div class="sec-title">焦点个股与资金流</div>
+      <div class="sec-note">A股 + 港股 + 海外</div>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><span class="cn">德明利</span><span class="lim">涨停</span><span class="cv r">存储芯片龙头</span></div>
+      <div class="chip"><span class="cn">大普微</span><span class="lim">涨停</span><span class="cv r">AI服务器存储</span></div>
+      <div class="chip"><span class="cn">赛微电子</span><span class="lim">20CM涨停</span><span class="cv r">CPO龙头</span></div>
+      <div class="chip"><span class="cn">金安国纪</span><span class="lim">涨停</span><span class="cv r">PCB/覆铜板</span></div>
+      <div class="chip"><span class="cn">宏昌电子</span><span class="lim">涨停</span><span class="cv r">PCB量价齐升</span></div>
+      <div class="chip"><span class="cn">长飞光纤</span><span class="lim">涨停</span><span class="cv r">AI数据中心光纤</span></div>
+      <div class="chip"><span class="cn">杭电股份</span><span class="tagi">光纤</span><span class="cv r">2连板</span></div>
+      <div class="chip"><span class="cn">飞龙股份</span><span class="lim">涨停</span><span class="cv r">液冷服务器</span></div>
+      <div class="chip"><span class="cn">万向德农</span><span class="tagi">种业</span><span class="cv r">3连板</span></div>
+      <div class="chip"><span class="cn">金健米业</span><span class="tagi">粮食</span><span class="cv r">9天6板</span></div>
+      <div class="chip"><span class="cn">深中华A</span><span class="tagi">黄金</span><span class="cv r">涨停</span></div>
+      <div class="chip"><span class="cn">湖南黄金</span><span class="tagi">黄金</span><span class="cv r">涨停</span></div>
+      <div class="chip"><span class="cn">思源电气</span><span class="limg">跌停</span><span class="cv g">电网设备获利了结</span></div>
+      <div class="chip"><span class="cn">英伟达(US)</span><span class="taga">盘后+4.7%</span><span class="cv r">Q2营收962亿碾压</span></div>
+      <div class="chip"><span class="cn">腾讯控股(HK)</span><span class="tagi">科技</span><span class="cv r">+0.54% 447.8港元</span></div>
+      <div class="chip"><span class="cn">工商银行H(HK)</span><span class="limg">银行</span><span class="cv g">−1.19% 获利了结</span></div>
+    </div>
+
+    <div class="callout blue">
+      <b>今日最值得关注的一组对比：</b>
+      <b>存储芯片7+涨停潮（英伟达映射） vs 银行逆天下跌（前日领涨后获利了结）</b>——
+      市场风格从"权重防御"一夜切换至"科技进攻"。科创50+3.77%远超沪指+1.13%，说明风险偏好明显回升。
+      <span class="ph">今夜英伟达美股开盘走势是明日A股AI链能否延续的关键</span>：若维持涨幅则行情继续，若翻绿则今日突破可能一日游。
+    </div>
+  </div>
+
+  <!-- 大宗商品 -->
+  <div class="sec" id="sec-commodity">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fef3c7">🪙</div>
+      <div class="sec-title">大宗商品与汇率</div>
+      <div class="sec-note">8/27 收盘</div>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>品种</th><th>最新</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="hot"><td class="name">现货黄金</td><td>4624 美元/盎司</td><td class="r">+0.7% 反弹</td></tr>
+        <tr><td class="name">现货白银</td><td>68.75 美元/盎司</td><td class="n0">+0.02%</td></tr>
+        <tr><td class="name">COMEX金期货</td><td>4647.8 美元/盎司</td><td class="g">−0.99%</td></tr>
+        <tr class="hot"><td class="name">布伦特原油</td><td>87.84 美元/桶</td><td class="g">−0.84%</td></tr>
+        <tr><td class="name">WTI原油</td><td>82.23 美元/桶</td><td class="g">−0.16% 四连跌</td></tr>
+        <tr class="hot"><td class="name">LME期铜</td><td>14232.5 美元/吨</td><td class="g">−0.82% 高位回调</td></tr>
+        <tr class="hot"><td class="name">COMEX期铜</td><td>6.62 美元/磅</td><td class="r">+0.40% 纽铜续创新高</td></tr>
+        <tr class="hot"><td class="name">CBOT小麦</td><td>748.25 美分/蒲</td><td class="r">+6.4% 暴涨</td></tr>
+        <tr><td class="name">CBOT玉米</td><td>535.75 美分/蒲</td><td class="r">+2.34%</td></tr>
+        <tr class="grp"><td colspan="3">汇率与利率</td></tr>
+        <tr><td class="name">美元/离岸人民币</td><td>6.7224</td><td class="g">人民币微贬</td></tr>
+        <tr><td class="name">美元指数</td><td>99.14</td><td class="r">+0.24%</td></tr>
+        <tr><td class="name">USD/JPY</td><td>159.32</td><td class="n0">日元小幅走弱</td></tr>
+        <tr class="hot"><td class="name">10年期美债收益率</td><td>4.649%</td><td class="r">+2.4bp</td></tr>
+        <tr class="hot"><td class="name">30年期美债收益率</td><td>5.169%</td><td class="r">+0.5bp</td></tr>
+        <tr class="grp"><td colspan="3">数字资产</td></tr>
+        <tr><td class="name">比特币</td><td>79043 美元</td><td class="r">+0.8% 盘中破81000</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <b>大宗关键信号：</b><b>油价连跌四日</b>——WTI 82.23美元，伊朗-阿曼霍尔木兹海峡通航外交缓和+需求担忧。
+      <b>黄金反弹</b>：现货黄金4624美元（+0.7%），但COMEX金期货跌0.99%——避险需求 vs PCE偏热+加息预期博弈。
+      <b>CBOT小麦暴涨6.4%</b>至748美分/蒲——厄尔尼诺+供给紧张+全球粮食价格反弹，直接催化A股种业/粮食概念连续走强。
+      <b>纽铜续创新高</b>：COMEX期铜6.62美元/磅+0.40%，而LME铜高位回调-0.82%——铜价整体仍处历史高位区间。
+    </div>
+  </div>
+
+  <!-- 产业高频数据 -->
+  <div class="sec" id="sec-grassroots">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#f3fbf6">🔬</div>
+      <div class="sec-title">产业高频数据 · 机构/大户必读</div>
+      <div class="sec-note">产业链一线追踪</div>
+    </div>
+
+    <div class="gf-grid">
+
+      <!-- 半导体/存储 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🔌</span>
+          <span class="gf-name">半导体/存储</span>
+          <span class="gf-status hot">涨停潮爆发</span>
+        </div>
+        <ul>
+          <li><b>英伟达Q2财报碾压</b>：营收<span class="up">962亿美元</span>（+106%），数据中心<span class="up">890亿</span>（+117%），Q3指引<span class="up">1080亿</span>，2028财年+70%增长指引碾压预期45%。盘后大涨<span class="up">+4.7%</span></li>
+          <li><b>A股存储芯片涨停潮</b>：德明利/大普微/三孚股份/凯瑞德/先导基电等<span class="up">7+涨停</span>。PCB（金安国纪/宏昌电子涨停）、CPO（赛微电子20CM涨停/长飞光纤涨停）</li>
+          <li><b>亚马逊追加200万GPU</b>：英伟达与Apollo/贝莱德5000亿AI基建融资计划。但<span class="hl">"循环融资"模式遭质疑</span>——英伟达出钱给客户买自己的GPU</li>
+          <li><b>韩国央行上调GDP至3.3%</b>：半导体繁荣周期持续到明年，三星/SK海力士赚疯了。KOSPI+1.53%无视加息</li>
+          <li><b>工信部"十五五"路线图</b>：集成电路/量子科技/6G/脑机接口/核聚变能。上海战新产业规划三大先导产业年均增速10%+</li>
+        </ul>
+        <div class="gf-src">信源: Reuters · Bloomberg · CNBC · 证券时报 · 财联社 · 上证报 · MT Newswires</div>
+      </div>
+
+      <!-- 粮食/农业 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🌾</span>
+          <span class="gf-name">粮食/农业</span>
+          <span class="gf-status hot">持续爆发</span>
+        </div>
+        <ul>
+          <li><b>CBOT小麦暴涨6.4%</b>：主力合约跌至<span class="up">748.25美分/蒲</span>，厄尔尼诺+供给紧张双重催化</li>
+          <li><b>A股种业/粮食连板</b>：万向德农<span class="up">3连板</span>、金健米业<span class="up">9天6板</span>、新农开发涨停、新赛股份涨停</li>
+          <li><b>超强厄尔尼诺预警</b>：11-12月达峰（记录以来最强）。摩根大通预警全球食品通胀从2.8%升至5%</li>
+          <li><b>CBOT玉米+2.34%</b>：全球谷物价格全线走高，粮食概念已成近期持续性最强的非AI主线</li>
+          <li><b>关注点</b>：连板股已高位，接力需谨慎。关注尚未启动的低位农业龙头</li>
+        </ul>
+        <div class="gf-src">信源: CBOT · 摩根大通 · 国家气候中心 · 证券时报 · 财联社</div>
+      </div>
+
+      <!-- 贵金属/有色 -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🪙</span>
+          <span class="gf-name">贵金属/有色</span>
+          <span class="gf-status warm">高位震荡</span>
+        </div>
+        <ul>
+          <li><b>现货黄金</b> <span class="up">4624美元（+0.7%）</span>反弹，但COMEX金期货<span class="dn">-0.99%</span>至4647.8——避险需求 vs PCE偏热+加息预期博弈</li>
+          <li><b>A股黄金概念延续</b>：深中华A涨停（连板）、湖南黄金涨停。黄金长期上行趋势未改</li>
+          <li><b>LME铜高位回调</b>：<span class="dn">14232.5美元/吨（-0.82%）</span>，前日创历史收盘新高14324.5后获利了结。但COMEX期铜6.62美元/磅续创新高</li>
+          <li><b>油价连跌四日</b>：WTI <span class="dn">82.23美元（-0.16%）</span>，伊朗-阿曼霍尔木兹海峡通航外交缓和+需求担忧</li>
+          <li><b>关注点</b>：黄金能否突破4700美元取决于周五Jackson Hole Warsh讲话。铜价整体仍处历史高位</li>
+        </ul>
+        <div class="gf-src">信源: Bloomberg · COMEX · LME · 金十数据 · 东方财富</div>
+      </div>
+
+      <!-- 医药生物 -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">💊</span>
+          <span class="gf-name">医药生物</span>
+          <span class="gf-status warm">业绩兑现</span>
+        </div>
+        <ul>
+          <li><b>百济神州上半年净利+385.8%</b>：收入<span class="up">32.19亿美元</span>（+32.3%），净利<span class="up">4.64亿美元</span>。百悦泽全球销售23.42亿美元（+34.5%）</li>
+          <li><b>创新药全球化持续兑现</b>：百济是中国创新药企全球化最成功的案例之一。A股创新药板块今日平淡（受AI硬件虹吸）</li>
+          <li><b>理想汽车Q2由盈转亏</b>：营收<span class="dn">256.67亿元（-15.1%）</span>，调整后净亏损15亿元，毛利率收窄至9.4%。Q3指引大幅低于预期</li>
+          <li><b>新能源车价格战持续</b>：连理想这样的"优等生"也亏钱了。对A股/港股新能源车企估值形成压制</li>
+          <li><b>关注点</b>：创新药长期逻辑未变，等AI热度退潮后可能重新被关注。理想9月2日新MEGA发布是短期催化</li>
+        </ul>
+        <div class="gf-src">信源: Reuters · Bloomberg · 证券时报 · 财联社 · 港交所</div>
+      </div>
+
+      <!-- 消费电子/AI -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">📱</span>
+          <span class="gf-name">消费电子</span>
+          <span class="gf-status warm">分化观望</span>
+        </div>
+        <ul>
+          <li><b>苹果折叠屏iPhone</b>：确认9月9日发布，新CEO首场发布会。A股折叠屏概念活跃，但整体消费电子受AI硬件虹吸未大涨</li>
+          <li><b>SoftBank收购1X Technologies</b>：拟60亿美元收购多数股权（OpenAI支持的人形机器人公司），孙正义加速布局"物理AI"</li>
+          <li><b>英伟达"循环融资"质疑</b>：与Apollo/贝莱德5000亿AI基建融资——英伟达出钱给客户买自己的GPU做高收入。CFO回应称"将带来极佳回报"</li>
+          <li><b>关注点</b>：苹果产业链可能要到9月发布会前才真正发酵。人形机器人若软银收购落地可能带来情绪修复</li>
+        </ul>
+        <div class="gf-src">信源: Reuters · CNBC · The Information · 新华社 · Bloomberg</div>
+      </div>
+
+      <!-- 宏观/利率 -->
+      <div class="gf-card neut">
+        <div class="gf-top">
+          <span class="gf-ico">🏦</span>
+          <span class="gf-name">宏观/利率</span>
+          <span class="gf-status neut">PCE偏热</span>
+        </div>
+        <ul>
+          <li><b>美国7月PCE 3.7%</b>：高于预期3.6%，核心PCE +3.3%持平。<span class="hl">物价顽固，离美联储2%目标差得远</span></li>
+          <li><b>9月加息概率升至42%</b>：从36%跳升。10Y美债4.649%(+2.4bp)，30Y美债5.169%(+0.5bp)</li>
+          <li><b>韩国央行加息25bp至3%</b>：连续第二次加息，但上调GDP至3.3%（半导体繁荣）。KOSPI+1.53%无视紧缩</li>
+          <li><b>Jackson Hole关键</b>：周五Fed主席Warsh讲话——市场想知道"利率到底要不要加"。若偏鹰，长债收益率可能进一步上行</li>
+          <li><b>关注点</b>：PCE偏热+加息预期升温对全球风险资产估值有压制。但A股有自己的节奏——今天完全没受PCE影响</li>
+        </ul>
+        <div class="gf-src">信源: Bloomberg · WSJ · CNBC · 韩国央行 · CME FedWatch</div>
+      </div>
+
+    </div>
+
+    <div class="callout blue">
+      <b>本周最值得关注的三条产业链信号：</b>
+      <b>① 英伟达Q2营收962亿碾压+2028财年+70%增长</b>——AI capex周期加速确认，A股存储芯片/PCB/CPO涨停潮是直接映射。今夜美股开盘走势决定明日A股AI链能否延续；
+      <b>② CBOT小麦暴涨6.4%+超强厄尔尼诺11-12月达峰</b>——粮食概念（万向德农3连板/金健米业9天6板）是近期持续性最强的非AI主线；
+      <b>③ PCE 3.7%超预期+9月加息概率升至42%</b>——周五Jackson Hole Warsh讲话是短期最大变量，可能决定全球风险资产方向。
+    </div>
+  </div>
+
+  <!-- 策略 -->
+  <div class="sec" id="sec-strategy">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">🧭</div>
+      <div class="sec-title">后市展望与操作策略</div>
+    </div>
+
+    <div class="strat">
+      <div class="strat-in">
+        <h4>🧭 核心判断</h4>
+        <ul>
+          <li><b>短期（1–3天）：英伟达美股开盘走势+Jackson Hole讲话是本周最大变量。</b>今日A股受英伟达碾压预期财报提振全线大涨，科创50+3.77%领涨全球，成交2.13万亿放量3172亿——这是<b>英伟达Q2营收962亿+Q3指引1080亿+2028财年+70%增长指引</b>三重超预期的直接映射。但注意英伟达盘后曾跌3%（毛利率指引74%低于预期），今夜美股正式开盘后能否维持涨幅是关键。周五Jackson Hole Fed主席Warsh讲话是第二大事件。</li>
+          <li><b>中期（1–2周）：AI硬件链是最确定的主线，但今日已大幅拉升需防冲高回落。</b>PCB/CPO/存储芯片涨停潮，资金从银行/酿酒防御大幅切换至科技进攻。但放量3172亿后能否持续是关键——若明日缩量至1.8万亿以下，今日突破可能假突破。粮食概念（万向德农3连板/金健米业9天6板）是持续性最好的非AI主线。</li>
+          <li><b>长期（1–3月）：全球AI capex周期加速确认，但PCE偏热+加息预期构成外部压力。</b>英伟达2028财年+70%增长指引+亚马逊追加200万GPU+5000亿AI基建融资——AI硬件景气度持续上行。但30Y美债5.169%+PCE 3.7%+加息概率42%——钱继续贵，对成长股估值有压制。</li>
+          <li><b>风险点：</b>①英伟达盘后曾跌3%→今夜美股开盘翻绿则明日AI链一日游；②PCE 3.7%+加息概率42%→Jackson Hole偏鹰则长债崩+成长承压；③放量3172亿后能否持续→缩量则假突破；④银行逆市下跌→风格切换过快可能"两头挨打"；⑤"循环融资"质疑→英伟达最大潜在风险。</li>
+        </ul>
+
+        <div class="dirs">
+          <span class="dir">AI算力硬件（PCB/CPO/存储）</span>
+          <span class="dir">种业/粮食安全（厄尔尼诺）</span>
+          <span class="dir">黄金/贵金属（避险+通胀）</span>
+          <span class="dir">创新药/CRO（业绩兑现）</span>
+          <span class="dir">高股息/红利（防守底仓）</span>
+          <span class="dir cool">银行（观望风格切换）</span>
+          <span class="dir cool">新能源车（理想暴雷）</span>
+          <span class="dir cool">贵金属（等Jackson Hole）</span>
+          <span class="dir cool">AI纯概念（注意分化）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h4>⚠ 风险清单（按紧迫度排序）</h4>
+      <ul>
+        <li><b>英伟达今夜美股开盘走势</b>——盘后曾跌3%（毛利率指引74%低于预期75%）。若翻绿则明日A股AI链可能一日游；若维持+4.7%则行情继续。</li>
+        <li><b>Jackson Hole Warsh周五讲话</b>——市场想知道"利率到底要不要加"。PCE 3.7%+加息概率42%。若偏鹰，30Y美债冲5.2%+，成长股承压。</li>
+        <li><b>放量3172亿后能否持续</b>——今日2.13万亿虽放量但仍在存量博弈范围内。若明日缩量至1.8万亿以下，今日突破可能假突破。</li>
+        <li><b>银行板块逆市下跌</b>——前日领涨的银行今日成跌幅前列，风格切换过快可能导致"两头挨打"。若AI链不能持续，资金可能无处可去。</li>
+        <li><b>"循环融资"质疑</b>——英伟达与Apollo/贝莱德5000亿AI基建融资被质疑"出钱给客户买自己GPU做高收入"。目前业绩还在加速增长，风险暂时被掩盖。</li>
+        <li><b>韩国央行连续加息+BOJ加息预期</b>——全球央行收紧流动性。但韩国GDP上调至3.3%说明经济强劲，加息反而是利好。需关注BOJ下一步动作。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <div class="bk">每日全球股市观察</div>
+    数据来源：路透社(Reuters) · 华尔街日报(WSJ) · 彭博(Bloomberg) · CNBC · 金融时报(FT) · MT Newswires · Newsquawk · The Information · 新华社 · 财联社 · 证券时报 · 上证报 · 每日经济新闻 · 华尔街见闻 · 金十数据 · 东方财富<br>
+    报告时间：2026年8月27日 16:30（北京时间）<br><br>
+    本报告基于公开信息整理，仅供研究参考，<b style="color:rgba(255,255,255,.6)">不构成任何投资建议</b>。<br>
+    市场有风险，投资需谨慎。据此操作，风险自担。
+  </div>
+
+</div>
+</body>
+</html>

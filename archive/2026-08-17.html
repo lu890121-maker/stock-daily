@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年8月17日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6;
+    color: #1a2233;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
+    padding: 40px 26px 34px;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background: radial-gradient(circle, rgba(232,72,85,.32) 0%, transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:280px; height:280px; border-radius:50%;
+    background: radial-gradient(circle, rgba(64,158,255,.24) 0%, transparent 70%);
+    bottom:-160px; left:-90px;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .kicker {
+    display:inline-block; font-size:11px; letter-spacing:3px; font-weight:600;
+    background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1 { font-size:29px; font-weight:800; letter-spacing:-.6px; line-height:1.32; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; color:#ff9aa5; }
+  .hero h1 i { font-style:normal; color:#7ee2a8; }
+  .hero .sub { font-size:14px; color:rgba(255,255,255,.68); }
+  .hero .datebar {
+    margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
+    display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
+  }
+  .pulse { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
+
+  /* ============ SECTION ============ */
+  .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
+  .sec:last-of-type { border-bottom: none; }
+  .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .sec-ico {
+    width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
+
+  /* ============ INDEX GRID ============ */
+  .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .idx {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
+    padding:12px 9px 11px; position:relative; overflow:hidden;
+  }
+  .idx::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .idx.up::before { background:#e84855; }
+  .idx.down::before { background:#12a05c; }
+  .idx .n { font-size:11px; color:#7c8698; margin-bottom:5px; font-weight:500; }
+  .idx .v { font-size:15.5px; font-weight:800; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+  .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .up .v, .up .c { color:#e84855; }
+  .down .v, .down .c { color:#12a05c; }
+
+  /* ============ STAT BAR ============ */
+  .statbar {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
+  }
+  .stat { background:#fff; padding:12px 6px; text-align:center; }
+  .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
+  .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
+
+  /* ============ CALLOUT ============ */
+  .callout {
+    margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
+    border:1px solid #ffdcd8; border-left:3px solid #e84855;
+    border-radius:10px; padding:13px 15px; font-size:13.5px; color:#5a3a3a;
+  }
+  .callout b { color:#c9313e; }
+  .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
+  .callout.blue b { color:#2456c4; }
+
+  /* ============ NEWS ============ */
+  .news-legend {
+    display:flex; gap:7px; flex-wrap:wrap; margin-bottom:15px;
+    padding:10px 12px; background:#f7f9fc; border:1px solid #e8ecf3; border-radius:10px;
+  }
+  .lg { font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px; }
+  .lg.a { background:#ffe4e6; color:#c9313e; }
+  .lg.b { background:#ffedd8; color:#c07414; }
+  .lg.c { background:#e2ecfd; color:#2456c4; }
+  .lg-note { font-size:11px; color:#8892a6; margin-left:auto; align-self:center; }
+
+  .news {
+    border-radius:12px; padding:15px 16px 14px; margin-bottom:11px;
+    border:1px solid #e8ecf3; background:#fcfdff; position:relative;
+  }
+  .news.a { border-color:#ffc9ce; background:linear-gradient(180deg,#fff7f8,#fffcfc); box-shadow:0 1px 10px rgba(232,72,85,.07); }
+  .news.b { border-color:#ffdfbb; background:linear-gradient(180deg,#fffaf3,#fffdfa); }
+  .news.c { border-color:#d9e5fa; background:linear-gradient(180deg,#f8fbff,#fdfeff); }
+
+  .news-top { display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+  .tag { font-size:10px; font-weight:800; padding:3px 8px; border-radius:5px; letter-spacing:.3px; flex-shrink:0; line-height:1.5; }
+  .news.a .tag { background:#e84855; color:#fff; }
+  .news.b .tag { background:#f0932b; color:#fff; }
+  .news.c .tag { background:#3b6fe0; color:#fff; }
+  .src {
+    font-size:10px; font-weight:700; padding:3px 8px; border-radius:5px;
+    background:#eef2f8; color:#6b7688; flex-shrink:0; line-height:1.5;
+  }
+  .src.intl { background:#eae4fb; color:#6a4bb8; }
+
+  .news h3 { font-size:15px; font-weight:800; line-height:1.5; margin-bottom:7px; letter-spacing:-.2px; }
+  .news.a h3 { color:#c9313e; }
+  .news.b h3 { color:#b8690f; }
+  .news.c h3 { color:#1e4fa8; }
+  .news p { font-size:13.3px; color:#404b5f; line-height:1.78; }
+  .news p + p { margin-top:6px; }
+  .news p b { color:#1a2233; font-weight:700; }
+  .news .hl { background:linear-gradient(transparent 62%, #ffd9dc 62%); font-weight:700; color:#c9313e; padding:0 1px; }
+  .news .num { font-variant-numeric:tabular-nums; font-weight:800; color:#c9313e; }
+  .news .numg { font-variant-numeric:tabular-nums; font-weight:800; color:#12a05c; }
+
+  .impact {
+    margin-top:10px; padding:9px 11px; border-radius:8px; font-size:12.5px; line-height:1.7;
+    background:rgba(255,255,255,.72); border:1px dashed rgba(0,0,0,.1); color:#5a6478;
+  }
+  .impact b { font-weight:800; }
+  .impact .ph { color:#c9313e; }
+  .impact .pl { color:#12a05c; }
+
+  /* ============ DIM CARDS ============ */
+  .dim { border-radius:13px; padding:17px 17px 15px; margin-bottom:12px; border:1px solid; }
+  .dim-h { display:flex; align-items:center; gap:8px; margin-bottom:11px; }
+  .dim-h .e { font-size:16px; }
+  .dim-h .t { font-size:15.5px; font-weight:800; }
+  .dim-h .score { margin-left:auto; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; }
+  .dim ul { list-style:none; }
+  .dim li { font-size:13.5px; padding:7px 0 7px 15px; position:relative; color:#3a4356; border-top:1px dashed rgba(0,0,0,.06); }
+  .dim li:first-child { border-top:none; }
+  .dim li::before { content:''; position:absolute; left:2px; top:15px; width:5px; height:5px; border-radius:50%; }
+  .dim li b { font-weight:700; }
+
+  .d1 { background:#fff9f2; border-color:#ffe2c4; }
+  .d1 .dim-h .t, .d1 li b { color:#c96a12; }
+  .d1 li::before { background:#f0932b; }
+  .d1 .score { background:#ffe9d0; color:#c96a12; }
+
+  .d2 { background:#faf6ff; border-color:#e8dcfb; }
+  .d2 .dim-h .t, .d2 li b { color:#7c3fc4; }
+  .d2 li::before { background:#9b59d0; }
+  .d2 .score { background:#eee2ff; color:#7c3fc4; }
+
+  .d3 { background:#f4f9ff; border-color:#d4e5fb; }
+  .d3 .dim-h .t, .d3 li b { color:#1e63c7; }
+  .d3 li::before { background:#3b82e0; }
+  .d3 .score { background:#dceafc; color:#1e63c7; }
+
+  .d4 { background:#f5f6ff; border-color:#dcdefb; }
+  .d4 .dim-h .t, .d4 li b { color:#4a4bc4; }
+  .d4 li::before { background:#5a5bd8; }
+  .d4 .score { background:#e2e3ff; color:#4a4bc4; }
+
+  .d5 { background:#f3fbf6; border-color:#cfeeda; }
+  .d5 .dim-h .t, .d5 li b { color:#12855a; }
+  .d5 li::before { background:#25a870; }
+  .d5 .score { background:#d6f2e3; color:#12855a; }
+
+  /* ============ HEAT BARS ============ */
+  .heat { margin-bottom:9px; }
+  .heat-row { display:flex; align-items:center; gap:9px; font-size:13px; }
+  .heat-name { width:96px; flex-shrink:0; font-weight:600; color:#2c3546; font-size:12.5px; }
+  .heat-track { flex:1; height:20px; background:#f2f5f9; border-radius:5px; overflow:hidden; position:relative; }
+  .heat-fill { height:100%; border-radius:5px; }
+  .heat-fill.up { background:linear-gradient(90deg,#ff8b95,#e84855); }
+  .heat-fill.down { background:linear-gradient(90deg,#6fd6a5,#12a05c); }
+  .heat-val { width:72px; text-align:right; font-weight:800; font-size:12.5px; font-variant-numeric:tabular-nums; flex-shrink:0; }
+
+  /* ============ TABLE ============ */
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th {
+    background:#f5f7fb; padding:9px 10px; text-align:left; font-size:11.5px;
+    color:#6b7688; font-weight:700; letter-spacing:.3px;
+  }
+  .tbl th:not(:first-child) { text-align:right; }
+  .tbl td { padding:9px 10px; border-bottom:1px solid #f0f3f8; font-variant-numeric:tabular-nums; }
+  .tbl td:not(:first-child) { text-align:right; font-weight:700; }
+  .tbl td.name { font-weight:600; color:#2c3546; }
+  .tbl tr.grp td {
+    background:#fafbfd; font-size:11px; color:#8892a6; font-weight:700;
+    letter-spacing:1px; padding:6px 10px; text-align:left;
+  }
+  .tbl tr.hot td { background:#fff8f8; }
+  .tbl tr.grp td { position:relative; }
+  .tbl .st { display:inline-block; margin-left:8px; vertical-align:middle; font-size:10px; font-weight:700; letter-spacing:0; padding:2px 8px; border-radius:20px; }
+  .tbl .st.close { background:#eef1f6; color:#5a6678; }
+  .tbl .st.live { background:#e6f7ee; color:#0f9d58; }
+  .tbl .st.ovn { background:#fff2e8; color:#c07414; }
+  .mkt-legend { display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:#8892a6; margin:-2px 0 12px; }
+  .mkt-legend b { font-weight:700; color:#5a6678; }
+  .mkt-legend .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; vertical-align:middle; }
+  .mkt-legend .dot.live { background:#0f9d58; }
+  .mkt-legend .dot.close { background:#9aa6b8; }
+  .mkt-legend .dot.ovn { background:#f0932b; }
+
+  /* ============ STOCK CHIPS ============ */
+  .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .chip {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:10px; padding:11px 12px;
+    display:flex; align-items:center; gap:9px;
+  }
+  .chip .cn { font-size:13px; font-weight:700; color:#2c3546; }
+  .chip .cv { margin-left:auto; font-size:13px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .chip .lim { font-size:9.5px; background:#e84855; color:#fff; padding:1px 5px; border-radius:4px; font-weight:700; }
+  .chip .limg { font-size:9.5px; background:#12a05c; color:#fff; padding:1px 5px; border-radius:4px; font-weight:700; }
+  .chip .taga { font-size:9px; background:#eaf1ff; color:#2a55a0; padding:1px 5px; border-radius:4px; font-weight:700; }
+  .chip .tagi { font-size:9px; background:#f2edfd; color:#6a4bb8; padding:1px 5px; border-radius:4px; font-weight:700; }
+
+  /* ============ GRASSROOTS ============ */
+  .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .gf-card {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:12px;
+    padding:14px 15px 13px; position:relative; overflow:hidden;
+  }
+  .gf-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .gf-card.hot::before { background:#e84855; }
+  .gf-card.warm::before { background:#f0932b; }
+  .gf-card.cool::before { background:#3b6fe0; }
+  .gf-card.neut::before { background:#9aa6b8; }
+  .gf-top { display:flex; align-items:center; gap:7px; margin-bottom:9px; }
+  .gf-ico { font-size:15px; flex-shrink:0; }
+  .gf-name { font-size:14px; font-weight:800; color:#1a2233; }
+  .gf-status {
+    margin-left:auto; font-size:10px; font-weight:700; padding:2px 8px;
+    border-radius:5px; flex-shrink:0; letter-spacing:.2px;
+  }
+  .gf-status.hot { background:#ffe4e6; color:#c9313e; }
+  .gf-status.warm { background:#fff0dc; color:#b8690f; }
+  .gf-status.cool { background:#e2ecfd; color:#2456c4; }
+  .gf-status.neut { background:#eef1f6; color:#5a6678; }
+  .gf-card ul { list-style:none; }
+  .gf-card li {
+    font-size:12.5px; color:#3a4356; line-height:1.72; padding:4px 0 4px 13px;
+    position:relative; border-top:1px dashed rgba(0,0,0,.05);
+  }
+  .gf-card li:first-child { border-top:none; }
+  .gf-card li::before { content:''; position:absolute; left:1px; top:11px; width:4px; height:4px; border-radius:50%; background:#b8c0ce; }
+  .gf-card li b { color:#1a2233; }
+  .gf-card li .up { color:#e84855; font-weight:700; }
+  .gf-card li .dn { color:#12a05c; font-weight:700; }
+  .gf-src { font-size:10px; color:#9aa2b0; margin-top:7px; }
+  @media (max-width:480px) { .gf-grid { grid-template-columns:1fr; } }
+
+  /* ============ STRATEGY ============ */
+  .strat {
+    background:linear-gradient(150deg,#182135 0%,#232f4d 100%); border-radius:14px;
+    padding:20px 19px; color:#fff; position:relative; overflow:hidden;
+  }
+  .strat::before {
+    content:''; position:absolute; width:200px; height:200px; border-radius:50%;
+    background:radial-gradient(circle, rgba(232,72,85,.2) 0%, transparent 70%); top:-90px; right:-70px;
+  }
+  .strat-in { position:relative; z-index:2; }
+  .strat h4 { font-size:15px; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:7px; }
+  .strat ul { list-style:none; }
+  .strat li {
+    font-size:13.2px; color:rgba(255,255,255,.82); padding:7px 0 7px 17px; position:relative;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  .strat li:first-child { border-top:none; }
+  .strat li::before { content:'▸'; position:absolute; left:0; color:#ff9aa5; font-weight:700; }
+  .strat li b { color:#fff; }
+  .dirs { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+  .dir {
+    font-size:11.5px; font-weight:700; padding:5px 11px; border-radius:20px;
+    background:rgba(232,72,85,.18); border:1px solid rgba(232,72,85,.35); color:#ffb3bb;
+  }
+  .dir.cool { background:rgba(64,158,255,.14); border-color:rgba(64,158,255,.3); color:#9ecbff; }
+
+  /* ============ RISK ============ */
+  .risk { background:#fffaf5; border:1px solid #ffe0c2; border-radius:12px; padding:15px 16px; margin-top:12px; }
+  .risk h4 { font-size:14px; font-weight:800; color:#c96a12; margin-bottom:9px; }
+  .risk ul { list-style:none; }
+  .risk li { font-size:13px; color:#5c4a35; padding:5px 0 5px 16px; position:relative; }
+  .risk li::before { content:'!'; position:absolute; left:3px; color:#f0932b; font-weight:800; }
+
+  /* ============ FOOTER ============ */
+  .foot { background:#131a2e; color:rgba(255,255,255,.4); padding:26px; text-align:center; font-size:11.5px; line-height:1.9; }
+  .foot .bk { color:rgba(255,255,255,.75); font-weight:700; font-size:13px; margin-bottom:8px; }
+  .foot a { color:#7ea9f0; text-decoration:none; }
+
+  /* ============ SECTION NAV ============ */
+  .sec-nav { background:#fff; padding:12px 16px; border-bottom:2px solid #f0f0f0; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .sec-nav-inner { max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .sec-nav-label { font-size:13px; font-weight:700; color:#333; margin-right:8px; }
+  .sec-nav a { font-size:12px; color:#666; text-decoration:none; padding:6px 14px; border-radius:18px; background:#f5f5f5; transition:all .2s ease; white-space:nowrap; }
+  .sec-nav a:hover { background:#e84855; color:#fff; transform:translateY(-1px); box-shadow:0 2px 6px rgba(232,72,85,.25); }
+  
+  /* 锚点跳转高亮动画 */
+  .sec[id].active { animation: highlight-flash 1.5s ease-out; }
+  
+  @keyframes highlight-flash {
+    0%,15% { box-shadow: inset 0 0 0 100px rgba(232,72,85,.1); }
+    100% { box-shadow: inset 0 0 0 100px transparent; }
+  }
+
+  @media (max-width:480px) {
+    .idx-grid { grid-template-columns:repeat(2,1fr); }
+    .chips { grid-template-columns:1fr; }
+    .heat-name { width:78px; font-size:11.5px; }
+    .heat-val { width:60px; font-size:12px; }
+    .hero h1 { font-size:25px; }
+    .sec-nav { padding:10px 12px; }
+    .sec-nav-inner { gap:6px; }
+    .sec-nav-label { font-size:12px; margin-right:6px; }
+    .sec-nav a { font-size:11px; padding:5px 12px; }
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.sec-nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const navHeight = document.querySelector('.sec-nav').offsetHeight;
+        const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        
+        // 添加高亮效果
+        targetEl.classList.add('active');
+        setTimeout(() => targetEl.classList.remove('active'), 1500);
+      }
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="kicker">全 维 度 市 场 观 察</div>
+      <h1>科创50飙升<em>4.14%</em><br>半导体全面爆发 · <em>4300股飘红</em></h1>
+      <div class="sub">长鑫科技+12%市值破4万亿 · 摩根大通确认半导体全面涨价 · SK海力士预警最严重存储荒</div>
+      <div class="datebar">
+        <span>2026年8月17日 · 周一 · 收盘全维度分析</span>
+        <span class="pulse"><span class="dot"></span>数据已更新</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 板块导航 ================= -->
+  <div class="sec-nav">
+    <div class="sec-nav-inner">
+      <span class="sec-nav-label">快速跳转：</span>
+      <a href="#sec-overview">📈 A股速览</a>
+      <a href="#sec-global">🌍 全球市场</a>
+      <a href="#sec-news">📰 环球要闻</a>
+      <a href="#sec-five">🔍 五维分析</a>
+      <a href="#sec-heat">🔥 板块热力</a>
+      <a href="#sec-stock">💰 焦点个股</a>
+      <a href="#sec-commodity">🛢️ 大宗商品</a>
+      <a href="#sec-grassroots">🏭 产业高频</a>
+      <a href="#sec-strategy">🎯 策略研判</a>
+    </div>
+  </div>
+
+  <!-- ================= A股速览 ================= -->
+  <div class="sec" id="sec-overview">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">📈</div>
+      <div class="sec-title">A股收盘速览</div>
+      <div class="sec-note">8/17 15:00 收盘</div>
+    </div>
+
+    <div class="idx-grid">
+      <div class="idx up"><div class="n">上证指数</div><div class="v">3982.65</div><div class="c">+1.41%</div></div>
+      <div class="idx up"><div class="n">深证成指</div><div class="v">14704.27</div><div class="c">+2.44%</div></div>
+      <div class="idx up"><div class="n">创业板指</div><div class="v">3740.16</div><div class="c">+3.14%</div></div>
+      <div class="idx up"><div class="n">科创50</div><div class="v">1788.85</div><div class="c">+4.14%</div></div>
+    </div>
+
+    <div class="statbar">
+      <div class="stat"><div class="k">两市成交</div><div class="v n0">2.40万亿</div></div>
+      <div class="stat"><div class="k">较昨日</div><div class="v r">+2459亿</div></div>
+      <div class="stat"><div class="k">涨停家数</div><div class="v r">110</div></div>
+      <div class="stat"><div class="k">跌停家数</div><div class="v g">1</div></div>
+    </div>
+
+    <div class="callout">
+      <b>今日定性：高开高走 · 放量普涨 · 科技全面爆发。</b>三大指数高开高走全线收涨，<b>科创50飙升4.14%领涨全场</b>。
+      全市场超<span class="num r">4300</span>只个股上涨、<span class="num r">110</span>只涨停、仅1只跌停，<b>赚钱效应爆棚</b>。
+      <b>半导体板块全面爆发</b>：半导体指数+5.22%，存储芯片+4.58%，先进封装+4%+，40余只芯片股涨停。
+      <b>长鑫科技+12%</b>市值破4万亿创历史新高。白酒板块逆势走弱，茅台跌超4%失守1300元。
+      成交<span class="num r">2.40万亿</span>较昨日放量2459亿——<b>放量上涨是最强量价形态</b>，增量资金入场明确。
+    </div>
+  </div>
+
+  <!-- ================= 全球市场 ================= -->
+  <div class="sec" id="sec-global">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">🌏</div>
+      <div class="sec-title">全球市场全景</div>
+      <div class="sec-note">数据截至 8/17 16:30</div>
+    </div>
+
+    <div class="mkt-legend">
+      <span><span class="dot close"></span><b>收盘</b>：亚太已收市</span>
+      <span><span class="dot live"></span><b>实时</b>：欧股盘中</span>
+      <span><span class="dot ovn"></span><b>昨夜</b>：美股8/14收盘</span>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>市场 / 指数</th><th>点位</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="3">亚太 <span class="st close">8/17 收盘</span></td></tr>
+        <tr class="hot"><td class="name">韩国 KOSPI</td><td>6977.94</td><td class="r">+2.42%</td></tr>
+        <tr><td class="name">日经225</td><td>69220.25</td><td class="r">+0.74%</td></tr>
+        <tr><td class="name">恒生指数</td><td>25453.23</td><td class="r">+1.34%</td></tr>
+        <tr><td class="name">恒生科技</td><td>4782.03</td><td class="r">+1.58%</td></tr>
+
+        <tr class="grp"><td colspan="3">美股 <span class="st ovn">8/14 昨夜收盘</span></td></tr>
+        <tr><td class="name">道琼斯</td><td>53732.41</td><td class="g">−0.20%</td></tr>
+        <tr><td class="name">标普500</td><td>7785.76</td><td class="g">−0.17%</td></tr>
+        <tr><td class="name">纳斯达克</td><td>26729.16</td><td class="g">−0.28%</td></tr>
+
+        <tr class="grp"><td colspan="3">欧股 <span class="st ovn">8/14 收盘</span></td></tr>
+        <tr><td class="name">德国 DAX</td><td>26440.31</td><td class="r">+0.53%</td></tr>
+        <tr><td class="name">英国 富时100</td><td>10750.11</td><td class="g">−0.21%</td></tr>
+        <tr><td class="name">法国 CAC40</td><td>8636.80</td><td class="g">−0.16%</td></tr>
+
+        <tr class="grp"><td colspan="3">美股期货 <span class="st live">亚洲时段</span></td></tr>
+        <tr><td class="name">标普500期货</td><td>~7810</td><td class="r">+0.3%</td></tr>
+        <tr><td class="name">纳指100期货</td><td>~21100</td><td class="r">+0.4%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue">
+      <b>全球图景：亚太全面走强，A股领涨，港股芯片暴涨。</b>
+      韩国KOSPI涨<span class="ph">+2.42%</span>，日经225涨0.74%；
+      <b>恒生指数+1.34%</b>，芯片股集体暴涨（华虹宏力+7%、中芯国际+6%、长飞光纤+12%）。
+      <b>美股8/14收盘：三大指数微跌</b>，零售数据弱于预期+消费者信心降至51。
+      但<b>存储板块逆势上涨</b>：闪迪+7.39%、希捷+5.65%——存储荒逻辑延续。
+      美元指数跌至99.64 = <b>人民币压力减轻，有利外资流入</b>。
+    </div>
+  </div>
+
+  <!-- ================= 环球要闻 · 深度解读 ================= -->
+  <div class="sec" id="sec-news">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">📰</div>
+      <div class="sec-title">环球要闻 · 深度解读</div>
+      <div class="sec-note">8–10条核心新闻</div>
+    </div>
+
+    <div class="news-legend">
+      <span><span class="tag mini a">🔴 极重要</span> 影响市场方向</span>
+      <span><span class="tag mini b">🟠 重要</span> 需重点关注</span>
+      <span><span class="tag mini c">🔵 关注</span> 潜在影响</span>
+    </div>
+
+    <!-- 极重要 1 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">JPMorgan 摩根大通</span>
+        <span class="src intl">SK海力士</span>
+      </div>
+      <h3>摩根大通确认全球半导体全面涨价：涨价从存储延伸至设备材料，SK海力士预警"最严重存储荒"</h3>
+      <p>摩根大通最新研报指出，<span class="hl">2026年Q2全球半导体供应链财报传递出异常清晰的看涨信号，行业需求强度全面超出三个月前预期</span>。
+      更关键的是，<b>涨价效应已从存储芯片延伸至半导体设备和材料领域</b>——这意味着整个产业链进入上行周期。</p>
+      <p>SK海力士董事长崔泰源表示，<span class="hl">明年大概率将是存储芯片供应缺口最大的一年，并形容当前市场为"争夺存储芯片的战争"</span>。
+      AI服务器对HBM和DDR5的需求增速超过预期，供给紧缺局面至少持续到2027年。</p>
+      <p>存储巨头通过<b>五年长期协议+大额预付款</b>锁定未来数年利润：三星电子已敲定5项长期协议，SK海力士签署10项合同，闪迪已签8项合同覆盖2027财年50%+比特需求。
+      <span class="hl">Q3传统DRAM合约价环比涨约17%（Q2涨65%）</span>，存储周期Q4进入后期阶段。</p>
+      <div class="impact">
+        <b>对A股的核心传导：</b><span class="pl">全球半导体全面涨价+存储荒=产业链景气度确认</span>。
+        A股半导体指数+5.22%、存储芯片+4.58%、40余只芯片股涨停——<b>市场定价"涨价周期确定性最高"</b>。
+        长鑫科技+12%市值破4万亿 = 国产存储龙头成为最大受益者。
+      </div>
+    </div>
+
+    <!-- 极重要 2 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">NVIDIA</span>
+        <span class="src">证券时报</span>
+      </div>
+      <h3>英伟达Spectrum-X硅光交换机全面量产，CPO概念4连板；苹果测试长鑫DRAM芯片</h3>
+      <p>8月14日，<span class="hl">英伟达宣布Spectrum-X以太网硅光交换机已进入全面量产阶段</span>。
+      相比传统方案，激光器数量减少至约四分之一，功耗降至约五分之一，MTBI提升10倍。
+      CPO概念今日连续爆发：<b>天洋新材走出4连板</b>（超22万手买单封涨停），
+      <b>共进股份3连板</b>，中石科技20cm涨停，太辰光、仕佳光子等跟涨。</p>
+      <p>另一重磅催化：<span class="hl">苹果正测试长鑫科技DRAM芯片</span>以缓解AI引发的内存短缺，
+      已与长鑫存储就供应展开初步洽谈。
+      这意味着<b>国产存储芯片首次打入苹果供应链</b>，对长鑫科技的里程碑意义巨大。
+      此外，中际旭创以17.47亿元收购中石科技10.47%股份——<b>光模块龙头向CPO上游整合</b>。</p>
+      <p>A股主力资金大举回流：<b>电子行业获549亿元净流入</b>（居全行业首位），
+      半导体产业获302亿元净流入，消费电子、芯片、5G应用均获超200亿元净流入。
+      通富微电、中际旭创、长鑫科技3股均获超30亿元主力资金净流入。</p>
+      <div class="impact">
+        <b>对A股的核心传导：</b><span class="ph">CPO从概念走向量产，是AI硬件链的"最后一公里"</span>。
+        英伟达量产+苹果测试国产DRAM+中际旭创产业整合，三重催化共振。
+        <b>电子行业单日549亿净流入</b>是今年以来最高水平，说明<b>机构在全面回补科技仓位</b>。
+        操作上：<b>CPO/存储/半导体设备是当前最强主线，短期有加速迹象</b>。
+      </div>
+    </div>
+
+    <!-- 极重要 3 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src">证券时报</span>
+        <span class="src intl">摩根大通</span>
+      </div>
+      <h3>A股放量大涨：科创50飙升4.14%，半导体板块5.22%，4300股上涨110股涨停</h3>
+      <p>8月17日，A股三大指数高开高走全线收涨。<span class="hl">科创50飙升4.14%领涨全场</span>，
+      创业板指大涨3.14%突破3700点创1个月新高，深成指涨2.44%，沪指涨1.41%逼近4000点。</p>
+      <p>量能方面：<b>沪深北三市合计成交2.40万亿元，较上一交易日放量2459亿元</b>。
+      <span class="hl">全市场超4300只个股上涨、110只涨停、仅1只跌停</span>——
+      <b>典型的放量普涨格局，赚钱效应爆棚</b>。</p>
+      <p>板块方面：半导体指数大涨5.22%，存储芯片指数涨4.58%，先进封装涨超4%。
+      电子行业获主力资金净流入549亿元（全市场第一），电力设备获134亿元净流入，机械设备获92亿元净流入。
+      <b>白酒板块逆势下跌</b>，贵州茅台跌超4%失守1300元。</p>
+      <div class="impact">
+        <b>技术含义：</b>沪指突破4000点关口逼近4000，<span class="ph">上一交易日年线压力已被消化</span>。
+        放量2459亿+4300股上涨+110只涨停 = <b>最强量价形态</b>。
+        与上周三（8/13）的"4300股下跌+尾盘跳水"形成<b>完美反转</b>——
+        市场从"获利兑现"切换到"全面加仓科技"。
+      </div>
+    </div>
+
+    <!-- 极重要 4 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src">证券时报</span>
+        <span class="src">财联社</span>
+      </div>
+      <h3>贵州茅台跌超4%失守1300元，白酒板块领跌大消费——风格切换信号明确</h3>
+      <p>8月17日，<span class="hl">贵州茅台低开3.5%后持续走弱，收盘跌超4%失守1300元关口</span>。
+      白酒板块全天领跌，迎驾贡酒、古井贡酒等跟跌。
+      与之形成鲜明对比的是，科技成长方向全面爆发——<b>市场风格从"防御消费"急速切换至"进攻科技"</b>。</p>
+      <p>大消费板块整体偏弱：<b>影视院线、游戏、医药商业、煤炭、传媒</b>等板块跌幅居前。
+      但科技方向的强势完全覆盖消费端的调整：<span class="hl">4300股上涨 vs 白酒领跌 = 典型的"弃消费追科技"</span>。
+      市场分析认为，<b>中报窗口临近，资金从估值偏高的消费白马流向景气度更高的科技成长</b>。</p>
+      <p>另一值得关注的是：<b>农业股逆势走强</b>，天山生物20%涨停，农发种业、金健米业等涨停，
+      粮食概念持续活跃——<span class="hl">资金在做"科技+农业"的杠铃策略</span>。</p>
+      <div class="impact">
+        <b>风格含义：</b><span class="ph">大消费 vs 科技的风格切换已经明确</span>。
+        茅台失守1300 = 消费白马的估值修复行情暂告段落，
+        而<b>半导体景气确认+CPO量产+存储涨价</b>三重催化推动科技成长成为新的共识方向。
+        操作上：<b>短期回避白酒/消费，重仓科技主线</b>。
+      </div>
+    </div>
+
+    <!-- 重要 5 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">JPMorgan</span>
+        <span class="src intl">Bernstein</span>
+      </div>
+      <h3>存储芯片供需缺口延续至2027年：三星/SK海力士锁定五年期长约，涨价向上游扩散</h3>
+      <p>摩根大通研报指出，<span class="hl">全球半导体Q2财报传递明确看涨信号，涨价从存储延伸至设备和材料</span>。
+      三星电子已与数据中心客户敲定五项长期协议，SK海力士签署10项合同，均采用<b>五年期滚动合同+大额预付款</b>。
+      闪迪已签8项合同，覆盖2027财年50%+比特需求。</p>
+      <p>伯恩斯坦预计<b>Q3传统DRAM合约价环比涨约17%</b>（Q2涨65%），摩根士丹利认为<b>存储周期Q4进入后期阶段</b>。
+      美股上周五存储板块逆势上涨：<b>闪迪+7.39%、希捷+5.65%、西部数据+4.41%、美光+2.30%</b>。</p>
+      <p>半导体设备ETF今日大涨超5%。招商证券指出，<span class="hl">存储行业供需缺口将延续至2027年，国内模组公司进入利润放量期</span>。
+      全球缺货使国内客户获取海外设备难度提升，<b>国产设备替代速度有望大幅加速</b>。</p>
+      <div class="impact">
+        <b>产业链含义：</b>五年长约+大额预付 = <span class="ph">存储龙头在用合同锁定未来数年利润</span>。
+        A股半导体设备ETF+5% = 市场定价"扩产周期确定性最高的是设备环节"。
+        操作上：<b>存储扩产链（设备>材料>设计）是当前确定性最高的方向之一</b>。
+      </div>
+    </div>
+
+    <!-- 重要 6 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Anthropic</span>
+        <span class="src">每日经济新闻</span>
+      </div>
+      <h3>Anthropic营收爆发+通信ETF涨超4%，2027年全球AI Capex有望达1.5万亿美元</h3>
+      <p>通信ETF(515880)今日大涨超4%，受益于<b>英伟达Spectrum-X硅光交换机量产</b>和<b>Anthropic营收爆发</b>，
+      AI应用商业化逻辑持续强化。板块持续受益于全球AI基建浪潮。</p>
+      <p>据测算<span class="hl">2027年全球AI Capex有望达1.5万亿美元，同比增长超过70%</span>。
+      通信板块基本面持续强势，27年业绩安全垫明确。
+      今日<b>CPO概念连续爆发</b>：天洋新材4连板、共进股份3连板、中石科技20cm涨停、太辰光涨停。</p>
+      <p>PCB概念也反复活跃：<b>华正新材2连板</b>，金禄电子、博敏电子等跟涨。
+      机构研报指出，<span class="hl">PCB/CCL公司密集发布业绩预告，AI高占比公司业绩亮眼，CCL受涨价拉动盈利加速释放</span>。</p>
+      <div class="impact">
+        <b>对A股的传导：</b><span class="pl">AI Capex 70%增速 = 通信/算力硬件2027年业绩确定性极高</span>。
+        CPO连续爆发+PCB反复活跃 = <b>科技主线的宽度和深度在扩展</b>。
+        关注通信ETF(515880)、半导体设备ETF(159516)等工具型品种。
+      </div>
+    </div>
+
+    <!-- 重要 7 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src">智通财经</span>
+        <span class="src intl">平安证券</span>
+      </div>
+      <h3>港股芯片股集体暴涨：中芯国际+6%、华虹宏力+7%、长飞光纤+12%；科网股走强</h3>
+      <p>港股中国半导体芯片指数<b>大涨逾5%</b>，涨幅居所有行业板块之首。
+      <b>长飞光纤光缆涨超12%</b>，华虹宏力涨超7%，中芯国际涨超6%，
+      兆易创新(H)涨超8%，澜起科技(H)涨超9%。</p>
+      <p>科网股多数上涨：<b>商汤+8.90%</b>，京东+2.54%，阿里巴巴涨近2%，腾讯、小米涨超1%。
+      "AI双雄"涨跌不一：<span class="hl">智谱跌超5%（此前涨幅过大获利回吐），MINIMAX涨超1%</span>。</p>
+      <p>平安证券指出，<span class="hl">资金在科技主线与低位防御板块间轮动，整体情绪偏谨慎</span>。
+      但今日港股芯片板块的全面爆发说明——<b>全球半导体景气确认正在从A股传导至港股</b>。</p>
+      <div class="impact">
+        <b>对A股的传导：</b><span class="pl">港股芯片股暴涨 = 全球半导体景气确认的"第二落点"</span>。
+        中芯国际A+H同步走强（A股+2.93%，H股+6.14%），
+        <b>AH联动强化说明这不是短期情绪，而是产业趋势驱动</b>。
+      </div>
+    </div>
+
+    <!-- 关注 8 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">Reuters 路透社</span>
+        <span class="src">每日经济新闻</span>
+      </div>
+      <h3>美股上周五微跌收盘：零售数据弱于预期，消费者信心降至51；霍尔木兹海峡通行近停滞</h3>
+      <p>美股上周五收盘集体微跌：<b>道指−0.20%报53732点，标普500−0.17%报7786点，纳指−0.28%报26729点</b>。
+      <span class="hl">7月零售数据弱于预期</span>（6月未修正值+0.2%），消费端降温信号浮现。
+      密歇根大学消费者信心指数初值<span class="num">51</span>（预期54.5），创近期新低。</p>
+      <p>地缘方面：<b>霍尔木兹海峡通行几近停滞</b>，两艘船只再次遭袭，美国表示可能无限期维持对伊海上封锁。
+      布伦特原油涨2.01%至88.82美元/桶，WTI涨1.42%至82.4美元/桶。
+      <span class="hl">标普500能源板块大涨</span>，跟踪油价走高。</p>
+      <p>CME FedWatch显示：<b>市场预期美联储9月维持利率不变概率67%，加息概率33%</b>。
+      美元指数跌0.32%至99.64，离岸人民币微涨至6.7445。</p>
+      <div class="impact">
+        <b>关注点：</b><span class="ph">零售弱+消费者信心低 = 美国经济放缓信号</span>，
+        但油价因中东局势上涨又推高通胀预期——<b>"滞胀"叙事若持续发酵，对全球成长股估值不利</b>。
+        对A股：美元走弱至99.64 = 人民币压力减轻，有利外资流入。
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= 五维度分析 ================= -->
+  <div class="sec" id="sec-five">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ede9fe">🎯</div>
+      <div class="sec-title">五维度深度拆解</div>
+      <div class="sec-note">消息 / 情绪 / 技术 / 政策 / 资金</div>
+    </div>
+
+    <div class="dim d1">
+      <div class="dim-h"><span class="e">📰</span><span class="t">消息面</span><span class="score">极度利好 ★★★★★</span></div>
+      <ul>
+        <li><b>最大利好（外部）：</b>摩根大通确认全球半导体全面看涨，涨价从存储延伸至设备/材料；SK海力士预警"最严重存储荒"；苹果测试长鑫DRAM；英伟达CPO量产。</li>
+        <li><b>利好（内部）：</b>A股放量大涨4300股上涨110股涨停；电子行业获549亿净流入（年内最高）；长鑫科技+12%市值破4万亿。</li>
+        <li><b>关注（外部）：</b>美股上周五微跌（零售弱+消费者信心降至51）；霍尔木兹海峡通行停滞推高油价。</li>
+        <li><b>利空（内部）：</b>白酒板块领跌（茅台跌超4%），风格切换中消费端承压；仅1只跌停但分化剧烈。</li>
+        <li><b>结论：</b>消息面极度利好科技成长，半导体/存储/CPO三重催化共振，市场共识明确。</li>
+      </ul>
+    </div>
+
+    <div class="dim d2">
+      <div class="dim-h"><span class="e">🔥</span><span class="t">情绪面</span><span class="score">极度亢奋 ★★★★★</span></div>
+      <ul>
+        <li><b>涨停110 vs 跌停1</b>——赚钱效应爆棚，110只涨停是近三个月最高，仅北京文化1只跌停。</li>
+        <li><b>上涨4300+ vs 下跌1064</b>——典型普涨格局，与上周三（4300股下跌）形成完美反转。</li>
+        <li><b>成交2.40万亿，放量2459亿</b>——温和放量上涨，是最健康的量能形态（非极端放量）。</li>
+        <li><b>半导体指数+5.22%、存储+4.58%、先进封装+4%+</b>——主线极致聚焦科技，赚钱效应集中在芯片链。</li>
+        <li><b>白酒领跌+消费偏弱</b>——风格切换明确，"弃消费追科技"成为共识。</li>
+      </ul>
+    </div>
+
+    <div class="dim d3">
+      <div class="dim-h"><span class="e">📊</span><span class="t">技术面</span><span class="score">强势突破 ★★★★★</span></div>
+      <ul>
+        <li><b>上证指数 3982.65 +1.41%</b>——逼近4000点关口，站稳年线上方；上一交易日年线压力已被完全消化。</li>
+        <li><b>深证成指 14704.27 +2.44%</b>——突破前期高点，创阶段新高；深强沪弱格局延续。</li>
+        <li><b>创业板指 3740.16 +3.14%</b>——突破3700创1个月新高，技术面极度强势。</li>
+        <li><b>科创50 1788.85 +4.14%</b>——领涨全场，重新逼近1800点；半导体权重股（长鑫/中芯）是核心推手。</li>
+        <li><b>量价关系：</b>放量2459亿+4300股上涨+110涨停 = <b>最强量价形态之一</b>，趋势加速信号。</li>
+      </ul>
+    </div>
+
+    <div class="dim d4">
+      <div class="dim-h"><span class="e">🏛</span><span class="t">政策面</span><span class="score">强力支撑 ★★★★☆</span></div>
+      <ul>
+        <li><b>国产替代加速：</b>苹果测试长鑫DRAM = 国产存储首次进入苹果供应链视野，政策面"自主可控"逻辑再获验证。</li>
+        <li><b>AI基建政策：</b>2027年全球AI Capex有望达1.5万亿美元（+70%），国内大厂（腾讯/字节/阿里）资本开支持续高增。</li>
+        <li><b>流动性环境：</b>美元指数跌至99.64，离岸人民币6.7445；国内DR007维持低位，流动性宽松。</li>
+        <li><b>美联储预期：</b>CME FedWatch显示9月维持不变67%、加息33%——政策不确定性可控。</li>
+        <li><b>结论：</b>政策面强力支撑科技成长，国产替代+AI基建是两大政策主线。</li>
+      </ul>
+    </div>
+
+    <div class="dim d5">
+      <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">全面回流 ★★★★★</span></div>
+      <ul>
+        <li><b>电子行业净流入549亿（第一）</b>——大资金全面回补科技仓位，是今年以来单日最高水平。</li>
+        <li><b>半导体产业净流入302亿</b>——长鑫科技获30亿+净流入，通富微电/中际旭创各获30亿+净流入。</li>
+        <li><b>电力设备+134亿、机械设备+92亿、有色金属+73亿</b>——科技+高端制造全面吸金。</li>
+        <li><b>食品饮料/白酒/文化传媒净流出超10亿</b>——资金从消费端向科技端搬家。</li>
+        <li><b>放量配合：</b>2.40万亿成交+2459亿放量 = <span class="ph">增量资金入场而非存量博弈</span>，是最健康的资金面形态。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= 板块热力 ================= -->
+  <div class="sec" id="sec-heat">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">🔥</div>
+      <div class="sec-title">板块热力图</div>
+      <div class="sec-note">红涨绿跌</div>
+    </div>
+
+    <div class="heat"><div class="heat-row"><div class="heat-name">半导体</div><div class="heat-track"><div class="heat-fill up" style="width:98%"></div></div><div class="heat-val r">+5.22%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">存储芯片</div><div class="heat-track"><div class="heat-fill up" style="width:90%"></div></div><div class="heat-val r">+4.58%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">先进封装</div><div class="heat-track"><div class="heat-fill up" style="width:82%"></div></div><div class="heat-val r">+4%+</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">CPO / 光模块</div><div class="heat-track"><div class="heat-fill up" style="width:78%"></div></div><div class="heat-val r">4连板+3连板</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">通信设备</div><div class="heat-track"><div class="heat-fill up" style="width:70%"></div></div><div class="heat-val r">ETF涨超4%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">有色金属</div><div class="heat-track"><div class="heat-fill up" style="width:55%"></div></div><div class="heat-val r">净流入73亿</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">农业概念</div><div class="heat-track"><div class="heat-fill up" style="width:50%"></div></div><div class="heat-val r">天山生物涨停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">白酒</div><div class="heat-track"><div class="heat-fill down" style="width:85%"></div></div><div class="heat-val g">茅台跌超4%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">影视院线</div><div class="heat-track"><div class="heat-fill down" style="width:50%"></div></div><div class="heat-val g">领跌</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">煤炭</div><div class="heat-track"><div class="heat-fill down" style="width:45%"></div></div><div class="heat-val g">跌幅居前</div></div></div>
+
+    <div class="callout">
+      <b>今日格局：科技全面碾压消费，半导体一枝独秀。</b>
+      半导体+5.22%、存储+4.58%、先进封装+4%+——<b>三条主线无跷跷板、相互强化</b>。
+      电子行业单日549亿净流入 = <span class="ph">今年以来最高水平</span>。
+      白酒领跌+消费偏弱 = <b>风格切换已明确</b>，资金从消费端搬家至科技端。
+    </div>
+  </div>
+
+  <!-- ================= 焦点个股 ================= -->
+  <div class="sec" id="sec-stock">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">⭐</div>
+      <div class="sec-title">焦点个股与资金流</div>
+      <div class="sec-note">A股 + 港股 + 海外</div>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><span class="cn">长鑫科技</span><span class="lim">创新高</span><span class="cv r">+12% 335亿</span></div>
+      <div class="chip"><span class="cn">通富微电</span><span class="lim">涨停</span><span class="cv r">净流入30亿+</span></div>
+      <div class="chip"><span class="cn">有研新材</span><span class="lim">涨停</span><span class="cv r">净流入10亿+</span></div>
+      <div class="chip"><span class="cn">天洋新材</span><span class="tagi">4连板</span><span class="lim">CPO</span><span class="cv r">涨停</span></div>
+      <div class="chip"><span class="cn">共进股份</span><span class="tagi">3连板</span><span class="lim">CPO</span><span class="cv r">涨停</span></div>
+      <div class="chip"><span class="cn">中石科技</span><span class="tagi">20cm</span><span class="lim">涨停</span><span class="cv r">CPO龙头</span></div>
+      <div class="chip"><span class="cn">盛合晶微</span><span class="lim">先进封装</span><span class="cv r">+11.35%</span></div>
+      <div class="chip"><span class="cn">贵州茅台</span><span class="limg">失守1300</span><span class="cv g">跌超4%</span></div>
+      <div class="chip"><span class="cn">中芯国际(HK)</span><span class="tagi">芯片</span><span class="cv r">+6.14%</span></div>
+      <div class="chip"><span class="cn">华虹宏力(HK)</span><span class="tagi">芯片</span><span class="cv r">+7%</span></div>
+      <div class="chip"><span class="cn">长飞光纤(HK)</span><span class="tagi">光通信</span><span class="cv r">+12%</span></div>
+      <div class="chip"><span class="cn">商汤(HK)</span><span class="tagi">AI</span><span class="cv r">+8.90%</span></div>
+      <div class="chip"><span class="cn">闪迪(US)</span><span class="tagi">存储</span><span class="cv r">+7.39%</span></div>
+      <div class="chip"><span class="cn">希捷(US)</span><span class="tagi">存储</span><span class="cv r">+5.65%</span></div>
+      <div class="chip"><span class="cn">韩国KOSPI</span><span class="taga">亚太</span><span class="cv r">+2.42%</span></div>
+      <div class="chip"><span class="cn">智谱(HK)</span><span class="limg">获利回吐</span><span class="cv g">−5%</span></div>
+    </div>
+
+    <div class="callout blue">
+      <b>今日最值得关注的一组数据：</b>
+      <b>长鑫科技+12%市值破4万亿 vs 贵州茅台跌超4%失守1300</b>——
+      一个是半导体国产替代的"新王"，一个是消费白马的"旧王"。
+      <span class="ph">市值权杖的交接</span>正在发生：4万亿的长鑫 vs 持续缩水的茅台。
+      <b>这说明市场正在重新定义"核心资产"——从消费白马转向科技硬核</b>。
+    </div>
+  </div>
+
+  <!-- ================= 大宗与汇率 ================= -->
+  <div class="sec" id="sec-commodity">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fef3c7">🪙</div>
+      <div class="sec-title">大宗商品与汇率</div>
+      <div class="sec-note">8/14 收盘 + 8/17 亚洲</div>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>品种</th><th>最新</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr><td class="name">COMEX黄金期货</td><td>4432.00</td><td class="r">+0.26%</td></tr>
+        <tr><td class="name">COMEX白银期货</td><td>64.83</td><td class="g">−0.26%</td></tr>
+        <tr class="hot"><td class="name">伦铜 <span style="font-size:10px;color:#e84855">供需紧</span></td><td>14172.50 美元/吨</td><td class="r">+0.17%</td></tr>
+        <tr><td class="name">伦铝</td><td>3245.00 美元/吨</td><td class="g">−0.41%</td></tr>
+        <tr><td class="name">布伦特原油</td><td>88.82</td><td class="r">+2.01%</td></tr>
+        <tr><td class="name">WTI原油</td><td>82.40</td><td class="r">+1.42%</td></tr>
+        <tr class="grp"><td colspan="3">汇率与利率</td></tr>
+        <tr><td class="name">美元/离岸人民币</td><td>6.7445</td><td class="g">涨1基点</td></tr>
+        <tr><td class="name">美元指数</td><td>99.64</td><td class="g">−0.32%</td></tr>
+        <tr><td class="name">10年期美债收益率</td><td>4.690%</td><td class="r">+5.14bp</td></tr>
+        <tr><td class="name">30年期美债收益率</td><td>5.258%</td><td class="r">+4.14bp</td></tr>
+        <tr class="grp"><td colspan="3">数字资产</td></tr>
+        <tr><td class="name">比特币</td><td>~64000</td><td class="n0">窄幅震荡</td></tr>
+        <tr><td class="name">以太坊</td><td>~1880</td><td class="n0">窄幅震荡</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <b>大宗关键信号：</b><b>布伦特涨2.01%至88.82美元（霍尔木兹海峡停滞推高）</b>——
+      地缘风险溢价重新抬头，但<span class="ph">对A股影响有限</span>（科技主线独立于油价逻辑）。
+      美元指数跌至99.64 = <b>人民币压力减轻，有利外资流入</b>。
+      10年期美债收益率4.69%（+5bp）+ 30年期5.258% = <span class="ph">长端利率上行，但短端稳定</span>。
+      黄金4432美元高位震荡，多空交战持续。
+    </div>
+  </div>
+
+  <!-- ================= 产业高频数据 ================= -->
+  <div class="sec" id="sec-grassroots">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#f3fbf6">🔬</div>
+      <div class="sec-title">产业高频数据 · 机构/大户必读</div>
+      <div class="sec-note">产业链一线追踪</div>
+    </div>
+
+    <div class="gf-grid">
+
+      <!-- 半导体 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🔌</span>
+          <span class="gf-name">半导体</span>
+          <span class="gf-status hot">景气高位</span>
+        </div>
+        <ul>
+          <li><b>8吋晶圆利用率</b> 全球平均回升至<span class="up">88%</span>，下半年预计达90%，成熟制程已进入供给吃紧</li>
+          <li><b>12吋成熟制程</b> 台积电Q3启动涨价，55nm（含）以上代工价涨幅<span class="up">5–15%</span>，涨价预计延续至2027年</li>
+          <li><b>封测端涨价</b> 封测代工涨价频率加快，联发科定调"成本转嫁"，议价权从买方转向卖方</li>
+          <li><b>DDR5现货</b> 8月服务器DDR5价格上涨<span class="up">15–23%</span>，32GB/64GB/96GB RDIMM分别涨至900/1590/2650美元</li>
+          <li><b>中芯国际利用率</b> Q2达<span class="up">93.7%</span>，华虹宏力<span class="up">102.8%</span>（超负荷运转）</li>
+        </ul>
+        <div class="gf-src">信源：TrendForce · 平安证券 · 快科技 · 中芯/华虹Q2财报</div>
+      </div>
+
+      <!-- 白酒 -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🍶</span>
+          <span class="gf-name">白酒</span>
+          <span class="gf-status warm">底部企稳</span>
+        </div>
+        <ul>
+          <li><b>飞天茅台</b> 直营店报<span class="up">1753元/瓶</span>，一个月内第三次调价；经销商渠道1760–1770元；i茅台暂未跟涨</li>
+          <li><b>五粮液</b> 八代批价突破<span class="up">760元/瓶</span>，部分地区突破800元；终端报价900元，累计涨约60元</li>
+          <li><b>国窖1573</b> 批价约830元，周环比持平</li>
+          <li><b>行业库存</b> 白酒板块持仓仅1%（历史低位0.5%），Q2加速出清，筹码结构干净</li>
+          <li><b>关注点</b> 中秋备货窗口临近，名酒价格稳中趋强，但基酒产能过剩仍在低位徘徊</li>
+        </ul>
+        <div class="gf-src">信源：今日酒价 · 泸州白酒批发价格指数 · 华创证券 · 国际金融报</div>
+      </div>
+
+      <!-- 新能源 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🔋</span>
+          <span class="gf-name">新能源/锂电</span>
+          <span class="gf-status hot">去库加速</span>
+        </div>
+        <ul>
+          <li><b>碳酸锂现货</b> 电池级报<span class="up">14.3万元/吨</span>，月均价约14万元；期货8月一度反弹近万元至14.5万</li>
+          <li><b>库存</b> 连续<span class="dn">12周去库</span>，SMM现货库存降至7.94万吨（环比−4177吨）；大样本库存10.11万吨（环比−6773吨）</li>
+          <li><b>8月排产</b> 全市场总排产约<span class="up">304GWh</span>（环比+7.4%）；磷酸铁锂排产55.86万吨（环比+5.2%），头部企业满产</li>
+          <li><b>供给收缩</b> 中矿资源/天华新能/九岭锂业8–9月停产检修，合计影响产量<span class="dn">9000–9500吨</span></li>
+          <li><b>紧平衡预期</b> 2026年全球碳酸锂需求232–241万吨，供给约220万吨，存在缺口；中信建投预计Q4缺口峰值</li>
+        </ul>
+        <div class="gf-src">信源：SMM · Mysteel · 华泰证券 · 中信建投 · 鑫椤锂电</div>
+      </div>
+
+      <!-- 地产 -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🏠</span>
+          <span class="gf-name">地产</span>
+          <span class="gf-status warm">局部回暖</span>
+        </div>
+        <ul>
+          <li><b>北京土拍</b> 8/12单日揽金<span class="up">137.65亿元</span>；海淀四季青地块97.61亿成交，楼面价6.84万/㎡，溢价14.1%</li>
+          <li><b>上海七批次</b> 5宗地块揽金90.6亿元，唐镇溢价28.45%、嘉定南翔溢价13.98%</li>
+          <li><b>民企回归</b> 截至7月末拿地TOP30中7家民企（6月底仅4家）；温州民企拿下虹口北外滩38.5亿地块</li>
+          <li><b>销售端</b> 8月仍为传统淡季，中银证券预计销售端回暖需待Q4；但核心区土拍热度持续升温</li>
+          <li><b>关注点</b> 核心城市"点状回暖"明显，但全国性量价修复仍需时间验证</li>
+        </ul>
+        <div class="gf-src">信源：中指研究院 · 克而瑞 · 证券时报 · 21世纪经济报道</div>
+      </div>
+
+      <!-- AI算力 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🤖</span>
+          <span class="gf-name">AI算力</span>
+          <span class="gf-status hot">超预期爆发</span>
+        </div>
+        <ul>
+          <li><b>CSP资本开支</b> 2026年全球九大CSP总资本开支预计<span class="up">8867亿美元</span>（+90%），主要流向AI数据中心/GPU集群/液冷</li>
+          <li><b>AI服务器出货</b> TrendForce上调年增率至<span class="up">近31%</span>（此前28%）；联想在手订单540亿美元（环比+157%）</li>
+          <li><b>CoreWeave</b> Q2营收25.8亿美元（+112%），在手订单破<span class="up">1040亿美元</span>；上调全年指引至124–132亿美元</li>
+          <li><b>腾讯</b> Q2资本开支激增至<span class="up">528亿元</span>（+176%），自由现金流首次转负；字节/腾讯/阿里/百度合计增速超80%</li>
+          <li><b>印度</b> 拉森特博洛斩获10亿美元订单，部署1万块英伟达B300 GPU</li>
+        </ul>
+        <div class="gf-src">信源：TrendForce · Omdia · 联想/腾讯/CoreWeave财报 · Reuters</div>
+      </div>
+
+      <!-- 生物医药 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">💊</span>
+          <span class="gf-name">生物医药</span>
+          <span class="gf-status hot">高频爆发</span>
+        </div>
+        <ul>
+          <li><b>BD交易</b> 2026年1–7月中国创新药BD交易总额达<span class="up">1063亿美元</span>，全球前十中国独占8席；全年有望突破1500亿美元</li>
+          <li><b>融资回暖</b> H1全球生物医药融资<span class="up">201.77亿美元</span>（+58.5%）；国内一级市场融资75亿美元（+214%）</li>
+          <li><b>CXO订单</b> 药明康德H1营收289亿（+38.93%），在手订单<span class="up">664.3亿元</span>（+25.2%）；百奥赛图H1净利润预增约4倍</li>
+          <li><b>首付款兑现</b> 石药集团收到阿斯利康3000万美元首付款；2025–2026为BD签约高峰，2026年中报为首个集中结算窗口</li>
+          <li><b>公募调研</b> 上周医药生物是唯一年度调研次数破百的申万一级行业，千亿公募密集调研百济/泽璟/九洲</li>
+        </ul>
+        <div class="gf-src">信源：财联社 · 医药魔方 · 国金证券 · 中信建投 · 西南证券</div>
+      </div>
+
+      <!-- 有色金属 -->
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">🪙</span>
+          <span class="gf-name">有色金属</span>
+          <span class="gf-status cool">供需分化</span>
+        </div>
+        <ul>
+          <li><b>铜</b> LME铜14133美元/吨，现货升水飙至<span class="up">195.9美元/吨</span>（2025年10月以来最高）；LME可用库存降至9.29万吨</li>
+          <li><b>铜TC/RC</b> 住友矿业达成两位数协议，远高于中国冶炼厂零美元基准；矿端偏紧格局未改</li>
+          <li><b>铝</b> LME铝跌至3305美元（−1.7%），EGA确认阿联酋冶炼厂2027Q1恢复全面生产，供应担忧缓解</li>
+          <li><b>铝库存</b> LME铝库存降至25.34万吨（2025年4月以来最低），但欧洲现货升水从621美元回落至487美元</li>
+          <li><b>关注点</b> 铜：美铜吸收海外铜持续，非美地区紧缺加剧；铝：短期地缘溢价双向拉扯，区间震荡</li>
+        </ul>
+        <div class="gf-src">信源：LME · SHMET · 光大期货 · 五矿期货 · 冶金之家</div>
+      </div>
+
+    </div>
+
+    <div class="callout blue">
+      <b>本周最值得关注的三条产业链信号：</b>
+      <b>① 半导体涨价从晶圆厂烧到封测</b>——成熟制程涨价5–15%，DDR5现货涨15–23%，联发科定调"成本转嫁"，议价权历史性转向卖方；
+      <b>② 碳酸锂12周连降+头部满产</b>——库存降至7.94万吨，8月排产304GWh，2026年供需存在缺口，Q4或见价格高点；
+      <b>③ 全球CSP资本开支8867亿美元（+90%）</b>——CoreWeave在手订单破千亿美元，联想AI服务器+157%，算力需求"从故事走向业绩验证"。
+    </div>
+  </div>
+
+  <!-- ================= 策略 ================= -->
+  <div class="sec" id="sec-strategy">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">🧭</div>
+      <div class="sec-title">后市展望与操作策略</div>
+    </div>
+
+    <div class="strat">
+      <div class="strat-in">
+        <h4>🧭 核心判断</h4>
+        <ul>
+          <li><b>短期（1–3天）：科技主线加速，半导体/存储/CPO是绝对核心。</b>长鑫科技+12%市值破4万亿、4300股上涨110股涨停、电子行业549亿净流入——这是典型的趋势加速信号。短线可能惯性冲高，但需警惕连续大涨后的技术回调。</li>
+          <li><b>中期（1–2周）：风格切换已确认，科技成长取代消费白马成为新共识。</b>茅台失守1300 vs 长鑫破4万亿 = 市值权杖交接。中报窗口临近，资金将继续流向景气度更高的科技方向。半导体/存储/CPO/先进封装是核心配置。</li>
+          <li><b>长期（1–3个月）：全球半导体景气确认+国产替代加速，科技牛市远未结束。</b>摩根大通确认涨价向设备/材料扩散，SK海力士预警"最严重存储荒"，苹果测试长鑫DRAM——产业逻辑坚实。存储供需缺口延续至2027年，国产设备替代进入加速期。</li>
+          <li><b>风险点：</b>①连续大涨后短期技术回调压力；②美国零售弱+消费者信心低="滞胀"叙事发酵；③霍尔木兹海峡局势推高油价，若布伦特突破90美元可能扰动全球风险偏好。</li>
+        </ul>
+
+        <div class="dirs">
+          <span class="dir">半导体（核心）</span>
+          <span class="dir">存储芯片</span>
+          <span class="dir">CPO / 光模块</span>
+          <span class="dir">先进封装</span>
+          <span class="dir">半导体设备</span>
+          <span class="dir">通信设备</span>
+          <span class="dir cool">白酒（回避）</span>
+          <span class="dir cool">影视院线（回避）</span>
+          <span class="dir cool">煤炭（回避）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h4>⚠ 风险清单（按紧迫度排序）</h4>
+      <ul>
+        <li><b>短期技术回调压力</b>——连续大涨后（科创50+4.14%、创业板+3.14%），短线获利盘可能兑现，关注明日量能是否持续。</li>
+        <li><b>美国经济"滞胀"信号</b>——零售弱+消费者信心降至51+油价涨2%，若布伦特突破90美元可能扰动全球风险偏好。</li>
+        <li><b>霍尔木兹海峡局势</b>——通行停滞+两船遇袭，若油价持续上涨推高通胀，美联储政策不确定性上升。</li>
+        <li><b>风格切换中的消费端压力</b>——白酒领跌（茅台−4%），若消费白马持续走弱可能拖累指数。</li>
+        <li><b>美股波动传导</b>——美股上周五微跌（道指−0.20%、标普−0.17%），若科技股回调可能影响A股情绪。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= FOOT ================= -->
+  <div class="foot">
+    <div class="bk">每日全球股市观察</div>
+    数据来源：路透社(Reuters) · CNBC · 华尔街日报 · Bloomberg · 新华社 · 财联社 · 证券时报 · 智通财经 · 同花顺 · 中泰证券 · 兴业证券<br>
+    报告时间：2026年8月17日 16:30（北京时间）<br><br>
+    本报告基于公开信息整理，仅供研究参考，<b style="color:rgba(255,255,255,.6)">不构成任何投资建议</b>。<br>
+    市场有风险，投资需谨慎。据此操作，风险自担。
+  </div>
+
+</div>
+</body>
+</html>

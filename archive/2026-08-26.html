@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年8月26日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6; color: #1a2233; line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width:680px; margin:0 auto; background:#fff; box-shadow:0 2px 40px rgba(20,30,60,.08); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position:relative; background:linear-gradient(145deg,#131a2e 0%,#1e2a4a 45%,#2a1f45 100%);
+    padding:40px 26px 34px; color:#fff; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle,rgba(232,72,85,.32) 0%,transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:260px; height:260px; border-radius:50%;
+    background:radial-gradient(circle,rgba(58,120,255,.22) 0%,transparent 68%);
+    bottom:-80px; left:-60px;
+  }
+  .hero-inner { position:relative; z-index:2; }
+  .brand-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+  .brand { font-size:10.5px; letter-spacing:3px; color:rgba(255,255,255,.5); font-weight:600; }
+  .live-dot {
+    display:inline-flex; align-items:center; gap:5px; font-size:10.5px;
+    color:rgba(255,255,255,.65); background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12); padding:3px 10px 3px 8px; border-radius:999px;
+  }
+  .dot { width:6px; height:6px; border-radius:50%; background:#4ade80;
+    box-shadow:0 0 0 0 rgba(74,222,128,.7); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)} 70%{box-shadow:0 0 0 8px rgba(74,222,128,0)} 100%{box-shadow:0 0 0 0 rgba(74,222,128,0)} }
+  .hero h1 { font-size:28px; font-weight:800; letter-spacing:-.3px; line-height:1.3; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; background:linear-gradient(94deg,#ff8d76,#ff5f6d 55%,#ffb36b); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero .lede { font-size:13px; color:rgba(255,255,255,.6); line-height:1.8; max-width:480px; margin-bottom:16px; }
+  .dims { display:flex; flex-wrap:wrap; gap:6px; }
+  .dim { font-size:11px; padding:4px 10px; border-radius:999px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); color:rgba(255,255,255,.8); letter-spacing:.3px; }
+
+  /* ===== NAV (sticky) ===== */
+  .sec-nav {
+    position:sticky; top:0; z-index:100; background:#fff;
+    border-bottom:1px solid #ebedf1; padding:0 12px;
+    display:flex; overflow-x:auto; gap:2px;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .sec-nav::-webkit-scrollbar { display:none; }
+  .sec-nav a {
+    flex-shrink:0; font-size:12.5px; font-weight:600; color:#5b6472;
+    padding:12px 10px; text-decoration:none; white-space:nowrap;
+    border-bottom:2.5px solid transparent; transition:all .15s;
+  }
+  .sec-nav a:hover, .sec-nav a.active { color:#e84855; border-bottom-color:#e84855; }
+
+  /* ===== SECTION ===== */
+  .sec { padding:22px 20px; }
+  .sec-title { display:flex; align-items:center; gap:8px; margin-bottom:16px; }
+  .sec-title h2 { font-size:17px; font-weight:800; }
+  .sec-title .en { font-size:10px; color:#b3bac5; letter-spacing:1.4px; text-transform:uppercase; }
+  .sec-title .rule { flex:1; height:1px; background:#ebedf1; }
+
+  /* ===== INDEX GRID ===== */
+  .idx-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .idx-card {
+    border:1px solid #ebedf1; border-radius:12px; padding:14px 12px;
+    background:#fafbfc; position:relative; overflow:hidden;
+  }
+  .idx-card .name { font-size:11.5px; color:#8a93a1; margin-bottom:4px; letter-spacing:.2px; }
+  .idx-card .price { font-size:20px; font-weight:800; font-variant-numeric:tabular-nums; letter-spacing:-.3px; }
+  .idx-card .chg { font-size:13px; font-weight:700; margin-top:2px; font-variant-numeric:tabular-nums; }
+  .up { color:#e84855; } .down { color:#12a05c; }
+
+  /* ===== STATBAR ===== */
+  .statbar {
+    display:flex; flex-wrap:wrap; gap:0; border:1px solid #ebedf1;
+    border-radius:12px; overflow:hidden; margin-top:14px; background:#fff;
+  }
+  .statbar .st { flex:1; min-width:33%; padding:12px 8px; text-align:center; border-right:1px solid #ebedf1; }
+  .statbar .st:last-child { border-right:none; }
+  .statbar .st .k { font-size:10.5px; color:#98a0ad; }
+  .statbar .st .v { font-size:14px; font-weight:800; margin-top:2px; font-variant-numeric:tabular-nums; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    background:linear-gradient(135deg,#fff5f5,#fff0ee); border:1px solid #fde2e2;
+    border-radius:14px; padding:18px 16px; margin-top:14px;
+  }
+  .callout .co-title { font-size:13.5px; font-weight:800; color:#c62b3a; margin-bottom:8px; }
+  .callout p { font-size:13px; color:#4a3040; line-height:1.85; }
+
+  /* ===== NEWS ===== */
+  .news { border:1px solid #ebedf1; border-radius:14px; overflow:hidden; margin-bottom:12px; background:#fff; }
+  .news-head { display:flex; align-items:center; gap:8px; padding:14px 16px 10px; }
+  .news-num { font-size:22px; font-weight:900; color:#e84855; font-variant-numeric:tabular-nums; }
+  .news-title { font-size:14.5px; font-weight:700; color:#1a2233; line-height:1.45; flex:1; }
+  .news-body { padding:0 16px 14px; }
+  .news-body p { font-size:13px; color:#3d4654; line-height:1.85; margin-bottom:8px; }
+  .news-body p:last-child { margin-bottom:0; }
+  .news-tag { display:inline-block; font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; margin-right:4px; vertical-align:middle; }
+  .news.a { border-left:4px solid #e84855; } .news.a .news-num { color:#e84855; }
+  .news.b { border-left:4px solid #f5a623; } .news.b .news-num { color:#f5a623; }
+  .news.c { border-left:4px solid #4a90d9; } .news.c .news-num { color:#4a90d9; }
+  .tag-hot { background:#fdeced; color:#c62b3a; }
+  .tag-warn { background:#fff5e6; color:#b57a1a; }
+  .tag-info { background:#edf4ff; color:#3568a8; }
+  .src { display:inline-block; font-size:10px; padding:2px 6px; border-radius:3px; background:#eef1f5; color:#6b7484; margin-right:3px; }
+  .src.intl { background:#f2edfd; color:#7c5cc4; }
+  .src.x { background:#e8f5fd; color:#1d9bf0; }
+
+  /* ===== DIMENSION ===== */
+  .dim-block { margin-bottom:18px; }
+  .dim-label { display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:800; margin-bottom:8px; padding:5px 12px; border-radius:8px; }
+  .dim.d1 { background:#fff8f2; color:#d4740e; }
+  .dim.d2 { background:#fff0f0; color:#c62b3a; }
+  .dim.d3 { background:#f2f7ff; color:#3568a8; }
+  .dim.d4 { background:#f3f4ff; color:#5b4dc7; }
+  .dim.d5 { background:#f1fbf5; color:#0e7a3a; }
+  .dim-block p { font-size:13px; color:#3d4654; line-height:1.85; }
+
+  /* ===== HEATMAP ===== */
+  .heat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .heat {
+    border-radius:10px; padding:12px 8px; text-align:center; font-weight:700;
+    font-size:12.5px; color:#fff; position:relative; overflow:hidden;
+  }
+  .heat .hv { font-size:16px; font-weight:800; display:block; margin-top:2px; font-variant-numeric:tabular-nums; }
+  .heat-fill.up { background:linear-gradient(135deg,#e84855,#ff6b6b); }
+  .heat-fill.down { background:linear-gradient(135deg,#12a05c,#2ecc71); }
+  .heat-fill.flat { background:linear-gradient(135deg,#8a93a1,#a0a8b4); }
+
+  /* ===== TABLE ===== */
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th { background:#f8f9fb; font-weight:700; color:#5b6472; padding:10px 8px; text-align:left; border-bottom:2px solid #ebedf1; font-size:12px; }
+  .tbl td { padding:10px 8px; border-bottom:1px solid #ebedf1; font-variant-numeric:tabular-nums; }
+  .tbl tr:last-child td { border-bottom:none; }
+
+  /* ===== CHIPS ===== */
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .chip { font-size:11.5px; padding:5px 10px; border-radius:8px; background:#f2f4f7; color:#3d4654; }
+  .chip.up { background:#fdeced; color:#c62b3a; }
+  .chip.down { background:#e8f8ef; color:#0e7a3a; }
+
+  /* ===== GF GRID ===== */
+  .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .gf-card { border:1px solid #ebedf1; border-radius:12px; padding:14px 12px; background:#fafbfc; }
+  .gf-card .gn { font-size:11.5px; color:#8a93a1; margin-bottom:4px; }
+  .gf-card .gv { font-size:17px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .gf-card .gc { font-size:12px; font-weight:700; margin-top:2px; }
+
+  /* ===== STRATEGY ===== */
+  .strat {
+    background:linear-gradient(135deg,#f0f4ff,#f8f5ff); border:1px solid #dfe0fb;
+    border-radius:14px; padding:18px 16px; margin-top:10px;
+  }
+  .strat h3 { font-size:14px; font-weight:800; color:#5b4dc7; margin-bottom:10px; }
+  .strat p { font-size:13px; color:#3d4654; line-height:1.85; }
+  .risk {
+    background:#fffbe6; border:1px solid #ffe58f; border-radius:14px;
+    padding:18px 16px; margin-top:10px;
+  }
+  .risk h3 { font-size:14px; font-weight:800; color:#b57a1a; margin-bottom:10px; }
+  .risk p { font-size:13px; color:#4a3a10; line-height:1.85; }
+
+  /* ===== FOOTER ===== */
+  .foot { padding:24px 20px 30px; text-align:center; color:#a6adb9; font-size:11px; line-height:1.9; border-top:1px solid #ebedf1; }
+  .foot .line { width:26px; height:2px; background:#ebedf1; margin:0 auto 12px; border-radius:2px; }
+  .foot strong { color:#7b8492; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ===== 1. HERO ===== -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="brand-row">
+      <div class="brand">DAILY MARKET OBSERVER</div>
+      <div class="live-dot"><span class="dot"></span>每交易日 16:30 更新</div>
+    </div>
+    <h1>霍尔木兹缓和<em>油价暴跌</em> · 券商有色<em>权重搭台</em></h1>
+    <div class="lede">
+      2026年8月26日 周三 · A股三大指数集体收涨，科创50领涨+1.71%。伊朗-阿曼霍尔木兹海峡通航缓和推动油价暴跌3%+，LME铜创历史新高14324美元。券商中报高增+中期分红170亿引爆"牛市旗手"，大金融+有色联袂领涨。全球风险偏好回暖，港股恒指+0.56%、恒生科技+0.82%。
+    </div>
+    <div class="dims">
+      <span class="dim">📰 消息面</span>
+      <span class="dim">🔥 情绪面</span>
+      <span class="dim">📊 技术面</span>
+      <span class="dim">🏛 政策面</span>
+      <span class="dim">💰 资金面</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STICKY NAV ===== -->
+<nav class="sec-nav" id="secNav">
+  <a href="#s1">A股速览</a>
+  <a href="#s2">全球市场</a>
+  <a href="#s3">环球要闻</a>
+  <a href="#s4">五维度</a>
+  <a href="#s5">板块热力</a>
+  <a href="#s6">焦点个股</a>
+  <a href="#s7">大宗商品</a>
+  <a href="#s8">产业数据</a>
+  <a href="#s9">后市策略</a>
+</nav>
+
+<!-- ===== 2. A股速览 ===== -->
+<div class="sec" id="s1">
+  <div class="sec-title"><h2>A股速览</h2><span class="en">A-SHARE</span><span class="rule"></span></div>
+  <div class="idx-grid">
+    <div class="idx-card">
+      <div class="name">上证指数</div>
+      <div class="price up">3,912.52</div>
+      <div class="chg up">+0.59%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">深证成指</div>
+      <div class="price up">13,841.33</div>
+      <div class="chg up">+0.69%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">创业板指</div>
+      <div class="price up">3,414.88</div>
+      <div class="chg up">+0.51%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">科创50</div>
+      <div class="price up">1,632.02</div>
+      <div class="chg up">+1.71%</div>
+    </div>
+  </div>
+  <div class="statbar">
+    <div class="st"><div class="k">两市成交</div><div class="v">1.81 万亿</div></div>
+    <div class="st"><div class="k">涨停 / 跌停</div><div class="v"><span class="up">56</span> / <span class="down">2</span></div></div>
+    <div class="st"><div class="k">上涨 / 下跌</div><div class="v">2946 / 2448</div></div>
+  </div>
+  <div class="callout">
+    <div class="co-title">📌 盘面速读</div>
+    <p>三大指数集体收涨，科创50以+1.71%领涨（算力硬件+半导体权重回暖）。沪指早盘震荡上行午后一度逼近3930点，尾盘涨幅收窄至+0.59%收复3900关口。全天呈典型"权重搭台"结构——白线显著强于黄线，<strong>大金融（证券+2.75%、保险+2.06%）</strong>和<strong>有色金属（工业金属+3.33%、造纸+3.79%）</strong>联袂领涨，而昨日强势的CRO/小家电一日游回调。成交1.81万亿较前日缩量231亿，午后明显乏力，存量博弈特征鲜明。涨停56家（封板率约80%）、跌停仅2家，情绪偏暖但最高连板汉森制药6板尾盘炸板，高位分歧加剧。</p>
+  </div>
+</div>
+
+<!-- ===== 3. 全球市场全景 ===== -->
+<div class="sec" id="s2">
+  <div class="sec-title"><h2>全球市场全景</h2><span class="en">GLOBAL</span><span class="rule"></span></div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#5b6472;margin:8px 0 10px;">🌏 亚太收盘（8/26 今日）</h3>
+  <div class="idx-grid">
+    <div class="idx-card">
+      <div class="name">恒生指数</div>
+      <div class="price up">25,652.97</div>
+      <div class="chg up">+0.56%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">恒生科技</div>
+      <div class="price up">4,626.15</div>
+      <div class="chg up">+0.82%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">日经225</div>
+      <div class="price up">66,262.16</div>
+      <div class="chg up">+0.62%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">韩国KOSPI</div>
+      <div class="price up">6,808.21</div>
+      <div class="chg up">+0.97%</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#5b6472;margin:18px 0 10px;">🇺🇸 美股（8/25 隔夜收盘）</h3>
+  <div class="idx-grid">
+    <div class="idx-card">
+      <div class="name">道琼斯</div>
+      <div class="price up">53,577.40</div>
+      <div class="chg up">+0.30%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">标普500</div>
+      <div class="price up">7,677.28</div>
+      <div class="chg up">+0.32%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">纳斯达克</div>
+      <div class="price up">26,151.30</div>
+      <div class="chg up">+0.66%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">费城半导体</div>
+      <div class="price up">+1.40%</div>
+      <div class="chg up">英伟达+2.2%终结七连跌</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#5b6472;margin:18px 0 10px;">🇪🇺 欧洲（8/25 收盘）</h3>
+  <div class="idx-grid">
+    <div class="idx-card">
+      <div class="name">德国DAX</div>
+      <div class="price up">26,266.14</div>
+      <div class="chg up">+0.61%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">法国CAC40</div>
+      <div class="price down">8,439.20</div>
+      <div class="chg down">-0.16%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">英国FTSE100</div>
+      <div class="price up">10,886.16</div>
+      <div class="chg up">+0.29%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">欧洲Stoxx50</div>
+      <div class="price up">6,460.58</div>
+      <div class="chg up">+0.20%</div>
+    </div>
+  </div>
+
+  <div class="callout" style="background:linear-gradient(135deg,#f0f4ff,#f8f5ff);border-color:#dfe0fb;">
+    <div class="co-title" style="color:#5b4dc7;">🌍 全球格局一句话</div>
+    <p>伊朗-阿曼霍尔木兹海峡通航外交缓和 → 油价暴跌3%+ → 全球风险偏好回暖。美长债收益率同步回落（10Y 4.63% -7bp、30Y -6bp），美元走弱至98.92，黄金续创近高至4696美元。亚太全线收涨，韩股KOSPI+0.97%领涨（三星/海力士利好消化+外资回流），日经+0.62%。美股三连涨+费半+1.4%，市场聚焦今夜英伟达财报。欧股涨跌不一，DAX+0.61%而CAC-0.16%。</p>
+  </div>
+</div>
+
+<!-- ===== 4. 环球要闻深度解读 ===== -->
+<div class="sec" id="s3">
+  <div class="sec-title"><h2>环球要闻深度解读</h2><span class="en">NEWS</span><span class="rule"></span></div>
+
+  <!-- 新闻1 -->
+  <div class="news a">
+    <div class="news-head">
+      <span class="news-num">01</span>
+      <span class="news-tag tag-hot">极重要</span>
+      <span class="news-title">伊朗-阿曼就霍尔木兹海峡通航达成外交共识，油价盘中暴跌6%+</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src intl">Reuters</span><span class="src intl">Bloomberg</span><span class="src intl">CNBC</span></p>
+      <p>伊朗与阿曼就霍尔木兹海峡船舶通航问题达成外交进展，中东紧张局势出现缓和信号。WTI原油盘中一度跌破80美元、收跌3.12%至82.36美元，布伦特跌3.89%至88.58美元，为近一个月最大单日跌幅。</p>
+      <p><strong>💡 影响传导：</strong>霍尔木兹海峡承载全球约20%石油运输，此前航运量一度降至战前5%。外交缓和直接打压油价，但伊朗尚未做出正式承诺，反复风险犹存。对A股影响：油气/化纤板块承压（石油板块今日跌幅居前），但利好航空/化工/交运等成本敏感行业，同时缓解全球通胀预期，美债收益率因此回落。</p>
+    </div>
+  </div>
+
+  <!-- 新闻2 -->
+  <div class="news a">
+    <div class="news-head">
+      <span class="news-num">02</span>
+      <span class="news-tag tag-hot">极重要</span>
+      <span class="news-title">英伟达今晚盘后发财报，华尔街预期营收920亿美元，昨日+2.2%终结七连跌</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src intl">Bloomberg</span><span class="src intl">CNBC</span><span class="src x">@walterbloomberg X</span></p>
+      <p>英伟达(NVDA)将于北京时间8/27(周四)凌晨4:00公布Q2财报，华尔街一致预期营收920亿美元（同比+150%+）。此前英伟达连跌七日至138美元区域，昨日反弹+2.2%至约142美元，费半指数+1.4%。A股算力硬件/光模块/英伟达概念今日表现分化——科创50+1.71%但英伟达概念板块-0.68%，市场等待财报落地后方向选择。</p>
+      <p><strong>💡 影响传导：</strong>这是本周全球资本市场最大事件。若财报超预期+指引强劲，将确认AI capex周期延续，利好A股算力/光模块/CPO；若不及预期，存储+AI链可能再度杀跌。此前七连跌反映市场对"AI泡沫"和长债收益率上升的双重担忧。</p>
+    </div>
+  </div>
+
+  <!-- 新闻3 -->
+  <div class="news a">
+    <div class="news-head">
+      <span class="news-num">03</span>
+      <span class="news-tag tag-hot">极重要</span>
+      <span class="news-title">LME期铜创历史收盘新高14324.5美元/吨，有色板块全线爆发</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src intl">Bloomberg</span><span class="src">证券时报</span><span class="src">每日经济新闻</span></p>
+      <p>隔夜LME期铜收报14324.5美元/吨创收盘价历史新高，COMEX铜同步创新高。核心驱动：铜矿资本开支不足+供给端扰动频发+新能源需求拉动，国联民生证券判断铜矿供需格局将由紧平衡转向短缺。叠加江西铜业半年报归母净利86.32亿元同比+106.77%，A股有色板块全线爆发——工业金属+3.33%领涨，江西铜业/金诚信/白银有色/精艺股份集体涨停，洛阳钼业获主力净买入超15亿居首。</p>
+      <p><strong>💡 影响传导：</strong>铜是"经济博士"——铜价创新高反映全球制造业/新能源需求韧性。上海发文加快铜铝等重点金属大宗商品交易规模，政策加持下有色行情中期逻辑最硬。关注紫金矿业、洛阳钼业等龙头。</p>
+    </div>
+  </div>
+
+  <!-- 新闻4 -->
+  <div class="news b">
+    <div class="news-head">
+      <span class="news-num">04</span>
+      <span class="news-tag tag-warn">重要</span>
+      <span class="news-title">Moderna mRNA癌症疫苗III期阳性结果，隔夜暴涨14%，A股生物医药跟涨</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src intl">Reuters</span><span class="src intl">Bloomberg</span><span class="src">证券时报</span></p>
+      <p>Moderna与默沙东合作的个性化mRNA癌症疫苗intismeran autogene首个III期临床试验取得初步阳性结果，叠加巴克莱上调目标价，Moderna隔夜暴涨14%。A股生物医药跟涨——康希诺20CM涨停（mRNA技术平台受益）、万泰生物涨停、卫光生物2连板。但注意：Moderna本周曾暴涨177%后又大跌23%，高波动是mRNA概念常态。</p>
+      <p><strong>💡 影响传导：</strong>mRNA个性化癌症疫苗是医药领域的革命性突破，利好国内mRNA技术平台公司（康希诺、沃森生物等）。但A股CRO概念反而震荡调整（诚达药业/康龙化成跌幅居前），资金从CXO赛道向Biotech/疫苗方向切换。</p>
+    </div>
+  </div>
+
+  <!-- 新闻5 -->
+  <div class="news b">
+    <div class="news-head">
+      <span class="news-num">05</span>
+      <span class="news-tag tag-warn">重要</span>
+      <span class="news-title">21家券商中报：营收净利双增+53%，中期分红近170亿，"牛市旗手"全线飘红</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src">证券时报</span><span class="src">每日经济新闻</span><span class="src">财联社</span></p>
+      <p>截至8/25，共21家上市券商披露2026年半年报，合计营收约2071亿元(+53%)、归母净利约888亿元(+53%)，悉数实现营收净利双增。中泰证券净利+146.38%居首，财达证券、华安证券增超一倍。15家券商公布中期分红预案，拟派现总额近170亿元。股票基金日均成交3.24万亿(+101%)为经纪业务提供强力支撑。A股证券板块+2.75%全线飘红，锦龙股份/湘财股份/恒银科技涨停，招商证券+5.84%。</p>
+      <p><strong>💡 影响传导：</strong>券商业绩是A股活跃度的"温度计"——日均3.24万亿成交(+101%)直接推动经纪/两融/自营全面开花。中期分红170亿进一步提振股息吸引力。港股中资券商同步爆发：中金公司+8.25%、招商证券+6.59%、中信证券+6%+。券商是当前最确定的业绩主线。</p>
+    </div>
+  </div>
+
+  <!-- 新闻6 -->
+  <div class="news b">
+    <div class="news-head">
+      <span class="news-num">06</span>
+      <span class="news-tag tag-warn">重要</span>
+      <span class="news-title">Fed主席Warsh将于周五Jackson Hole发表讲话，加息预期博弈加剧</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src intl">CNBC</span><span class="src intl">WSJ</span><span class="src x">@NickTimiraos X</span></p>
+      <p>美联储主席Warsh将于本周五(8/28)在Jackson Hole年会发表重要讲话。当前市场分歧加大：一方面8月消费者信心指数降至89.4、新屋销售环比-10.5%显示需求疲软；另一方面核心PCE仍高企，长债收益率虽从高位回落但30Y仍在5.2%附近。10Y美债收益率今日下行7bp至4.63%，曲线牛市平坦化，反映市场对加息预期有所降温但仍不确定。</p>
+      <p><strong>💡 影响传导：</strong>Warsh的首次Jackson Hole讲话是本周第二大事件（仅次于英伟达财报）。市场关注其对"财政主导+通胀粘性+AI资产泡沫"三重风险的表态。若释放鸽派信号，利好全球风险资产+黄金；若偏鹰，长债收益率可能重新上行，对A股科技成长方向形成压制。</p>
+    </div>
+  </div>
+
+  <!-- 新闻7 -->
+  <div class="news b">
+    <div class="news-head">
+      <span class="news-num">07</span>
+      <span class="news-tag tag-warn">重要</span>
+      <span class="news-title">天华新能半年报净利暴增2622%，锂电池概念集体反弹</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src">每日经济新闻</span><span class="src">同花顺</span></p>
+      <p>天华新能2026年半年报显示：营收77.8亿元(+125%)、归母净利22.92亿元(+2622.89%)、扣非净利22.67亿元(+1739.20%)。此前碳酸锂价格从底部反弹+锂资源端供给收缩预期升温，带动锂电池概念集体反弹——豪尔赛/上海洗霸涨停，固态电池/电解液/盐湖提锂方向跟涨。但注意碳酸锂价格波动剧烈，前日暴跌5%至15.1万元/吨。</p>
+      <p><strong>💡 影响传导：</strong>天华新能的暴利反映锂价从底部反弹的巨大弹性，但碳酸锂价格已从高点回落至15万区间，后续走势取决于新能源车需求增速和锂矿产能释放节奏。操作上适合回调低吸，不宜追高。</p>
+    </div>
+  </div>
+
+  <!-- 新闻8 -->
+  <div class="news c">
+    <div class="news-head">
+      <span class="news-num">08</span>
+      <span class="news-tag tag-info">关注</span>
+      <span class="news-title">加拿大宣布对美国商品征收报复性关税，全球贸易不确定性升温</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src intl">Reuters</span><span class="src intl">MT Newswires</span></p>
+      <p>加拿大政府宣布对美国商品征收报复性关税，以回应特朗普政府的贸易政策。此举加剧全球贸易不确定性，市场担忧贸易战升级可能拖累全球经济增长预期。MT Newswires指出，这增加了北美供应链的成本压力，特别是对汽车/铝/钢等跨境贸易密集行业。</p>
+      <p><strong>💡 影响传导：</strong>加美贸易摩擦对A股直接影响有限，但叠加此前"美国对伊朗史上最严厉制裁"+"对各国关税威胁"，全球贸易环境持续恶化。避险情绪支撑黄金续创新高（现货黄金盘中触及4696.83美元）。</p>
+    </div>
+  </div>
+
+  <!-- 新闻9 -->
+  <div class="news c">
+    <div class="news-head">
+      <span class="news-num">09</span>
+      <span class="news-tag tag-info">关注</span>
+      <span class="news-title">央行5000亿MLF续作+三部门促内需贴息上限提至5000元，政策面偏暖</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src">财联社</span><span class="src">证券时报</span><span class="src">每经</span></p>
+      <p>央行开展5000亿MLF续作，维持流动性合理充裕；财政部加快专项债发行使用进度；三部门联合发文促内需，消费贴息上限从3000元提至5000元；数字人民币运营机构从22家扩容至30家，生态版图加速扩张。政策面整体偏暖，为A股反弹提供底部支撑。</p>
+      <p><strong>💡 影响传导：</strong>MLF续作+专项债加速=宏观流动性宽松，利好银行/地产/基建。消费贴息扩围直接刺激消费电子/家电/汽车等可选消费。数字人民币扩容利好金融科技（楚天龙4连板即为受益标的）。</p>
+    </div>
+  </div>
+
+  <!-- 新闻10 -->
+  <div class="news c">
+    <div class="news-head">
+      <span class="news-num">10</span>
+      <span class="news-tag tag-info">关注</span>
+      <span class="news-title">OpenAI自研芯片超越英伟达GB300，算力格局生变</span>
+    </div>
+    <div class="news-body">
+      <p><span class="src intl">WSJ</span><span class="src x">@OpenAI X</span></p>
+      <p>OpenAI宣布其自研AI芯片在部分基准测试中性能超越英伟达GB300，标志着AI巨头加速"去英伟达化"布局。WSJ报道称，这一进展可能重塑AI算力供应链格局，对英伟达的垄断地位构成潜在挑战。不过短期内英伟达GPU仍是训练主流，OpenAI自研芯片主要针对推理场景优化。</p>
+      <p><strong>💡 影响传导：</strong>长期看，AI芯片"去英伟达化"趋势有利于国内算力自主可控——若英伟达垄断松动，国产GPU/ASIC厂商（寒武纪/海光信息等）可能获得更多生态空间。短期对A股英伟达概念(-0.68%)构成轻微利空。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5. 五维度拆解 ===== -->
+<div class="sec" id="s4">
+  <div class="sec-title"><h2>五维度深度拆解</h2><span class="en">ANALYSIS</span><span class="rule"></span></div>
+
+  <div class="dim-block">
+    <div class="dim-label dim d1">📰 消息面</div>
+    <p><strong>利多信号：</strong>伊朗-阿曼霍尔木兹海峡通航外交缓和（油价暴跌3%+缓解通胀预期）；LME铜创历史新高14324美元（有色供需逻辑强化）；21家券商中报营收净利双增+53%（业绩确定性最强）；Moderna mRNA癌症疫苗III期成功（生物医药催化）；天华新能净利+2622%（锂电池底部弹性）；央行5000亿MLF续作+消费贴息扩围+数字人民币扩容。<br>
+    <strong>利空/不确定：</strong>英伟达今夜财报（最大变量，七连跌后市场高度紧张）；加拿大报复性关税（贸易摩擦升温）；OpenAI自研芯片超越英伟达GB300（算力格局长期生变）；美国消费信心降至89.4+新屋销售-10.5%（需求走弱信号）。<br>
+    <strong>综合判断：</strong>消息面偏暖，地缘缓和+业绩驱动+政策宽松三重利好共振，但英伟达财报落地前市场观望情绪浓厚，科技方向存在"等靴子落地"的压制。</p>
+  </div>
+
+  <div class="dim-block">
+    <div class="dim-label dim d2">🔥 情绪面</div>
+    <p><strong>涨停56家/跌停2家</strong>，封板率约80%，情绪整体偏暖。但关键信号：最高连板汉森制药6板<strong>尾盘炸板</strong>回落（收+6.16%），是今日最重要的短线分歧信号——高位股接力意愿降温。连板梯队：深中华A 5连板（黄金）/楚天龙4连板（数字人民币）/海鸥住工3连板。<br>
+    成交1.81万亿<strong>缩量231亿</strong>，午后明显乏力。早盘一度放量837亿半日成交1.23万亿，午后却大幅缩量——典型"早盘冲高、午后乏力"的存量博弈形态。上涨占比53%较昨日76%普涨明显回落，白线强于黄线，小微盘弱于权重。<br>
+    <strong>情绪温度：</strong>反弹延续但动能衰减，权重搭台而题材一日游（CRO/小家电昨日领涨今日回调），热点轮动过快缺乏持续性。需关注量能能否重回2万亿。</p>
+  </div>
+
+  <div class="dim-block">
+    <div class="dim-label dim d3">📊 技术面</div>
+    <p><strong>沪指：</strong>收复3900关口至3912.52，盘中一度逼近3930。上方压力位3930-3950（前期密集成交区），支撑位3880-3890（5日均线附近）。日线MACD红柱缩短、KDJ中位偏强，短期均线系统走平，方向选择临近。<br>
+    <strong>创业板：</strong>+0.51%至3414.88，仍运行在3400-3550箱体区间内，短期均线粘合，等待英伟达财报后方向选择。<br>
+    <strong>科创50：</strong>+1.71%至1632.02领涨全场，算力硬件+半导体权重回暖，突破前期1600关口，但能否站稳需量能配合。<br>
+    <strong>港股：</strong>恒指25652.97守住25500-26000区间，恒生科技+0.82%至4626.15。阿里+2.1%（马云/蔡崇信连续增持提振）、小米+2.52%，科网股走势分化。<br>
+    <strong>关键位：</strong>沪指3930-3950压力 / 3880支撑；恒指26000整数关 / 25500支撑。</p>
+  </div>
+
+  <div class="dim-block">
+    <div class="dim-label dim d4">🏛 政策面</div>
+    <p>① <strong>央行5000亿MLF续作</strong>——维持流动性合理充裕，叠加专项债加速发行，为市场提供底部支撑。<br>
+    ② <strong>三部门促内需</strong>——消费贴息上限从3000元提至5000元，直接刺激消费电子/家电/汽车等可选消费。<br>
+    ③ <strong>数字人民币运营机构扩容</strong>——从22家扩至30家，生态版图加速扩张，利好金融科技。<br>
+    ④ <strong>上海加快铜铝等大宗商品交易规模</strong>——政策加持有色板块中期逻辑。<br>
+    ⑤ <strong>长三角核聚变创新联合体成立</strong>——发布高温超导磁体研制路线图，目标2028年建成首条25T磁体测试线，催化可控核聚变概念（融发核电/百利电气涨停）。<br>
+    <strong>综合：</strong>政策面整体偏暖——MLF续作+消费贴息+数字人民币扩容三线并进，但短期增量政策空间有限，市场等待更大力度刺激。</p>
+  </div>
+
+  <div class="dim-block">
+    <div class="dim-label dim d5">💰 资金面</div>
+    <p><strong>主力资金流入：</strong>有色金属(+74亿居首，洛阳钼业净买入超15亿)→非银金融→工业金属→黄金概念(+58.65亿)→中报预增(+103.9亿)。个股层面：中信证券净流入8.22亿、东方财富7.56亿、长江证券3.51亿（券商全面吸金）。<br>
+    <strong>主力资金流出：</strong>电子/通信/半导体方向——新易盛遭净卖出超5亿，天孚通信/长鑫科技/兆易创新净流出居前，反映英伟达财报前科技成长方向观望情绪浓厚。<br>
+    <strong>ETF市场：</strong>全市场ETF合计成交4256.1亿元（缩量232.5亿），超1300只ETF收涨。有色ETF/黄金ETF/证券ETF领涨。<br>
+    <strong>北向资金：</strong>全天口径未明确披露。前日数据显示南向资金持续加仓港股（阿里/腾讯获增持）。<br>
+    <strong>港股：</strong>全日成交额2548.24亿港元，铜矿股/中资券商/内房股获资金抢筹，油气股/水务股/CRO概念遭抛售。</p>
+  </div>
+</div>
+
+<!-- ===== 6. 板块热力图 ===== -->
+<div class="sec" id="s5">
+  <div class="sec-title"><h2>板块热力图</h2><span class="en">SECTORS</span><span class="rule"></span></div>
+  <div class="heat-grid">
+    <div class="heat heat-fill.up">造纸<span class="hv">+3.79%</span></div>
+    <div class="heat heat-fill.up">工业金属<span class="hv">+3.33%</span></div>
+    <div class="heat heat-fill.up">证券<span class="hv">+2.75%</span></div>
+    <div class="heat heat-fill.up">保险<span class="hv">+2.06%</span></div>
+    <div class="heat heat-fill.up">水泥<span class="hv">+2.01%</span></div>
+    <div class="heat heat-fill.up">贵金属<span class="hv">+1.64%</span></div>
+    <div class="heat heat-fill.up">可控核聚变<span class="hv">涨停潮</span></div>
+    <div class="heat heat-fill.down">出版<span class="hv">-1.44%</span></div>
+    <div class="heat heat-fill.down">小家电<span class="hv">-1.35%</span></div>
+    <div class="heat heat-fill.down">医疗服务<span class="hv">-1.34%</span></div>
+    <div class="heat heat-fill.down">数字媒体<span class="hv">-1.10%</span></div>
+    <div class="heat heat-fill.down">电机<span class="hv">-0.95%</span></div>
+  </div>
+  <div class="chips" style="margin-top:14px;">
+    <span class="chip up">🔴 有色金属 主力净流入+74亿</span>
+    <span class="chip up">🔴 券商 全线飘红</span>
+    <span class="chip up">🔴 核聚变 融发核电/百利电气涨停</span>
+    <span class="chip down">🟢 CRO 震荡调整</span>
+    <span class="chip down">🟢 小家电 一日游回调</span>
+    <span class="chip">⚪ 石油 油价暴跌承压</span>
+  </div>
+</div>
+
+<!-- ===== 7. 焦点个股 ===== -->
+<div class="sec" id="s6">
+  <div class="sec-title"><h2>焦点个股</h2><span class="en">SPOTLIGHT</span><span class="rule"></span></div>
+  <table class="tbl">
+    <tr><th>方向</th><th>个股</th><th>表现</th><th>催化</th></tr>
+    <tr><td style="color:#e84855;font-weight:700;">大金融</td><td>锦龙股份</td><td class="up">涨停</td><td>券商中报+中期分红</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">大金融</td><td>湘财股份</td><td class="up">涨停</td><td>券商中报+中期分红</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">大金融</td><td>招商证券</td><td class="up">+5.84%</td><td>行业龙头+中报亮眼</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">有色/铜</td><td>江西铜业</td><td class="up">涨停</td><td>LME铜创新高+半年报净利+106.77%</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">有色/铜</td><td>金诚信</td><td class="up">涨停</td><td>铜价+半年报业绩大增</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">有色/铜</td><td>深中华A</td><td class="up">5连板</td><td>黄金概念龙头</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">核聚变</td><td>融发核电</td><td class="up">涨停</td><td>长三角创新联合体路线图</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">核聚变</td><td>杭电股份</td><td class="up">涨停</td><td>封单超16万手+章建平建仓</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">医药</td><td>康希诺</td><td class="up">20CM涨停</td><td>Moderna mRNA疫苗III期催化</td></tr>
+    <tr><td style="color:#e84855;font-weight:700;">锂电</td><td>豪尔赛</td><td class="up">涨停</td><td>天华新能半年报净利+2622%</td></tr>
+    <tr><td style="color:#12a05c;font-weight:700;">CRO</td><td>康龙化成</td><td class="down">跌幅居前</td><td>昨日大涨后一日游回调</td></tr>
+    <tr><td style="color:#12a05c;font-weight:700;">港股</td><td>中金公司</td><td class="up">+8.25%</td><td>券商中报+中期分红超预期</td></tr>
+    <tr><td style="color:#12a05c;font-weight:700;">港股</td><td>江西铜业H</td><td class="up">+9.92%</td><td>LME铜创新高</td></tr>
+    <tr><td style="color:#12a05c;font-weight:700;">港股</td><td>信达生物</td><td class="up">+9.69%</td><td>半年报利润+50.2%超预期</td></tr>
+  </table>
+</div>
+
+<!-- ===== 8. 大宗商品 & 汇率 & 债券 ===== -->
+<div class="sec" id="s7">
+  <div class="sec-title"><h2>大宗商品 · 汇率 · 债券</h2><span class="en">COMMODITIES</span><span class="rule"></span></div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#5b6472;margin:8px 0 10px;">🛢 能源 & 贵金属</h3>
+  <div class="gf-grid">
+    <div class="gf-card">
+      <div class="gn">WTI原油</div>
+      <div class="gv down">$82.36</div>
+      <div class="gc down">-3.12%</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">布伦特原油</div>
+      <div class="gv down">$88.58</div>
+      <div class="gc down">-3.89%</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">现货黄金</div>
+      <div class="gv up">$4,662.05</div>
+      <div class="gc up">+0.21% · 盘中触4696近高</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">现货白银</div>
+      <div class="gv up">$68.70</div>
+      <div class="gc up">基本持平</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#5b6472;margin:18px 0 10px;">🔩 工业金属 & 农产品</h3>
+  <div class="gf-grid">
+    <div class="gf-card">
+      <div class="gn">LME期铜</div>
+      <div class="gv up">$14,324.5/吨</div>
+      <div class="gc up">🏆 创收盘历史新高</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">COMEX铜</div>
+      <div class="gv up">+0.56%</div>
+      <div class="gc up">纽铜齐创新高</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">CBOT小麦</div>
+      <div class="gv up">$694/蒲</div>
+      <div class="gc up">+1.29%</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">CBOT玉米</div>
+      <div class="gv up">$505/蒲</div>
+      <div class="gc up">+0.83%</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:700;color:#5b6472;margin:18px 0 10px;">💱 汇率 & 债券</h3>
+  <div class="gf-grid">
+    <div class="gf-card">
+      <div class="gn">美元指数</div>
+      <div class="gv down">98.92</div>
+      <div class="gc down">-0.09%</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">USD/JPY</div>
+      <div class="gv">159.19</div>
+      <div class="gc">日元小幅走强</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">离岸人民币</div>
+      <div class="gv up">6.7162</div>
+      <div class="gc up">较前日升值</div>
+    </div>
+    <div class="gf-card">
+      <div class="gn">比特币</div>
+      <div class="gv down">$78,216</div>
+      <div class="gc down">-0.97% · 盘中破81000后回落</div>
+    </div>
+  </div>
+  <div class="statbar" style="margin-top:14px;">
+    <div class="st"><div class="k">10Y美债</div><div class="v down">4.63% (-7bp)</div></div>
+    <div class="st"><div class="k">30Y美债</div><div class="v down">-6bp 回落</div></div>
+    <div class="st"><div class="k">期限利差</div><div class="v">曲线牛平</div></div>
+  </div>
+</div>
+
+<!-- ===== 9. 产业高频数据 ===== -->
+<div class="sec" id="s8">
+  <div class="sec-title"><h2>产业高频数据</h2><span class="en">INDUSTRY</span><span class="rule"></span></div>
+  <table class="tbl">
+    <tr><th>指标</th><th>最新值</th><th>变动</th><th>信号</th></tr>
+    <tr><td>LME期铜</td><td>$14,324.5/吨</td><td class="up">创历史新高</td><td>铜矿供需转短缺</td></tr>
+    <tr><td>碳酸锂</td><td>~15.1万/吨</td><td class="down">前日暴跌5%</td><td>锂价底部反弹后震荡</td></tr>
+    <tr><td>WTI原油</td><td>$82.36</td><td class="down">-3.12%</td><td>霍尔木兹缓和利空</td></tr>
+    <tr><td>现货黄金</td><td>$4,662</td><td class="up">盘中触4696</td><td>避险+美元走弱</td></tr>
+    <tr><td>A股日均成交</td><td>3.24万亿(股票+基金)</td><td class="up">+101% YoY</td><td>经纪业务强支撑</td></tr>
+    <tr><td>今日两市成交</td><td>1.81万亿</td><td class="down">缩量231亿</td><td>存量博弈午后乏力</td></tr>
+    <tr><td>ETF成交</td><td>4256.1亿</td><td class="down">缩量232.5亿</td><td>超1300只ETF收涨</td></tr>
+    <tr><td>券商中报</td><td>21家披露</td><td class="up">营收净利+53%</td><td>中期分红170亿</td></tr>
+    <tr><td>10Y美债</td><td>4.63%</td><td class="down">-7bp</td><td>地缘缓和+需求走弱</td></tr>
+    <tr><td>离岸人民币</td><td>6.7162</td><td class="up">升值</td><td>美元走弱+外资回流</td></tr>
+  </table>
+</div>
+
+<!-- ===== 10. 后市展望策略 ===== -->
+<div class="sec" id="s9">
+  <div class="sec-title"><h2>后市展望与策略</h2><span class="en">OUTLOOK</span><span class="rule"></span></div>
+  <div class="strat">
+    <h3>📌 核心判断</h3>
+    <p>今日三大指数集体收涨、科创50领涨，沪指收复3900，但午后冲高回落+全天缩量231亿暴露存量博弈本质——<strong>权重搭台（大金融+有色+造纸）而题材一日游（CRO/小家电）</strong>，热点快速轮动缺乏持续性。短期看市场进入技术性反弹但动能衰减阶段，<strong>3930-3950是上方压力区</strong>，量能能否重回2万亿是判断反弹成色的关键。</p>
+  </div>
+  <div class="strat" style="background:linear-gradient(135deg,#f1fbf5,#f0fff4);border-color:#d3f0de;">
+    <h3 style="color:#0e7a3a;">✅ 三大确定性主线</h3>
+    <p><strong>① 大金融/证券</strong>——券商中报营收净利双增+53%、中期分红170亿，业绩确定性最强，是当前唯一"业绩+估值+政策"三重共振的方向。<br>
+    <strong>② 有色金属（铜）</strong>——LME铜创历史新高+供需转短缺逻辑最硬，主力资金净流入+74亿居首，江西铜业净利+106.77%，回调低吸优于追高。<br>
+    <strong>③ 可控核聚变</strong>——政策+产业双重背书（长三角创新联合体+路线图），融发核电/杭电股份涨停+章建平建仓，中长期题材可跟踪。</p>
+  </div>
+  <div class="risk">
+    <h3>⚠️ 四大风险提示</h3>
+    <p>① <strong>英伟达财报（今夜凌晨4:00）</strong>——本周最大变量。七连跌后市场高度紧张，若超预期利好算力链，若不及预期可能引发科技+AI方向二次杀跌。<br>
+    ② <strong>缩量冲高回落</strong>——1.81万亿缩量+午后乏力，反弹动能不足。量能未放大前不宜追高。<br>
+    ③ <strong>汉森制药6板炸板</strong>——连板高度见顶，高位股补跌风险升温。接力情绪降温。<br>
+    ④ <strong>Fed Warsh周五Jackson Hole讲话</strong>——若偏鹰，长债收益率可能重新上行，对科技成长形成压制。<br>
+    <strong>操作建议：</strong>轻指数重结构，逢低关注业绩确定性的大金融（招商证券）、有色铜（紫金矿业/洛阳钼业），规避连板高位股与一日游题材。英伟达财报落地前控制仓位。</p>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="foot">
+  <div class="line"></div>
+  <p><strong>每日全球股市观察</strong> · Daily Market Observer</p>
+  <p>2026年8月26日 16:30 · 数据截至北京时间15:30收盘</p>
+  <p>数据来源：Reuters · Bloomberg · WSJ · CNBC · Financial Times · 财联社 · 证券时报 · 每日经济新闻 · 华尔街见闻 · 新华财经 · 东方财富</p>
+  <p style="margin-top:8px;">本内容仅供参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+</div>
+
+</div>
+
+<script>
+// Sticky nav scroll with offset
+document.querySelectorAll('.sec-nav a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const id = this.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    const nav = document.getElementById('secNav');
+    const offset = nav.offsetHeight + 8;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  });
+});
+// Active nav highlight on scroll
+const sections = document.querySelectorAll('.sec[id]');
+const navLinks = document.querySelectorAll('.sec-nav a');
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('secNav');
+  const scrollPos = window.scrollY + nav.offsetHeight + 20;
+  sections.forEach(sec => {
+    if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector('.sec-nav a[href="#' + sec.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>

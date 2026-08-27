@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>每日全球股市观察 · Daily Market Observer</title>
+<meta name="description" content="每个交易日 15:30 更新的全球股市深度分析报告，覆盖消息面、情绪面、技术面、政策面、资金面五大维度。">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  :root {
+    --up: #e84855;
+    --down: #12a05c;
+    --ink: #14181f;
+    --ink2: #3d4654;
+    --mute: #8a93a1;
+    --line: #ebedf1;
+    --bg: #f2f4f7;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(20,24,31,0.06);
+    overflow: hidden;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    background:
+      radial-gradient(900px 380px at 15% -10%, rgba(232,72,85,0.34), transparent 62%),
+      radial-gradient(700px 340px at 92% 8%, rgba(58,120,255,0.26), transparent 60%),
+      linear-gradient(150deg, #131a26 0%, #1c2536 46%, #101725 100%);
+    color: #fff;
+    padding: 44px 26px 76px;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 46px;
+    background: #fff;
+    border-radius: 26px 26px 0 0;
+  }
+  .grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 78%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 78%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  .brand {
+    font-size: 11px;
+    letter-spacing: 3.4px;
+    color: rgba(255,255,255,0.58);
+    font-weight: 600;
+  }
+  .live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    color: rgba(255,255,255,0.72);
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 4px 11px 4px 9px;
+    border-radius: 999px;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 0 0 rgba(74,222,128,0.7);
+    animation: pulse 2.1s infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(74,222,128,0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+    100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+  }
+  .hero h1 {
+    font-size: 31px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    line-height: 1.28;
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(94deg, #ff8d76, #ff5f6d 55%, #ffb36b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero .lede {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.66);
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 20px;
+  }
+  .dims { display: flex; flex-wrap: wrap; gap: 7px; }
+  .dim {
+    font-size: 11.5px;
+    padding: 4.5px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.86);
+    letter-spacing: 0.3px;
+  }
+
+  /* ---------- 快照 ---------- */
+  .snap-wrap { padding: 0 20px; margin-top: -34px; position: relative; z-index: 5; }
+  .snap {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(20,24,31,0.09);
+    overflow: hidden;
+  }
+  .snap-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 16px 11px;
+    border-bottom: 1px solid var(--line);
+  }
+  .snap-head .t { font-size: 12.5px; font-weight: 700; color: var(--ink2); letter-spacing: 0.4px; }
+  .snap-head .d { font-size: 11.5px; color: #9aa2b0; }
+  .snap-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .sc {
+    padding: 14px 8px 15px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .sc:last-child { border-right: none; }
+  .sc .n { font-size: 11px; color: #98a0ad; margin-bottom: 5px; letter-spacing: 0.2px; }
+  .sc .v { font-size: 16px; font-weight: 800; letter-spacing: -0.3px; font-variant-numeric: tabular-nums; }
+  .sc .c { font-size: 11.5px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .up   { color: var(--up); }
+  .down { color: var(--down); }
+  .snap-foot {
+    display: flex; flex-wrap: wrap; gap: 0;
+    border-top: 1px solid var(--line);
+    background: #fafbfc;
+  }
+  .sf { flex: 1; min-width: 33%; padding: 9px 6px; text-align: center; border-right: 1px solid var(--line); }
+  .sf:last-child { border-right: none; }
+  .sf .k { font-size: 10.5px; color: #9aa2b0; }
+  .sf .w { font-size: 13px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  /* ---------- 最新报告 ---------- */
+  .sec-head {
+    display: flex; align-items: baseline; gap: 9px;
+    padding: 30px 20px 13px;
+  }
+  .sec-head h2 { font-size: 16.5px; font-weight: 800; letter-spacing: 0.2px; }
+  .sec-head .en { font-size: 10.5px; color: #b3bac5; letter-spacing: 1.6px; text-transform: uppercase; }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--line); }
+
+  .latest-banner {
+    display: block;
+    margin: 0 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 18px;
+    padding: 22px 22px 20px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(420px 200px at 88% 6%, rgba(255,255,255,0.20), transparent 62%),
+      linear-gradient(135deg, #c62b3a 0%, #e84855 52%, #ff6a4d 100%);
+    box-shadow: 0 12px 28px rgba(200,45,58,0.28);
+    transition: transform .16s ease, box-shadow .16s ease;
+  }
+  .latest-banner:active { transform: scale(0.985); box-shadow: 0 6px 16px rgba(200,45,58,0.24); }
+  .latest-banner::before {
+    content: "";
+    position: absolute; right: -46px; top: -52px;
+    width: 168px; height: 168px; border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+  }
+  .lb-top { display: flex; align-items: center; gap: 8px; margin-bottom: 11px; position: relative; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.24);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 3px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.4px;
+  }
+  .tag .dot { background: #fff; box-shadow: none; animation: none; width: 5px; height: 5px; }
+  .lb-top .fresh { font-size: 11px; color: rgba(255,255,255,0.78); }
+  .latest-banner .title {
+    font-size: 19px; font-weight: 800; letter-spacing: -0.2px;
+    margin-bottom: 6px; position: relative;
+  }
+  .latest-banner .desc {
+    font-size: 13px; color: rgba(255,255,255,0.9);
+    line-height: 1.65; position: relative; padding-right: 26px;
+  }
+  .lb-cta {
+    margin-top: 15px; padding-top: 13px;
+    border-top: 1px solid rgba(255,255,255,0.22);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12.5px; font-weight: 700; position: relative;
+  }
+  .lb-cta .arrow { font-size: 17px; }
+
+  /* ---------- 维度说明 ---------- */
+  .dimcards {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 8px; padding: 16px 20px 2px;
+  }
+  .dc {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 11px 4px 10px;
+    text-align: center;
+    background: #fff;
+  }
+  .dc .ic { font-size: 17px; line-height: 1; margin-bottom: 5px; }
+  .dc .nm { font-size: 11px; font-weight: 700; color: var(--ink2); }
+  .dc.a { background: #fff8f2; border-color: #ffe2cc; }
+  .dc.b { background: #f9f5ff; border-color: #ebdefb; }
+  .dc.c { background: #f2f7ff; border-color: #d9e6fb; }
+  .dc.d { background: #f3f4ff; border-color: #dfe0fb; }
+  .dc.e { background: #f1fbf5; border-color: #d3f0de; }
+
+  /* ---------- 时间线 ---------- */
+  .timeline { padding: 4px 20px 8px 46px; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute;
+    left: 24px; top: 18px; bottom: 26px;
+    width: 2px; background: linear-gradient(180deg, #f0d3d6, var(--line) 42%, transparent);
+  }
+  .report-item {
+    display: block; position: relative;
+    text-decoration: none; color: var(--ink);
+    padding: 14px 14px 15px;
+    margin-bottom: 10px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    transition: border-color .16s, box-shadow .16s, transform .16s;
+  }
+  .report-item::before {
+    content: ""; position: absolute;
+    left: -29.5px; top: 20px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: #fff; border: 3px solid #e0e4ea;
+    z-index: 2;
+  }
+  .report-item:first-child::before { border-color: var(--up); box-shadow: 0 0 0 4px rgba(232,72,85,0.12); }
+  .report-item:active { transform: translateY(1px); border-color: #dfe3e9; box-shadow: 0 3px 10px rgba(20,24,31,0.06); }
+  .ri-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .date-badge {
+    background: #fdeced; color: #c62b3a;
+    font-size: 11.5px; font-weight: 800;
+    padding: 2.5px 9px; border-radius: 6px;
+    font-variant-numeric: tabular-nums; letter-spacing: 0.2px;
+  }
+  .weekday { font-size: 11.5px; color: #98a0ad; }
+  .new-pill {
+    font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
+    color: #fff; background: var(--up);
+    padding: 2px 7px; border-radius: 5px;
+  }
+  .arrow-small { margin-left: auto; color: #c8cdd6; font-size: 16px; }
+  .summary { font-size: 13.5px; color: #5b6472; line-height: 1.68; }
+
+  /* ---------- 说明 ---------- */
+  .note {
+    margin: 18px 20px 0;
+    background: #f8f9fb;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .note h3 { font-size: 13px; font-weight: 800; color: var(--ink2); margin-bottom: 10px; }
+  .note ul { list-style: none; }
+  .note li {
+    font-size: 12.5px; color: #6b7484; line-height: 1.9;
+    padding-left: 16px; position: relative;
+  }
+  .note li::before {
+    content: ""; position: absolute; left: 3px; top: 11px;
+    width: 4px; height: 4px; border-radius: 50%; background: #cbd2dc;
+  }
+  .note li b { color: var(--ink2); font-weight: 700; }
+  .srcs { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 11px; }
+  .src {
+    font-size: 10.5px; padding: 2.5px 8px; border-radius: 5px;
+    background: #eef1f5; color: #6b7484; letter-spacing: 0.2px;
+  }
+  .src.i { background: #f2edfd; color: #7c5cc4; }
+
+  /* ---------- 页脚 ---------- */
+  .footer {
+    text-align: center;
+    padding: 30px 24px 34px;
+    color: #a6adb9;
+    font-size: 11.5px;
+    line-height: 1.9;
+  }
+  .footer .line { width: 26px; height: 2px; background: var(--line); margin: 0 auto 14px; border-radius: 2px; }
+  .footer strong { color: #7b8492; font-weight: 700; }
+
+  @media (max-width: 420px) {
+    .hero { padding: 38px 20px 72px; }
+    .hero h1 { font-size: 26px; }
+    .brand { font-size: 9.5px; letter-spacing: 1.6px; }
+    .live { font-size: 10px; padding: 3px 9px 3px 8px; }
+    .sc { padding: 13px 4px 14px; }
+    .sc .v { font-size: 14px; }
+    .sc .n { font-size: 10px; }
+    .dimcards { gap: 5px; padding: 14px 16px 2px; }
+    .dc { padding: 10px 2px 9px; }
+    .dc .nm { font-size: 9.5px; }
+    .timeline { padding-left: 42px; padding-right: 16px; }
+    .report-item::before { left: -25.5px; }
+    .latest-banner { margin: 0 16px; padding: 20px 18px 18px; }
+    .latest-banner .title { font-size: 17.5px; }
+    .snap-wrap { padding: 0 16px; }
+    .note { margin: 18px 16px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div class="grid-lines"></div>
+    <div class="hero-inner">
+      <div class="brand-row">
+        <div class="brand">DAILY MARKET OBSERVER</div>
+        <div class="live"><span class="dot"></span>每交易日 16:30 更新</div>
+      </div>
+      <h1>每日全球<em>股市观察</em></h1>
+      <div class="lede">
+        A股、港股、日韩、欧美全市场扫描 · 中外双信源交叉验证 · 五维度深度拆解，每个交易日收盘后自动生成。
+      </div>
+      <div class="dims">
+        <span class="dim">消息面</span>
+        <span class="dim">情绪面</span>
+        <span class="dim">技术面</span>
+        <span class="dim">政策面</span>
+        <span class="dim">资金面</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="snap-wrap">
+    <div class="snap">
+      <div class="snap-head">
+        <span class="t">最新收盘 · A股</span>
+        <span class="d" id="snap-date">2026-08-27 收盘</span>
+      </div>
+      <div class="snap-grid" id="snap-grid">
+        <div class="sc"><div class="n">上证指数</div><div class="v up">3956.57</div><div class="c up">+1.13%</div></div>
+        <div class="sc"><div class="n">深证成指</div><div class="v up">14048.88</div><div class="c up">+1.50%</div></div>
+        <div class="sc"><div class="n">创业板指</div><div class="v up">3473.35</div><div class="c up">+1.71%</div></div>
+        <div class="sc"><div class="n">科创50</div><div class="v up">1693.48</div><div class="c up">+3.77%</div></div>
+      </div>
+      <div class="snap-foot" id="snap-foot">
+        <div class="sf"><div class="k">两市成交</div><div class="w">2.13 万亿</div></div>
+        <div class="sf"><div class="k">涨停 / 跌停</div><div class="w"><span class="up">82</span> / <span class="down">3</span></div></div>
+        <div class="sf"><div class="k">恒生指数</div><div class="w down">-0.34%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head">
+    <h2>最新报告</h2><span class="en">Latest</span><span class="rule"></span>
+  </div>
+
+  <a class="latest-banner" href="latest.html">
+    <div class="lb-top">
+      <span class="tag"><span class="dot"></span>今日</span>
+      <span class="fresh" id="latest-date">2026年8月27日 周四</span>
+    </div>
+    <div class="title" id="latest-title">英伟达业绩炸裂 · 算力链全线暴涨</div>
+    <div class="desc" id="latest-desc">英伟达Q2营收962亿美元同比翻倍+FY2028指引增70%碾压预期45%,直接引爆全球算力链。A股科创50暴涨3.77%领涨全场,存储芯片掀涨停潮,成交放量至2.13万亿。韩股KOSPI+1.53%受芯片利好提振。黄金失守4600美元、PCE通胀3.7%升温加息预期。含10条环球要闻深度解读(Reuters/Bloomberg/CNBC/WSJ/证券时报/中新经纬/央广网/华尔街见闻)+五维度全分析+12项产业高频数据</div>
+    <div class="lb-cta"><span>阅读完整报告</span><span class="arrow">→</span></div>
+  </a>
+
+  <div class="dimcards">
+    <div class="dc a"><div class="ic">📰</div><div class="nm">消息面</div></div>
+    <div class="dc b"><div class="ic">🔥</div><div class="nm">情绪面</div></div>
+    <div class="dc c"><div class="ic">📊</div><div class="nm">技术面</div></div>
+    <div class="dc d"><div class="ic">🏛</div><div class="nm">政策面</div></div>
+    <div class="dc e"><div class="ic">💰</div><div class="nm">资金面</div></div>
+  </div>
+
+  <div class="sec-head">
+    <h2>历史报告</h2><span class="en">Archive</span><span class="rule"></span>
+  </div>
+
+  <div class="timeline">
+    <div class="report-list" id="report-list">
+      <!-- 新报告插入到这里最前面 -->
+      <a class="report-item" href="archive/2026-08-27.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-27</span>
+          <span class="weekday">周四</span>
+          <span class="new-pill">NEW</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">英伟达Q2营收962亿美元同比翻倍+FY2028指引增70%碾压预期45%,直接引爆全球算力链。A股科创50暴涨3.77%领涨全场,存储芯片掀涨停潮(大普微/联瑞新材/德明利等20cm涨停),成交放量至2.13万亿(+3172亿)。韩股KOSPI+1.53%受芯片利好提振,港股恒指-0.34%表现平淡。美国PCE通胀3.7%高于预期,黄金失守4600美元。工信部"十五五"路线图催化算力/半导体。含10条环球要闻深度解读(Reuters/Bloomberg/CNBC/WSJ/证券时报/中新经纬/央广网/华尔街见闻)+五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-26.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-26</span>
+          <span class="weekday">周三</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指+0.59%收复3900报3912.52、深成指+0.69%、创业板+0.51%、科创50+1.71%领涨(1.81万亿缩量231亿、涨停56家/跌停2家、2946涨2448跌);伊朗-阿曼霍尔木兹海峡通航外交缓和→油价暴跌3%+(WTI 82.36/布伦88.58),LME期铜创历史收盘新高14324.5美元/吨→有色板块全线爆发(工业金属+3.33%,江西铜业/金诚信/白银有色涨停);21家券商中报营收净利双增+53%+中期分红170亿→"牛市旗手"全线飘红(证券+2.75%,锦龙股份/湘财股份涨停,招商证券+5.84%);Moderna mRNA癌症疫苗III期成功隔夜暴涨14%→康希诺20CM涨停;恒指+0.56%、恒生科技+0.82%、日经+0.62%、KOSPI+0.97%;美股三连涨+费半+1.4%聚焦今夜英伟达财报;天华新能净利+2622%锂电反弹。含10条环球要闻深度解读(Reuters/Bloomberg/CNBC/WSJ/FT/MT Newswires/证券时报/每经/财联社)+五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-25.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-25</span>
+          <span class="weekday">周二</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指微涨+0.19%守住3889,成交缩至1.83万亿创4.5月新低,超4200只个股上涨;碳酸锂暴跌5%至15.1万锂矿股全线重挫(枧下窝矿复产预期);石头科技20CM涨停(半年报净利+45.6%),凯莱英涨停创新药跨过盈利拐点;英伟达七连跌明日盘后发财报(华尔街预期920亿美元),KOSPI盘中跌超4%后反弹收涨0.68%,三星90-110万亿韩元股东回报符合预期无惊喜;美"经济D日"制裁伊朗雷声大雨点小油价跌2%+;美债收益率温和回落。含8条环球要闻深度解读(Reuters/Bloomberg/CNBC/FT/CNBC/每日经济新闻/证券时报/国金证券/财联社)+五维度全分析+6大产业高频数据</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-24.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-24</span>
+          <span class="weekday">周一</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指 −0.59% 失守 3900 报 3882.01、深成指 −2.13%、创业板 −3.21%、科创 50 −3.10%（2.01 万亿放量 1282 亿、涨停 48 家、3965 只下跌）；港股恒指 −1.95%、恒生科技 −3.84% 为恒指 6 月底以来最大单日跌幅之一。昨夜美股小幅反弹（道指 +0.98%/标普 +0.43%/纳指 +0.43%）但全周仍录跌幅；阿里 800 亿港元配股创港股史上最大单笔一级后续发行 + 账上 465 亿美元净现金仍稀释股东，"大空头" Michael Burry 清仓阿里转投京东直言"股价需跌一半才考虑回来"；美财长贝森特"经济 D 日"周一公布对伊"史上最大金融孤立"+Iran 反击威胁海湾国家；英伟达 AI 服务器涨价 15%+高盛警告 3 大催化；三星 110 万亿韩元股东回报不及预期、韩股 KOSPI −3.12% 但 KOSDAQ +1.42% 分裂；30 年美债收益率 5.27% 逼近 19 年新高、摩根大通"信用卡还房贷"警告；现货黄金突破 4643 美元创 3 个月新高。含 10 条环球要闻深度解读（Reuters / Bloomberg / WSJ / FT / CNBC / @Bessent X / @Burry X / MT Newswires / Newsquawk / 财联社 / 21 世纪经济报道）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-21.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-21</span>
+          <span class="weekday">周五</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指 +0.04% 报 3905.20、深成指 +0.87%、创业板 +1.43%、科创 50 +0.04% 缩量分化（1.88 万亿缩量 2001 亿、涨停 57 家、上涨 2505 只）；港股恒指 +1.00%、恒生科技 +1.10% 逆势走强。昨夜美股大跌：道指 −1.32%、标普 −0.87%、纳指 −1.00%，沃尔玛业绩暴雷跌 9.15% 市值蒸发 843 亿美元，Moderna 大跌 23%；美财长贝森特 8/24 将公布对伊朗"史上最严厉制裁"，WTI 涨 2.33%、布伦涨 2.36%。美债总额首破 40 万亿美元，30 年收益率重回 5.25%；8 月 LPR 连续 15 个月不变，上海"沪八条"正式施行；SK海力士 40 万亿 + 三星 100 万亿韩元股东回报计划继续支撑韩股。含 10 条环球要闻深度解读（Reuters / Bloomberg / WSJ / FT / CNBC / @LynAlden X / MT Newswires）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-20.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-20</span>
+          <span class="weekday">周四</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指 +0.24% 返 3900、创业板 +0.64%、科创综指 +0.20% 缩量反弹（2.08 万亿缩量 4317 亿、涨停 83 家、上涨 4096 只）；美财政部宣布长债回购翻倍至 40 亿美元，30 年美债收益率从 5.34% 回落至 5.19%（−10bp）、10 年降至 4.64%（−7bp），"贝森特看跌期权"出现；Moderna 癌症疫苗 III 期成功暴涨 177% 引爆全球医药，纳指生物科技 +6.39% 创历史新高，A股石药创新 / 康希诺 / 华大智造等 20cm 涨停；SK海力士 40 万亿韩元回购 + 三星 100 万亿回报，KOSPI +5.89% 收复 Sidecar 熔断跌幅；上海楼市新政 8/21 起施行；FOMC 纪要偏鹰多名官员支持必要时加息；黄金暴涨 3.62% 至 4580 美元、白银 +4.83%、美元指数跌破 99。含 10 条环球要闻深度解读（Reuters / Bloomberg / WSJ / FT / CNBC / @Cramer X / MT Newswires）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-19.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-19</span>
+          <span class="weekday">周三</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指失守 3900 收跌 2.4%、创业板暴跌 6.26%、科创 50 −6.89%，两市 2.51 万亿放量杀跌、5000+ 下跌、百股跌停；30 年美债破 5.32% 创 19 年新高（日 / 法 / 德 / 英长债集体飙升至多年高位）；韩股 9:06 触发 Sidecar 熔断 −5.80%、日经 −3.16%；存储三巨头闪迪 −9% / 西部 −7% / 美光 −7% / SK海力士 −9% / 费半 −5%；摩根大通预警 AI 风险扩散至债市、OpenAI 亏损扩至 123 亿；伊朗评估打击欧洲美军资产 + 阿联酋暂停对伊贸易 + 法国驱逐伊朗外交官；国务院修改公积金 + 超强厄尔尼诺预警。含 10 条环球要闻深度解读（Reuters / WSJ / Bloomberg / CNBC / El-Erian X / MT Newswires / 高盛 / 摩根大通）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-18.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-18</span>
+          <span class="weekday">周二</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指探底回升收涨 0.19% 守住 3990、农业 / 油气 / 机器人涨停潮、算力租赁领跌；30 年美债收益率破 5.31% 创 19 年新高（日 30 年破 4.13%/德 10 年 3.22% 集体上行）；KOSPI 戏剧性逆转（+2.15% → −1.55%）；摩根大通预警 2027 年全球粮食危机；霍尔木兹海峡航运降至战前 5%、布伦特冲上 91 美元。含 10 条环球要闻（Reuters / WSJ / FT / JPMorgan / 央视）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-17.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-17</span>
+          <span class="weekday">周一</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">半导体大爆发，科创50 +4.14% 领涨，长鑫科技 +12% 市值破 4 万亿、110 股涨停、放量 2466 亿；美联储 9 月加息预期骤降至 30%，日本央行加息预期飙至 80%、日债收益率创近 30 年新高；茅台净利罕见负增长跌破 1300 元。含 10 条环球要闻深度解读（Reuters / CME FedWatch / 摩根大通）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-14.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-14</span>
+          <span class="weekday">周五</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">创业板指 +1.12% 领涨，CPO 全面爆发通信板块净流入 82 亿；BOJ 9 月加息预期飙至 76%，美 30 年债收益率创 2001 年新高；中芯国际 Q2 营收破 30 亿美元净利 +262%，京东暴跌 10.4% 拖累港股。含 10 条环球要闻深度解读（路透社 / WSJ / FT / 高盛）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-13.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-13</span>
+          <span class="weekday">周四</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指冲击年线未果尾盘跳水 −0.5%，4300 股收跌；CPI 降至 3.4%，联想 AI 服务器订单 +157%、腾讯资本开支 528 亿；医药生物 14 只涨停，有色 −3.63% 领跌。含 8 条环球要闻深度解读 + 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-07.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-07</span>
+          <span class="weekday">周五</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指 +1.02% 站上 3940，科创 50 大涨 2.51%；高盛上调 PCB/CCL 预测至 2028 年 840 亿美元，美光业绩 +372%。含 10 条环球要闻深度解读（路透社 / 高盛 / 央视）+ 五维度全分析</div>
+      </a>
+      <a class="report-item" href="archive/2026-08-06.html">
+        <div class="ri-top">
+          <span class="date-badge">2026-08-06</span>
+          <span class="weekday">周四</span>
+          <span class="arrow-small">›</span>
+        </div>
+        <div class="summary">沪指 +0.57% 收复 3900 点；韩国 KOSPI 暴跌 4.58% 盘中触发熔断、SK海力士 -10.37%。含 9 条环球要闻深度解读（路透社 / WSJ / 高盛信源）+ 五维度全分析</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>关于本报告</h3>
+    <ul>
+      <li>每个交易日 <b>16:30</b> 自动更新 —— 此时日经（14:00）、韩国 KOSPI（14:30）、A股（15:00）、港股（16:00）均已收盘，欧股已开盘，数据最完整。</li>
+      <li>行情与新闻<b>中外双信源交叉验证</b>，主动抓取国际媒体报道，规避单一信息源造成的信息茧房。</li>
+      <li>要闻按 <b>极重要 / 重要 / 关注</b> 三级分色标注，每条附影响传导解读。</li>
+      <li>历史报告<b>永久归档</b>，链接固定不变，可随时回看任意交易日。</li>
+    </ul>
+    <div class="srcs">
+      <span class="src i">Reuters</span>
+      <span class="src i">Bloomberg</span>
+      <span class="src i">WSJ</span>
+      <span class="src i">Financial Times</span>
+      <span class="src i">CNBC</span>
+      <span class="src">东方财富</span>
+      <span class="src">同花顺</span>
+      <span class="src">Wind</span>
+      <span class="src">交易所公告</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="line"></div>
+    <p><strong>每日全球股市观察</strong> · Daily Market Observer</p>
+    <p>每个交易日 16:30 自动更新 · 数据来源于公开渠道</p>
+    <p style="margin-top:8px;">本内容仅供参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+  </div>
+
+</div>
+</body>
+</html>

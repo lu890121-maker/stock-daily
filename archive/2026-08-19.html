@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年8月19日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6;
+    color: #1a2233;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
+    padding: 40px 26px 34px;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background: radial-gradient(circle, rgba(232,72,85,.32) 0%, transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:280px; height:280px; border-radius:50%;
+    background: radial-gradient(circle, rgba(64,158,255,.24) 0%, transparent 70%);
+    bottom:-160px; left:-90px;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .kicker {
+    display:inline-block; font-size:11px; letter-spacing:3px; font-weight:600;
+    background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1 { font-size:27px; font-weight:800; letter-spacing:-.6px; line-height:1.32; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; color:#ff9aa5; }
+  .hero h1 i { font-style:normal; color:#7ee2a8; }
+  .hero .sub { font-size:14px; color:rgba(255,255,255,.68); }
+  .hero .datebar {
+    margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
+    display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
+  }
+  .pulse { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
+
+  /* ============ SECTION ============ */
+  .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
+  .sec:last-of-type { border-bottom: none; }
+  .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .sec-ico {
+    width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
+
+  /* ============ INDEX GRID ============ */
+  .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .idx {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
+    padding:12px 9px 11px; position:relative; overflow:hidden;
+  }
+  .idx::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .idx.up::before { background:#e84855; }
+  .idx.down::before { background:#12a05c; }
+  .idx .n { font-size:11px; color:#7c8698; margin-bottom:5px; font-weight:500; }
+  .idx .v { font-size:15.5px; font-weight:800; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+  .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .up .v, .up .c { color:#e84855; }
+  .down .v, .down .c { color:#12a05c; }
+
+  /* ============ STAT BAR ============ */
+  .statbar {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
+  }
+  .stat { background:#fff; padding:12px 6px; text-align:center; }
+  .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
+  .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
+
+  /* ============ CALLOUT ============ */
+  .callout {
+    margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
+    border:1px solid #ffdcd8; border-left:3px solid #e84855;
+    border-radius:10px; padding:13px 15px; font-size:13.5px; color:#5a3a3a;
+  }
+  .callout b { color:#c9313e; }
+  .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
+  .callout.blue b { color:#2456c4; }
+
+  /* ============ NEWS ============ */
+  .news-legend {
+    display:flex; gap:7px; flex-wrap:wrap; margin-bottom:15px;
+    padding:10px 12px; background:#f7f9fc; border:1px solid #e8ecf3; border-radius:10px;
+  }
+  .lg { font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px; }
+  .lg.a { background:#ffe4e6; color:#c9313e; }
+  .lg.b { background:#ffedd8; color:#c07414; }
+  .lg.c { background:#e2ecfd; color:#2456c4; }
+  .lg-note { font-size:11px; color:#8892a6; margin-left:auto; align-self:center; }
+
+  .news {
+    border-radius:12px; padding:15px 16px 14px; margin-bottom:11px;
+    border:1px solid #e8ecf3; background:#fcfdff; position:relative;
+  }
+  .news.a { border-color:#ffc9ce; background:linear-gradient(180deg,#fff7f8,#fffcfc); box-shadow:0 1px 10px rgba(232,72,85,.07); }
+  .news.b { border-color:#ffdfbb; background:linear-gradient(180deg,#fffaf3,#fffdfa); }
+  .news.c { border-color:#d9e5fa; background:linear-gradient(180deg,#f8fbff,#fdfeff); }
+
+  .news-top { display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+  .tag { font-size:10px; font-weight:800; padding:3px 8px; border-radius:5px; letter-spacing:.3px; flex-shrink:0; line-height:1.5; }
+  .news.a .tag { background:#e84855; color:#fff; }
+  .news.b .tag { background:#f0932b; color:#fff; }
+  .news.c .tag { background:#3b6fe0; color:#fff; }
+  .src {
+    font-size:10px; font-weight:700; padding:3px 8px; border-radius:5px;
+    background:#eef2f8; color:#6b7688; flex-shrink:0; line-height:1.5;
+  }
+  .src.intl { background:#eae4fb; color:#6a4bb8; }
+  .src.x { background:#e0f0ff; color:#1a73e8; }
+
+  .news h3 { font-size:15px; font-weight:800; line-height:1.5; margin-bottom:7px; letter-spacing:-.2px; }
+  .news.a h3 { color:#c9313e; }
+  .news.b h3 { color:#b8690f; }
+  .news.c h3 { color:#1e4fa8; }
+  .news p { font-size:13.3px; color:#404b5f; line-height:1.78; }
+  .news p + p { margin-top:6px; }
+  .news p b { color:#1a2233; font-weight:700; }
+  .news .hl { background:linear-gradient(transparent 62%, #ffd9dc 62%); font-weight:700; color:#c9313e; padding:0 1px; }
+  .news .num { font-variant-numeric:tabular-nums; font-weight:800; color:#c9313e; }
+  .news .numg { font-variant-numeric:tabular-nums; font-weight:800; color:#12a05c; }
+
+  .impact {
+    margin-top:10px; padding:9px 11px; border-radius:8px; font-size:12.5px; line-height:1.7;
+    background:rgba(255,255,255,.72); border:1px dashed rgba(0,0,0,.1); color:#5a6478;
+  }
+  .impact b { font-weight:800; }
+  .impact .ph { color:#c9313e; }
+  .impact .pl { color:#12a05c; }
+
+  /* ============ DIM CARDS ============ */
+  .dim { border-radius:13px; padding:17px 17px 15px; margin-bottom:12px; border:1px solid; }
+  .dim-h { display:flex; align-items:center; gap:8px; margin-bottom:11px; }
+  .dim-h .e { font-size:16px; }
+  .dim-h .t { font-size:15.5px; font-weight:800; }
+  .dim-h .score { margin-left:auto; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; }
+  .dim ul { list-style:none; }
+  .dim li { font-size:13.5px; padding:7px 0 7px 15px; position:relative; color:#3a4356; border-top:1px dashed rgba(0,0,0,.06); }
+  .dim li:first-child { border-top:none; }
+  .dim li::before { content:''; position:absolute; left:2px; top:15px; width:5px; height:5px; border-radius:50%; }
+  .dim li b { font-weight:700; }
+
+  .d1 { background:#fff9f2; border-color:#ffe2c4; }
+  .d1 .dim-h .t, .d1 li b { color:#c96a12; }
+  .d1 li::before { background:#f0932b; }
+  .d1 .score { background:#ffe9d0; color:#c96a12; }
+
+  .d2 { background:#faf6ff; border-color:#e8dcfb; }
+  .d2 .dim-h .t, .d2 li b { color:#7c3fc4; }
+  .d2 li::before { background:#9b59d0; }
+  .d2 .score { background:#eee2ff; color:#7c3fc4; }
+
+  .d3 { background:#f4f9ff; border-color:#d4e5fb; }
+  .d3 .dim-h .t, .d3 li b { color:#1e63c7; }
+  .d3 li::before { background:#3b82e0; }
+  .d3 .score { background:#dceafc; color:#1e63c7; }
+
+  .d4 { background:#f5f6ff; border-color:#dcdefb; }
+  .d4 .dim-h .t, .d4 li b { color:#4a4bc4; }
+  .d4 li::before { background:#5a5bd8; }
+  .d4 .score { background:#e2e3ff; color:#4a4bc4; }
+
+  .d5 { background:#f3fbf6; border-color:#cfeeda; }
+  .d5 .dim-h .t, .d5 li b { color:#12855a; }
+  .d5 li::before { background:#25a870; }
+  .d5 .score { background:#d6f2e3; color:#12855a; }
+
+  /* ============ HEAT BARS ============ */
+  .heat { margin-bottom:9px; }
+  .heat-row { display:flex; align-items:center; gap:9px; font-size:13px; }
+  .heat-name { width:96px; flex-shrink:0; font-weight:600; color:#2c3546; font-size:12.5px; }
+  .heat-track { flex:1; height:20px; background:#f2f5f9; border-radius:5px; overflow:hidden; position:relative; }
+  .heat-fill { height:100%; border-radius:5px; }
+  .heat-fill.up { background:linear-gradient(90deg,#ff8b95,#e84855); }
+  .heat-fill.down { background:linear-gradient(90deg,#6fd6a5,#12a05c); }
+  .heat-val { width:88px; text-align:right; font-weight:800; font-size:12.5px; font-variant-numeric:tabular-nums; flex-shrink:0; }
+
+  /* ============ TABLE ============ */
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th {
+    background:#f5f7fb; padding:9px 10px; text-align:left; font-size:11.5px;
+    color:#6b7688; font-weight:700; letter-spacing:.3px;
+  }
+  .tbl th:not(:first-child) { text-align:right; }
+  .tbl td { padding:9px 10px; border-bottom:1px solid #f0f3f8; font-variant-numeric:tabular-nums; }
+  .tbl td:not(:first-child) { text-align:right; font-weight:700; }
+  .tbl td.name { font-weight:600; color:#2c3546; }
+  .tbl tr.grp td {
+    background:#fafbfd; font-size:11px; color:#8892a6; font-weight:700;
+    letter-spacing:1px; padding:6px 10px; text-align:left;
+  }
+  .tbl tr.hot td { background:#fff8f8; }
+  .tbl tr.grp td { position:relative; }
+  .tbl .st { display:inline-block; margin-left:8px; vertical-align:middle; font-size:10px; font-weight:700; letter-spacing:0; padding:2px 8px; border-radius:20px; }
+  .tbl .st.close { background:#eef1f6; color:#5a6678; }
+  .tbl .st.live { background:#e6f7ee; color:#0f9d58; }
+  .tbl .st.ovn { background:#fff2e8; color:#c07414; }
+  .mkt-legend { display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:#8892a6; margin:-2px 0 12px; }
+  .mkt-legend b { font-weight:700; color:#5a6678; }
+  .mkt-legend .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; vertical-align:middle; }
+  .mkt-legend .dot.live { background:#0f9d58; }
+  .mkt-legend .dot.close { background:#9aa6b8; }
+  .mkt-legend .dot.ovn { background:#f0932b; }
+
+  /* ============ STOCK CHIPS ============ */
+  .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .chip {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:10px; padding:11px 12px;
+    display:flex; align-items:center; gap:9px;
+  }
+  .chip .cn { font-size:13px; font-weight:700; color:#2c3546; }
+  .chip .cv { margin-left:auto; font-size:13px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .chip .lim { font-size:9.5px; background:#e84855; color:#fff; padding:1px 5px; border-radius:4px; font-weight:700; }
+  .chip .limg { font-size:9.5px; background:#12a05c; color:#fff; padding:1px 5px; border-radius:4px; font-weight:700; }
+  .chip .taga { font-size:9px; background:#eaf1ff; color:#2a55a0; padding:1px 5px; border-radius:4px; font-weight:700; }
+  .chip .tagi { font-size:9px; background:#f2edfd; color:#6a4bb8; padding:1px 5px; border-radius:4px; font-weight:700; }
+
+  /* ============ GRASSROOTS ============ */
+  .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .gf-card {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:12px;
+    padding:14px 15px 13px; position:relative; overflow:hidden;
+  }
+  .gf-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .gf-card.hot::before { background:#e84855; }
+  .gf-card.warm::before { background:#f0932b; }
+  .gf-card.cool::before { background:#3b6fe0; }
+  .gf-card.neut::before { background:#9aa6b8; }
+  .gf-top { display:flex; align-items:center; gap:7px; margin-bottom:9px; }
+  .gf-ico { font-size:15px; flex-shrink:0; }
+  .gf-name { font-size:14px; font-weight:800; color:#1a2233; }
+  .gf-status {
+    margin-left:auto; font-size:10px; font-weight:700; padding:2px 8px;
+    border-radius:5px; flex-shrink:0; letter-spacing:.2px;
+  }
+  .gf-status.hot { background:#ffe4e6; color:#c9313e; }
+  .gf-status.warm { background:#fff0dc; color:#b8690f; }
+  .gf-status.cool { background:#e2ecfd; color:#2456c4; }
+  .gf-status.neut { background:#eef1f6; color:#5a6678; }
+  .gf-card ul { list-style:none; }
+  .gf-card li {
+    font-size:12.5px; color:#3a4356; line-height:1.72; padding:4px 0 4px 13px;
+    position:relative; border-top:1px dashed rgba(0,0,0,.05);
+  }
+  .gf-card li:first-child { border-top:none; }
+  .gf-card li::before { content:''; position:absolute; left:1px; top:11px; width:4px; height:4px; border-radius:50%; background:#b8c0ce; }
+  .gf-card li b { color:#1a2233; }
+  .gf-card li .up { color:#e84855; font-weight:700; }
+  .gf-card li .dn { color:#12a05c; font-weight:700; }
+  .gf-src { font-size:10px; color:#9aa2b0; margin-top:7px; }
+  @media (max-width:480px) { .gf-grid { grid-template-columns:1fr; } }
+
+  /* ============ STRATEGY ============ */
+  .strat {
+    background:linear-gradient(150deg,#182135 0%,#232f4d 100%); border-radius:14px;
+    padding:20px 19px; color:#fff; position:relative; overflow:hidden;
+  }
+  .strat::before {
+    content:''; position:absolute; width:200px; height:200px; border-radius:50%;
+    background:radial-gradient(circle, rgba(232,72,85,.2) 0%, transparent 70%); top:-90px; right:-70px;
+  }
+  .strat-in { position:relative; z-index:2; }
+  .strat h4 { font-size:15px; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:7px; }
+  .strat ul { list-style:none; }
+  .strat li {
+    font-size:13.2px; color:rgba(255,255,255,.82); padding:7px 0 7px 17px; position:relative;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  .strat li:first-child { border-top:none; }
+  .strat li::before { content:'▸'; position:absolute; left:0; color:#ff9aa5; font-weight:700; }
+  .strat li b { color:#fff; }
+  .dirs { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+  .dir {
+    font-size:11.5px; font-weight:700; padding:5px 11px; border-radius:20px;
+    background:rgba(232,72,85,.18); border:1px solid rgba(232,72,85,.35); color:#ffb3bb;
+  }
+  .dir.cool { background:rgba(64,158,255,.14); border-color:rgba(64,158,255,.3); color:#9ecbff; }
+
+  /* ============ RISK ============ */
+  .risk { background:#fffaf5; border:1px solid #ffe0c2; border-radius:12px; padding:15px 16px; margin-top:12px; }
+  .risk h4 { font-size:14px; font-weight:800; color:#c96a12; margin-bottom:9px; }
+  .risk ul { list-style:none; }
+  .risk li { font-size:13px; color:#5c4a35; padding:5px 0 5px 16px; position:relative; }
+  .risk li::before { content:'!'; position:absolute; left:3px; color:#f0932b; font-weight:800; }
+
+  /* ============ FOOTER ============ */
+  .foot { background:#131a2e; color:rgba(255,255,255,.4); padding:26px; text-align:center; font-size:11.5px; line-height:1.9; }
+  .foot .bk { color:rgba(255,255,255,.75); font-weight:700; font-size:13px; margin-bottom:8px; }
+  .foot a { color:#7ea9f0; text-decoration:none; }
+
+  /* ============ SECTION NAV ============ */
+  .sec-nav { background:#fff; padding:12px 16px; border-bottom:2px solid #f0f0f0; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .sec-nav-inner { max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .sec-nav-label { font-size:13px; font-weight:700; color:#333; margin-right:8px; }
+  .sec-nav a { font-size:12px; color:#666; text-decoration:none; padding:6px 14px; border-radius:18px; background:#f5f5f5; transition:all .2s ease; white-space:nowrap; }
+  .sec-nav a:hover { background:#e84855; color:#fff; transform:translateY(-1px); box-shadow:0 2px 6px rgba(232,72,85,.25); }
+
+  .sec[id].active { animation: highlight-flash 1.5s ease-out; }
+
+  @keyframes highlight-flash {
+    0%,15% { box-shadow: inset 0 0 0 100px rgba(232,72,85,.1); }
+    100% { box-shadow: inset 0 0 0 100px transparent; }
+  }
+
+  @media (max-width:480px) {
+    .idx-grid { grid-template-columns:repeat(2,1fr); }
+    .chips { grid-template-columns:1fr; }
+    .heat-name { width:78px; font-size:11.5px; }
+    .heat-val { width:78px; font-size:12px; }
+    .hero h1 { font-size:23px; }
+    .sec-nav { padding:10px 12px; }
+    .sec-nav-inner { gap:6px; }
+    .sec-nav-label { font-size:12px; margin-right:6px; }
+    .sec-nav a { font-size:11px; padding:5px 12px; }
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.sec-nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const navHeight = document.querySelector('.sec-nav').offsetHeight;
+        const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+
+        targetEl.classList.add('active');
+        setTimeout(() => targetEl.classList.remove('active'), 1500);
+      }
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="kicker">全 维 度 市 场 观 察</div>
+      <h1>全球<em>共振杀跌</em><br>沪指失守<em>3900点</em> · 创业板<em>暴跌6.26%</em></h1>
+      <div class="sub">30年美债破5.32%创19年新高 · 韩股熔断Sidecar触发 · 日经暴挫3.16% · 摩根大通警告AI泡沫扩散至债市 · 霍尔木兹危机全面升级</div>
+      <div class="datebar">
+        <span>2026年8月19日 · 周三 · 收盘全维度分析</span>
+        <span class="pulse"><span class="dot"></span>数据已更新</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= 板块导航 ================= -->
+  <div class="sec-nav">
+    <div class="sec-nav-inner">
+      <span class="sec-nav-label">快速跳转：</span>
+      <a href="#sec-overview">📈 A股速览</a>
+      <a href="#sec-global">🌍 全球市场</a>
+      <a href="#sec-news">📰 环球要闻</a>
+      <a href="#sec-five">🔍 五维分析</a>
+      <a href="#sec-heat">🔥 板块热力</a>
+      <a href="#sec-stock">💰 焦点个股</a>
+      <a href="#sec-commodity">🛢️ 大宗商品</a>
+      <a href="#sec-grassroots">🏭 产业高频</a>
+      <a href="#sec-strategy">🎯 策略研判</a>
+    </div>
+  </div>
+
+  <!-- ================= A股速览 ================= -->
+  <div class="sec" id="sec-overview">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">📈</div>
+      <div class="sec-title">A股收盘速览</div>
+      <div class="sec-note">8/19 15:00 收盘</div>
+    </div>
+
+    <div class="idx-grid">
+      <div class="idx down"><div class="n">上证指数</div><div class="v">3894.42</div><div class="c">−2.40%</div></div>
+      <div class="idx down"><div class="n">深证成指</div><div class="v">13890.15</div><div class="c">−5.01%</div></div>
+      <div class="idx down"><div class="n">创业板指</div><div class="v">3473.49</div><div class="c">−6.26%</div></div>
+      <div class="idx down"><div class="n">科创50</div><div class="v">1667.52</div><div class="c">−6.89%</div></div>
+    </div>
+
+    <div class="statbar">
+      <div class="stat"><div class="k">两市成交</div><div class="v n0">2.51万亿</div></div>
+      <div class="stat"><div class="k">较昨日</div><div class="v r">+1103亿</div></div>
+      <div class="stat"><div class="k">跌停家数</div><div class="v g">100+</div></div>
+      <div class="stat"><div class="k">下跌家数</div><div class="v g">5000+</div></div>
+    </div>
+
+    <div class="callout">
+      <b>今日定性：全球黑色星期三· A股放量杀跌·防御主线独撑。</b>沪指失守<span class="num g">3900点</span>整数关口收跌2.4%，
+      深成指暴跌5.01%、<b>创业板暴跌6.26%</b>、科创50暴跌6.89%、科创综指暴跌7.16%——<b>跌幅普遍超过昨日全部涨幅</b>。
+      两市成交放大1103亿至2.51万亿，<b>逾百股跌停、超5000只个股下跌</b>（仅约300只上涨）。
+      <span class="hl">半导体/AI链集体重挫</span>（杰华特/芯朋微等-12%+），高位股集体退潮（爱丽家居/一鸣食品等跌停）。
+      <b>防御板块逆势走强</b>：银行（中信银行+4%）、煤炭（宝泰隆/陕西黑猫涨停）、化工（红四方3连板）、房地产（我爱我家涨停）、农业（京粮控股3连板）。
+    </div>
+  </div>
+
+  <!-- ================= 全球市场 ================= -->
+  <div class="sec" id="sec-global">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">🌏</div>
+      <div class="sec-title">全球市场全景</div>
+      <div class="sec-note">数据截至 8/19 15:30</div>
+    </div>
+
+    <div class="mkt-legend">
+      <span><span class="dot close"></span><b>收盘</b>：亚太已收市</span>
+      <span><span class="dot ovn"></span><b>昨夜</b>：美股8/18收盘</span>
+      <span><span class="dot live"></span><b>实时</b>：欧股盘中</span>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>市场 / 指数</th><th>点位</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="3">亚太 <span class="st close">8/19 收盘</span></td></tr>
+        <tr class="hot"><td class="name">韩国 KOSPI</td><td>6471.17</td><td class="g">−5.80%</td></tr>
+        <tr><td class="name">日经225</td><td>65326.42</td><td class="g">−3.16%</td></tr>
+        <tr class="hot"><td class="name">TOPIX</td><td>4012.31</td><td class="g">−3.10%</td></tr>
+        <tr><td class="name">恒生指数</td><td>25469.28</td><td class="g">−0.01%</td></tr>
+        <tr><td class="name">恒生科技</td><td>4675.73</td><td class="g">−1.34%</td></tr>
+
+        <tr class="grp"><td colspan="3">美股 <span class="st ovn">8/18 昨夜收盘</span></td></tr>
+        <tr><td class="name">道琼斯</td><td>53343.40</td><td class="g">−0.22%</td></tr>
+        <tr><td class="name">标普500</td><td>7691.76</td><td class="g">−0.69%</td></tr>
+        <tr><td class="name">纳斯达克</td><td>26289.71</td><td class="g">−1.33%</td></tr>
+        <tr class="hot"><td class="name">费城半导体</td><td>~5730</td><td class="g">−4.98%</td></tr>
+
+        <tr class="grp"><td colspan="3">欧股 <span class="st ovn">8/18 收盘</span></td></tr>
+        <tr><td class="name">德国 DAX</td><td>26128.36</td><td class="g">−0.80%</td></tr>
+        <tr><td class="name">法国 CAC40</td><td>8509.36</td><td class="g">−0.82%</td></tr>
+        <tr><td class="name">英国 富时100</td><td>10728.04</td><td class="r">+0.07%</td></tr>
+        <tr><td class="name">Stoxx 600</td><td>~545</td><td class="g">−0.69%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue">
+      <b>全球图景：长债+油+芯片三杀,全球风险偏好系统性收缩。</b>
+      <span class="ph">30年美债收益率5.32%创2007年以来新高</span> + 布伦特站上91美元 + 费半暴跌4.98% = 全球"股债商三杀"。
+      韩股<span class="ph">-5.80%触发Sidecar熔断机制</span>、日经<span class="ph">-3.16%</span>创近期新低。
+      A股响应尤为剧烈：<span class="ph">沪指失守3900、创业板-6.26%</span>，指数跌幅普遍超过昨日全部涨幅。
+      恒指基本持平(-0.01%)，港股<a href="https://www.aastocks.com" style="color:#2456c4">创新药</a>/医药/地产<em>防御板块</em>领涨，<b>南向资金逆势加仓140亿港元</b>。
+    </div>
+  </div>
+
+  <!-- ================= 环球要闻 · 深度解读 ================= -->
+  <div class="sec" id="sec-news">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">📰</div>
+      <div class="sec-title">环球要闻 · 深度解读</div>
+      <div class="sec-note">8–10条核心新闻</div>
+    </div>
+
+    <div class="news-legend">
+      <span class="lg a">🔴 极重要</span>
+      <span class="lg b">🟠 重要</span>
+      <span class="lg c">🔵 关注</span>
+      <span class="lg-note">🔘 Reuters/WSJ/Bloomberg/FT/CNBC · 🔵 X/Twitter KOL · 🟣 MT Newswires</span>
+    </div>
+
+    <!-- 极重要 1 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Reuters 路透社</span>
+        <span class="src intl">WSJ</span>
+      </div>
+      <h3>美伊冲突全面升级:伊朗评估打击欧洲美军资产 + 阿联酋暂停对伊贸易 + 法国驱逐伊朗外交官</h3>
+      <p>据路透社与英国《金融时报》报道,<span class="hl">伊朗正在评估对位于保加利亚、塞浦路斯的美国军事资产实施打击</span>——这是霍尔木兹海峡封锁后冲突外溢的第一个明确信号。</p>
+      <p>地缘升级的"三连击":①<span class="hl">阿联酋宣布暂停与伊朗的贸易、商业及金融交易</span>（海湾国家首次站队),并称监测到两枚来自伊朗方向的弹道导弹;②<span class="hl">法国驱逐两名伊朗外交官</span>,指责其策划针对法国境内目标的袭击;③<span class="hl">英国海事机构收到霍尔木兹海峡船只遭抛射物袭击的报告</span>。</p>
+      <p>市场反应:<span class="hl">布伦特原油再涨0.17%收报91.02美元,盘中突破91.7美元;现货黄金暴跌1.86%至4334.57美元</span>(特朗普宣称海峡"开放"引发恐慌式减持)。
+      <b>伊朗议会议长卡利巴夫明确表态:在美国满足伊方条件前,霍尔木兹海峡将继续关闭</b>。</p>
+      <div class="impact">
+        <b>对A股的核心传导:</b><span class="ph">冲突外溢+霍尔木兹持续封锁 = 全球"滞胀"叙事加深</span>。
+        油价站上91美元对A股直接影响有限(中国是原油净进口国),但<span class="ph">通过推高全球通胀预期→压制长债价格→美债收益率飙升→压制成长股估值的传导链已在今日充分演绎</span>。
+        利好防御板块(银行/煤炭/化工);利空科技成长。
+      </div>
+    </div>
+
+    <!-- 极重要 2 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src x">@ElErian (X/Twitter KOL)</span>
+        <span class="src intl">Bloomberg 彭博</span>
+      </div>
+      <h3>30年美债破5.32%创19年新高,El-Erian警告:长端利率对成长股估值已构成实质性伤害</h3>
+      <p>路透社报道,<span class="hl">美国30年期国债收益率8月18日盘中升至5.327%,创2007年6月以来的最高水平</span>;10年期触及4.739%(2025年初以来最高),2年期4.181%——长端、短端集体大幅上行。</p>
+      <p>宏观经济学家<span class="hl">Mohamed El-Erian在LinkedIn/同步X平台发文警告</span>:<b>"政府债和科技债同步转型的重新定价,将对住房、汽车、杠杆融资等传统利率敏感行业产生滞后性损害"</b>。
+      他认为,如果美国经济不进入衰退,<b>"债券收益率需要继续上行才能出清供需"</b>——这意味着更高的利率不是短期现象,而是未来数年的"新常态"。</p>
+      <p>JP Morgan市场情报团队补充,<span class="hl">美债抛售的核心驱动是"双倍冲击"</span>:①美伊冲突引发的赤字担忧升级;②AI资本开支创造的"超高水平信用发行"(年内发行额4890亿美元,远超2025全年的3220亿)。</p>
+      <div class="impact">
+        <b>对A股的传导:</b><span class="ph">5.32%的30年美债收益率 = 全球高估值资产"压力测试"</span>。
+        A股科创50今日暴跌6.89%、创业板暴跌6.26%——核心是<span class="ph">"折现率上行 → 长久期成长股估值压缩"</span>的全球共振机制。
+        半导体/AI/CPO等高估值科技板块跌幅居前并非偶然。
+      </div>
+    </div>
+
+    <!-- 极重要 3 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src">MT Newswires</span>
+      </div>
+      <h3>KOSPI 9:06触发Sidecar熔断机制,韩股暴跌5.80%创年内新低,日经暴挫3.16%</h3>
+      <p>8月19日开盘,韩国KOSPI指数大幅低开4.96%。<span class="hl">9时06分(北京时间8时06分),韩国交易所启动卖方侧车机制,程序化卖盘暂停5分钟</span>——这是连续第二个交易日内第二次触发熔断(Sidecar触发条件:KOSPI200期货跌幅≥5%且持续至少1分钟)。</p>
+      <p>半导体双雄领跌:<span class="hl">三星电子-7.08%、SK海力士-8.36%</span>;<b>韩元贬值至1美元兑1406.3韩元</b>(单一交易日贬0.27韩元)。
+      日经225指数同遭血洗,<span class="ph">跌3.16%收报65326.42点</span>,TOPIX同步跌3.1%。
+      台湾加权指数盘中也曾跌超千点。</p>
+      <p>大和资产管理首席策略师Kazunori Tatebe指出:<b>"收益率上升将推高超大规模云服务商的借贷成本,引发市场对资本支出前景的疑问,并可能影响那些受益于AI投资热潮的基础设施企业"</b>。</p>
+      <div class="impact">
+        <b>对A股的传导:</b><span class="ph">韩国Sidecar熔断 = 全球AI/存储泡沫定价分歧白热化</span>。
+        日韩芯片双雄暴跌 → A股半导体同步重挫(创业板暴跌6.26%中半导体是核心拖累)。
+        <b>今晚FOMC会议纪要(北京时间周四凌晨2点)</b>成为关键观察点——若措辞偏鹰,亚太科技股或进一步承压。
+      </div>
+    </div>
+
+    <!-- 极重要 4 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Bloomberg 彭博</span>
+        <span class="src">凤凰网财经</span>
+      </div>
+      <h3>摩根大通预警:AI风险已越出股票扩散至债市,5.5万亿AI资本开支藏致命隐患</h3>
+      <p>据彭博报道,<span class="hl">摩根资产管理美洲区首席市场策略师Gabriela Santos周二在彭博电视采访中警告:"AI因子"的集中度风险已经越出股票、扩散至固定收益</span>。"你可以对AI的一切都非常看多,同时仍然需要非常仔细地考虑投资组合的构建。"</p>
+      <p>她给出的数据触目惊心:<span class="hl">公开市场与私募市场合计的AI资本开支约5.5万亿美元</span>;高盛测算AI数据中心支出2026年达9000亿美元、2027年最高1.4万亿美元;而摩根资产管理另一位投资人Bill Eigen直言,<b>"真正令他担忧的是AI增速开始放缓——一旦二阶导数拐头,整个金融架构将面临压力"</b>。</p>
+      <p>而债市的"穿透"证据:<span class="hl">投资级债券发行量已连续第四个月创下纪录</span>,企业包括发行100年期票据的Alphabet——多资产投资者在股票端和固定收益端同时持有AI建设敞口。</p>
+      <div class="impact">
+        <b>对A股的传导:</b><span class="ph">AI泡沫论的"二次警报"——这一次来自债市而非股市</span>。
+        全球顶级机构(JPM/GS/MS)的警告+今晚FOMC纪要 = <b>AI/半导体/算力板块的"窗口期"已经关闭</b>。
+        <span class="ph">A股科技高估值板块今日已用脚投票</span>,但真正调整幅度或才刚刚开始。
+      </div>
+    </div>
+
+    <!-- 极重要 5 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">彭博(Bloomberg)</span>
+        <span class="src intl">WSJ</span>
+      </div>
+      <h3>AI/存储芯片泡沫破裂:闪迪-9%、西部-7%、美光-7%、SK海力士-9%、英伟达-2%,费半-5%</h3>
+      <p>隔夜美股,<span class="hl">存储三巨头全线重挫:闪迪(SNDK.O)-9%、西部数据(WDC.O)-7%、美光科技(MU.O)-7%、SK海力士(SKHY.O)-9%、英伟达(NVDA.O)-2%</span>,费城半导体指数暴跌4.98%。</p>
+      <p>核心冲击来自<span class="hl">OpenAI Q2业绩</span>:尽管营收67亿美元(环比+18%),但<b>含股权激励的运营亏损从93亿扩大至123亿美元,亏损增速远超营收增速</b>——加剧投资者对芯片需求可持续性的担忧。</p>
+      <p>与此同时,<span class="hl">高盛Amanda Lynam指出AI相关债券发行年内已达4890亿美元</span>,超2025全年;美元投资级债券发行1.5万亿美元、逼近疫情期历史纪录。<b>高盛指出:为消化海量债券供给,实际利率必须上行</b>——这正是30年美债破5.32%的根本原因。</p>
+      <div class="impact">
+        <b>对A股的传导:</b><span class="ph">今天是全球AI/存储的"清算日"</span>。
+        A股半导体、杰华特/芯朋微等-12%+、CPO、MLCC、科创次新股集体重挫。<b>产业链估值出清可能才刚开始</b>。
+        操作上:<span class="ph">半导体/AI不宜抄底</span>,等FOMC纪要+8月底中报披露完毕后,再观察机构建仓信号。
+      </div>
+    </div>
+
+    <!-- 重要 6 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Reuters 路透社</span>
+        <span class="src intl">CNBC</span>
+      </div>
+      <h3>美欧日元法多国长债收益率集体"飙升至阶段高位",全球债券抛售潮持续外溢</h3>
+      <p>路透社8月18日报道,<span class="hl">除美30年破5.32%外,日本10年期国债收益率升至2.952%(1996年来高位);德国30年期国债收益率3.74%(2011年来高位);法国30年4.87%(2008年来高位);英国30年5.05%</span>——发达经济体长债收益率集体上演"恐慌性上行"。</p>
+      <p>德意志银行指出:<span class="hl">这是"主权债抛售潮在全球范围内的同步显现"</span>;ING分析师补充,过去30年美债破4.65%通常会有华盛顿的安抚性言论,但这次没有听到。</p>
+      <p>债市的反向映射:今日<span class="hl">中国国债期货30年主力合约涨0.27%领跑、10年盘中刷新纪录高点</span>(主权信用利差扩大下,人民币资产成为避风港)。
+      同时<b>丹斯克银行预计美联储将于2026年12月、2027年3月各加息一次</b>,将关键利率升至4.00-4.25%。</p>
+      <div class="impact">
+        <b>对A股的传导:</b><span class="ph">全球"债灾"是今日所有风险资产暴跌的"原爆点"</span>。
+        中国国债期货同步走强 = 外资流入人民币债券的趋势延续;<b>A股与债市的跷跷板正在发生微妙变化</b>。
+      </div>
+    </div>
+
+    <!-- 重要 7 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">WSJ 华尔街日报</span>
+        <span class="src intl">Reuters</span>
+      </div>
+      <h3>今晚FOMC会议纪要成关键节点:CME FedWatch显示市场押注12月加息23bp,概率骤升</h3>
+      <p>北京时间8月20日凌晨2点,<span class="hl">美联储将公布7月FOMC会议纪要</span>——这是本周最重要的宏观事件。
+      货币市场目前定价<span class="hl">美联储12月加息23bp,2027年3月前累计加息33bp</span>;丹斯克银行预测2026年12月+2027年3月各加息一次至4.00-4.25%。</p>
+      <p>关键矛盾点:①美国通胀正在降温(PPI/CPI温和),经济活动放缓;②<span class="hl">30年美债收益率破5.32%反映"债券市场不相信美联储"</span>。
+      <b>高盛Amanda Lynam的逻辑链</b>:海量债券需要被消化 → 实际利率必须上升 → 美联储若面临曲线过度陡峭化被动加息 —— 即便经济数据不支持。</p>
+      <p>美银基金经理调查显示,<span class="hl">净56%受访者超配股票、现金仓位降至3.5%历史低位</span>——
+  市场已极度拥挤;<b>如果今晚纪要措辞偏鹰,拥挤交易极易引发集中踩踏</b>。</p>
+      <div class="impact">
+        <b>对A股的传导:</b><span class="ph">FOMC纪要 = 今晚最大的不确定性</span>。
+        如果纪要承认"通胀粘性":<span class="ph">全球风险资产或继续承压,A股明日或考验3860点支撑</span>。
+        如果纪要偏鸽:短暂反弹可期,但难以扭转全球收益率上行的中期趋势。
+      </div>
+    </div>
+
+    <!-- 重要 8 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Bloomberg 彭博</span>
+        <span class="src intl">CNBC</span>
+      </div>
+      <h3>Anthropic拟Q4启动IPO+估值2万亿美元,AI融资竞赛白热化</h3>
+      <p>据彭博报道,<span class="hl">Anthropic预计将在10月以2万亿美元甚至更高的估值启动IPO</span>——若实现将超越SpaceX,成为史上最大规模IPO。
+      另据消息,<b>Anthropic正拟将信贷额度扩大至超百亿美元</b>,为IPO前的"弹药库"。</p>
+      <p>数据支撑:Anthropic Q2营收超过115亿美元(同比+14倍),预计到2028年营收达1900-2000亿美元——
+  这与OpenAI Q2的67亿营收、亏损扩至123亿形成鲜明对照,<span class="hl">市场正在分化:谁是"真的AI公司",谁是"AI故事公司"</span>。</p>
+      <p>同频事件:<span class="hl">Stripe已敲定收购OpenRouter,交易金额超70亿美元</span>;<span class="hl">OpenAI GPT-6代号"GPT-Next"再次泄露,或于周四见</span>;宇树科技"超人"机器人极限速度12.66m/s、原地跳高2米。</p>
+      <div class="impact">
+        <b>对A股的传导:</b><span class="pl">Anthropic与OpenAI的"分化" = 资金将集中流向头部真正商业化公司</span>。
+        A股需要警惕"伪AI概念股"在估值压缩期的额外风险(今日-12%+芯片概念股中包含大量蹭热点标的)。
+        关注9月Anthropic IPO进展,如成行,对全球AI/算力链将形成标志性事件。
+      </div>
+    </div>
+
+    <!-- 关注 9 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">新华社</span>
+        <span class="src">国家气候中心</span>
+      </div>
+      <h3>超强厄尔尼诺11-12月达峰:有观测记录以来最强,通胀+农业+天气风险叠加</h3>
+      <p>国家气候中心最新预测,<span class="hl">当前赤道中东太平洋海表温度持续升高,预计将于11-12月前后达到峰值</span>,形成一次超强厄尔尼诺事件——<b>成为有观测记录以来最强的一次</b>。
+      目前厄尔尼诺正快速发展中,且影响具有滞后性。</p>
+      <p>产业链影响:①<span class="hl">农产品</span>(粮食/棉花/白糖/橡胶)价格或大幅上行;
+      ②<span class="hl">有色金属</span>(铜/锡/铝)冶炼或受缺水/缺电扰动;
+      ③<span class="hl">全球食品通胀</span>——摩根大通报告预测<span class="hl">食品通胀率将从2026年上半年的2.8%升至2027年上半年的5%</span>;
+      ④<span class="hl">空调/家电</span>夏季销售或创新高。</p>
+      <p>投资机会:<b>种业/化肥/农药/水务/制冷设备/有色</b>等板块的"滞胀对冲"逻辑在加深(今日A股农业/煤炭/化工逆势走强已初步反映)。
+      </p>
+      <div class="impact">
+        <b>关注点:</b><span class="ph">厄尔尼诺+霍尔木兹+美债收益率 = 滞胀三连击</span>。
+        中长期持有抗通胀资产(黄金虽短期回落但中枢上移)+ 受益农产品提价的产业链 + 抗风险的国债/公用事业值得增配。
+      </div>
+    </div>
+
+    <!-- 关注 10 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">路透</span>
+        <span class="src">国务院/搜狐财经</span>
+      </div>
+      <h3>国务院修改《住房公积金管理条例》+ 商务部激发下沉市场活力:A股房地产逆势走强</h3>
+      <p>国务院最新修改住房公积金条例:<span class="hl">对提取住房公积金支付房租,不再设置房租超过家庭工资收入规定比例的门槛限制;新增装修自住住房、支付自住住房物业费等可提取情形;明确住房公积金管理中心可购买政策性金融债</span>——三个变化中,第一/二项直接为消费与房地产"减负"。</p>
+      <p>同频政策:8月18日,商务部等9部门联合印发<span class="hl">《关于进一步激发下沉市场活力 活跃县域消费的意见》</span>,从优化商业环境、丰富消费供给等多方面推出具体措施——聚焦县域地区和线下消费。</p>
+      <p>市场反应:今日<span class="ph">A股房地产板块逆势走强</span>(<b>我爱我家/南都物业涨停,特发服务/中天服务/世联行/滨江集团跟涨</b>);
+      江苏银行创历史新高;<b>家居/物业板块短线受益</b>。</p>
+      <div class="impact">
+        <b>关注点:</b><span class="pl">公积金+下沉消费 = 政策面对消费/地产链的精准托底</span>。
+        <b>今日防御板块领涨,背后是产业逻辑+政策驱动+避险情绪三重共振</b>。
+        中期关注:消费/家居/物业/银行是否能成为科技调整期的主力承接板块。
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= 五维度分析 ================= -->
+  <div class="sec" id="sec-five">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ede9fe">🎯</div>
+      <div class="sec-title">五维度深度拆解</div>
+      <div class="sec-note">消息 / 情绪 / 技术 / 政策 / 资金</div>
+    </div>
+
+    <div class="dim d1">
+      <div class="dim-h"><span class="e">📰</span><span class="t">消息面</span><span class="score">全面偏空 ★☆☆☆☆</span></div>
+      <ul>
+        <li><b>最大利空(地缘):</b>伊朗评估打击欧洲美军资产 + 阿联酋暂停对伊贸易 + 法国驱逐伊朗外交官 → 霍尔木兹危机外溢,布伦特站稳91美元。</li>
+        <li><b>利空(债市):</b>30年美债5.32%创19年新高,10年2.95% / 法30年4.87% / 德30年3.74% 集体飙升至多年高位,全球"债灾"持续。</li>
+        <li><b>利空(AI泡沫):</b>摩根大通(2位高管)预警AI风险扩散至债市 + OpenAI亏损扩至123亿 + 高盛指美联储或被动加息。</li>
+        <li><b>利空(财报):</b>小米Q2收入同比-6.1%、手机出货量因存储涨价-26.5%,存储器涨价反噬需求。</li>
+        <li><b>利好(政策):</b>国务院修改《住房公积金管理条例》 + 商务部激发下沉市场活力 + 国债期货反向拉升。</li>
+        <li><b>结论:</b>消息面"地缘+债市+AI泡沫"三杀共振,占绝对主导;政策利好被淹没。</li>
+      </ul>
+    </div>
+
+    <div class="dim d2">
+      <div class="dim-h"><span class="e">🔥</span><span class="t">情绪面</span><span class="score">恐慌加剧 ★☆☆☆☆</span></div>
+      <ul>
+        <li><b>韩国KOSPI 9:06触发Sidecar熔断</b>——程序化卖盘暂停5分钟,这是连续第二个交易日触发熔断,说明程序化交易在拥挤的市场中极易形成"踩踏循环"。</li>
+        <li><b>日经225暴跌3.16%、台股盘中跌超千点</b>——亚太风险偏好系统性收缩。</li>
+        <li><b>A股逾百股跌停、超5000只下跌</b>——仅约300只上涨,今日堪称A股今年"最惨交易日"之一。</li>
+        <li><b>成交放量1103亿至2.51万亿</b>——放量杀跌 = 恐慌盘涌出,需警惕明日惯性杀跌。</li>
+        <li><b>美银基金经理调查:</b>净56%超配股票、现金3.5%历史低位——极度拥挤,极易"多杀多"。</li>
+      </ul>
+    </div>
+
+    <div class="dim d3">
+      <div class="dim-h"><span class="e">📊</span><span class="t">技术面</span><span class="score">破位杀跌 ★★☆☆☆</span></div>
+      <ul>
+        <li><b>上证指数 3894.42 (-2.40%)</b>——放量杀跌破3900点整数关口,日线形态上完全吞没近3个交易日涨幅,需观察3870-3850支撑。</li>
+        <li><b>深成指 13890 (-5.01%)</b>——暴跌5%形成"向下突破"形态,前低13800附近有支撑。</li>
+        <li><b>创业板指 3473 (-6.26%)</b>——30个交易日首次跌破3500关口,中期趋势走弱信号。</li>
+        <li><b>科创50 1667 (-6.89%)</b>——4连阳后一根大阴线,AI/半导体板块估值泡沫加速破裂。</li>
+        <li><b>关键位:</b>沪指3870/3850 是两道关键支撑,有效跌破则确认中期调整;<b>3950-3960 已转为强阻力</b>。</li>
+      </ul>
+    </div>
+
+    <div class="dim d4">
+      <div class="dim-h"><span class="e">🏛</span><span class="t">政策面</span><span class="score">国内托底 ★★★☆☆</span></div>
+      <ul>
+        <li><b>国务院修改《住房公积金管理条例》</b>——装修/物业费纳入提取范围、不再设置房租门槛、可用公积金购买政策性金融债。直接利好消费/地产。</li>
+        <li><b>商务部激发下沉市场活力</b>——《关于进一步激发下沉市场活力 活跃县域消费的意见》,聚焦县域消费,从供给/环境两端发力。</li>
+        <li><b>国家气候中心预警:</b>超强厄尔尼诺11-12月达峰——将推高通胀预期,中期利好农业/有色等滞胀对冲资产。</li>
+        <li><b>央行8/18净回笼958亿</b>(vs 8/17净投放1985亿)——货币端中性偏紧,流动性环比略有收敛。</li>
+        <li><b>结论:</b>国内政策"托底式"刺激持续推进,但相比海外"债灾+地缘"的双杀力度,本土政策难以独立扭转市场风险偏好。</li>
+      </ul>
+    </div>
+
+    <div class="dim d5">
+      <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">放量杀跌 ★★☆☆☆</span></div>
+      <ul>
+        <li><b>两市成交2.51万亿(放量1103亿)</b>——放量长阴 = 恐慌盘+获利盘+止损盘共振涌出,<b>典型的"放量杀跌"</b>信号。</li>
+        <li><b>南向资金逆势加仓140亿港元</b>——港股防御配置价值凸显(创新药/地产/银行),与A股内资杀跌形成鲜明对照。</li>
+        <li><b>北向资金或今日净流出</b>——具体数据待收盘后披露,海外配置型资金在全球"债灾"下或阶段性降低A股敞口。</li>
+        <li><b>险资Q2末40.82万亿(+12.7%)</b>——长线资金定价权持续提升,深跌后或主动加仓(尤其红利/银行/煤炭)。</li>
+        <li><b>关键观察:</b>若明后日继续放量下行至2.6万亿以上,需警惕系统性风险;若缩量止跌则可能进入超跌反弹期。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= 板块热力 ================= -->
+  <div class="sec" id="sec-heat">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">🔥</div>
+      <div class="sec-title">板块热力图</div>
+      <div class="sec-note">红涨绿跌</div>
+    </div>
+
+    <div class="heat"><div class="heat-row"><div class="heat-name">银行</div><div class="heat-track"><div class="heat-fill up" style="width:78%"></div></div><div class="heat-val r">中信银行+4%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">煤炭</div><div class="heat-track"><div class="heat-fill up" style="width:92%"></div></div><div class="heat-val r">宝泰隆/陕西黑猫涨停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">化工</div><div class="heat-track"><div class="heat-fill up" style="width:80%"></div></div><div class="heat-val r">红四方3连板</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">房地产</div><div class="heat-track"><div class="heat-fill up" style="width:65%"></div></div><div class="heat-val r">我爱我家涨停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">农业/种业</div><div class="heat-track"><div class="heat-fill up" style="width:58%"></div></div><div class="heat-val r">京粮控股3连板</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">半导体/CPO</div><div class="heat-track"><div class="heat-fill down" style="width:96%"></div></div><div class="heat-val g">杰华特/芯朋微-12%+</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">人形机器人</div><div class="heat-track"><div class="heat-fill down" style="width:88%"></div></div><div class="heat-val g">中大力德跌停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">科创次新股</div><div class="heat-track"><div class="heat-fill down" style="width:82%"></div></div><div class="heat-val g">大幅杀跌</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">MLCC</div><div class="heat-track"><div class="heat-fill down" style="width:75%"></div></div><div class="heat-val g">获利回吐</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">AI概念/高位股</div><div class="heat-track"><div class="heat-fill down" style="width:90%"></div></div><div class="heat-val g">退潮(爱丽家居等跌停)</div></div></div>
+
+    <div class="callout">
+      <b>今日格局:防御板块独秀+科技全线溃败,典型"滞胀交易"风格。</b>
+      <span class="ph">银行/煤炭/化工/地产/农业 = 通胀对冲+政策驱动+避险情绪的三重共振</span>;
+      半导体/CPO/AI/人形机器人 = <span class="ph">长债收益率飙升的"折现率杀伤"</span>。
+      这是2007年以来首次出现的"长债收益率破5.32%"与"AI/半导体泡沫破裂"的同步定价,<b>不应该低估这次调整的级别</b>。
+    </div>
+  </div>
+
+  <!-- ================= 焦点个股 ================= -->
+  <div class="sec" id="sec-stock">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">⭐</div>
+      <div class="sec-title">焦点个股与资金流</div>
+      <div class="sec-note">A股 + 港股 + 海外</div>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><span class="cn">中信银行</span><span class="lim">+4%</span><span class="cv r">银行逆势</span></div>
+      <div class="chip"><span class="cn">宝泰隆</span><span class="lim">涨停</span><span class="cv r">煤炭</span></div>
+      <div class="chip"><span class="cn">陕西黑猫</span><span class="lim">涨停</span><span class="cv r">煤炭</span></div>
+      <div class="chip"><span class="cn">红四方</span><span class="lim">3连板</span><span class="cv r">化工</span></div>
+      <div class="chip"><span class="cn">我爱我家</span><span class="lim">涨停</span><span class="cv r">房地产</span></div>
+      <div class="chip"><span class="cn">南都物业</span><span class="lim">涨停</span><span class="cv r">物业</span></div>
+      <div class="chip"><span class="cn">京粮控股</span><span class="lim">3连板</span><span class="cv r">农业</span></div>
+      <div class="chip"><span class="cn">SK海力士</span><span class="limg">暴跌</span><span class="cv g">−8.36%</span></div>
+      <div class="chip"><span class="cn">三星电子</span><span class="limg">暴跌</span><span class="cv g">−7.08%</span></div>
+      <div class="chip"><span class="cn">杰华特</span><span class="limg">芯片</span><span class="cv g">−12%+</span></div>
+      <div class="chip"><span class="cn">芯朋微</span><span class="limg">芯片</span><span class="cv g">−12%+</span></div>
+      <div class="chip"><span class="cn">爱丽家居</span><span class="limg">高位退潮</span><span class="cv g">跌停</span></div>
+      <div class="chip"><span class="cn">中大力德</span><span class="limg">人形机器人</span><span class="cv g">跌停</span></div>
+      <div class="chip"><span class="cn">闪迪(US)</span><span class="limg">存储</span><span class="cv g">−9%</span></div>
+      <div class="chip"><span class="cn">美光科技(US)</span><span class="limg">存储</span><span class="cv g">−7%</span></div>
+      <div class="chip"><span class="cn">英伟达(US)</span><span class="limg">AI芯片</span><span class="cv g">−2%</span></div>
+    </div>
+
+    <div class="callout blue">
+      <b>今日最值得关注的对比组:</b>
+      <b>韩股存储双雄-7%~-9% vs A股银行煤炭涨停潮</b>——
+      全球AI/存储/半导体泡沫破裂 vs A股防御板块独撑的"滞胀交易"画面极度分裂。
+      <span class="ph">A股半导体/CPO今日破位,产业链估值出清才刚开始</span>;
+      同时<b>爱丽家居/一鸣食品/中大力德/巨轮智能/五洲新春等跌停</b>——昨日热门品种集体退潮,<b>提示追高风险</b>。
+    </div>
+  </div>
+
+  <!-- ================= 大宗与汇率 ================= -->
+  <div class="sec" id="sec-commodity">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fef3c7">🪙</div>
+      <div class="sec-title">大宗商品与汇率</div>
+      <div class="sec-note">8/18 收盘 + 8/19 期货</div>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>品种</th><th>最新</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="hot"><td class="name">布伦特原油 <span style="font-size:10px;color:#c9313e">破91</span></td><td>91.02</td><td class="r">+0.17%</td></tr>
+        <tr class="hot"><td class="name">WTI原油</td><td>84.94</td><td class="r">+0.52%</td></tr>
+        <tr><td class="name">COMEX黄金期货</td><td>4389.50</td><td class="g">−1.88%</td></tr>
+        <tr><td class="name">COMEX白银期货</td><td>63.42</td><td class="g">−4.24%</td></tr>
+        <tr><td class="name">COMEX铜</td><td>6.4825</td><td class="g">−1.84%</td></tr>
+        <tr><td class="name">伦铜</td><td>13961.5</td><td class="g">−1.38%</td></tr>
+        <tr class="grp"><td colspan="3">汇率与利率</td></tr>
+        <tr><td class="name">美元/在岸人民币</td><td>6.7454</td><td class="r">贬值45bp</td></tr>
+        <tr><td class="name">美元指数</td><td>99.65</td><td class="r">+0.07%</td></tr>
+        <tr><td class="name">欧元/美元</td><td>1.1576</td><td class="g">−0.03%</td></tr>
+        <tr><td class="name">美元/日元</td><td>159.62</td><td class="r">+0.10%</td></tr>
+        <tr class="hot"><td class="name">10年期美债收益率</td><td>4.702%</td><td class="r">盘中新高</td></tr>
+        <tr class="hot"><td class="name">30年期美债收益率</td><td>5.283%</td><td class="r">盘中新高2007来</td></tr>
+        <tr class="hot"><td class="name">日本10年期国债</td><td>2.952%</td><td class="r">1996来高位</td></tr>
+        <tr class="grp"><td colspan="3">数字资产</td></tr>
+        <tr><td class="name">比特币</td><td>~64534</td><td class="r">+0.46%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <b>大宗关键信号:大宗商品"油涨金跌"分化加速,长债收益率成核心风险变量。</b>
+      <b>布伦特突破91美元(收盘站稳)</b>——美伊冲突外溢+霍尔木兹封锁,油价中枢系统性上移。
+      <b>黄金-1.88%、白银-4.24%、铜-1.84%集体走弱</b>——<span class="ph">长债收益率破5.32%所引发的"折现率上行"压制所有金属</span>。
+      30年美债收益率5.283%创2007年来新高 = 全球资产定价的"无风险利率锚"被显著抬升,
+      <span class="ph">这是今日A股科技股暴跌的全球性根源</span>。
+    </div>
+  </div>
+
+  <!-- ================= 产业高频数据 ================= -->
+  <div class="sec" id="sec-grassroots">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#f3fbf6">🔬</div>
+      <div class="sec-title">产业高频数据 · 机构/大户必读</div>
+      <div class="sec-note">产业链一线追踪</div>
+    </div>
+
+    <div class="gf-grid">
+
+      <!-- 半导体/存储 -->
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">🔌</span>
+          <span class="gf-name">半导体/存储</span>
+          <span class="gf-status cool">泡沫破裂</span>
+        </div>
+        <ul>
+          <li><b>OpenAI Q2亏损扩大</b>:营收67亿美元(环比+18%)<span class="up">增长不及预期</span>,含股权激励的运营亏损从93亿扩至123亿美元(+33%)</li>
+          <li><b>全球存储三巨头</b> 8/18夜:<span class="dn">闪迪-9%、西部数据-7%、美光-7%</span>,SK海力士ADR-9%、英伟达-2%</li>
+          <li><b>高盛测算AI资本开支</b>:2026年AI数据中心支出<span class="up">9000亿美元</span>;2027年最高<span class="up">1.4万亿美元</span>——但全部需要债券市场承接</li>
+          <li><b>摩根大通警告:</b>"可分散的选项正在收窄",只剩<span class="up">美国国债、黄金、核心型房地产</span>作为分散配置</li>
+          <li><b>影响</b>:A股半导体杰华特/芯朋微等<span class="dn">-12%+</span>,CPO/MLCC/科创次新股同遭重挫,<b>估值出清才刚开始</b></li>
+        </ul>
+        <div class="gf-src">信源:OpenAI · 高盛 · 摩根资产管理 · Bloomberg · 费城半导体指数</div>
+      </div>
+
+      <!-- 银行/煤炭 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🏦</span>
+          <span class="gf-name">银行/煤炭/化工</span>
+          <span class="gf-status hot">滞胀交易</span>
+        </div>
+        <ul>
+          <li><b>银行</b> 中信银行<span class="up">+4%</span>领涨,农业银行、南京银行+2%+;江苏银行创历史新高</li>
+          <li><b>煤炭</b> 宝泰隆/陕西黑猫/大有能源/美锦能源<span class="up">集体涨停</span>;焦炭08月17日价格1868.75元/吨,90天涨<span class="up">11.40%</span></li>
+          <li><b>化工</b> 红四方<span class="up">3连板</span>,华锦股份/中毅达涨停,化工板块异动拉升</li>
+          <li><b>核心驱动</b>:① 滞胀交易逻辑(美债收益率5.32%+油价91美元);② 国务院公积金+下沉消费政策托底</li>
+          <li><b>关注点</b>:在全球"债灾"背景下,<b>高股息/稳定现金流/低估值</b>资产的相对优势进一步凸显</li>
+        </ul>
+        <div class="gf-src">信源:A股收盘异动 · 国务院 · 商务部 · Mysteel</div>
+      </div>
+
+      <!-- AI算力/存储 -->
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">🤖</span>
+          <span class="gf-name">AI算力/存储</span>
+          <span class="gf-status cool">高位退潮</span>
+        </div>
+        <ul>
+          <li><b>Stripe 70亿美元收购OpenRouter</b>——加速聚合AI模型市场,与英伟达/AMD/GPU厂商绑定</li>
+          <li><b>Anthropic拟IPO 2万亿美元</b>(10月)——史上最大规模,Anthropic Q2营收<span class="up">115亿美元(+14倍)</span></li>
+          <li><b>GPT-6代号"GPT-Next"再次泄露</b>——<span class="up">本周四或将发布</span>,SemiAnalysis解读为"操纵大模型市占率"</li>
+          <li><b>宇树科技"超人"机器人</b>——原地跳高2米、极限速度12.66m/s,创纪录</li>
+          <li><b>A股影响:</b>高估值AI算力链今日<span class="dn">全线重挫</span>,分化将持续——头部真AI公司仍可关注,伪概念需警惕</li>
+        </ul>
+        <div class="gf-src">信源:彭博 · The Information · Stripe · 宇树科技 · Anthropic</div>
+      </div>
+
+      <!-- 农业/厄尔尼诺 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🌾</span>
+          <span class="gf-name">农业/厄尔尼诺</span>
+          <span class="gf-status hot">通胀对冲</span>
+        </div>
+        <ul>
+          <li><b>国家气候中心预警</b> 11-12月达峰,<span class="up">超强厄尔尼诺</span>有观测记录以来最强</li>
+          <li><b>摩根大通预测</b>:<span class="up">全球食品通胀2.8%→5%</span>(2026H1→2027H1),霍尔木兹+厄尔尼诺双重推升</li>
+          <li><b>A股农业板块</b>:京粮控股<span class="up">3连板</span>,万向德农/亚盛集团/登海种业跟涨(8/19午后调整但板块整体抗跌)</li>
+          <li><b>化肥/农药</b>:<span class="up">需求确定性最高</span>——全球食品价格上涨必然推升农资需求</li>
+          <li><b>农业ETF配置</b>:中长期可作为"滞胀对冲+全球避险"组合的核心持仓</li>
+        </ul>
+        <div class="gf-src">信源:国家气候中心 · 摩根大通 · 联合国WMO · 中信建投 · Wind</div>
+      </div>
+
+      <!-- 房地产/家电 -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🏠</span>
+          <span class="gf-name">房地产/家居</span>
+          <span class="gf-status warm">政策驱动</span>
+        </div>
+        <ul>
+          <li><b>国务院修改《住房公积金管理条例》</b>:<span class="up">装修/物业费纳入提取范围</span>;不再设置房租超工资收入门槛</li>
+          <li><b>商务部《激发下沉市场活力》:</b>聚焦县域地区和线下消费,推出14项具体措施</li>
+          <li><b>板块反应</b>:我爱我家/南都物业<span class="up">涨停</span>,特发服务/中天服务/世联行/滨江集团跟涨</li>
+          <li><b>江苏银行创历史新高</b>——高股息+地产链修复双重逻辑</li>
+          <li><b>关注点</b>:政策面对消费/地产的精准托底,在防御风格中持续受益</li>
+        </ul>
+        <div class="gf-src">信源:国务院 · 商务部 · 第一财经 · 同花顺</div>
+      </div>
+
+      <!-- 有色金属 -->
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">🪙</span>
+          <span class="gf-name">有色金属</span>
+          <span class="gf-status cool">短期承压</span>
+        </div>
+        <ul>
+          <li><b>LME铜</b> 13961.5美元/吨,<span class="dn">−1.38%</span>;COMEX铜6.4825,<span class="dn">−1.84%</span>——长债利率上行压制金属估值</li>
+          <li><b>COMEX白银63.42</b>(<span class="dn">−4.24%</span>)——在长债破5.32%背景下,贵金属被"折现率上行"重新定价</li>
+          <li><b>COMEX黄金4389.50</b>(<span class="dn">−1.88%</span>)——特朗普宣称"海峡开放"引发恐慌式减持</li>
+          <li><b>但中长期</b>:<span class="up">滞胀逻辑仍支持金/铜中枢上移</span>;今日回调可能反而是机会</li>
+          <li><b>关注点</b>:长债利率破5.32%反而是贵金属"倒车接客"的窗口</li>
+        </ul>
+        <div class="gf-src">信源:LME · COMEX · 摩根大通 · ING · 路透</div>
+      </div>
+
+    </div>
+
+    <div class="callout blue">
+      <b>本周最值得关注的三条产业链信号:</b>
+      <b>① OpenAI亏损扩至123亿+存储三巨头全线暴跌</b>——AI泡沫的"二次警报"已从股票扩散至债市(摩根大通Gabriela Santos);<b>② 30年美债破5.32%创19年新高+韩股触发Sidecar</b>——全球"折现率上行"是A股科技股暴跌6-7%的根本机制;<b>③ 厄尔尼诺+霍尔木兹+摩根大通食品通胀2.8%→5%</b>——滞胀三连击已经发生,农业/煤炭/化工今日已用脚投票。
+    </div>
+  </div>
+
+  <!-- ================= 策略 ================= -->
+  <div class="sec" id="sec-strategy">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">🧭</div>
+      <div class="sec-title">后市展望与操作策略</div>
+    </div>
+
+    <div class="strat">
+      <div class="strat-in">
+        <h4>🧭 核心判断</h4>
+        <ul>
+          <li><b>短期(1-3天):黑色星期三余波未消,关注今晚FOMC纪要。</b>沪指已破3900、创业板破3500、科创50破1700——技术形态上均已形成"中期破位"信号。<b>今晚FOMC纪要(北京时间周四凌晨2点)</b>是关键节点:如果措辞偏鹰,可能引发二次杀跌考验3850;如果偏鸽,仅技术性反弹。中长期来看,今日的"长债收益率破5.32%+AI泡沫二次警报"是2007年以来首次出现的双重共振,<span class="ph">不应该低估本次调整的级别与持续时间</span>。</li>
+          <li><b>中期(1-2周):防御板块将成主战场,科技等待估值出清完毕。</b>今日已完美呈现"防御→成长"的极端切换:煤炭/银行/化工/地产/农业逆势走强 vs 半导体/CPO/AI全线重挫。中期来看,<b>滞胀交易</b>(银行/煤炭/化工/农业)<b>+ 国债避险</b>(30年国债期货创新高)<b>+ 高股息红利</b>三大主线将轮流成为市场主轴。成长等待两个信号:①美联储加息预期降温、②AI/存储"清算"完毕(估值的出清通常需要2-4周)。</li>
+          <li><b>长期(1-3个月):滞胀格局下,A股需要"第二次风格切换"。</b>全球长债收益率上行+伊朗局势外溢+厄尔尼诺 = 通胀粘性+增长放缓的"滞胀交易"将持续。<b>这意味着:降低长久期成长股配置、提升抗通胀资产配置(红利/黄金/能源/农业)将是长期方向</b>。同时密切关注:中国国债是否继续走强(资本流入信号)、Anthropic 10月IPO的标志意义、央行是否再度净投放(8/18已转净回笼)。</li>
+          <li><b>风险点:</b>①今晚FOMC纪要偏鹰 → 全球风险资产再次承压;②30年美债收益率突破5.5% → 长端利率或引发系统性风险;③沪指跌破3850 → 中期调整深度或超预期;④伊朗打击欧洲美军资产 → 油价飙升+地缘升级;⑤OpenAI GPT-6周四发布如不及预期 → AI板块二次调整。</li>
+        </ul>
+
+        <div class="dirs">
+          <span class="dir">银行</span>
+          <span class="dir">煤炭</span>
+          <span class="dir">化工(化肥/农药)</span>
+          <span class="dir">农业/种业</span>
+          <span class="dir">红利/高股息</span>
+          <span class="dir">抗通胀实物资产</span>
+          <span class="dir cool">半导体/AI算力(等待出清)</span>
+          <span class="dir cool">CPO/算力(观望)</span>
+          <span class="dir cool">人形机器人(回避)</span>
+          <span class="dir cool">科创次新股(回避)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h4>⚠ 风险清单(按紧迫度排序)</h4>
+      <ul>
+        <li><b>今晚FOMC会议纪要(北京时间周四2:00)</b>——若措辞承认"通胀粘性"或讨论加息,全球长债收益率或突破5.5%,A股科技股或测试前低。</li>
+        <li><b>30年美债收益率破5.32%的可持续性</b>——如果持续维持在5%以上,长端利率对成长股估值的压制是"长周期"的,半导体/AI/CPO的估值出清才刚刚开始。</li>
+        <li><b>伊朗评估打击欧洲美军资产</b>——若真实发生,布伦特或冲击100美元,全球"二次滞胀"风险升级,风险资产或二次承压。</li>
+        <li><b>沪指跌破3850点</b>——若有效跌破则确认中期调整,需警惕下行至3700-3650区间的二次探底风险。</li>
+        <li><b>美银调查:56%超配股票+现金3.5%历史低位</b>——极度拥挤的"多杀多"风险,如果今晚纪要偏鹰,极易引发集中踩踏式卖出。</li>
+        <li><b>小米财报+存储涨价对手机需求的反噬</b>(手机出货-26.5%)——半导体"涨价反噬需求"的逻辑已在A股/美股同步兑现,需警惕全产业链基本面恶化。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= FOOT ================= -->
+  <div class="foot">
+    <div class="bk">每日全球股市观察</div>
+    数据来源:Reuters 路透社 · WSJ 华尔街日报 · Bloomberg 彭博 · CNBC · FT 金融时报 · MT Newswires · @ElErian LinkedIn/X · 新华社 · 财联社 · 第一财经 · 证券时报 · 金十数据 · 同花顺 · 摩根大通 · 高盛 · 韩国交易所 · Yonhap 韩联社 · 大和资产管理<br>
+    报告时间:2026年8月19日 15:45(北京时间)<br><br>
+    本报告基于公开信息整理,仅供研究参考,<b style="color:rgba(255,255,255,.6)">不构成任何投资建议</b>。<br>
+    市场有风险,投资需谨慎。据此操作,风险自担。
+  </div>
+
+</div>
+</body>
+</html>
