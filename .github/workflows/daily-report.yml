@@ -2,9 +2,8 @@ name: Daily Stock Report
 
 on:
   schedule:
-    # 每天 16:30 北京时间 = 08:30 UTC
     - cron: '30 8 * * 1-5'
-  workflow_dispatch: # 支持手动触发
+  workflow_dispatch:
 
 jobs:
   generate-report:
@@ -26,13 +25,13 @@ jobs:
         
     - name: Fetch market data
       run: |
-        python scripts/fetch_market_data.py
+        python deploy/scripts/fetch_market_data.py
         
     - name: Generate AI report
       env:
         QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       run: |
-        python scripts/generate_ai_report.py
+        python deploy/scripts/generate_ai_report.py
         
     - name: Commit and push
       run: |
