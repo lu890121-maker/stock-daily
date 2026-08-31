@@ -10,7 +10,7 @@ import requests
 from datetime import datetime
 
 # 数据目录
-DATA_DIR = "data"
+DATA_DIR = "deploy/data"
 DEPLOY_DIR = "deploy"
 
 def load_market_data():
