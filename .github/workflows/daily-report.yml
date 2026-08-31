@@ -25,18 +25,18 @@ jobs:
         
     - name: Fetch market data
       run: |
-        python deploy/scripts/fetch_market_data.py
+        python scripts/fetch_market_data.py
         
     - name: Generate AI report
       env:
         QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       run: |
-        python deploy/scripts/generate_ai_report.py
+        python scripts/generate_ai_report.py
         
     - name: Commit and push
       run: |
         git config user.name "GitHub Actions Bot"
         git config user.email "actions@github.com"
-        git add deploy/latest.html deploy/archive/ deploy/index.html
+        git add latest.html archive/ index.html
         git diff --staged --quiet || git commit -m "Update daily report $(date +%Y-%m-%d)"
         git push
