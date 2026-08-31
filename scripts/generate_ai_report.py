@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-使用 Qwen3.7 Plus 生成高质量股市分析报告
+使用 OpenAI API 生成高质量股市分析报告
 """
 
 import json
@@ -20,9 +20,9 @@ def load_market_data():
         return json.load(f)
 
 
-def call_qwen_api(prompt, api_key):
-    """调用 Qwen3.7 Plus API"""
-    url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+def call_openai_api(prompt, api_key):
+    """调用 Qwen3.7 Plus API (DashScope 国际站)"""
+    url = "https://coding-intl.dashscope.aliyuncs.com/v1/chat/completions"
     
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -30,127 +30,124 @@ def call_qwen_api(prompt, api_key):
     }
     
     payload = {
-        "model": "qwen-plus",
-        "input": {
-            "messages": [
-                {
-                    "role": "system",
-                    "content": "你是一位专业的金融分析师，擅长撰写深度股市分析报告。请用通俗易懂的语言，结合数据进行分析。"
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ]
-        },
-        "parameters": {
-            "temperature": 0.7,
-            "max_tokens": 4000
-        }
+        "model": "qwen3.7-plus",
+        "messages": [
+            {
+                "role": "system",
+                "content": "你是一位专业的金融分析师，擅长撰写深度股市分析报告。请用通俗易懂的语言，结合数据进行分析。报告需要包含五维度分析（消息面/情绪面/技术面/政策面/资金面）、环球要闻、板块热力图、焦点个股、大宗商品、产业高频数据和后市展望。"
+            },
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        "temperature": 0.7,
+        "max_tokens": 4000
     }
     
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=120)
+        response = requests.post(url, headers=headers, json=payload, timeout=180)
         response.raise_for_status()
         result = response.json()
         
-        if "output" in result and "text" in result["output"]:
-            return result["output"]["text"]
+        if "choices" in result and len(result["choices"]) > 0:
+            return result["choices"][0]["message"]["content"]
         else:
             print(f"API 返回格式异常: {result}")
             return None
             
     except Exception as e:
-        print(f"调用 Qwen API 失败: {e}")
+        print(f"调用 OpenAI API 失败: {e}")
         return None
 
 
 def generate_ai_analysis(data, api_key):
     """使用 AI 生成完整分析报告"""
-    print("正在调用 Qwen3.7 Plus 生成深度分析...")
+    print("正在调用 OpenAI API 生成深度分析...")
     
     # 构建提示词
     date_str = data["date"]
-    a_stock = data.get("a_stock", {})
-    hk_stock = data.get("hk_stock", {})
-    us_stock = data.get("us_stock", {})
-    commodities = data.get("commodities", {})
-    forex = data.get("forex", {})
-    news_list = data.get("news", [])
+    a_stock = data.get("a_stock") or {}
+    hk_stock = data.get("hk_stock") or {}
+    us_stock = data.get("us_stock") or {}
+    commodities = data.get("commodities") or {}
+    forex = data.get("forex") or {}
+    news_list = data.get("news") or []
+    
+    # 格式化数据
+    def fmt(d):
+        if not d:
+            return "数据暂缺"
+        price = d.get("price", "N/A")
+        pct = d.get("change_pct", 0)
+        if pct is None:
+            pct = 0
+        return f"{price} ({pct:+.2f}%)"
+    
+    news_text = "\n".join([f"- {n.get('title', n.get('content', '')[:50])}" for n in news_list[:8]]) if news_list else "暂无新闻数据"
     
     prompt = f"""请基于以下 {date_str} 的市场数据，生成一份完整的每日股市分析报告。
 
 ## 市场数据
 
 ### A 股
-- 上证指数: {a_stock.get('shanghai', {}).get('price', 'N/A')} ({a_stock.get('shanghai', {}).get('change_pct', 0):+.2f}%)
-- 深证成指: {a_stock.get('shenzhen', {}).get('price', 'N/A')} ({a_stock.get('shenzhen', {}).get('change_pct', 0):+.2f}%)
-- 创业板指: {a_stock.get('chinext', {}).get('price', 'N/A')} ({a_stock.get('chinext', {}).get('change_pct', 0):+.2f}%)
-- 科创50: {a_stock.get('star50', {}).get('price', 'N/A')} ({a_stock.get('star50', {}).get('change_pct', 0):+.2f}%)
+- 上证指数: {fmt(a_stock.get('shanghai'))}
+- 深证成指: {fmt(a_stock.get('shenzhen'))}
+- 创业板指: {fmt(a_stock.get('chinext'))}
+- 科创50: {fmt(a_stock.get('star50'))}
 
 ### 港股
-- 恒生指数: {hk_stock.get('hsi', {}).get('price', 'N/A')} ({hk_stock.get('hsi', {}).get('change_pct', 0):+.2f}%)
-- 恒生科技: {hk_stock.get('hstech', {}).get('price', 'N/A')} ({hk_stock.get('hstech', {}).get('change_pct', 0):+.2f}%)
+- 恒生指数: {fmt(hk_stock.get('hsi'))}
+- 恒生科技: {fmt(hk_stock.get('hstech'))}
 
 ### 美股（上一交易日）
-- 道琼斯: {us_stock.get('dowjones', {}).get('price', 'N/A')} ({us_stock.get('dowjones', {}).get('change_pct', 0):+.2f}%)
-- 纳斯达克: {us_stock.get('nasdaq', {}).get('price', 'N/A')} ({us_stock.get('nasdaq', {}).get('change_pct', 0):+.2f}%)
-- 标普500: {us_stock.get('sp500', {}).get('price', 'N/A')} ({us_stock.get('sp500', {}).get('change_pct', 0):+.2f}%)
+- 道琼斯: {fmt(us_stock.get('dowjones'))}
+- 纳斯达克: {fmt(us_stock.get('nasdaq'))}
+- 标普500: {fmt(us_stock.get('sp500'))}
 
 ### 大宗商品
-- 现货黄金: {commodities.get('gold', {}).get('price', 'N/A')} ({commodities.get('gold', {}).get('change_pct', 0):+.2f}%)
-- WTI原油: {commodities.get('oil', {}).get('price', 'N/A')} ({commodities.get('oil', {}).get('change_pct', 0):+.2f}%)
+- 现货黄金: {fmt(commodities.get('gold'))}
+- WTI原油: {fmt(commodities.get('oil'))}
+- 现货白银: {fmt(commodities.get('silver'))}
+- COMEX铜: {fmt(commodities.get('copper'))}
 
-### 汇率
-- 美元指数: {forex.get('usd_index', {}).get('price', 'N/A')} ({forex.get('usd_index', {}).get('change_pct', 0):+.2f}%)
+### 汇率与利率
+- 美元指数: {fmt(forex.get('usd_index'))}
+- 美元/离岸人民币: {fmt(forex.get('usdcnh'))}
+- 美元/日元: {fmt(forex.get('usdjpy'))}
+- 10年期美债收益率: {fmt(forex.get('us10y'))}
 
 ### 重要新闻
-{chr(10).join([f"- {n.get('title', '')}" for n in news_list[:5]])}
+{news_text}
 
 ## 报告要求
 
-请生成包含以下内容的完整 HTML 报告（严格参照 2026-08-25.html 的模板结构）：
+请生成包含以下内容的完整 HTML 报告：
 
-1. **HERO 区域**：一句话总结今日行情（如"沃什鹰啸全球承压 · A股低开高走独立行情"）
-
-2. **A 股速览**：
-   - 四大指数点位与涨跌幅
-   - 两市成交额、涨停/跌停家数
-   - 今日定性总结（2-3句话）
-
-3. **全球市场全景**：
-   - 亚太、美股、欧股、期货数据表格
-   - 全球图景总结
-
-4. **环球要闻（8-10条）**：
-   - 按极重要/重要/关注三级分类
-   - 每条包含：标题、大白话解读、对你有啥影响
-   - 覆盖国内外重要事件
-
-5. **五维度深度分析**：
-   - 消息面（利好/利空）
-   - 情绪面（涨停/跌停、成交量）
-   - 技术面（关键支撑/压力位）
-   - 政策面（最新政策）
-   - 资金面（主力资金流向）
-
+1. **HERO 区域**：一句话总结今日行情
+2. **A 股速览**：四大指数、成交额、涨停/跌停、今日定性
+3. **全球市场全景**：亚太/美股/欧股/期货数据表格 + 全球图景总结
+4. **环球要闻（8-10条）**：按极重要/重要/关注三级分类，每条含标题+大白话解读+影响分析
+5. **五维度深度分析**：消息面/情绪面/技术面/政策面/资金面
 6. **板块热力图**：领涨/领跌板块
-
 7. **焦点个股**：涨停股、资金流入/流出个股
-
 8. **大宗商品与汇率**：详细数据表格
-
 9. **产业高频数据**：2-3个重点产业链追踪
+10. **后市展望与操作策略**：短/中/长期判断 + 关注方向 + 风险点
 
-10. **后市展望与操作策略**：
-    - 短期/中期/长期判断
-    - 关注方向与风险点
+## HTML 格式要求
 
-请输出完整的 HTML 代码（包含所有 CSS 样式），确保可以直接保存为 .html 文件。使用红涨绿跌配色，max-width 680px，UTF-8 编码。
+- 严格使用以下 CSS 样式（红涨绿跌，max-width 680px）
+- 输出完整的 HTML 代码（从 <!DOCTYPE html> 到 </html>）
+- 使用 UTF-8 编码
+- 导航栏 sticky
+- 包含 HERO / A股速览 / 全球市场 / 环球要闻 / 五维度 / 板块热力图 / 焦点个股 / 大宗商品 / 产业高频 / 策略研判 / 页脚
+
+请直接输出完整的 HTML 代码，不要加任何解释文字。
 """
     
     # 调用 API
-    ai_content = call_qwen_api(prompt, api_key)
+    ai_content = call_openai_api(prompt, api_key)
     
     if ai_content:
         print("✓ AI 分析生成成功")
@@ -162,13 +159,11 @@ def generate_ai_analysis(data, api_key):
 
 def save_report(html_content, date_str):
     """保存报告"""
-    # 保存为 latest.html
     latest_file = os.path.join(DEPLOY_DIR, "latest.html")
     with open(latest_file, "w", encoding="utf-8") as f:
         f.write(html_content)
     print(f"✓ 报告已保存到 {latest_file}")
     
-    # 归档
     archive_dir = os.path.join(DEPLOY_DIR, "archive")
     if not os.path.exists(archive_dir):
         os.makedirs(archive_dir)
@@ -185,26 +180,22 @@ def main():
     print(f"开始生成 AI 分析报告 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
     
-    # 检查 API Key
     api_key = os.environ.get("QWEN_API_KEY")
     if not api_key:
         print("✗ 错误: 未设置 QWEN_API_KEY 环境变量")
         print("请在 GitHub Secrets 中配置 QWEN_API_KEY")
         return False
     
-    # 加载数据
     data = load_market_data()
     date_str = data["date"]
     print(f"✓ 数据加载成功: {date_str}")
     
-    # 生成 AI 分析
     html_content = generate_ai_analysis(data, api_key)
     
     if not html_content:
         print("✗ AI 分析生成失败")
         return False
     
-    # 保存报告
     save_report(html_content, date_str)
     
     print("=" * 50)
