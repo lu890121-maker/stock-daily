@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-每日股市数据抓取脚本
-从多个数据源获取 A 股、港股、美股、大宗商品等数据
+每日股市数据抓取脚本 - 增强版
+从多个数据源获取 A 股、港股、美股、大宗商品、板块资金流向等数据
 兼容 GitHub Actions（美国服务器）环境
 """
 
@@ -18,7 +18,8 @@ if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Referer": "https://finance.eastmoney.com/"
 }
 
 def fetch_a_stock_data():
@@ -26,7 +27,6 @@ def fetch_a_stock_data():
     print("正在获取 A 股数据...")
     a_stock = {}
     
-    # 新浪财经 API（HTTPS，从美国可访问）
     codes = {
         "shanghai": "s_sh000001",
         "shenzhen": "s_sz399001",
@@ -121,6 +121,112 @@ def fetch_a_stock_eastmoney():
     except Exception as e:
         print(f"✗ 东方财富 A 股数据也失败: {e}")
         return {}
+
+
+def fetch_market_stats():
+    """获取市场统计数据（涨停/跌停/成交额）"""
+    print("正在获取市场统计数据...")
+    stats = {}
+    
+    try:
+        # 涨停/跌停统计
+        url = "https://push2ex.eastmoney.com/getTopicZTPool"
+        params = {
+            "ut": "7eea3edcaed734bea9cb3f88541c4878",
+            "dpt": "wz.ztzt",
+            "Ession": datetime.now().strftime("%Y%m%d"),
+            "date": datetime.now().strftime("%Y%m%d"),
+            "pageindex": 0,
+            "pagesize": 1,
+            "sort": "fbt:asc"
+        }
+        response = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        data = response.json()
+        
+        if data.get("data") and data["data"].get("pool"):
+            stats["limit_up"] = data["data"]["pool"].get("count", 0)
+        else:
+            stats["limit_up"] = 0
+            
+    except Exception as e:
+        print(f"✗ 涨停数据获取失败: {e}")
+        stats["limit_up"] = 0
+    
+    try:
+        # 跌停统计
+        url2 = "https://push2ex.eastmoney.com/getTopicDTPool"
+        params2 = {
+            "ut": "7eea3edcaed734bea9cb3f88541c4878",
+            "dpt": "wz.ztzt",
+            "Ession": datetime.now().strftime("%Y%m%d"),
+            "date": datetime.now().strftime("%Y%m%d"),
+            "pageindex": 0,
+            "pagesize": 1,
+            "sort": "fbt:asc"
+        }
+        response2 = requests.get(url2, params=params2, headers=HEADERS, timeout=15)
+        data2 = response2.json()
+        
+        if data2.get("data") and data2["data"].get("pool"):
+            stats["limit_down"] = data2["data"]["pool"].get("count", 0)
+        else:
+            stats["limit_down"] = 0
+            
+    except Exception as e:
+        print(f"✗ 跌停数据获取失败: {e}")
+        stats["limit_down"] = 0
+    
+    print(f"✓ 市场统计: 涨停{stats.get('limit_up', 0)}家, 跌停{stats.get('limit_down', 0)}家")
+    return stats
+
+
+def fetch_sector_fund_flow():
+    """获取板块资金流向"""
+    print("正在获取板块资金流向...")
+    sectors = {"inflow": [], "outflow": []}
+    
+    try:
+        url = "https://push2.eastmoney.com/api/qt/clist/get"
+        params = {
+            "pn": 1, "pz": 10, "po": 1, "np": 1,
+            "fltt": 2, "invt": 2, "fid": "f62",
+            "fs": "m:90+t:2",
+            "fields": "f12,f14,f62,f184,f66,f69,f72,f75,f78,f81,f84,f87,f204,f205"
+        }
+        response = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        data = response.json()
+        
+        for item in data.get("data", {}).get("diff", [])[:10]:
+            name = item.get("f14", "")
+            net = item.get("f62", 0)
+            if net and name:
+                sectors["inflow"].append({
+                    "name": name,
+                    "net_inflow": round(net / 100000000, 2)  # 转换为亿
+                })
+                
+    except Exception as e:
+        print(f"✗ 板块资金流入获取失败: {e}")
+    
+    try:
+        params["po"] = 0  # 升序=净流出最大
+        response2 = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        data2 = response2.json()
+        
+        for item in data2.get("data", {}).get("diff", [])[:10]:
+            name = item.get("f14", "")
+            net = item.get("f62", 0)
+            if net and name:
+                sectors["outflow"].append({
+                    "name": name,
+                    "net_inflow": round(net / 100000000, 2)
+                })
+                
+    except Exception as e:
+        print(f" 板块资金流出获取失败: {e}")
+    
+    print(f"✓ 板块资金流向: 流入TOP{len(sectors['inflow'])}, 流出TOP{len(sectors['outflow'])}")
+    return sectors
 
 
 def fetch_hk_stock_data():
@@ -337,7 +443,7 @@ def fetch_news():
         response = requests.get(url, headers=HEADERS, timeout=15)
         data = response.json()
         
-        for item in data.get("result", {}).get("data", [])[:5]:
+        for item in data.get("result", {}).get("data", [])[:8]:
             news_list.append({
                 "title": item.get("title", ""),
                 "content": item.get("intro", item.get("title", "")),
@@ -358,7 +464,7 @@ def fetch_news():
             response = requests.get(url, params=params, headers=HEADERS, timeout=15)
             data = response.json()
             
-            for item in data.get("data", {}).get("roll_data", [])[:5]:
+            for item in data.get("data", {}).get("roll_data", [])[:8]:
                 news_list.append({
                     "title": item.get("title", ""),
                     "content": item.get("content", ""),
@@ -385,6 +491,8 @@ def main():
         "date": datetime.now().strftime("%Y-%m-%d"),
         "timestamp": datetime.now().isoformat(),
         "a_stock": fetch_a_stock_data(),
+        "market_stats": fetch_market_stats(),
+        "sector_fund_flow": fetch_sector_fund_flow(),
         "hk_stock": fetch_hk_stock_data(),
         "us_stock": fetch_us_stock_data(),
         "commodities": fetch_commodity_data(),
