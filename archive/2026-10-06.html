@@ -14,8 +14,6 @@
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
-
-  /* ============ HERO ============ */
   .hero {
     position: relative;
     background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
@@ -49,8 +47,6 @@
   }
   .pulse { display:inline-flex; align-items:center; gap:6px; }
   .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
-
-  /* ============ SECTION ============ */
   .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
   .sec:last-of-type { border-bottom: none; }
   .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
@@ -60,8 +56,6 @@
   }
   .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
   .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
-
-  /* ============ INDEX GRID ============ */
   .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
   .idx {
     background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
@@ -75,8 +69,6 @@
   .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
   .up .v, .up .c { color:#e84855; }
   .down .v, .down .c { color:#12a05c; }
-
-  /* ============ STAT BAR ============ */
   .statbar {
     display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
     background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
@@ -85,8 +77,6 @@
   .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
   .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
   .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
-
-  /* ============ CALLOUT ============ */
   .callout {
     margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
     border:1px solid #ffdcd8; border-left:3px solid #e84855;
@@ -95,8 +85,6 @@
   .callout b { color:#c9313e; }
   .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
   .callout.blue b { color:#2456c4; }
-
-  /* ============ NEWS ============ */
   .news-legend {
     display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;
     padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
@@ -109,8 +97,6 @@
   .tag.mini { font-size:10px; padding:2px 8px; }
   .src { font-size:10px; padding:2px 8px; border-radius:12px; background:#eef2f8; color:#6b7688; }
   .src.intl { background:#eae4fb; color:#6a4bb8; }
-  .src.x { background:#e0f0ff; color:#1a73e8; }
-
   .news {
     position:relative; margin-bottom:16px; border-radius:12px; padding:16px 18px;
     border:1px solid transparent;
@@ -133,8 +119,6 @@
     border-radius:8px; border:1px solid rgba(0,0,0,.04);
     font-size:12.5px; color:#4a5568; line-height:1.8;
   }
-
-  /* ============ FIVE DIM ============ */
   .dim {
     border-radius:12px; padding:16px 18px; margin-bottom:12px; position:relative; overflow:hidden;
   }
@@ -165,8 +149,6 @@
     border-radius:50%; background:#b8c0ce;
   }
   .dim li b { color:#1a2233; }
-
-  /* ============ HEAT ============ */
   .heat { margin-bottom:10px; }
   .heat-row { display:flex; align-items:center; gap:8px; }
   .heat-name { width:90px; font-size:12.5px; font-weight:700; text-align:right; color:#3d4660; flex-shrink:0; }
@@ -177,8 +159,6 @@
   .heat-val { width:70px; font-size:11.5px; font-weight:700; }
   .heat-val.r { color:#e84855; }
   .heat-val.g { color:#12a05c; }
-
-  /* ============ CHIPS ============ */
   .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
   .chip {
     display:flex; align-items:center; gap:8px;
@@ -190,8 +170,6 @@
   .chip .taga { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e2ecfd; color:#2456c4; }
   .chip .limg { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e8ecf3; color:#5a6678; }
   .chip .cv { font-size:12px; font-weight:800; font-variant-numeric:tabular-nums; }
-
-  /* ============ TABLE ============ */
   .tbl { width:100%; border-collapse:collapse; font-size:13px; }
   .tbl th { text-align:left; padding:10px 8px; font-size:11px; color:#8892a6; font-weight:600; border-bottom:1px solid #e8ecf3; }
   .tbl td { padding:10px 8px; border-bottom:1px solid #f1f4f9; }
@@ -214,8 +192,6 @@
   .mkt-legend .dot.close { background:#3b6fe0; }
   .mkt-legend .dot.live { background:#f0932b; }
   .mkt-legend .dot.ovn { background:#6a4bb8; }
-
-  /* ============ GRASSROOTS ============ */
   .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
   .gf-card {
     background:#fff; border:1px solid #e8ecf3; border-radius:12px;
@@ -229,9 +205,7 @@
   .gf-top { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
   .gf-ico { font-size:20px; }
   .gf-name { font-size:14px; font-weight:800; flex:1; }
-  .gf-status {
-    font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px;
-  }
+  .gf-status { font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px; }
   .gf-status.hot { background:#ffe4e6; color:#c9313e; }
   .gf-status.warm { background:#fff0dc; color:#b8690f; }
   .gf-status.cool { background:#e2ecfd; color:#2456c4; }
@@ -251,8 +225,6 @@
   .gf-card li .dn { color:#12a05c; font-weight:700; }
   .gf-src { font-size:10px; color:#9aa2b0; margin-top:7px; }
   @media (max-width:480px) { .gf-grid { grid-template-columns:1fr; } }
-
-  /* ============ STRATEGY ============ */
   .strat {
     background:linear-gradient(145deg,#1a2233,#2a3550); border-radius:14px;
     padding:22px 20px; color:#fff; margin-bottom:14px;
@@ -279,7 +251,6 @@
   .dir.cool {
     background:rgba(59,111,224,.15); color:#93b5ff; border-color:rgba(59,111,224,.25);
   }
-
   .risk {
     background:#fff5f5; border:1px solid #ffd5d5; border-radius:12px;
     padding:16px 18px;
@@ -295,15 +266,11 @@
     content:'⚠'; position:absolute; left:0; top:7px; font-size:10px;
   }
   .risk li b { color:#c9313e; }
-
-  /* ============ FOOT ============ */
   .foot {
     padding:28px 26px 34px; background:linear-gradient(145deg,#1a2233,#131a2e);
     color:rgba(255,255,255,.55); font-size:11.5px; line-height:1.8; text-align:center;
   }
   .foot .bk { font-size:14px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:10px; letter-spacing:1px; }
-
-  /* ============ NAV ============ */
   .sec-nav {
     position:sticky; top:0; z-index:100;
     background:rgba(255,255,255,.95); backdrop-filter:blur(12px);
@@ -324,15 +291,6 @@
   }
   .sec-nav a:hover { background:#e2ecfd; color:#2456c4; }
   .sec-nav a.active { background:#3b6fe0; color:#fff; }
-
-  .sec.active {
-    animation: sec-highlight 1.5s ease;
-  }
-  @keyframes sec-highlight {
-    0% { background:#fffde0; }
-    100% { background:#fff; }
-  }
-
   @media (max-width:480px) {
     .idx-grid { grid-template-columns:repeat(2,1fr); }
     .chips { grid-template-columns:1fr; }
@@ -344,34 +302,10 @@
     .sec-nav a { font-size:11px; padding:5px 12px; }
   }
 </style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var navLinks = document.querySelectorAll('.sec-nav a');
-  navLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var targetId = this.getAttribute('href').substring(1);
-      var target = document.getElementById(targetId);
-      if (target) {
-        var nav = document.querySelector('.sec-nav');
-        var navH = nav.offsetHeight;
-        var targetPos = target.getBoundingClientRect().top + window.pageYOffset - navH - 10;
-        window.scrollTo({ top: targetPos, behavior: 'smooth' });
-        target.classList.add('active');
-        setTimeout(function() { target.classList.remove('active'); }, 1500);
-      }
-      navLinks.forEach(function(l) { l.classList.remove('active'); });
-      this.classList.add('active');
-      setTimeout(function() { link.classList.remove('active'); }, 1500);
-    });
-  });
-});
-</script>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-inner">
       <div class="kicker">DAILY GLOBAL MARKET WATCH · 国庆假期特别版</div>
@@ -384,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- 板块导航 -->
   <div class="sec-nav">
     <span class="sec-nav-label">快速跳转：</span>
     <a href="#sec-overview">📈 港股速览</a>
@@ -398,7 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="#sec-strategy">🎯 策略研判</a>
   </div>
 
-  <!-- 港股收盘速览 -->
   <div class="sec" id="sec-overview">
     <div class="sec-head">
       <div class="sec-ico" style="background:#ffe4e6">📈</div>
@@ -407,29 +339,28 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <div class="idx-grid">
-      <div class="idx up"><div class="n">恒生指数</div><div class="v">24040.34</div><div class="c">+0.28%</div></div>
-      <div class="idx up"><div class="n">恒生科技</div><div class="v">4183.68</div><div class="c">+0.62%</div></div>
-      <div class="idx up"><div class="n">恒生国企</div><div class="v">8051.67</div><div class="c">+0.26%</div></div>
-      <div class="idx down"><div class="n">成交额</div><div class="v">981亿</div><div class="c">较前日-477亿</div></div>
+      <div class="idx up"><div class="n">恒生指数</div><div class="v">24280.56</div><div class="c">+1.00%</div></div>
+      <div class="idx up"><div class="n">恒生科技</div><div class="v">4223.08</div><div class="c">+0.94%</div></div>
+      <div class="idx up"><div class="n">恒生国企</div><div class="v">8128.97</div><div class="c">+0.96%</div></div>
+      <div class="idx down"><div class="n">成交额</div><div class="v">9826亿</div><div class="c">较前日-476亿</div></div>
     </div>
 
     <div class="statbar">
-      <div class="stat"><div class="k">大市成交</div><div class="v n0">981亿</div></div>
-      <div class="stat"><div class="k">较前日</div><div class="v g">-32.7%</div></div>
+      <div class="stat"><div class="k">大市成交</div><div class="v n0">9826亿</div></div>
+      <div class="stat"><div class="k">较前日</div><div class="v g">-32.6%</div></div>
       <div class="stat"><div class="k">A股休市</div><div class="v r">第6天</div></div>
       <div class="stat"><div class="k">10/8复市</div><div class="v n0">倒计时2天</div></div>
     </div>
 
     <div class="callout">
       <b>今日定性：缩量修复 · AI半导体独强 · 尾盘收复24000。</b>恒指早盘一度下探后震荡回暖，午后翻红围绕24000关口反复争夺。
-      大市成交仅<span class="num g">981亿港元</span>，较前日1458亿暴缩32.7%——<b>A股休市+南北向暂停=港股"孤岛行情"</b>。
+      大市成交仅<span class="num g">9826亿港元</span>，较前日1458亿暴缩32.6%——<b>A股休市+南北向暂停=港股"孤岛行情"</b>。
       半导体/AI应用全天亮眼：智谱+6.15%、深演智能+7.25%、建滔积层板+11.94%。
       药品股承压：恒瑞医药-2.58%。航空股/内房股疲软：佳兆业-12%。
       <b>关键看点：</b>中国Moonshot（月之暗面）传以500亿美元估值完成Pre-IPO融资，目标明年Q1港股IPO。
     </div>
   </div>
 
-  <!-- 全球市场 -->
   <div class="sec" id="sec-global">
     <div class="sec-head">
       <div class="sec-ico" style="background:#e2ecfd">🌏</div>
@@ -449,8 +380,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <tr class="grp"><td colspan="3">亚太 <span class="st close">10/6 收盘</span></td></tr>
         <tr class="hot"><td class="name">日经225</td><td>70683.98</td><td class="r">+1.05% 重返7万点</td></tr>
         <tr><td class="name">韩国 KOSPI</td><td>6941.39</td><td class="g">−0.89% 假期后回调</td></tr>
-        <tr class="hot"><td class="name">恒生指数</td><td>24040.34</td><td class="r">+0.28%</td></tr>
-        <tr><td class="name">恒生科技</td><td>4183.68</td><td class="r">+0.62%</td></tr>
+        <tr class="hot"><td class="name">恒生指数</td><td>24280.56</td><td class="r">+1.00%</td></tr>
+        <tr><td class="name">恒生科技</td><td>4223.08</td><td class="r">+0.94%</td></tr>
         <tr><td class="name">台湾加权</td><td>49712.04</td><td class="r">+2.55%</td></tr>
 
         <tr class="grp"><td colspan="3">美股 <span class="st ovn">10/5 昨夜收盘</span></td></tr>
@@ -480,7 +411,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- 环球要闻 -->
   <div class="sec" id="sec-news">
     <div class="sec-head">
       <div class="sec-ico" style="background:#fff0e0">📰</div>
@@ -494,7 +424,6 @@ document.addEventListener('DOMContentLoaded', function() {
       <span class="tag mini c">🔵 关注</span>
     </div>
 
-    <!-- 极重要 1 -->
     <div class="news a">
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
@@ -508,7 +437,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 极重要 2 -->
     <div class="news a">
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
@@ -522,7 +450,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 极重要 3 -->
     <div class="news a">
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
@@ -536,7 +463,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 极重要 4 -->
     <div class="news a">
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
@@ -550,7 +476,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 重要 5 -->
     <div class="news b">
       <div class="news-top">
         <span class="tag">🟠 重要</span>
@@ -564,7 +489,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 重要 6 -->
     <div class="news b">
       <div class="news-top">
         <span class="tag">🟠 重要</span>
@@ -578,7 +502,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 重要 7 -->
     <div class="news b">
       <div class="news-top">
         <span class="tag">🟠 重要</span>
@@ -592,7 +515,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 关注 8 -->
     <div class="news c">
       <div class="news-top">
         <span class="tag">🔵 关注</span>
@@ -606,7 +528,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- 关注 9 -->
     <div class="news c">
       <div class="news-top">
         <span class="tag">🔵 关注</span>
@@ -622,7 +543,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   </div>
 
-  <!-- 五维度 -->
   <div class="sec" id="sec-five">
     <div class="sec-head">
       <div class="sec-ico" style="background:#ede9fe">🎯</div>
@@ -645,7 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="dim-h"><span class="e">🔥</span><span class="t">情绪面</span><span class="score">谨慎乐观 ★★★☆☆</span></div>
       <ul>
         <li><b>外围偏暖：</b>纳指创新高+日经重返7万+油价下跌→全球risk-on情绪回暖。</li>
-        <li><b>港股缩量：</b>成交981亿港元（-32.7%），A股休市+南北向暂停="孤岛行情"，不能代表真实情绪。</li>
+        <li><b>港股缩量：</b>成交9826亿港元（-32.6%），A股休市+南北向暂停="孤岛行情"，不能代表真实情绪。</li>
         <li><b>假期消费数据"不差"</b>：客流21.3亿+票房9亿+充电量+49%→消费信心没有崩塌，但也没有超预期。</li>
         <li><b>警惕信号：</b>10年美债5.31%+MOVE指数破百→全球债市波动率飙升，任何"意外"都可能触发risk-off。</li>
         <li><b>关键看点：</b>10/8 A股复市后首日量能——如果突破2万亿，说明增量资金愿意进场；如果低于1.5万亿，说明"开门红"只是情绪脉冲。</li>
@@ -655,7 +575,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="dim d3">
       <div class="dim-h"><span class="e">📊</span><span class="t">技术面</span><span class="score">蓄势待变 ★★★☆☆</span></div>
       <ul>
-        <li><b>恒生指数 24040</b>——尾盘重新站上24000关口，但成交不足。24000是短期多空分水岭，站稳看24500，失守看23500。</li>
+        <li><b>恒生指数 24280</b>——尾盘重新站上24000关口，但成交不足。24000是短期多空分水岭，站稳看24500，失守看23500。</li>
         <li><b>日经225 70684</b>——重返7万点整数关口，技术面偏多。但KOSPI假期后回调-0.89%→亚太分化加剧。</li>
         <li><b>标普500 盘中创新高</b>——7817点。但MOVE指数破百→大摩警告一个月内或回落至6800-7300。</li>
         <li><b>A股（9/30最后交易日 3842）：</b>节后首日关注3850支撑和3900阻力。如果跳空高开，3900-3950区间是前期密集成交区，压力不小。</li>
@@ -677,7 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="dim d5">
       <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">等待验证 ★★☆☆☆</span></div>
       <ul>
-        <li><b>港股缩量至981亿：</b>A股休市+南北向暂停→资金面"失真"，不能作为判断依据。</li>
+        <li><b>港股缩量至9826亿：</b>A股休市+南北向暂停→资金面"失真"，不能作为判断依据。</li>
         <li><b>中概股大涨：</b>纳斯达克中国金龙指数+1.7%，阿里+4.68%、拼多多+3.34%、腾讯ADR+3.26%→外资对中国资产的风险偏好在修复。</li>
         <li><b>美元指数102.16：</b>受避险需求支撑走强。离岸人民币6.7037相对稳定→汇率不构成节后A股的主要矛盾。</li>
         <li><b>比特币85606美元：</b>加密市场持续走强→全球"抗通胀/抗法币贬值"交易仍在进行。</li>
@@ -686,7 +606,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- 板块热力 -->
   <div class="sec" id="sec-heat">
     <div class="sec-head">
       <div class="sec-ico" style="background:#fff0e0">🔥</div>
@@ -712,7 +631,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- 焦点个股 -->
   <div class="sec" id="sec-stock">
     <div class="sec-head">
       <div class="sec-ico" style="background:#e2ecfd">⭐</div>
@@ -745,7 +663,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- 大宗商品 -->
   <div class="sec" id="sec-commodity">
     <div class="sec-head">
       <div class="sec-ico" style="background:#fef3c7">🪙</div>
@@ -782,7 +699,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- 产业高频数据 -->
   <div class="sec" id="sec-grassroots">
     <div class="sec-head">
       <div class="sec-ico" style="background:#f3fbf6">🔬</div>
@@ -792,7 +708,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="gf-grid">
 
-      <!-- 原油/能源链 -->
       <div class="gf-card cool">
         <div class="gf-top">
           <span class="gf-ico">🛢️</span>
@@ -809,7 +724,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="gf-src">信源: Reuters · Bloomberg · IEA · OPEC+ · AAA · 高盛 · 新华社</div>
       </div>
 
-      <!-- 锂矿/能源金属 -->
       <div class="gf-card cool">
         <div class="gf-top">
           <span class="gf-ico">🔋</span>
@@ -826,7 +740,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="gf-src">信源: Mysteel · 广发期货 · SMM · 中信期货 · 我的钢铁网</div>
       </div>
 
-      <!-- 半导体/晶圆代工 -->
       <div class="gf-card hot">
         <div class="gf-top">
           <span class="gf-ico">🔌</span>
@@ -843,7 +756,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="gf-src">信源: Reuters · 鸿海公告 · 新华财经 · 证券时报 · 8世界时报</div>
       </div>
 
-      <!-- 光纤/光通信 -->
       <div class="gf-card hot">
         <div class="gf-top">
           <span class="gf-ico">🌐</span>
@@ -860,7 +772,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="gf-src">信源: CRU · 长飞光纤调研 · 瑞银 · ComNews · 海关总署</div>
       </div>
 
-      <!-- 贵金属 -->
       <div class="gf-card warm">
         <div class="gf-top">
           <span class="gf-ico">🪙</span>
@@ -877,7 +788,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="gf-src">信源: Bloomberg · COMEX · 上海黄金交易所 · 中国商报 · 金十数据</div>
       </div>
 
-      <!-- 军工/国防 -->
       <div class="gf-card hot">
         <div class="gf-top">
           <span class="gf-ico">🎖️</span>
@@ -904,7 +814,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- 策略 -->
   <div class="sec" id="sec-strategy">
     <div class="sec-head">
       <div class="sec-ico" style="background:#ffe4e6">🧭</div>
@@ -949,7 +858,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- FOOTER -->
   <div class="foot">
     <div class="bk">每日全球股市观察</div>
     数据来源：路透社(Reuters) · 华尔街日报(WSJ) · 彭博(Bloomberg) · CNBC · 金融时报(FT) · 新华社 · 财联社 · 证券时报 · 金十数据 · 华尔街见闻 · 每日经济新闻 · 21世纪经济报道 · IEA · OPEC+ · Mysteel · CRU<br>
