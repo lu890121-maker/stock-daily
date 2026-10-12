@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日全球股市观察 | 2026年10月9日</title>
+<title>每日全球股市观察 | 2026年10月12日</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -14,8 +14,6 @@
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
-
-  /* ============ HERO ============ */
   .hero {
     position: relative;
     background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
@@ -49,8 +47,6 @@
   }
   .pulse { display:inline-flex; align-items:center; gap:6px; }
   .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
-
-  /* ============ SECTION ============ */
   .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
   .sec:last-of-type { border-bottom: none; }
   .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
@@ -60,8 +56,6 @@
   }
   .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
   .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
-
-  /* ============ INDEX GRID ============ */
   .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
   .idx {
     background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
@@ -75,8 +69,6 @@
   .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
   .up .v, .up .c { color:#e84855; }
   .down .v, .down .c { color:#12a05c; }
-
-  /* ============ STAT BAR ============ */
   .statbar {
     display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
     background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
@@ -85,8 +77,6 @@
   .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
   .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
   .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
-
-  /* ============ CALLOUT ============ */
   .callout {
     margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
     border:1px solid #ffdcd8; border-left:3px solid #e84855;
@@ -95,8 +85,6 @@
   .callout b { color:#c9313e; }
   .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
   .callout.blue b { color:#2456c4; }
-
-  /* ============ NEWS ============ */
   .news-legend {
     display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;
     padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
@@ -109,8 +97,6 @@
   .tag.mini { font-size:10px; padding:2px 8px; }
   .src { font-size:10px; padding:2px 8px; border-radius:12px; background:#eef2f8; color:#6b7688; }
   .src.intl { background:#eae4fb; color:#6a4bb8; }
-  .src.x { background:#e0f0ff; color:#1a73e8; }
-
   .news {
     position:relative; margin-bottom:16px; border-radius:12px; padding:16px 18px;
     border:1px solid transparent;
@@ -133,8 +119,6 @@
     border-radius:8px; border:1px solid rgba(0,0,0,.04);
     font-size:12.5px; color:#4a5568; line-height:1.8;
   }
-
-  /* ============ FIVE DIM ============ */
   .dim {
     border-radius:12px; padding:16px 18px; margin-bottom:12px; position:relative; overflow:hidden;
   }
@@ -165,8 +149,6 @@
     border-radius:50%; background:#b8c0ce;
   }
   .dim li b { color:#1a2233; }
-
-  /* ============ HEAT ============ */
   .heat { margin-bottom:10px; }
   .heat-row { display:flex; align-items:center; gap:8px; }
   .heat-name { width:90px; font-size:12.5px; font-weight:700; text-align:right; color:#3d4660; flex-shrink:0; }
@@ -177,8 +159,6 @@
   .heat-val { width:70px; font-size:11.5px; font-weight:700; }
   .heat-val.r { color:#e84855; }
   .heat-val.g { color:#12a05c; }
-
-  /* ============ CHIPS ============ */
   .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
   .chip {
     display:flex; align-items:center; gap:8px;
@@ -190,8 +170,6 @@
   .chip .taga { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e2ecfd; color:#2456c4; }
   .chip .limg { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e8ecf3; color:#5a6678; }
   .chip .cv { font-size:12px; font-weight:800; font-variant-numeric:tabular-nums; }
-
-  /* ============ TABLE ============ */
   .tbl { width:100%; border-collapse:collapse; font-size:13px; }
   .tbl th { text-align:left; padding:10px 8px; font-size:11px; color:#8892a6; font-weight:600; border-bottom:1px solid #e8ecf3; }
   .tbl td { padding:10px 8px; border-bottom:1px solid #f1f4f9; }
@@ -214,8 +192,6 @@
   .mkt-legend .dot.close { background:#3b6fe0; }
   .mkt-legend .dot.live { background:#f0932b; }
   .mkt-legend .dot.ovn { background:#6a4bb8; }
-
-  /* ============ GRASSROOTS ============ */
   .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
   .gf-card {
     background:#fff; border:1px solid #e8ecf3; border-radius:12px;
@@ -229,9 +205,7 @@
   .gf-top { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
   .gf-ico { font-size:20px; }
   .gf-name { font-size:14px; font-weight:800; flex:1; }
-  .gf-status {
-    font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px;
-  }
+  .gf-status { font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px; }
   .gf-status.hot { background:#ffe4e6; color:#c9313e; }
   .gf-status.warm { background:#fff0dc; color:#b8690f; }
   .gf-status.cool { background:#e2ecfd; color:#2456c4; }
@@ -251,8 +225,6 @@
   .gf-card li .dn { color:#12a05c; font-weight:700; }
   .gf-src { font-size:10px; color:#9aa2b0; margin-top:7px; }
   @media (max-width:480px) { .gf-grid { grid-template-columns:1fr; } }
-
-  /* ============ STRATEGY ============ */
   .strat {
     background:linear-gradient(145deg,#1a2233,#2a3550); border-radius:14px;
     padding:22px 20px; color:#fff; margin-bottom:14px;
@@ -279,7 +251,6 @@
   .dir.cool {
     background:rgba(59,111,224,.15); color:#93b5ff; border-color:rgba(59,111,224,.25);
   }
-
   .risk {
     background:#fff5f5; border:1px solid #ffd5d5; border-radius:12px;
     padding:16px 18px;
@@ -295,15 +266,11 @@
     content:'⚠'; position:absolute; left:0; top:7px; font-size:10px;
   }
   .risk li b { color:#c9313e; }
-
-  /* ============ FOOT ============ */
   .foot {
     padding:28px 26px 34px; background:linear-gradient(145deg,#1a2233,#131a2e);
     color:rgba(255,255,255,.55); font-size:11.5px; line-height:1.8; text-align:center;
   }
   .foot .bk { font-size:14px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:10px; letter-spacing:1px; }
-
-  /* ============ NAV ============ */
   .sec-nav {
     position:sticky; top:0; z-index:100;
     background:rgba(255,255,255,.95); backdrop-filter:blur(12px);
@@ -324,15 +291,11 @@
   }
   .sec-nav a:hover { background:#e2ecfd; color:#2456c4; }
   .sec-nav a.active { background:#3b6fe0; color:#fff; }
-
-  .sec.active {
-    animation: sec-highlight 1.5s ease;
-  }
+  .sec.active { animation: sec-highlight 1.5s ease; }
   @keyframes sec-highlight {
     0% { background:#fffde0; }
     100% { background:#fff; }
   }
-
   @media (max-width:480px) {
     .idx-grid { grid-template-columns:repeat(2,1fr); }
     .chips { grid-template-columns:1fr; }
@@ -375,10 +338,10 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="hero">
     <div class="hero-inner">
       <div class="kicker">DAILY GLOBAL MARKET WATCH</div>
-      <h1>大摩一篇报告干崩光通信 · <em>科创50暴跌4.82%创年内新低</em><br>特朗普"选前不动武"油价冲高回落 · <i>传媒AI午后绝地反击</i></h1>
-      <div class="sub">沪指险守3800尾盘翻红+0.05% · 成交1.9万亿放量2200亿 · 3748股暴跌后3300股反弹 · 布油冲破104美元 · 黄金反弹至4200美元 · 10年美债5.22%高位回落</div>
+      <h1>韩国崩-2.57%外资砸10亿美元 · <em>创业板失守3000跌2.61%</em><br>碳酸锂期货腰斩跌破11万 · <i>新华传媒10连板独舞</i></h1>
+      <div class="sub">沪指-0.43%深成指-2.03% · 成交1.54万亿缩量3600亿 · 超4300股下跌 · 布油104美元 · 黄金4230美元 · 10年美债5.24%</div>
       <div class="datebar">
-        <span>2026年10月9日 · 周五 · 收盘全维度分析</span>
+        <span>2026年10月12日 · 周一 · 收盘全维度分析</span>
         <span class="pulse"><span class="dot"></span> LIVE</span>
       </div>
     </div>
@@ -403,29 +366,30 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="sec-head">
       <div class="sec-ico" style="background:#ffe4e6">📈</div>
       <div class="sec-title">A股收盘速览</div>
-      <div class="sec-note">10/9 15:00 收盘</div>
+      <div class="sec-note">10/12 15:00 收盘</div>
     </div>
 
     <div class="idx-grid">
-      <div class="idx up"><div class="n">上证指数</div><div class="v">3813.79</div><div class="c">+0.05%</div></div>
-      <div class="idx up"><div class="n">深证成指</div><div class="v">12641.86</div><div class="c">+0.17%</div></div>
-      <div class="idx up"><div class="n">创业板指</div><div class="v">3043.33</div><div class="c">+0.22%</div></div>
-      <div class="idx up"><div class="n">科创50</div><div class="v">1457.34</div><div class="c">+0.07%</div></div>
+      <div class="idx down"><div class="n">上证指数</div><div class="v">3797.24</div><div class="c">−0.43%</div></div>
+      <div class="idx down"><div class="n">深证成指</div><div class="v">12384.87</div><div class="c">−2.03%</div></div>
+      <div class="idx down"><div class="n">创业板指</div><div class="v">2963.82</div><div class="c">−2.61% 失守3000</div></div>
+      <div class="idx down"><div class="n">科创综指</div><div class="v">1683.30</div><div class="c">−2.51%</div></div>
     </div>
 
     <div class="statbar">
-      <div class="stat"><div class="k">两市成交</div><div class="v n0">1.90万亿</div></div>
-      <div class="stat"><div class="k">较昨日</div><div class="v r">+2224亿</div></div>
-      <div class="stat"><div class="k">涨停家数</div><div class="v r">72</div></div>
-      <div class="stat"><div class="k">跌停家数</div><div class="v g">10</div></div>
+      <div class="stat"><div class="k">两市成交</div><div class="v n0">1.54万亿</div></div>
+      <div class="stat"><div class="k">较上周五</div><div class="v g">−3627亿</div></div>
+      <div class="stat"><div class="k">涨停家数</div><div class="v r">46</div></div>
+      <div class="stat"><div class="k">下跌家数</div><div class="v g">4300+</div></div>
     </div>
 
     <div class="callout">
-      <b>今日定性：先崩后救 · 科技砸坑传媒接棒 · 沪指险守3800。</b>
-      国庆后第二个交易日，A股上演"V型自救"。早盘受隔夜纳指-1.25%+大摩3.2T报告冲击，<b>沪指一度跌破3754点</b>，科创50午后跌超5%。
-      午后画风突变——<b>国内首部AI超写实院线电影定档10/23</b>，传媒板块暴力拉升，中文在线/芒果超媒20CM涨停，黄金股西部黄金封板，金融IT绿盟科技/麒麟信安20CM涨停。
-      最终沪指勉强翻红+0.05%，<b>3300股上涨、72家涨停</b>——但别忘了昨天3748股下跌的惨状。
-      成交<span class="num r">1.9万亿</span>放量2200亿——<b>放量V型反转，多空激烈博弈</b>。
+      <b>今日定性：缩量阴跌 · 科技被抛弃 · 传媒妖股独舞 · 银行新高护盘。</b>
+      周一A股低开低走。<b>四大指数齐跌</b>，深成指-2.03%，创业板-2.61%直接失守3000点关口，科创综指-2.51%——科技板块被集体抛弃。
+      全市场<b>超4300只个股下跌</b>，成交1.54万亿较上周五缩量3627亿——<b>上周五的V型反转白干了</b>。
+      唯一的亮点：传媒板块"妖股化"——<b>新华传媒10连板累涨159%</b>，果麦文化20CM涨停，上海电影/博纳影业2连板。银行板块逆势走强，工行/中行/建行/中信银行集体创历史新高。
+      通信设备崩盘：工业富联/雷科防务跌超7%，美国337调查叠加AI硬件证伪双杀。
+      <b>碳酸锂期货暴跌8.37%跌破11万元</b>——5月高点20万不足半年腰斩。
     </div>
   </div>
 
@@ -434,49 +398,48 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="sec-head">
       <div class="sec-ico" style="background:#e2ecfd">🌏</div>
       <div class="sec-title">全球市场全景</div>
-      <div class="sec-note">数据截至 10/9 15:30</div>
+      <div class="sec-note">数据截至 10/12 15:30</div>
     </div>
 
     <div class="mkt-legend">
-      <span><span class="dot close"></span><b>收盘</b>：A股/港股 10/9</span>
-      <span><span class="dot close"></span><b>收盘</b>：日韩 10/9</span>
-      <span><span class="dot ovn"></span><b>昨夜</b>：美股/欧股 10/8</span>
+      <span><span class="dot close"></span><b>收盘</b>：A股/港股 10/12</span>
+      <span><span class="dot close"></span><b>收盘</b>：韩国 10/12</span>
+      <span><span class="dot close"></span><b>休市</b>：日本 10/12 体育节</span>
+      <span><span class="dot ovn"></span><b>昨夜</b>：美股/欧股 10/11</span>
     </div>
 
     <table class="tbl">
       <thead><tr><th>市场 / 指数</th><th>点位</th><th>涨跌</th></tr></thead>
       <tbody>
-        <tr class="grp"><td colspan="3">亚太 <span class="st close">10/9 收盘</span></td></tr>
-        <tr class="hot"><td class="name">恒生指数</td><td>24,144.89</td><td class="r">+1.51% 反弹</td></tr>
-        <tr><td class="name">恒生科技</td><td>4,182.05</td><td class="r">+2.67% 强力反弹</td></tr>
-        <tr><td class="name">恒生国企</td><td>8,120.04</td><td class="r">+1.37%</td></tr>
-        <tr class="hot"><td class="name">日经225</td><td>~68,659</td><td class="g">−0.55% 软银-5.8%</td></tr>
-        <tr><td class="name">韩国 KOSPI</td><td>休市</td><td class="n0">10/8收6625.93 (-2.62%)</td></tr>
+        <tr class="grp"><td colspan="3">亚太 <span class="st close">10/12 收盘</span></td></tr>
+        <tr><td class="name">上证指数</td><td>3,797.24</td><td class="g">−0.43% 缩量阴跌</td></tr>
+        <tr><td class="name">深证成指</td><td>12,384.87</td><td class="g">−2.03%</td></tr>
+        <tr class="hot"><td class="name">创业板指</td><td>2,963.82</td><td class="g">−2.61% 失守3000</td></tr>
+        <tr><td class="name">科创综指</td><td>1,683.30</td><td class="g">−2.51%</td></tr>
+        <tr><td class="name">恒生指数</td><td>~24,200</td><td class="g">午后转跌</td></tr>
+        <tr><td class="name">恒生科技</td><td>4,174.71</td><td class="g">−0.55% 光通信领跌</td></tr>
+        <tr class="hot"><td class="name">韩国 KOSPI</td><td>6,459.69</td><td class="g">−2.57% 外资砸盘</td></tr>
+        <tr><td class="name">日经225</td><td>休市</td><td class="n0">10/9收69,030.92 体育节</td></tr>
 
-        <tr class="grp"><td colspan="3">美股 <span class="st ovn">10/8 昨夜收盘</span></td></tr>
-        <tr><td class="name">道琼斯</td><td>51,231.64</td><td class="r">+0.10%</td></tr>
-        <tr class="hot"><td class="name">标普500</td><td>7,765.36</td><td class="g">−0.47%</td></tr>
-        <tr><td class="name">纳斯达克</td><td>27,193.34</td><td class="g">−1.25% 费半-3.39%</td></tr>
+        <tr class="grp"><td colspan="3">美股 <span class="st ovn">10/11 周五收盘</span></td></tr>
+        <tr class="hot"><td class="name">道琼斯</td><td>51,654.95</td><td class="r">+0.83%</td></tr>
+        <tr class="hot"><td class="name">标普500</td><td>7,811.54</td><td class="r">+0.59% 逼近新高</td></tr>
+        <tr><td class="name">纳斯达克</td><td>27,366.17</td><td class="r">+0.64%</td></tr>
 
-        <tr class="grp"><td colspan="3">欧股 <span class="st ovn">10/8 收盘</span></td></tr>
-        <tr><td class="name">欧洲斯托克50</td><td>6,126.74</td><td class="g">−0.87% 银行-2.26%</td></tr>
-        <tr><td class="name">德国 DAX</td><td>24,806.97</td><td class="g">−1.18% 大众-4.5%</td></tr>
-        <tr><td class="name">法国 CAC40</td><td>7,729.69</td><td class="g">−0.51%</td></tr>
-        <tr><td class="name">英国 富时100</td><td>10,441.60</td><td class="g">−0.16%</td></tr>
-
-        <tr class="grp"><td colspan="3">美股期货 <span class="st live">10/9 亚洲时段</span></td></tr>
-        <tr><td class="name">标普500期货</td><td>~7,780</td><td class="r">+0.2%</td></tr>
-        <tr><td class="name">纳指100期货</td><td>~27,250</td><td class="r">+0.5%</td></tr>
+        <tr class="grp"><td colspan="3">欧股 <span class="st ovn">10/9 周五收盘</span></td></tr>
+        <tr><td class="name">欧洲斯托克600</td><td>631.95</td><td class="r">+1.03% 全线反弹</td></tr>
+        <tr><td class="name">德国 DAX</td><td>25,087.27</td><td class="r">+1.13% 领涨</td></tr>
+        <tr><td class="name">法国 CAC40</td><td>7,803.33</td><td class="r">+0.95%</td></tr>
+        <tr><td class="name">英国 富时100</td><td>10,552.05</td><td class="r">+1.06%</td></tr>
       </tbody>
     </table>
 
     <div class="callout blue">
-      <b>全球图景：AI营收质疑+中东地缘+美债高位=全球risk-off。</b>
-      <b>OpenAI年化营收"缩水"</b>：从此前传闻的700亿美元降至实际500亿，市场质疑AI投入回报→隔夜费半-3.39%，英特尔-5.34%，ARM-6.48%。
-      <b>特朗普"选前不动武"</b>：称不会在11月中期选举前攻击伊朗→油价盘中冲高后回落，布油仍收涨4.07%至104.28美元。
-      <b>港股绝地反弹</b>：恒指+1.51%重返24000，恒生科技+2.67%——美债收益率回落+OpenAI澄清年底目标700亿→科技股修复。
-      <b>日韩分化</b>：日经-0.55%（软银-5.8%拖累），韩国休市。前日KOSPI暴跌-2.62%（三星/SK海力士均跌超2.4%）。
-      <b>10年美债5.22%高位回落5bp</b>：30年债拍卖需求强劲+特朗普"不动武"→避险情绪边际缓和。
+      <b>全球图景：KOSPI被外资砸崩+美股AI回暖+A股缩量阴跌——三个市场三个故事。</b>
+      <b>韩国最惨</b>：KOSPI暴跌-2.57%，外资净卖出1.36万亿韩元（约10亿美元），三星-2.86%，SK海力士-3.15%。上周五休市（韩文日）今天补跌，一口气消化了上周四美股科技回调+OpenAI营收质疑。
+      <b>美股回暖</b>：周五道指+0.83%，标普+0.59%逼近历史新高，纳指+0.64%。Amazon+3.29%，Microsoft+2.38%领涨——AI叙事从"证伪"回到"信仰"。VIX-3.70%至14.84，恐慌退潮。
+      <b>日本休市</b>：体育节休市，躲过了今天的科技抛售。但周二复牌后，软银/东京电子/爱德万测试（占日经22%权重）将直面AI估值考验。
+      <b>A股"缩量阴跌"最难受</b>：上周五V型反弹1.9万亿放量→今天1.54万亿缩量3627亿。反弹没量，下跌也没量——<b>市场彻底躺平，没人想交易</b>。
     </div>
   </div>
 
@@ -485,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="sec-head">
       <div class="sec-ico" style="background:#fff0e0">📰</div>
       <div class="sec-title">环球要闻 · 深度解读</div>
-      <div class="sec-note">8–10条核心新闻</div>
+      <div class="sec-note">9条核心新闻</div>
     </div>
 
     <div class="news-legend">
@@ -499,13 +462,13 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
         <span class="src intl">Reuters</span>
-        <span class="src intl">CNBC</span>
+        <span class="src intl">Invezz</span>
         <span class="src">财联社</span>
       </div>
-      <h3>大摩一篇3.2T报告干崩A股光通信——源杰科技/长光华芯20CM跌停，盘中3748股暴跌</h3>
-      <p>摩根士丹利发布关于<span class="hl">3.2T光模块的推演报告</span>，暗示未来光芯片价格可能承压。A股光通信板块瞬间崩盘：源杰科技/长光华芯<span class="num g">20CM跌停</span>，东山精密10CM跌停，仕佳光子-17%，中际旭创/新易盛/剑桥科技全线暴跌。科创50午后跌超5%，沪指一度跌破3754点。<span class="hl">一篇非正式研报，把整个AI硬件链干崩了。</span></p>
+      <h3>韩国KOSPI暴跌-2.57%——外资砸盘1.36万亿韩元，三星/SK海力士被集体抛售</h3>
+      <p>韩国KOSPI盘中暴跌<span class="numg">-3.15%</span>后收窄至-2.57%报6459.69。外资净卖出<span class="numg">1.36万亿韩元</span>（约10亿美元），机构再卖850亿韩元，散户逆势买入超1万亿韩元"接飞刀"。三星电子-2.86%，SK海力士-3.15%——外资分别卖出919亿和462亿韩元。<span class="hl">上周五韩国休市（韩文日），今天一口气消化了周四美股科技回调+OpenAI营收质疑的冲击。</span></p>
       <div class="impact">
-        <b>说句难听的：</b>长光华芯工作人员自己都说"大摩报告非正式文件，3.2T放量要到2028-2029年，当前以800G/1.6T为主，短期无实质影响"。但市场不管——<b>利空来了先砸再说，这是存量博弈下的典型"惊弓之鸟"反应</b>。午后传媒/AI视频接棒反弹，说明资金不是撤退，是在做板块切换。
+        <b>说人话：</b>三星上周刚预告Q3营业利润107.4万亿韩元（+782.5%创纪录），股价照样被砸——<b>基本面再好也挡不住"AI泡沫质疑"的情绪洪流</b>。韩国散户逆势买入1万亿韩元，这种"机构跑散户接"的剧本在A股也屡见不鲜，结局通常是散户被套。日本今天休市躲过一劫，但周二复牌后软银/东京电子将直面考验。
       </div>
     </div>
 
@@ -514,12 +477,13 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
         <span class="src intl">Bloomberg</span>
-        <span class="src intl">FT</span>
+        <span class="src intl">CNBC</span>
+        <span class="src">新浪财经</span>
       </div>
-      <h3>OpenAI年化营收"缩水"200亿——AI投入回报质疑席卷全球科技股</h3>
-      <p>OpenAI向投资者披露年化营收接近<span class="num">500亿美元</span>，较此前媒体传闻的<span class="hl">近700亿美元少了约200亿</span>。消息一出，隔夜费城半导体指数<span class="num g">-3.39%</span>，英特尔-5.34%，ARM-6.48%，英伟达-2.94%，甲骨文-5.6%。全球AI硬件链集体"证伪"。不过OpenAI随后澄清：500亿是9月底数据，<b>年底目标仍为700亿</b>——今日港股科技因此反弹+2.67%。</p>
+      <h3>碳酸锂期货暴跌8.37%跌破11万元创年内新低——5月高点20万不足半年"腰斩"</h3>
+      <p>碳酸锂期货主力合约<span class="numg">跌破11万元关口</span>，下跌9940元/吨跌幅8.37%，刷新年内低点。相较5月中旬超过20万元/吨的高点，<span class="hl">不足半年间近乎腰斩</span>。现货端：电池级碳酸锂120500-122000元/吨，工业级116500-120000元/吨。中信期货分析师王美丹指出：<b>"期货盘面定价重心已转向明年供需预期，市场对远期需求偏悲观，部分资金提前布局抢跑。"</b></p>
       <div class="impact">
-        <b>客观评价：</b>500亿营收同比仍然翻倍增长，但市场已经从"AI信仰"转向"AI验证"——<b>光花钱不行，得看到回报</b>。这个叙事转换对A股科创板/创业板的杀伤力会持续发酵。
+        <b>说人话：</b>碳酸锂这波暴跌的逻辑很清楚——<b>现货价格还撑在12万，期货已经杀到11万以下，说明市场在交易"明年会更差"的预期</b>。枧下窝矿复产+巴西矿恢复许可=远期供给增加。但别忘了，11万已经跌破很多外采矿的成本线了——<b>再跌就该有人减产了，只是市场现在不信</b>。
       </div>
     </div>
 
@@ -527,14 +491,14 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="news a">
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
-        <span class="src intl">Reuters</span>
-        <span class="src">新华社</span>
-        <span class="src">央视新闻</span>
+        <span class="src intl">WSJ</span>
+        <span class="src">腾讯新闻</span>
+        <span class="src">同花顺</span>
       </div>
-      <h3>特朗普"选前不动武"但布油仍冲破104美元——中东地缘溢价根本去不掉</h3>
-      <p>特朗普发文称"不会在11月中期选举前攻击伊朗"，伊朗外长称"谈判仍在继续"。但市场反应很诚实：<span class="hl">布伦特收涨4.07%至104.28美元</span>，WTI收涨3.64%至91.49美元。沙特正计划自明年起在霍尔木兹海峡以外区域装船——<b>连沙特都在想"后路"了</b>。上海燃油期货日内暴涨18%。</p>
+      <h3>工业富联涉美国337调查——通信设备板块崩盘，雷科防务/工业富联跌超7%</h3>
+      <p>美国ITC于10月9日宣布就美国Vicor Corporation提出的专利侵权主张正式启动<span class="hl">337调查</span>，涉及立讯精密、工业富联等中国企业。Vicor指控侵犯"垂直供电"相关专利。10月11日晚工业富联/立讯精密相继发声回应。今日A股通信设备板块集体崩盘：<span class="numg">工业富联跌超7%</span>，雷科防务跌超7%，通信ETF重挫。</p>
       <div class="impact">
-        <b>说人话：</b>特朗普说"不打"只是"现在不打"，11月3日中期选举后呢？油价年内涨了60%+，高油价→高通胀→加息预期→全球成长股承压，这个传导链才是真正的主线。
+        <b>直说了：</b>337调查是美国的"专利核武器"——一旦ITC裁定侵权，可以禁止相关产品进口美国。立讯精密/工业富联都是苹果产业链核心供应商，<b>如果最终败诉，影响远超股价波动</b>。但这次调查是Vicor（非美国国家层面）发起的专利侵权调查，不是贸易战的延伸——<b>不要过度恐慌，但也别低估影响</b>。ITC将在45天内设定调查目标日期。
       </div>
     </div>
 
@@ -542,14 +506,14 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="news a">
       <div class="news-top">
         <span class="tag">🔴 极重要</span>
-        <span class="src intl">WSJ</span>
-        <span class="src">央行</span>
-        <span class="src">财政部</span>
+        <span class="src">新华社</span>
+        <span class="src">证券报</span>
+        <span class="src">央广网</span>
       </div>
-      <h3>央行12000亿买断式逆回购+1500亿特别国债——政策"兜底"但市场不买账</h3>
-      <p>央行10/8开展<span class="num">12000亿元</span>3个月期买断式逆回购+6060亿隔夜逆回购，但公开市场合计<span class="hl">净回笼4085亿元</span>。同日，财政部发行1500亿元中央金融机构注资特别国债（5年期，票面1.37%）+年内最后一期30年期超长期特别国债——合计2250亿。政策面在"兜底"，但A股昨天完全不买账跌3.15%。</p>
+      <h3>中共中央国务院印发《关于发展新质生产力的意见》——19项举措部署五大方面</h3>
+      <p>10月9日，<span class="hl">《中共中央 国务院关于发展新质生产力的意见》</span>公开发布。意见围绕五方面创新部署19项举措，涵盖原始创新、颠覆性技术创新、未来产业培育、传统产业升级等。同时，中欧双方就混动汽车贸易达成谅解——<b>外部贸易摩擦阶段性缓和</b>。9月物流业景气指数连续5个月扩张，消费与基建先行指标向好。</p>
       <div class="impact">
-        <b>直说了：</b>央行给钱但净回笼，财政部发债但市场不缺供给——<b>问题不是缺钱，是缺信心</b>。10年美债5.22%+美元指数102=全球risk-off，国内政策再呵护也挡不住外部利率之锚的压制。
+        <b>解读：</b>"新质生产力"文件级别的升级（从政府工作报告到中央+国务院联合发文）说明这是顶层设计，不是部门意见。<b>但A股市场今天用脚投票——科技板块集体暴跌</b>。政策利好和股价表现之间的割裂，说明市场在交易"远水解不了近渴"——三季报窗口将至，资金先跑为敬。
       </div>
     </div>
 
@@ -557,13 +521,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="news b">
       <div class="news-top">
         <span class="tag">🟠 重要</span>
-        <span class="src intl">CNBC</span>
-        <span class="src">三星电子</span>
+        <span class="src intl">Reuters</span>
+        <span class="src">腾讯新闻</span>
       </div>
-      <h3>三星Q3营业利润首破100万亿韩元——但手机内存涨价砍产量20-30%</h3>
-      <p>三星电子Q3初步业绩：营业利润<span class="num">107.4万亿韩元</span>（同比+782.5%），销售额195万亿韩元（+126.6%）——<b>连续第四个季度刷新历史纪录</b>。但！因手机内存价格暴涨，三星正大幅削减Q4智能手机供应量<span class="hl">20%-30%</span>。存储芯片"量价齐升"的代价是终端减产。</p>
+      <h3>新华传媒10连板累涨159%——传媒板块"妖股化"，自然人买入占比超80%</h3>
+      <p>新华传媒（600825.SH）连续第10个交易日<span class="num">一字涨停</span>，区间累计涨幅159%。封单超102万手，总市值约144亿元。公告显示<b>自然人买入额占比超80%</b>。传媒板块全面暴动：果麦文化20CM涨停，广电网络/龙版传媒/新经典/慈文传媒/博纳影业/上海电影/新华文轩等十余股涨停。AI语料概念同步走强，掌阅科技5天3板。</p>
       <div class="impact">
-        <b>解读：</b>三星赚钱靠的是HBM/DDR5这些AI存储，不是普通手机内存。手机砍产量=终端需求被高成本挤压。<b>A股存储/半导体短期跟着费半走，别逆势抄底</b>。
+        <b>客观说：</b>华鑫证券研报说"传媒是内需消费与AI应用双驱动"——听着很美，但10连板一字涨停这种走势，<b>和基本面无关，纯粹是资金博弈和情绪宣泄</b>。自然人买入占比超80%更是红旗信号——<b>机构不碰，散户接力</b>。传媒板块的持续性取决于AI应用能否真正兑现业绩，而非概念炒作。
       </div>
     </div>
 
@@ -571,13 +535,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="news b">
       <div class="news-top">
         <span class="tag">🟠 重要</span>
-        <span class="src intl">Bloomberg</span>
-        <span class="src">证券时报</span>
+        <span class="src intl">CNBC</span>
+        <span class="src">vittarthi</span>
       </div>
-      <h3>国内首部AI超写实院线电影定档——传媒板块午后暴力拉升，中文在线/芒果超媒20CM</h3>
-      <p>国内首部AI超写实院线电影宣布定档<span class="num">10月23日</span>登陆全国院线。午后传媒板块瞬间暴动：中文在线/芒果超媒<span class="hl">20CM涨停</span>，吉视传媒/华闻集团等10余股涨停。AI视频/AI语料概念全线拉升。<span class="hl">昨天科技硬件崩了，今天AI应用接棒——资金在AI内部做"高低切换"。</span></p>
+      <h3>美股周五反弹道指+0.83%——Amazon+3.29%领涨，VIX-3.70%恐慌退潮</h3>
+      <p>美股10月11日（周五）收盘全线走高：道指<span class="num">+0.83%</span>报51654.95，标普+0.59%报7811.54逼近历史新高，纳指+0.64%报27366.17。Amazon+3.29%，Microsoft+2.38%，Tesla+2.05%领涨。VIX<span class="numg">-3.70%</span>至14.84。Apple-1.11%，Nvidia-0.52%逆势下跌。10年美债收益率升至5.24%，美元指数102.23。</p>
       <div class="impact">
-        <b>客观说：</b>AI电影从概念到落地是进步，但一部电影能撑多久？传媒板块的持续性取决于后续有没有更多"AI+内容"的业绩兑现。<b>别追高，等回调再说</b>。
+        <b>关键信号：</b>美股在"AI质疑"和"AI信仰"之间反复横跳——<b>周四跌完周五就涨回来了</b>。标普逼近历史新高说明市场仍有韧性。但要注意：10年美债5.24%仍在高位，Apple/Nvidia逆势下跌=AI龙头分化。本周台积电Q3财报（10/15）+美国CPI数据是下一个催化剂。
       </div>
     </div>
 
@@ -585,14 +549,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="news b">
       <div class="news-top">
         <span class="tag">🟠 重要</span>
-        <span class="src intl">Reuters</span>
-        <span class="src">光大期货</span>
-        <span class="src">Mysteel</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src">新浪财经</span>
       </div>
-      <h3>碳酸锂"强现实弱预期"极致博弈——期货跌至11.73万但库存加速去化</h3>
-      <p>碳酸锂主力合约跌至<span class="num">117300元/吨</span>（-1.28%），盘中一度跌近5%后深V反弹。但另一面：SMM全口径库存<span class="hl">139517吨，周度去化9260吨</span>，仓单降至31870吨。Mysteel数据显示全口径库存自6月高点20.3万吨累计降44%至11.36万吨。<b>现货涨、期货跌，库存加速去化但远期预期悲观——"强现实弱预期"矛盾到极致。</b></p>
+      <h3>21家A股银行拟派息2600亿——六大行分红比例统一提至31%，工行/中行/建行再创新高</h3>
+      <p>截至目前，已有21家A股银行披露2026年中期分红方案，合计拟派息超<span class="num">2600亿元</span>，其中15家分红比例较去年提升。<b>六大行现金分红比例从30%统一提至31%</b>，合计拟派息超2200亿元。今日银行板块逆势走强：中国银行/中信银行涨超2%，工商银行/中国银行/建设银行集体创历史新高。</p>
       <div class="impact">
-        <b>说人话：</b>短期供需偏紧（库存去化+排产环增），但枧下窝矿复产+巴西矿恢复许可→远期供给增加预期压制期货。<b>11.7万已经是很多外采矿的成本线了，再跌就有人减产</b>。
+        <b>说人话：</b>在高利率环境下，银行股的"类债券"属性变成了护甲——<b>6%+股息率 vs 10年美债5.24%</b>，对配置型资金来说有吸引力。但银行涨不代表市场好，今天银行涨是因为其他板块跌太惨了，资金在找避风港。
       </div>
     </div>
 
@@ -600,13 +563,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="news c">
       <div class="news-top">
         <span class="tag">🔵 关注</span>
-        <span class="src intl">WSJ</span>
-        <span class="src">美联储</span>
+        <span class="src intl">Reuters</span>
+        <span class="src">TSMC</span>
       </div>
-      <h3>美联储穆萨莱姆"需要进一步收紧"+沃勒"加息有灵活性"——12月加息悬念</h3>
-      <p>美联储穆萨莱姆表示"需要进一步收紧货币政策以使通胀回到目标"，圣路易斯联储主席暗示"未来6-9个月可能需要进一步升息"。但沃勒表态相对温和："加息时机有一定灵活性，无需连续进行"。市场定价：<span class="hl">2026年剩余加息幅度仅25bp</span>——12月加一次就完事。</p>
+      <h3>台积电Q3营收创纪录飙升50%——10/15财报将验证AI需求真假</h3>
+      <p>台积电10月8日公布Q3营收创历史新高，同比飙升约<span class="num">50%</span>。市场预期Q3净利润约T$7463亿（同比+65%），毛利率66.5%。摩根士丹利分析师Charlie Chan预计台积电将上调全年营收增长指引。台积电Q3财报会议将于<span class="hl">10月15日（周四）</span>举行——这将是AI需求真伪的关键验证点。</p>
       <div class="impact">
-        <b>关键：</b>10年美债5.22%+30年5.60%已经是2002/2004年来最高——<b>市场已经走在美联储前面了</b>。如果12月真加25bp，可能是"最后一次"也可能是"新一轮开始"——这才是悬念。
+        <b>关键：</b>如果台积电Q3超预期且上调指引=AI需求真实，全球半导体可能反弹；如果不及预期=AI"证伪"叙事加强。这是本周全球最重要的财报，没有之一。
       </div>
     </div>
 
@@ -615,12 +578,13 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="news-top">
         <span class="tag">🔵 关注</span>
         <span class="src intl">Bloomberg</span>
-        <span class="src">金十数据</span>
+        <span class="src">gatekeepers</span>
+        <span class="src">convex</span>
       </div>
-      <h3>黄金反弹突破4200美元——美债收益率回落+中东避险双驱动</h3>
-      <p>现货黄金日内涨逾1.6%报约<span class="num">4200美元/盎司</span>，现货白银涨2.0%报60.36美元。30年美债拍卖需求强劲→长端收益率回落7bp→贵金属天敌组合暂时松绑。但别忘了上周黄金刚跌至两个月低点——<b>多空博弈激烈，4200美元能否站稳是关键</b>。</p>
+      <h3>布油104美元微跌+黄金4230美元——美债5.24%仍是全球资产定价之锚</h3>
+      <p>布伦特原油<span class="numg">104.15美元/桶（-0.54%）</span>，WTI 91.14美元/桶。现货黄金<span class="num">4229.9美元/盎司</span>。10年美债收益率5.24%，美元指数102.23。人民币中间价6.7313，在岸收盘6.6921。<b>特朗普"选前不动武"承诺压住了油价上行斜率，但地缘溢价仍在</b>。黄金继续走强=市场仍在定价"不确定性"。</p>
       <div class="impact">
-        <b>提醒：</b>黄金短期看美债收益率走向。如果10年美债继续从5.22%回落，金价可能冲4300；如果反弹回5.3%+，金价可能再次跌破4100。
+        <b>提醒：</b>本周美国CPI/PPI/零售销售数据将密集公布——如果CPI超预期=加息预期升温=美债冲5.3%+=全球成长股承压。台积电财报+CPI数据=本周两大变量。
       </div>
     </div>
 
@@ -637,55 +601,56 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="dim d1">
       <div class="dim-h"><span class="e">📰</span><span class="t">消息面</span><span class="score">利空主导 ★★☆☆☆</span></div>
       <ul>
-        <li><b>最大利空（AI证伪）：</b>大摩3.2T报告+OpenAI营收"缩水"200亿→全球AI硬件链集体"证伪"，费半-3.39%，A股光通信崩盘。AI从"信仰"转向"验证"。</li>
-        <li><b>利空（地缘）：</b>特朗普"选前不动武"但布油仍冲破104美元，上海燃油期货暴涨18%。高油价→高通胀→加息预期→全球成长股承压。</li>
-        <li><b>利好（反弹）：</b>AI超写实电影定档→传媒午后暴动；黄金突破4200美元；港股恒指+1.51%重返24000。OpenAI澄清年底目标700亿→情绪修复。</li>
-        <li><b>利好（三星）：</b>Q3营业利润首破100万亿韩元（+782.5%），存储景气验证。但手机砍产量20-30%→终端承压。</li>
-        <li><b>结论：</b>消息面利空主导，AI硬件"证伪"+油价高企是两大压力源。传媒/AI应用接棒但持续性存疑。密歇根消费者信心今夜公布（预期47.6）是短期变量。</li>
+        <li><b>最大利空（337调查）：</b>美国ITC正式启动337调查，涉及立讯精密/工业富联——通信设备板块集体崩盘，工业富联/雷科防务跌超7%。</li>
+        <li><b>利空（碳酸锂腰斩）：</b>碳酸锂期货暴跌8.37%跌破11万元创年内新低——5月高点20万不足半年腰斩，锂矿/能源金属板块集体承压。</li>
+        <li><b>利空（韩国补跌）：</b>KOSPI暴跌-2.57%，外资砸盘1.36万亿韩元——三星/SK海力士被集体抛售，AI"证伪"情绪从美股传导至亚太。</li>
+        <li><b>利好（政策面）：</b>中共中央国务院印发新质生产力意见（19项举措），中欧混动汽车贸易达成谅解。但市场不买账。</li>
+        <li><b>利好（美股回暖）：</b>周五美股全线反弹，道指+0.83%，标普逼近新高。台积电Q3营收飙升50%，10/15财报是AI验证关键。</li>
+        <li><b>结论：</b>消息面利空主导。337调查+碳酸锂暴跌+韩国补跌三重利空。新质生产力政策利好被市场无视。本周台积电财报+美国CPI数据是关键变量。</li>
       </ul>
     </div>
 
     <div class="dim d2">
-      <div class="dim-h"><span class="e">🔥</span><span class="t">情绪面</span><span class="score">惊弓之鸟 ★★☆☆☆</span></div>
+      <div class="dim-h"><span class="e">🔥</span><span class="t">情绪面</span><span class="score">冰火两重 ★★☆☆☆</span></div>
       <ul>
-        <li><b>昨天3748股暴跌→今天3300股反弹</b>——<span class="hl">一天之间从"恐慌"到"抄底"，情绪切换极快</span>。</li>
-        <li><b>涨停72 vs 跌停10</b>——涨停家数恢复，跌停大幅减少，恐慌情绪缓解。</li>
-        <li><b>成交1.9万亿放量2200亿</b>——放量V型反转，多空激烈博弈。但昨天1.69万亿是"放量暴跌"，今天放量反弹——<b>说明资金没有撤退，在做板块切换</b>。</li>
-        <li><b>板块轮动极端</b>：昨天石油/银行护盘→今天传媒/AI视频接棒；昨天科技崩→今天科技反弹。持续性极差。</li>
-        <li><b>警惕信号：</b>如果明天缩量回落至1.5万亿以下，说明今天的反弹只是"技术性修复"而非趋势反转。</li>
+        <li><b>超4300股下跌</b>——全市场赚钱效应极差，上周五V型反弹的乐观情绪<b>一天就消散了</b>。</li>
+        <li><b>成交1.54万亿缩量3627亿</b>——<span class="hl">缩量阴跌比放量暴跌更难受</span>。放量说明有人愿意交易，缩量说明市场彻底躺平。</li>
+        <li><b>传媒板块"妖股化"</b>：新华传媒10连板累涨159%，自然人买入占比超80%——<b>情绪投机到达极致</b>，但这种情绪和基本面脱节。</li>
+        <li><b>银行股逆势走强</b>：工行/中行/建行再创新高——<b>资金在找避风港，不是在追成长</b>。risk-off情绪明确。</li>
+        <li><b>VIX-3.70%至14.84</b>：美股恐慌退潮，但A股VIX没有——<b>美股和A股情绪完全不同步</b>。</li>
       </ul>
     </div>
 
     <div class="dim d3">
-      <div class="dim-h"><span class="e">📊</span><span class="t">技术面</span><span class="score">弱势反弹 ★★★☆☆</span></div>
+      <div class="dim-h"><span class="e">📊</span><span class="t">技术面</span><span class="score">全面走弱 ★☆☆☆☆</span></div>
       <ul>
-        <li><b>上证指数 3814 +0.05%</b>——险守3800，盘中最低3754。3800是短期心理关口，但技术上3750-3800是支撑区。</li>
-        <li><b>深证成指 12642 +0.17%</b>——昨日-2.07%后微弱反弹，12300是下一道防线。</li>
-        <li><b>创业板指 3043 +0.22%</b>——盘中最低2933后拉回，<span class="hl">创5月波段以来新低后探底回升</span>。3000是短期多空分水岭。</li>
-        <li><b>科创50 1457 +0.07%</b>——昨日暴跌4.82%后几乎没反弹，<span class="hl">创年内新低</span>。技术面最弱。</li>
-        <li><b>关键位：</b>沪指3750-3800支撑区，站稳3850看反弹，跌破3750看3700。创业板3000整数关口是多空分水岭。</li>
+        <li><b>上证指数 3797.24 -0.43%</b>——险守3800后今天失守。3750-3800是短期支撑区，跌破3750看3700。</li>
+        <li><b>深证成指 12384.87 -2.03%</b>——上周五V型反弹的成果一天就回吐，12300是下一道防线。</li>
+        <li><b>创业板指 2963.82 -2.61%</b>——<span class="hl">直接失守3000点关口</span>。这是2024年4月以来最低收盘。2900是下一道防线。</li>
+        <li><b>科创综指 1683.30 -2.51%</b>——科技板块被集体抛弃，技术面最弱。上周五的+0.07%几乎没反弹，今天直接-2.51%。</li>
+        <li><b>关键位：</b>沪指3750-3800支撑区，跌破3750看3700。创业板2900是2024年4月以来关键支撑。如果跌破，看2024年低点。</li>
       </ul>
     </div>
 
     <div class="dim d4">
-      <div class="dim-h"><span class="e">🏛</span><span class="t">政策面</span><span class="score">中性偏暖 ★★★☆☆</span></div>
+      <div class="dim-h"><span class="e">🏛</span><span class="t">政策面</span><span class="score">利好不断但市场无视 ★★★☆☆</span></div>
       <ul>
-        <li><b>央行12000亿买断式逆回购+6060亿隔夜</b>——但净回笼4085亿，"呵护"中带着"收紧"。</li>
-        <li><b>财政部2250亿特别国债</b>——1500亿金融机构注资+750亿超长期——为金融系统"补血"+基建托底。</li>
-        <li><b>电池消费税减免</b>：钠离子/固态/燃料电池/钙钛矿免征消费税至2028年底——新能源政策持续加码。</li>
-        <li><b>燃油附加费上调</b>：10/10起800公里以上收90元（涨20元）——高油价向终端传导。</li>
-        <li><b>结论：</b>政策面中性偏暖，央行+财政部联合"兜底"，但净回笼说明不是"放水"。电池消费税减免利好固态电池/钠电池概念。</li>
+        <li><b>新质生产力顶层文件</b>：中共中央+国务院联合印发意见，19项举措部署五大方面——级别够高，但市场不买账。</li>
+        <li><b>中欧混动汽车贸易谅解</b>：外部贸易摩擦阶段性缓和——对汽车产业链是利好。</li>
+        <li><b>9月物流业景气指数</b>：连续5个月扩张，消费与基建先行指标向好——经济基本面仍在温和修复。</li>
+        <li><b>银行分红</b>：21家银行拟派息2600亿，六大行分红比例统一提至31%——高股息逻辑强化。</li>
+        <li><b>结论：</b>政策面利好不断（新质生产力+贸易缓和+银行分红），但<b>在高利率环境下，政策利好被外部利率之锚压制</b>。10年美债5.24%>银行股息6%=资金没有理由追成长。</li>
       </ul>
     </div>
 
     <div class="dim d5">
-      <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">板块剧烈切换 ★★☆☆☆</span></div>
+      <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">全面防御 ★☆☆☆☆</span></div>
       <ul>
-        <li><b>成交1.9万亿放量2200亿</b>——放量V型反转，资金在做板块切换而非撤退。</li>
-        <li><b>资金流出算力硬件：</b>MLCC/PCB/CPO/先进封装/存储芯片延续弱势，风华高科/金安国纪跌停。风电设备大金重工跌停。</li>
-        <li><b>资金流入AI应用+传媒：</b>AI视频/影视院线/出版/文化传媒涨幅居前，中文在线/芒果超媒20CM。</li>
-        <li><b>防御板块持续强势：</b>石油/煤炭/银行/电力/航运——工行/中行创历史新高，高股息"类债券"属性在高利率环境下是护甲。</li>
-        <li><b>关键观察：</b>资金从"AI硬件"切换到"AI应用"+从"成长"切换到"红利"——<span class="hl">这是risk-off环境下的典型行为</span>。如果美债收益率继续回落，科技硬件可能迎来资金回流。</li>
+        <li><b>成交1.54万亿缩量3627亿</b>——上周五放量1.9万亿的V型反转，今天缩量到1.54万亿——<b>资金没有进场，在撤退</b>。</li>
+        <li><b>资金流出科技硬件：</b>通信设备/半导体/消费电子全面杀跌，工业富联/雷科防务跌超7%。337调查+AI证伪双杀。</li>
+        <li><b>资金流入"妖股"传媒：</b>新华传媒10连板，果麦文化20CM——<span class="hl">这不是投资，是投机</span>。自然人占比超80%。</li>
+        <li><b>资金流入银行红利：</b>工行/中行/建行/中信银行创历史新高——配置型资金在找确定性。</li>
+        <li><b>关键观察：</b>资金行为极度明确——<b>从科技撤向银行，从成长撤向红利，从机构撤向散户</b>。这是risk-off环境下的典型防御行为。如果美债收益率回落+台积电财报超预期，科技可能迎来资金回流。</li>
       </ul>
     </div>
   </div>
@@ -698,22 +663,22 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="sec-note">红涨绿跌</div>
     </div>
 
-    <div class="heat"><div class="heat-row"><div class="heat-name">AI视频/传媒</div><div class="heat-track"><div class="heat-fill up" style="width:95%"></div></div><div class="heat-val r">中文在线20CM</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">贵金属</div><div class="heat-track"><div class="heat-fill up" style="width:75%"></div></div><div class="heat-val r">西部黄金涨停</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">石油煤炭</div><div class="heat-track"><div class="heat-fill up" style="width:70%"></div></div><div class="heat-val r">燃油期货+18%</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">银行</div><div class="heat-track"><div class="heat-fill up" style="width:60%"></div></div><div class="heat-val r">工行/中行新高</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">软件/金融IT</div><div class="heat-track"><div class="heat-fill up" style="width:65%"></div></div><div class="heat-val r">绿盟20CM</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">MLCC/PCB</div><div class="heat-track"><div class="heat-fill down" style="width:85%"></div></div><div class="heat-val g">风华高科跌停</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">风电设备</div><div class="heat-track"><div class="heat-fill down" style="width:70%"></div></div><div class="heat-val g">大金重工跌停</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">半导体</div><div class="heat-track"><div class="heat-fill down" style="width:65%"></div></div><div class="heat-val g">延续弱势</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">CPO/光通信</div><div class="heat-track"><div class="heat-fill down" style="width:60%"></div></div><div class="heat-val g">大摩报告余震</div></div></div>
-    <div class="heat"><div class="heat-row"><div class="heat-name">存储芯片</div><div class="heat-track"><div class="heat-fill down" style="width:55%"></div></div><div class="heat-val g">费半-3.39%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">传媒/出版</div><div class="heat-track"><div class="heat-fill up" style="width:95%"></div></div><div class="heat-val r">新华传媒10连板</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">银行</div><div class="heat-track"><div class="heat-fill up" style="width:70%"></div></div><div class="heat-val r">工中建创新高</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">影视院线</div><div class="heat-track"><div class="heat-fill up" style="width:65%"></div></div><div class="heat-val r">上海电影2连板</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">AI语料</div><div class="heat-track"><div class="heat-fill up" style="width:55%"></div></div><div class="heat-val r">掌阅科技5天3板</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">通信设备</div><div class="heat-track"><div class="heat-fill down" style="width:90%"></div></div><div class="heat-val g">工业富联-7%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">锂矿/能源金属</div><div class="heat-track"><div class="heat-fill down" style="width:85%"></div></div><div class="heat-val g">碳酸锂-8.37%</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">半导体</div><div class="heat-track"><div class="heat-fill down" style="width:75%"></div></div><div class="heat-val g">跟随韩国暴跌</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">贵金属</div><div class="heat-track"><div class="heat-fill down" style="width:65%"></div></div><div class="heat-val g">A股回调</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">种植业</div><div class="heat-track"><div class="heat-fill down" style="width:55%"></div></div><div class="heat-val g">板块走弱</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">油气煤炭</div><div class="heat-track"><div class="heat-fill down" style="width:50%"></div></div><div class="heat-val g">高位回调</div></div></div>
 
     <div class="callout">
-      <b>今日格局：AI硬件→AI应用切换 + 成长→红利防御。</b>
-      昨天石油/银行护盘→今天传媒/AI视频接棒；昨天科技硬件崩→今天AI应用反弹。<b>资金在AI内部做"高低切换"</b>，从硬件（光模块/PCB/存储）切向应用（传媒/视频/软件）。
-      风电设备/MLCC延续弱势——<span class="ph">前期强势板块集体退潮</span>。
-      成交1.9万亿放量2200亿——<b>放量V型反转说明资金没跑，但方向在变</b>。
+      <b>今日格局：传媒妖股独舞 + 银行新高护盘 + 科技全面崩塌。</b>
+      全市场超4300股下跌，只有传媒和银行两个方向在涨。<b>传媒涨的是情绪投机（10连板自然人占比80%），银行涨的是配置防御（6%股息 vs 5.24%美债）</b>——两个方向代表两种完全不同的资金行为。
+      通信设备崩盘（337调查）+ 锂矿崩盘（碳酸锂腰斩）+ 半导体跟跌（韩国砸盘）= <span class="ph">成长板块三线齐崩</span>。
+      成交1.54万亿缩量3600亿——<b>资金在用脚投票，市场彻底躺平</b>。
     </div>
   </div>
 
@@ -726,29 +691,30 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <div class="chips">
-      <div class="chip"><span class="cn">中文在线</span><span class="lim">20CM涨停</span><span class="cv r">AI电影定档</span></div>
-      <div class="chip"><span class="cn">芒果超媒</span><span class="lim">20CM涨停</span><span class="cv r">传媒龙头</span></div>
-      <div class="chip"><span class="cn">西部黄金</span><span class="lim">涨停</span><span class="cv r">黄金破4200</span></div>
-      <div class="chip"><span class="cn">绿盟科技</span><span class="lim">20CM涨停</span><span class="cv r">金融IT</span></div>
+      <div class="chip"><span class="cn">新华传媒</span><span class="lim">10连板</span><span class="cv r">累涨159%</span></div>
+      <div class="chip"><span class="cn">果麦文化</span><span class="lim">20CM涨停</span><span class="cv r">传媒+AI</span></div>
+      <div class="chip"><span class="cn">上海电影</span><span class="lim">2连板</span><span class="cv r">影视院线</span></div>
+      <div class="chip"><span class="cn">博纳影业</span><span class="lim">2连板</span><span class="cv r">影视院线</span></div>
+      <div class="chip"><span class="cn">掌阅科技</span><span class="lim">5天3板</span><span class="cv r">AI语料</span></div>
+      <div class="chip"><span class="cn">九阳股份</span><span class="lim">6连板</span><span class="cv r">连板高度</span></div>
       <div class="chip"><span class="cn">工商银行</span><span class="taga">新高</span><span class="cv r">银行护盘</span></div>
       <div class="chip"><span class="cn">中国银行</span><span class="taga">新高</span><span class="cv r">银行护盘</span></div>
-      <div class="chip"><span class="cn">源杰科技</span><span class="limg">20CM跌停</span><span class="cv g">大摩报告</span></div>
-      <div class="chip"><span class="cn">长光华芯</span><span class="limg">20CM跌停</span><span class="cv g">光芯片崩盘</span></div>
-      <div class="chip"><span class="cn">东山精密</span><span class="limg">跌停</span><span class="cv g">光通信</span></div>
-      <div class="chip"><span class="cn">风华高科</span><span class="limg">跌停</span><span class="cv g">MLCC退潮</span></div>
-      <div class="chip"><span class="cn">大金重工</span><span class="limg">跌停</span><span class="cv g">风电退潮</span></div>
-      <div class="chip"><span class="cn">小米集团(HK)</span><span class="tagi">港股反弹</span><span class="cv r">+7.19%</span></div>
-      <div class="chip"><span class="cn">英特尔(US)</span><span class="limg">费半崩</span><span class="cv g">-5.34%</span></div>
-      <div class="chip"><span class="cn">ARM(US)</span><span class="limg">AI质疑</span><span class="cv g">-6.48%</span></div>
-      <div class="chip"><span class="cn">甲骨文(US)</span><span class="limg">AI投入证伪</span><span class="cv g">-5.6%</span></div>
-      <div class="chip"><span class="cn">英伟达(US)</span><span class="limg">AI营收质疑</span><span class="cv g">-2.94%</span></div>
+      <div class="chip"><span class="cn">建设银行</span><span class="taga">新高</span><span class="cv r">银行护盘</span></div>
+      <div class="chip"><span class="cn">中信银行</span><span class="taga">涨超2%</span><span class="cv r">银行护盘</span></div>
+      <div class="chip"><span class="cn">工业富联</span><span class="limg">跌超7%</span><span class="cv g">337调查</span></div>
+      <div class="chip"><span class="cn">雷科防务</span><span class="limg">跌超7%</span><span class="cv g">通信崩盘</span></div>
+      <div class="chip"><span class="cn">小米集团(HK)</span><span class="limg">跌超4%</span><span class="cv g">科网回调</span></div>
+      <div class="chip"><span class="cn">中际旭创(HK)</span><span class="limg">跌超4%</span><span class="cv g">光通信</span></div>
+      <div class="chip"><span class="cn">Samsung(KR)</span><span class="limg">-2.86%</span><span class="cv g">外资砸盘</span></div>
+      <div class="chip"><span class="cn">SK海力士(KR)</span><span class="limg">-3.15%</span><span class="cv g">外资砸盘</span></div>
     </div>
 
     <div class="callout blue">
-      <b>今日最值得关注的一组对比：</b>
-      <b>中文在线/芒果超媒20CM涨停（AI应用） vs 源杰科技/长光华芯20CM跌停（AI硬件）</b>——
-      资金在AI内部做"极端切换"。昨天硬件崩→今天应用接棒。<span class="ph">这不是AI行情的结束，而是AI行情从"硬件投入"向"应用变现"的叙事转换</span>。
-      工行/中行创历史新高+西部黄金涨停=<b>risk-off环境下的"双保险"配置</b>。
+      <b>今日最值得关注的对比：</b>
+      <b>新华传媒10连板累涨159%（自然人占80%） vs 工业富联跌超7%（机构出逃）</b>——
+      散户在追妖股，机构在抛科技。<span class="ph">这不是牛市切换，而是risk-off环境下的极端分化</span>。
+      银行股集体创新高=<b>配置型资金在找确定性</b>（6%股息+31%分红比例）。
+      韩国三星/SK海力士被外资砸盘=<b>AI"证伪"叙事从美股传导至亚太</b>。
     </div>
   </div>
 
@@ -757,34 +723,33 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="sec-head">
       <div class="sec-ico" style="background:#fef3c7">🪙</div>
       <div class="sec-title">大宗商品与汇率</div>
-      <div class="sec-note">10/9 数据</div>
+      <div class="sec-note">10/12 数据</div>
     </div>
 
     <table class="tbl">
       <thead><tr><th>品种</th><th>最新</th><th>涨跌</th></tr></thead>
       <tbody>
-        <tr class="hot"><td class="name">现货黄金</td><td>~4,200 美元/盎司</td><td class="r">+1.6% 突破4200</td></tr>
-        <tr><td class="name">COMEX黄金期货</td><td>4,158.30 美元/盎司</td><td class="r">+0.43%</td></tr>
-        <tr><td class="name">COMEX白银期货</td><td>59.43 美元/盎司</td><td class="g">−1.43%</td></tr>
-        <tr class="hot"><td class="name">布伦特原油</td><td>104.28 美元/桶</td><td class="r">+4.07% 冲破104</td></tr>
-        <tr class="hot"><td class="name">WTI原油</td><td>91.49 美元/桶</td><td class="r">+3.64%</td></tr>
-        <tr><td class="name">伦铜</td><td>14,294 美元/吨</td><td class="g">−1.09%</td></tr>
+        <tr class="hot"><td class="name">现货黄金</td><td>~4,230 美元/盎司</td><td class="r">+0.9% 续创新高</td></tr>
+        <tr><td class="name">COMEX黄金期货</td><td>4,212.90 美元/盎司</td><td class="r">+1.34%</td></tr>
+        <tr><td class="name">COMEX白银期货</td><td>61.14 美元/盎司</td><td class="r">+2.89%</td></tr>
+        <tr class="hot"><td class="name">布伦特原油</td><td>104.15 美元/桶</td><td class="g">−0.54% 微跌</td></tr>
+        <tr class="hot"><td class="name">WTI原油</td><td>91.14 美元/桶</td><td class="g">−0.4%</td></tr>
         <tr class="grp"><td colspan="3">汇率与利率</td></tr>
-        <tr><td class="name">美元/离岸人民币</td><td>~6.70</td><td class="n0">持平</td></tr>
-        <tr><td class="name">美元指数</td><td>102.14</td><td class="g">−0.10%</td></tr>
-        <tr class="hot"><td class="name">10年期美债收益率</td><td>5.223%</td><td class="g">−5.48bp 高位回落</td></tr>
-        <tr class="hot"><td class="name">30年期美债收益率</td><td>5.598%</td><td class="g">−7.02bp 2002年来高位</td></tr>
+        <tr><td class="name">美元/离岸人民币</td><td>~6.69</td><td class="n0">人民币强势</td></tr>
+        <tr><td class="name">人民币中间价</td><td>6.7313</td><td class="n0">较前日调整</td></tr>
+        <tr><td class="name">美元指数</td><td>102.23</td><td class="r">+0.09%</td></tr>
+        <tr class="hot"><td class="name">10年期美债收益率</td><td>5.24%</td><td class="r">+0.25% 高位</td></tr>
+        <tr><td class="name">VIX恐慌指数</td><td>14.84</td><td class="g">−3.70% 恐慌退潮</td></tr>
         <tr class="grp"><td colspan="3">数字资产</td></tr>
-        <tr><td class="name">比特币</td><td>~82,388 美元</td><td class="r">+0.88%</td></tr>
-        <tr><td class="name">以太坊</td><td>~2,492 美元</td><td class="r">+0.76%</td></tr>
+        <tr><td class="name">比特币</td><td>~82,000 美元</td><td class="n0">持平</td></tr>
       </tbody>
     </table>
 
     <div class="callout">
-      <b>大宗关键信号：</b><b>布油冲破104美元</b>——伊朗袭击霍尔木兹海峡油轮频率上升+墨西哥湾飓风+沙特考虑"后路"→油价年内涨60%+。特朗普"选前不动武"只是暂缓，不是解除。
-      <b>黄金突破4200美元</b>——30年债拍卖需求强劲→长端收益率回落→贵金属天敌组合暂时松绑。但上周刚跌至两个月低点，多空博弈激烈。
-      <b>10年美债5.22%高位回落5bp</b>——30年5.60%仍处2002年来高位。<b>全球资产定价之锚在高位松动，但远未回归正常</b>。
-      <b>比特币82000美元</b>——加密市场独立运行，BTC ETF周三净流出4.85亿美元（6月以来最大），但价格仍在高位。
+      <b>大宗关键信号：</b><b>黄金4230美元续创新高</b>——美债5.24%高位+美元102=理论上利空黄金，但黄金照涨不误，说明市场仍在定价"不确定性"（中东+特朗普+AI泡沫）。
+      <b>布油104美元微跌</b>——特朗普"选前不动武"承诺压住上行斜率，但地缘溢价仍在。年内WTI涨60%+。
+      <b>10年美债5.24%</b>——全球资产定价之锚仍在高位。本周美国CPI/PPI数据将决定走向：CPI超预期→美债冲5.3%+→全球成长股承压。
+      <b>人民币6.69</b>——离岸盘中升破6.70创2023年1月以来新高。人民币强势=央行有意为之。
     </div>
   </div>
 
@@ -798,38 +763,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="gf-grid">
 
-      <!-- 原油/能源链 -->
+      <!-- 碳酸锂/能源金属 -->
       <div class="gf-card hot">
         <div class="gf-top">
-          <span class="gf-ico">🛢️</span>
-          <span class="gf-name">原油/能源链</span>
-          <span class="gf-status hot">地缘溢价飙升</span>
-        </div>
-        <ul>
-          <li><b>布伦特</b> <span class="up">104.28美元/桶（+4.07%）</span>，WTI <span class="up">91.49美元（+3.64%）</span>——伊朗袭击霍尔木兹油轮频率上升+墨西哥湾飓风Isaias威胁→供应恐慌</li>
-          <li><b>上海燃油期货</b>日内<span class="up">暴涨18%</span>——高油价向终端传导加速。10/10起国内燃油附加费上调：800公里以上收90元（+20元）</li>
-          <li><b>沙特"后路"</b>：正与买家磋商自明年起在霍尔木兹海峡以外区域装船→纳入长期供货合同——<b>连沙特都在为"最坏情况"做准备</b></li>
-          <li><b>特朗普"选前不动武"</b>：称不会在11月3日中期选举前攻击伊朗，但11月后呢？<span class="hl">市场定价"暂时不打"但不定价"永远不打"</span></li>
-          <li><b>年内涨幅</b>：WTI年内已涨超60%，布伦特涨超50%——<b>高油价→高通胀→加息预期→全球成长股承压</b>，这条传导链是当前市场主线</li>
-        </ul>
-        <div class="gf-src">信源: Reuters · Bloomberg · EIA · 央视新闻 · 新华社 · 国家发改委</div>
-      </div>
-
-      <!-- 锂矿/能源金属 -->
-      <div class="gf-card warm">
-        <div class="gf-top">
           <span class="gf-ico">🔋</span>
-          <span class="gf-name">锂矿/能源金属</span>
-          <span class="gf-status warm">强现实弱预期</span>
+          <span class="gf-name">碳酸锂/能源金属</span>
+          <span class="gf-status hot">腰斩破11万</span>
         </div>
         <ul>
-          <li><b>碳酸锂期货主力</b> <span class="dn">117300元/吨（-1.28%）</span>，盘中一度跌近5%后深V反弹——"强现实弱预期"矛盾到极致</li>
-          <li><b>现货</b>：电池级<span class="up">121000-124950元/吨</span>（涨2150元），工业级<span class="up">119000-121450元/吨</span>（涨2150元）——现货涨、期货跌，期现分化加剧</li>
-          <li><b>库存加速去化</b>：SMM全口径<span class="dn">139517吨，周度-9260吨</span>。Mysteel数据自6月高点20.3万吨累计降44%至11.36万吨——<b>按当前斜率，11月库存天数或下探至15天</b></li>
-          <li><b>仓单</b>降至<span class="dn">31870吨（-120吨）</span>，连续去化。10月产量预计11.59万吨（环比仅+1.1%）——供给释放不及预期</li>
-          <li><b>矿端扰动</b>：枧下窝锂矿环评再公示（年产10万吨LCE），巴西Sigma矿恢复许可——<b>远期供给增加预期压制期货，但实际复产还需时间</b></li>
+          <li><b>期货主力</b> <span class="dn">跌破11万元/吨（-8.37%）</span>，创年内新低——5月高点20万不足半年腰斩</li>
+          <li><b>现货</b>：电池级<span class="up">120500-122000元/吨</span>，工业级<span class="up">116500-120000元/吨</span>——现货仍坚挺，期现分化加剧</li>
+          <li><b>暴跌逻辑</b>：期货盘面定价转向明年供需预期——枧下窝矿复产+巴西矿恢复许可=远期供给增加。部分资金提前布局抢跑</li>
+          <li><b>关键位</b>：11万是很多外采矿的成本线——<b>再跌就有人减产，但市场现在不信</b></li>
+          <li><b>A股影响</b>：锂矿/能源金属板块集体承压，稀有金属ETF估值处于近2年极低分位</li>
         </ul>
-        <div class="gf-src">信源: 光大期货 · Mysteel · SMM · 瑞达期货 · 上海金属网 · 混沌天成期货</div>
+        <div class="gf-src">信源: 新浪财经 · 期货日报 · 凤凰财经 · 中信期货 · SMM · 上海钢联</div>
       </div>
 
       <!-- 半导体/存储 -->
@@ -837,16 +785,67 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="gf-top">
           <span class="gf-ico">🔌</span>
           <span class="gf-name">半导体/存储</span>
-          <span class="gf-status cool">AI证伪冲击</span>
+          <span class="gf-status cool">AI证伪+337双杀</span>
         </div>
         <ul>
-          <li><b>费半-3.39%</b>：英特尔<span class="dn">-5.34%</span>，ARM<span class="dn">-6.48%</span>，博通<span class="dn">-4.35%</span>，AMD<span class="dn">-3.9%</span>，台积电<span class="dn">-3%</span>——OpenAI营收"缩水"200亿引发AI投入回报质疑</li>
-          <li><b>存储回调</b>：闪迪<span class="dn">-4.9%</span>，美光<span class="dn">-4.79%</span>，SK海力士<span class="dn">-4.35%</span>——三星Q3利润破纪录但手机砍产量20-30%</li>
-          <li><b>光通信崩盘</b>：Coherent<span class="dn">-9.62%</span>，康宁<span class="dn">-6.38%</span>——大摩3.2T报告+A股源杰科技/长光华芯20CM跌停</li>
-          <li><b>三星Q3</b>：营业利润<span class="up">107.4万亿韩元（+782.5%）</span>，销售额195万亿韩元（+126.6%）——连续四季刷新纪录，但手机内存涨价导致终端减产</li>
-          <li><b>OpenAI年化营收</b>：实际~<span class="num">500亿美元</span>（非此前传闻的700亿），年底目标700亿——<b>AI从"信仰"转向"验证"</b></li>
+          <li><b>韩国暴跌</b>：KOSPI <span class="dn">-2.57%</span>，三星<span class="dn">-2.86%</span>，SK海力士<span class="dn">-3.15%</span>——外资净卖出1.36万亿韩元</li>
+          <li><b>337调查</b>：美国ITC启动337调查涉及立讯精密/工业富联（Vicor专利侵权）——通信设备板块崩盘</li>
+          <li><b>台积电Q3</b>：营收创纪录飙升<span class="up">50%</span>，10/15财报是AI需求验证关键——预期净利T$7463亿（+65%），毛利率66.5%</li>
+          <li><b>三星Q3</b>：营业利润107.4万亿韩元（+782.5%创纪录）——但手机内存涨价导致终端砍产量20-30%</li>
+          <li><b>OpenAI营收</b>：年化~500亿美元（非传闻700亿），年底目标700亿——AI从"信仰"转向"验证"</li>
         </ul>
-        <div class="gf-src">信源: Reuters · Bloomberg · CNBC · 三星电子公告 · Financial Times · 华尔街见闻</div>
+        <div class="gf-src">信源: Reuters · Invezz · CNBC · TSMC公告 · 三星电子 · 新浪财经 · 腾讯新闻</div>
+      </div>
+
+      <!-- 传媒/AI应用 -->
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🎬</span>
+          <span class="gf-name">传媒/AI应用</span>
+          <span class="gf-status hot">妖股化</span>
+        </div>
+        <ul>
+          <li><b>新华传媒</b> <span class="up">10连板累涨159%</span>——自然人买入占比超80%，机构不碰</li>
+          <li><b>板块扩散</b>：果麦文化20CM涨停，上海电影/博纳影业2连板，掌阅科技5天3板，广电网络/慈文传媒涨停</li>
+          <li><b>逻辑</b>：华鑫证券"传媒是内需消费+AI应用双驱动"——<b>但10连板和基本面无关，纯情绪投机</b></li>
+          <li><b>AI超写实电影</b>：国内首部AI超写实院线电影定档10/23——<b>催化还在，但持续性取决于后续业绩兑现</b></li>
+          <li><b>风险</b>：自然人占比80%=散户接力，一旦情绪退潮，10连板的回撤幅度会很深</li>
+        </ul>
+        <div class="gf-src">信源: 腾讯新闻 · 新浪财经 · 东方财富 · 华鑫证券 · 财联社</div>
+      </div>
+
+      <!-- 银行/高股息 -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🏦</span>
+          <span class="gf-name">银行/高股息</span>
+          <span class="gf-status warm">集体创新高</span>
+        </div>
+        <ul>
+          <li><b>工行/中行/建行/中信</b> <span class="up">集体创历史新高</span>——银行板块逆势走强，中国银行/中信银行涨超2%</li>
+          <li><b>21家银行中期分红</b> <span class="up">2600亿元</span>——15家分红比例提升，六大行从30%统一提至31%</li>
+          <li><b>逻辑</b>：6%+股息率 vs 10年美债5.24%——<b>配置型资金的"类债券"替代品</b></li>
+          <li><b>国信证券</b>：四季度银行板块仍具配置价值，选股兼顾股息回报与业绩增长</li>
+          <li><b>风险</b>：银行涨不代表市场好——<b>资金在找避风港，不是在追成长</b></li>
+        </ul>
+        <div class="gf-src">信源: 新浪财经 · 东方财富 · 国信证券 · 证券报</div>
+      </div>
+
+      <!-- 原油/能源 -->
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🛢️</span>
+          <span class="gf-name">原油/能源</span>
+          <span class="gf-status warm">高位微跌</span>
+        </div>
+        <ul>
+          <li><b>布伦特</b> <span class="dn">104.15美元/桶（-0.54%）</span>，WTI <span class="dn">91.14美元（-0.4%）</span>——特朗普"选前不动武"压住上行斜率</li>
+          <li><b>地缘溢价仍在</b>：伊朗袭击霍尔木兹油轮频率未减，沙特计划霍尔木兹以外区域装船</li>
+          <li><b>年内涨幅</b>：WTI+60%+，布伦特+50%+——<b>高油价→高通胀→加息预期→全球成长股承压</b></li>
+          <li><b>11月变量</b>：特朗普中期选举后对伊政策=油价最大不确定性。如果动武→油价冲120</li>
+          <li><b>A股油气板块</b>：今日回调——前期涨幅过大+油价微跌=获利了结</li>
+        </ul>
+        <div class="gf-src">信源: Reuters · Bloomberg · EIA · ConvexTrade · Gatekeepers News</div>
       </div>
 
       <!-- 贵金属 -->
@@ -854,59 +853,25 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="gf-top">
           <span class="gf-ico">🪙</span>
           <span class="gf-name">贵金属</span>
-          <span class="gf-status warm">反弹突破4200</span>
+          <span class="gf-status warm">续创新高</span>
         </div>
         <ul>
-          <li><b>现货黄金</b> <span class="up">~4200美元/盎司（+1.6%）</span>——30年债拍卖需求强劲→长端收益率回落→贵金属天敌组合暂时松绑</li>
-          <li><b>COMEX黄金</b> <span class="up">4158.30美元（+0.43%）</span>，白银<span class="dn">59.43美元（-1.43%）</span>——金银分化，工业属性拖累白银</li>
-          <li><b>A股贵金属</b>：西部黄金<span class="up">涨停</span>——昨日暴跌后今日反弹，资金做"超跌修复"</li>
-          <li><b>中国央行持续增持黄金</b>——提供需求支撑，对冲美联储鹰派信号</li>
-          <li><b>关键位</b>：4200美元能否站稳？如果10年美债继续回落→冲4300；如果反弹→可能再跌破4100</li>
+          <li><b>现货黄金</b> <span class="up">~4230美元/盎司（+0.9%）</span>——COMEX黄金4212.90（+1.34%），白银61.14（+2.89%）</li>
+          <li><b>背离信号</b>：美债5.24%+美元102=理论上利空黄金，但黄金照涨——<b>市场在定价"不确定性"</b></li>
+          <li><b>中国央行</b>：连续增持黄金提供需求支撑</li>
+          <li><b>A股贵金属</b>：今日回调——前期涨幅过大获利了结，但黄金现货走强提供支撑</li>
+          <li><b>关键位</b>：4300美元是下一目标。如果美债回落→冲4300；如果CPI超预期→可能回调</li>
         </ul>
-        <div class="gf-src">信源: Bloomberg · COMEX · 中国央行 · 金十数据 · 上海证券报</div>
-      </div>
-
-      <!-- 军工/国防 -->
-      <div class="gf-card neut">
-        <div class="gf-top">
-          <span class="gf-ico">⚔️</span>
-          <span class="gf-name">军工/国防</span>
-          <span class="gf-status neut">订单加速但股价分化</span>
-        </div>
-        <ul>
-          <li><b>RTX一周450亿美元合同</b>：SM-6导弹244亿+AMRAAM 207亿——<b>全球军工订单潮全面加速</b></li>
-          <li><b>A股航天装备</b>今日涨幅居前——中东地缘持续升温→军工防御属性凸显</li>
-          <li><b>韩国军工前日回调</b>：韩华宇航等跌5%——KOSPI暴跌-2.62%拖累，但基本面订单仍强劲</li>
-          <li><b>美国五角大楼</b>：或已完成对伊朗重启大规模作战行动准备工作——<b>虽然特朗普说"选前不打"，但军事准备没停</b></li>
-          <li><b>关注点</b>：军工是"地缘溢价"的直接受益者，但股价已反映较多预期。如果中东局势缓和，军工可能回调</li>
-        </ul>
-        <div class="gf-src">信源: Reuters · 央视新闻 · Bloomberg · 东方财富 · 韩国交易所</div>
-      </div>
-
-      <!-- 光纤/光通信 -->
-      <div class="gf-card cool">
-        <div class="gf-top">
-          <span class="gf-ico">📡</span>
-          <span class="gf-name">光纤/光通信</span>
-          <span class="gf-status cool">大摩报告冲击</span>
-        </div>
-        <ul>
-          <li><b>大摩3.2T报告</b>：暗示未来光芯片价格可能承压→A股源杰科技/长光华芯<span class="dn">20CM跌停</span>，仕佳光子<span class="dn">-17%</span></li>
-          <li><b>公司回应</b>：长光华芯称"大摩报告非正式文件，3.2T放量要到2028-2029年，当前以800G/1.6T为主"——<b>短期无实质影响，但市场不管</b></li>
-          <li><b>光纤预制棒</b>：前期暴涨550%（G.652D从25元涨到160元/芯公里），订单排到2027-2028年——<b>产业景气度仍高，但股价已提前透支</b></li>
-          <li><b>美股光通信</b>：Coherent<span class="dn">-9.62%</span>，康宁<span class="dn">-6.38%</span>，Ciena<span class="dn">-4.61%</span>——全球光通信集体承压</li>
-          <li><b>关注点</b>：财联社盘后报道"算力服务合同爽约现象普遍"——<b>AI硬件链的"证伪"可能不是一天的事</b></li>
-        </ul>
-        <div class="gf-src">信源: 摩根士丹利 · 每日经济新闻 · 财联社 · 光纤在线 · Bloomberg</div>
+        <div class="gf-src">信源: Bloomberg · COMEX · ConvexTrade · 中国央行 · Kitco</div>
       </div>
 
     </div>
 
     <div class="callout blue">
       <b>本周最值得关注的三条产业链信号：</b>
-      <b>① 油价冲破104美元+特朗普"选后不确定"</b>——年内涨60%+，高油价→高通胀→加息预期→全球成长股承压。这条传导链是当前市场主线；
-      <b>② AI从"信仰"转向"验证"</b>——OpenAI营收"缩水"+大摩3.2T报告+费半-3.39%→A股光通信崩盘。但AI应用（传媒/视频）接棒→资金在做"高低切换"而非撤退；
-      <b>③ 碳酸锂"强现实弱预期"到极致</b>——库存加速去化（-9260吨/周）+现货涨 vs 期货跌+枧下窝复产预期。11.7万是很多外采矿成本线，再跌就有人减产。
+      <b>① 台积电10/15 Q3财报</b>——AI需求真伪的关键验证。超预期=全球半导体反弹；不及预期=AI"证伪"叙事加强。这是本周全球最重要的财报；
+      <b>② 美国CPI/PPI数据</b>——CPI超预期=加息预期升温=美债冲5.3%+=全球成长股承压。反之=美债回落=科技反弹窗口；
+      <b>③ 碳酸锂跌破11万后何时企稳</b>——11万是外采矿成本线，再跌=高成本产能减产。但远期悲观预期主导，反弹高度有限。
     </div>
   </div>
 
@@ -921,23 +886,21 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="strat-in">
         <h4>🧭 核心判断</h4>
         <ul>
-          <li><b>短期（1-3天）：V型反弹后需要确认——是"反转"还是"反抽"？</b>今天放量V型反弹（1.9万亿+3300股上涨+72家涨停），但别忘了昨天3748股暴跌。<span class="ph">如果明天缩量回落至1.5万亿以下，说明今天只是"技术性修复"</span>。如果继续放量站稳3850，则反弹可期待。今夜密歇根消费者信心指数（预期47.6）是短期变量。</li>
-          <li><b>中期（1-2周）：AI从"硬件"切向"应用"，从"成长"切向"红利"。</b>资金行为很明确：AI硬件（光模块/PCB/存储）→AI应用（传媒/视频/软件）；成长→高股息/红利。这个切换可能持续2-3周，直到三季报验证期。<b>工行/中行创新高+西部黄金涨停=risk-off环境下的"双保险"配置</b>。</li>
-          <li><b>长期（1-3月）：高油价+高利率=全球risk-off常态。</b>布油104美元+10年美债5.22%+美元指数102=<b>全球资产定价之锚被重新定价</b>。AI需求仍强劲（三星Q3利润+782%），但估值需要消化。A股三季报窗口将至，盈利验证是关键。</li>
-          <li><b>风险点：</b>①特朗普中期选举后对伊朗动武→油价冲120美元；②12月美联储加息→10年美债冲5.5%+；③AI硬件链继续"证伪"→科创板二次探底；④碳酸锂跌破11万→锂矿股二次探底；⑤成交萎缩至1.5万亿以下→市场彻底躺平。</li>
+          <li><b>短期（1-3天）：缩量阴跌后需要催化剂——台积电10/15财报+CPI数据。</b>今天1.54万亿缩量3627亿+超4300股下跌，上周五V型反弹白干了。<span class="ph">如果没有催化剂，沪指可能跌破3750看3700</span>。台积电Q3超预期=科技反弹窗口；CPI低于预期=美债回落=成长股窗口。反之则继续阴跌。</li>
+          <li><b>中期（1-2周）：三季报窗口=业绩验证期。</b>7-9月调整已消化部分科技拥挤度（中信建投判断），但三季报才是真正的"验金石"。<b>科技股"业绩高增但股价不涨"的风险在加大</b>——如果台积电超预期但A股科技不涨，说明市场已经彻底对AI失去信心。</li>
+          <li><b>长期（1-3月）：高油价+高利率=全球risk-off常态。</b>布油104美元+10年美债5.24%+美元指数102=<b>全球资产定价之锚被重新定价</b>。新质生产力政策利好需要时间传导，短期被外部利率压制。</li>
+          <li><b>风险点：</b>①美国CPI超预期→美债冲5.3%+；②台积电Q3不及预期→AI证伪叙事加强→科创板二次探底；③337调查扩大化→通信/消费电子链承压；④碳酸锂跌破10万→锂矿股二次探底；⑤特朗普选后对伊动武→油价冲120美元。</li>
         </ul>
 
         <div class="dirs">
-          <span class="dir">AI应用/传媒（资金切换方向）</span>
           <span class="dir">高股息/银行（risk-off护甲）</span>
+          <span class="dir">传媒/AI应用（情绪投机短线）</span>
           <span class="dir">黄金/贵金属（美债回落受益）</span>
-          <span class="dir">石油/能源（油价高位受益）</span>
-          <span class="dir">军工/航天（地缘催化）</span>
-          <span class="dir">固态电池/钠电池（消费税减免）</span>
-          <span class="dir cool">AI硬件/光通信（观望）</span>
-          <span class="dir cool">MLCC/PCB（观望）</span>
-          <span class="dir cool">风电设备（退潮回避）</span>
-          <span class="dir cool">锂矿/资源（等企稳）</span>
+          <span class="dir">影视院线（AI电影催化）</span>
+          <span class="dir cool">通信设备/半导体（337+AI证伪回避）</span>
+          <span class="dir cool">锂矿/能源金属（碳酸锂腰斩回避）</span>
+          <span class="dir cool">油气/煤炭（高位回调回避）</span>
+          <span class="dir cool">CPO/光通信（大摩余震+337回避）</span>
         </div>
       </div>
     </div>
@@ -945,12 +908,12 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="risk">
       <h4>⚠ 风险清单（按紧迫度排序）</h4>
       <ul>
-        <li><b>特朗普中期选举后对伊政策</b>——11月3日后"选前不动武"承诺到期。五角大楼已完成作战准备。如果动武→油价冲120美元→全球risk-off加剧。</li>
-        <li><b>12月美联储加息</b>——市场定价剩余25bp。如果加→可能是"最后一次"也可能是"新一轮开始"。10年美债5.22%已在高位，再加可能突破5.5%。</li>
-        <li><b>AI硬件链"证伪"扩散</b>——OpenAI营收"缩水"+大摩3.2T报告+财联社"算力合同爽约普遍"→AI投入回报质疑可能持续发酵。科创板可能二次探底。</li>
-        <li><b>三季报业绩窗口</b>——A股即将进入三季报密集披露期。工业企业利润增速回落+科技股"业绩高增但股价不涨"风险→个股分化加剧。</li>
-        <li><b>碳酸锂跌破11万</b>——如果外采矿成本线跌破→高成本产能减产→但短期弱预期主导，反弹高度有限。</li>
-        <li><b>港股离岸信托税抛售</b>——10月下旬之前仍有压力（存量补缴90天内不加收滞纳金）→恒指反弹持续性存疑。</li>
+        <li><b>台积电10/15 Q3财报</b>——AI需求真伪验证。超预期=全球半导体反弹；不及预期=AI证伪叙事加强。这是本周最大变量。</li>
+        <li><b>美国CPI/PPI数据（本周公布）</b>——CPI超预期=加息预期升温=美债冲5.3%+=全球成长股承压。低于预期=美债回落=科技反弹窗口。</li>
+        <li><b>337调查扩大化</b>——立讯精密/工业富联被ITC立案调查（Vicor专利侵权）。45天内设定目标日期。如果败诉=禁止进口美国=苹果产业链冲击。</li>
+        <li><b>日本周二复牌</b>——日经今天休市躲过了科技抛售，但软银/东京电子/爱德万测试（占日经22%权重）将直面AI估值考验。</li>
+        <li><b>碳酸锂跌破10万</b>——如果外采矿成本线跌破→高成本产能减产→但短期弱预期主导，反弹高度有限。</li>
+        <li><b>特朗普中期选举后对伊政策</b>——11月3日后"选前不动武"承诺到期。五角大楼已完成作战准备。如果动武→油价冲120美元。</li>
       </ul>
     </div>
   </div>
@@ -958,8 +921,8 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- FOOTER -->
   <div class="foot">
     <div class="bk">每日全球股市观察</div>
-    数据来源：路透社(Reuters) · 华尔街日报(WSJ) · 彭博(Bloomberg) · CNBC · 金融时报(FT) · 新华社 · 财联社 · 证券时报 · 金十数据 · 华尔街见闻 · 每日经济新闻 · 21世纪经济报道 · 光大期货 · Mysteel · SMM<br>
-    报告时间：2026年10月9日 15:30（北京时间）<br><br>
+    数据来源：路透社(Reuters) · 华尔街日报(WSJ) · 彭博(Bloomberg) · CNBC · 金融时报(FT) · 新华社 · 财联社 · 证券时报 · 金十数据 · 华尔街见闻 · 每日经济新闻 · 21世纪经济报道 · Invezz · ConvexTrade · Edge Consultancy<br>
+    报告时间：2026年10月12日 15:30（北京时间）<br><br>
     本报告基于公开信息整理，仅供研究参考，<b style="color:rgba(255,255,255,.6)">不构成任何投资建议</b>。<br>
     市场有风险，投资需谨慎。据此操作，风险自担。
   </div>
