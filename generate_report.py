@@ -166,51 +166,61 @@ def fetch_commodity_data():
         print(f"大宗商品数据抓取失败: {e}")
         return None
 
-def generate_report_content(market_data):
-    """使用通义千问生成报告内容"""
-    print("正在生成报告内容...")
+def generate_html_report(market_data):
+    """使用通义千问生成完整的 HTML 报告"""
+    print("正在生成 HTML 报告...")
     
-    # 构建 prompt
     today_display = get_today_display()
+    today_str = get_today_str()
     
-    prompt = f"""你是一位专业的财经分析师，请根据以下市场数据生成一份每日全球股市观察报告。
+    # 读取模板文件作为参考
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    template_path = os.path.join(script_dir, 'report_template.html')
+    
+    template_content = ""
+    if os.path.exists(template_path):
+        with open(template_path, 'r', encoding='utf-8') as f:
+            template_content = f.read()
+    
+    prompt = f"""你是一位专业的财经分析师和前端开发工程师。请根据以下市场数据，生成一份完整的 HTML 格式的每日全球股市观察报告。
 
 今天的日期：{today_display}
 
 市场数据：
 {json.dumps(market_data, ensure_ascii=False, indent=2)}
 
-请生成以下内容（用中文）：
-
-1. **报告标题**（一句话概括今日市场特点，20字以内）
-
-2. **核心摘要**（3-5句话概括今日市场主要特点，100字左右）
-
-3. **A股收盘速览**（200字左右，分析沪指、深成指、创业板、科创50的表现，成交量，涨跌家数等）
-
-4. **全球市场全景**（300字左右，分析港股、美股、欧股、日韩等主要市场表现，突出亮点和风险点）
-
-5. **环球要闻·深度解读**（3-5条重要新闻，每条100字左右，包含新闻事件和你的专业解读）
-
-6. **五维度深度拆解**（从消息面、情绪面、技术面、政策面、资金面五个维度分析，每个维度100字左右）
-
-7. **板块热力图**（列出今日涨幅前5和跌幅前5的板块，每个板块一句话点评）
-
-8. **焦点个股与资金流**（列出5-8只今日最受关注的个股，包括A股、港股、美股，每只股票一句话点评）
-
-9. **大宗商品与汇率**（分析黄金、原油、美元、人民币等主要品种走势，150字左右）
-
-10. **产业高频数据**（选择2-3个重点产业链，分析最新动态，每个产业链150字左右）
-
-11. **后市展望与操作策略**（短期、中期、长期判断，以及风险提示，300字左右）
-
 要求：
-- 语言风格：客观中立，可以带一点犀利点评，不要套话
-- 数据准确：所有数据必须基于我提供的市场数据
-- 逻辑清晰：每个分析都要有因果关系
-- 全球视角：用全球市场对比来评价A股表现
+1. 输出完整的 HTML 文档（包含 <!DOCTYPE html>、<html>、<head>、<body> 等所有标签）
+2. 保持以下结构和样式：
+   - Hero 区域：渐变背景、装饰圆圈、标题、副标题、日期栏
+   - 板块导航：sticky 导航栏，包含9个锚点链接
+   - A股收盘速览：4个指数卡片 + 统计栏 + callout 总结
+   - 全球市场全景：表格展示各市场数据 + callout 分析
+   - 环球要闻：9条新闻，分极重要（红色）/重要（橙色）/关注（蓝色）三级，每条包含信源标签、标题、正文、影响分析
+   - 五维度深度拆解：消息面/情绪面/技术面/政策面/资金面，每个维度有标题、评分、要点列表
+   - 板块热力图：10个板块的热力条，红色表示上涨，绿色表示下跌
+   - 焦点个股：16只个股的卡片网格（2列），包含标签和涨跌颜色
+   - 大宗商品与汇率：表格展示 + callout 分析
+   - 产业高频数据：6个产业卡片（2列网格），每个卡片有图标、标题、状态标签、要点列表、信源
+   - 后市展望与操作策略：策略建议（深色背景）+ 风险清单（红色背景）
+   - Footer：数据来源、报告时间、免责声明
 
-请直接输出完整的报告内容，我会将其嵌入到HTML模板中。"""
+3. 使用以下 CSS 类名和样式（保持与模板一致）：
+   - 颜色：红色 #e84855（涨），绿色 #12a05c（跌）
+   - 卡片样式：.idx（指数卡片）、.chip（个股卡片）、.gf-card（产业卡片）
+   - 标签样式：.tag.a（极重要）、.tag.b（重要）、.tag.c（关注）
+   - 热力条：.heat-row、.heat-fill.up（红色）、.heat-fill.down（绿色）
+
+4. 内容要求：
+   - 语言风格：客观中立，可以带一点犀利点评，不要套话
+   - 数据准确：所有数据必须基于我提供的市场数据
+   - 逻辑清晰：每个分析都要有因果关系
+   - 全球视角：用全球市场对比来评价A股表现
+   - 每条新闻都要有"影响分析"（<div class="impact">）
+
+5. 直接输出完整的 HTML 代码，不要有任何解释文字或 markdown 标记。
+
+请生成完整的 HTML 报告："""
 
     try:
         headers = {
@@ -224,92 +234,30 @@ def generate_report_content(market_data):
                 {'role': 'user', 'content': prompt}
             ],
             'temperature': 0.7,
-            'max_tokens': 4000
+            'max_tokens': 8000
         }
         
-        response = requests.post(DASHSCOPE_API_URL, headers=headers, json=data, timeout=120)
+        response = requests.post(DASHSCOPE_API_URL, headers=headers, json=data, timeout=180)
         response.raise_for_status()
         
         result = response.json()
-        content = result['choices'][0]['message']['content']
+        html_content = result['choices'][0]['message']['content']
         
-        print("报告内容生成成功")
-        return content
+        # 清理可能的 markdown 标记
+        html_content = html_content.strip()
+        if html_content.startswith('```html'):
+            html_content = html_content[7:]
+        if html_content.startswith('```'):
+            html_content = html_content[3:]
+        if html_content.endswith('```'):
+            html_content = html_content[:-3]
+        html_content = html_content.strip()
+        
+        print("HTML 报告生成成功")
+        return html_content
     except Exception as e:
-        print(f"报告内容生成失败: {e}")
+        print(f"HTML 报告生成失败: {e}")
         return None
-
-def generate_html(report_content, market_data):
-    """生成HTML报告"""
-    print("正在生成HTML...")
-    
-    today_str = get_today_str()
-    today_display = get_today_display()
-    
-    # 读取HTML模板（修正路径）
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    template_path = os.path.join(script_dir, 'latest.html')
-    with open(template_path, 'r', encoding='utf-8') as f:
-        template = f.read()
-    
-    # 这里应该解析 report_content 并替换模板中的占位符
-    # 但为了简化，我们先创建一个简化的HTML
-    
-    html = f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日全球股市观察 | {today_display}</title>
-<style>
-  * {{ margin:0; padding:0; box-sizing:border-box; }}
-  body {{
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: #eef1f6;
-    color: #1a2233;
-    line-height: 1.75;
-  }}
-  .wrap {{ max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }}
-  .hero {{
-    position: relative;
-    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
-    padding: 40px 26px 34px;
-    color: #fff;
-  }}
-  .hero h1 {{ font-size:26px; font-weight:800; line-height:1.4; margin-bottom:10px; }}
-  .hero .sub {{ font-size:13.5px; color:rgba(255,255,255,.72); margin-top:10px; }}
-  .content {{ padding: 30px 26px; }}
-  .content h2 {{ font-size:20px; font-weight:800; margin:30px 0 15px; color:#1a2233; }}
-  .content h3 {{ font-size:16px; font-weight:700; margin:20px 0 10px; color:#2d3748; }}
-  .content p {{ font-size:14px; line-height:1.8; color:#4a5568; margin-bottom:15px; }}
-  .content ul {{ margin:10px 0 15px 20px; }}
-  .content li {{ font-size:14px; line-height:1.8; color:#4a5568; margin-bottom:8px; }}
-  .foot {{
-    padding:28px 26px; background:#1a2233;
-    color:rgba(255,255,255,.55); font-size:11.5px; text-align:center;
-  }}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="hero">
-    <h1>每日全球股市观察</h1>
-    <div class="sub">{today_display}</div>
-  </div>
-  <div class="content">
-    <pre style="white-space: pre-wrap; font-family: inherit;">{report_content}</pre>
-  </div>
-  <div class="foot">
-    数据来源：新浪财经 · 东方财富 · 路透社 · 彭博<br>
-    报告时间：{today_display} 15:30（北京时间）<br>
-    本报告基于公开信息整理，仅供研究参考，不构成任何投资建议。
-  </div>
-</div>
-</body>
-</html>"""
-    
-    print("HTML生成成功")
-    return html
 
 def main():
     """主函数"""
@@ -345,16 +293,13 @@ def main():
         print("错误: 无法获取任何市场数据")
         sys.exit(1)
     
-    # 生成报告内容
-    report_content = generate_report_content(market_data)
-    if not report_content:
-        print("错误: 无法生成报告内容")
+    # 生成 HTML 报告
+    html = generate_html_report(market_data)
+    if not html:
+        print("错误: 无法生成 HTML 报告")
         sys.exit(1)
     
-    # 生成HTML
-    html = generate_html(report_content, market_data)
-    
-    # 保存HTML文件（修正路径）
+    # 保存 HTML 文件
     script_dir = os.path.dirname(os.path.abspath(__file__))
     today_str = get_today_str()
     output_file = os.path.join(script_dir, 'latest.html')
