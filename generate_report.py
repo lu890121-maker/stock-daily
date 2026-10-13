@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-每日全球股市报告生成器
-用于 GitHub Actions 自动化
+每日全球股市报告生成器 - 使用固定模板 + LLM 填充内容
 """
 
 import os
@@ -10,312 +9,449 @@ import sys
 import json
 import requests
 import akshare as ak
-import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime
 import pytz
-import re
 
-# 配置
 DASHSCOPE_API_KEY = os.environ.get('DASHSCOPE_API_KEY')
 DASHSCOPE_API_URL = 'https://coding-intl.dashscope.aliyuncs.com/v1/chat/completions'
 MODEL_NAME = 'qwen3.7-plus'
 
 def get_today_str():
-    """获取今天的日期字符串"""
     beijing_tz = pytz.timezone('Asia/Shanghai')
-    today = datetime.now(beijing_tz)
-    return today.strftime('%Y-%m-%d')
+    return datetime.now(beijing_tz).strftime('%Y-%m-%d')
 
 def get_today_display():
-    """获取今天的显示格式"""
     beijing_tz = pytz.timezone('Asia/Shanghai')
     today = datetime.now(beijing_tz)
     weekdays = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-    weekday = weekdays[today.weekday()]
-    return today.strftime(f'%Y年{today.month}月{today.day}日 {weekday}')
+    return f"{today.year}年{today.month}月{today.day}日 {weekdays[today.weekday()]}"
 
-def fetch_a_share_data():
-    """抓取A股数据"""
-    print("正在抓取A股数据...")
-    try:
-        # 上证指数
-        sh_index = ak.stock_zh_index_daily(symbol="sh000001")
-        sh_latest = sh_index.iloc[-1]
-        
-        # 深证成指
-        sz_index = ak.stock_zh_index_daily(symbol="sz399001")
-        sz_latest = sz_index.iloc[-1]
-        
-        # 创业板指
-        cy_index = ak.stock_zh_index_daily(symbol="sz399006")
-        cy_latest = cy_index.iloc[-1]
-        
-        # 科创50
-        kc_index = ak.stock_zh_index_daily(symbol="sh000688")
-        kc_latest = kc_index.iloc[-1]
-        
-        data = {
-            'shanghai': {
-                'close': float(sh_latest['close']),
-                'change': float(sh_latest['close'] - sh_index.iloc[-2]['close']) / float(sh_index.iloc[-2]['close']) * 100
-            },
-            'shenzhen': {
-                'close': float(sz_latest['close']),
-                'change': float(sz_latest['close'] - sz_index.iloc[-2]['close']) / float(sz_index.iloc[-2]['close']) * 100
-            },
-            'chinext': {
-                'close': float(cy_latest['close']),
-                'change': float(cy_latest['close'] - cy_index.iloc[-2]['close']) / float(cy_index.iloc[-2]['close']) * 100
-            },
-            'star50': {
-                'close': float(kc_latest['close']),
-                'change': float(kc_latest['close'] - kc_index.iloc[-2]['close']) / float(kc_index.iloc[-2]['close']) * 100
-            }
-        }
-        
-        print(f"A股数据抓取成功: 沪指 {data['shanghai']['close']:.2f} ({data['shanghai']['change']:+.2f}%)")
-        return data
-    except Exception as e:
-        print(f"A股数据抓取失败: {e}")
-        return None
-
-def fetch_hk_data():
-    """抓取港股数据"""
-    print("正在抓取港股数据...")
-    try:
-        # 恒生指数
-        hs_index = ak.stock_hk_index_daily_sina(symbol="HSI")
-        hs_latest = hs_index.iloc[-1]
-        
-        data = {
-            'hangseng': {
-                'close': float(hs_latest['close']),
-                'change': float(hs_latest['close'] - hs_index.iloc[-2]['close']) / float(hs_index.iloc[-2]['close']) * 100
-            }
-        }
-        
-        print(f"港股数据抓取成功: 恒指 {data['hangseng']['close']:.2f} ({data['hangseng']['change']:+.2f}%)")
-        return data
-    except Exception as e:
-        print(f"港股数据抓取失败: {e}")
-        return None
-
-def fetch_us_data():
-    """抓取美股数据（上一个交易日）"""
-    print("正在抓取美股数据...")
-    try:
-        # 道琼斯
-        dj_index = ak.index_us_stock_sina(symbol=".DJI")
-        dj_latest = dj_index.iloc[-1]
-        
-        # 标普500
-        sp_index = ak.index_us_stock_sina(symbol=".INX")
-        sp_latest = sp_index.iloc[-1]
-        
-        # 纳斯达克
-        nq_index = ak.index_us_stock_sina(symbol=".IXIC")
-        nq_latest = nq_index.iloc[-1]
-        
-        data = {
-            'dow': {
-                'close': float(dj_latest['close']),
-                'change': float(dj_latest['close'] - dj_index.iloc[-2]['close']) / float(dj_index.iloc[-2]['close']) * 100
-            },
-            'sp500': {
-                'close': float(sp_latest['close']),
-                'change': float(sp_latest['close'] - sp_index.iloc[-2]['close']) / float(sp_index.iloc[-2]['close']) * 100
-            },
-            'nasdaq': {
-                'close': float(nq_latest['close']),
-                'change': float(nq_latest['close'] - nq_index.iloc[-2]['close']) / float(nq_index.iloc[-2]['close']) * 100
-            }
-        }
-        
-        print(f"美股数据抓取成功: 道指 {data['dow']['close']:.2f} ({data['dow']['change']:+.2f}%)")
-        return data
-    except Exception as e:
-        print(f"美股数据抓取失败: {e}")
-        return None
-
-def fetch_commodity_data():
-    """抓取大宗商品数据"""
-    print("正在抓取大宗商品数据...")
-    try:
-        # 黄金现货
-        gold = ak.futures_foreign_hist(symbol="XAU")
-        gold_latest = gold.iloc[-1]
-        
-        # 布伦特原油
-        oil = ak.futures_foreign_hist(symbol="B")
-        oil_latest = oil.iloc[-1]
-        
-        data = {
-            'gold': {
-                'price': float(gold_latest['收盘价']),
-                'change': float(gold_latest['收盘价'] - gold.iloc[-2]['收盘价']) / float(gold.iloc[-2]['收盘价']) * 100
-            },
-            'brent': {
-                'price': float(oil_latest['收盘价']),
-                'change': float(oil_latest['收盘价'] - oil.iloc[-2]['收盘价']) / float(oil.iloc[-2]['收盘价']) * 100
-            }
-        }
-        
-        print(f"大宗商品数据抓取成功: 黄金 {data['gold']['price']:.2f} ({data['gold']['change']:+.2f}%)")
-        return data
-    except Exception as e:
-        print(f"大宗商品数据抓取失败: {e}")
-        return None
-
-def generate_html_report(market_data):
-    """使用通义千问生成完整的 HTML 报告"""
-    print("正在生成 HTML 报告...")
+def fetch_all_data():
+    """抓取所有市场数据"""
+    data = {}
     
+    # A股
+    try:
+        sh = ak.stock_zh_index_daily(symbol="sh000001").iloc[-2:]
+        sz = ak.stock_zh_index_daily(symbol="sz399001").iloc[-2:]
+        cy = ak.stock_zh_index_daily(symbol="sz399006").iloc[-2:]
+        kc = ak.stock_zh_index_daily(symbol="sh000688").iloc[-2:]
+        data['a_share'] = {
+            'sh': {'close': float(sh.iloc[1]['close']), 'change': round((sh.iloc[1]['close']-sh.iloc[0]['close'])/sh.iloc[0]['close']*100, 2)},
+            'sz': {'close': float(sz.iloc[1]['close']), 'change': round((sz.iloc[1]['close']-sz.iloc[0]['close'])/sz.iloc[0]['close']*100, 2)},
+            'cy': {'close': float(cy.iloc[1]['close']), 'change': round((cy.iloc[1]['close']-cy.iloc[0]['close'])/cy.iloc[0]['close']*100, 2)},
+            'kc': {'close': float(kc.iloc[1]['close']), 'change': round((kc.iloc[1]['close']-kc.iloc[0]['close'])/kc.iloc[0]['close']*100, 2)},
+        }
+        print(f"A股: 沪指{data['a_share']['sh']['close']:.0f}({data['a_share']['sh']['change']:+.2f}%)")
+    except Exception as e:
+        print(f"A股抓取失败: {e}")
+        return None
+    
+    # 港股
+    try:
+        hs = ak.stock_hk_index_daily_sina(symbol="HSI").iloc[-2:]
+        hst = ak.stock_hk_index_daily_sina(symbol="HSTECH").iloc[-2:]
+        data['hk'] = {
+            'hsi': {'close': float(hs.iloc[1]['close']), 'change': round((hs.iloc[1]['close']-hs.iloc[0]['close'])/hs.iloc[0]['close']*100, 2)},
+            'hstech': {'close': float(hst.iloc[1]['close']), 'change': round((hst.iloc[1]['close']-hst.iloc[0]['close'])/hst.iloc[0]['close']*100, 2)},
+        }
+    except: pass
+    
+    # 美股
+    try:
+        dj = ak.index_us_stock_sina(symbol=".DJI").iloc[-2:]
+        sp = ak.index_us_stock_sina(symbol=".INX").iloc[-2:]
+        nq = ak.index_us_stock_sina(symbol=".IXIC").iloc[-2:]
+        data['us'] = {
+            'dj': {'close': float(dj.iloc[1]['close']), 'change': round((dj.iloc[1]['close']-dj.iloc[0]['close'])/dj.iloc[0]['close']*100, 2)},
+            'sp': {'close': float(sp.iloc[1]['close']), 'change': round((sp.iloc[1]['close']-sp.iloc[0]['close'])/sp.iloc[0]['close']*100, 2)},
+            'nq': {'close': float(nq.iloc[1]['close']), 'change': round((nq.iloc[1]['close']-nq.iloc[0]['close'])/nq.iloc[0]['close']*100, 2)},
+        }
+    except: pass
+    
+    # 大宗商品
+    try:
+        gold = ak.futures_foreign_hist(symbol="XAU").iloc[-2:]
+        oil = ak.futures_foreign_hist(symbol="B").iloc[-2:]
+        data['commodity'] = {
+            'gold': {'price': float(gold.iloc[1]['收盘价']), 'change': round((gold.iloc[1]['收盘价']-gold.iloc[0]['收盘价'])/gold.iloc[0]['收盘价']*100, 2)},
+            'brent': {'price': float(oil.iloc[1]['收盘价']), 'change': round((oil.iloc[1]['收盘价']-oil.iloc[0]['收盘价'])/oil.iloc[0]['收盘价']*100, 2)},
+        }
+    except: pass
+    
+    return data
+
+def generate_content_json(market_data):
+    """让 LLM 生成结构化的 JSON 内容"""
     today_display = get_today_display()
-    today_str = get_today_str()
     
-    # 读取模板文件作为参考
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    template_path = os.path.join(script_dir, 'report_template.html')
-    
-    template_content = ""
-    if os.path.exists(template_path):
-        with open(template_path, 'r', encoding='utf-8') as f:
-            template_content = f.read()
-    
-    prompt = f"""你是一位专业的财经分析师和前端开发工程师。请根据以下市场数据，生成一份完整的 HTML 格式的每日全球股市观察报告。
+    prompt = f"""你是专业财经分析师。根据以下市场数据，生成今日股市报告的各部分内容。
 
-今天的日期：{today_display}
+日期：{today_display}
+数据：{json.dumps(market_data, ensure_ascii=False)}
 
-市场数据：
-{json.dumps(market_data, ensure_ascii=False, indent=2)}
+请严格按以下 JSON 格式输出（不要有任何其他文字）：
+
+{{
+  "hero_title": "主标题（20字内，用·分隔两个要点，可用<em>和<i>标签强调）",
+  "hero_sub": "副标题（一句话概括关键数据）",
+  "overview_callout": "A股定性总结段落（含<b>标签）",
+  "global_callout": "全球市场总结段落",
+  "news": [
+    {{
+      "level": "a或b或c",
+      "sources": ["Reuters", "财联社"],
+      "title": "新闻标题",
+      "body": "新闻正文（可用<span class=\"num\">等标签）",
+      "impact_title": "说人话：",
+      "impact_body": "影响分析"
+    }}
+  ],
+  "five_dims": [
+    {{
+      "name": "消息面",
+      "score": "利空主导 ★★☆☆☆",
+      "points": ["要点1", "要点2", "要点3", "要点4", "结论"]
+    }}
+  ],
+  "heat_sectors": [
+    {{"name": "板块名", "direction": "up或down", "width": 95, "label": "说明"}}
+  ],
+  "heat_callout": "热力图总结",
+  "stocks": [
+    {{"name": "股票名", "tag_type": "lim/taga/limg", "tag_text": "标签", "desc": "说明"}}
+  ],
+  "stocks_callout": "个股总结",
+  "commodity_callout": "大宗总结",
+  "industries": [
+    {{
+      "icon": "",
+      "name": "产业名",
+      "status_class": "hot/warm/cool/neut",
+      "status_text": "状态",
+      "points": ["要点1", "要点2", ...],
+      "sources": "信源列表"
+    }}
+  ],
+  "industry_callout": "产业总结",
+  "strategy_points": ["短期判断", "中期判断", "长期判断", "风险点"],
+  "strategy_dirs": [
+    {{"text": "方向", "class": ""或"cool"}}
+  ],
+  "risks": ["风险1", "风险2", ...]
+}}
 
 要求：
-1. 输出完整的 HTML 文档（包含 <!DOCTYPE html>、<html>、<head>、<body> 等所有标签）
-2. 保持以下结构和样式：
-   - Hero 区域：渐变背景、装饰圆圈、标题、副标题、日期栏
-   - 板块导航：sticky 导航栏，包含9个锚点链接
-   - A股收盘速览：4个指数卡片 + 统计栏 + callout 总结
-   - 全球市场全景：表格展示各市场数据 + callout 分析
-   - 环球要闻：9条新闻，分极重要（红色）/重要（橙色）/关注（蓝色）三级，每条包含信源标签、标题、正文、影响分析
-   - 五维度深度拆解：消息面/情绪面/技术面/政策面/资金面，每个维度有标题、评分、要点列表
-   - 板块热力图：10个板块的热力条，红色表示上涨，绿色表示下跌
-   - 焦点个股：16只个股的卡片网格（2列），包含标签和涨跌颜色
-   - 大宗商品与汇率：表格展示 + callout 分析
-   - 产业高频数据：6个产业卡片（2列网格），每个卡片有图标、标题、状态标签、要点列表、信源
-   - 后市展望与操作策略：策略建议（深色背景）+ 风险清单（红色背景）
-   - Footer：数据来源、报告时间、免责声明
-
-3. 使用以下 CSS 类名和样式（保持与模板一致）：
-   - 颜色：红色 #e84855（涨），绿色 #12a05c（跌）
-   - 卡片样式：.idx（指数卡片）、.chip（个股卡片）、.gf-card（产业卡片）
-   - 标签样式：.tag.a（极重要）、.tag.b（重要）、.tag.c（关注）
-   - 热力条：.heat-row、.heat-fill.up（红色）、.heat-fill.down（绿色）
-
-4. 内容要求：
-   - 语言风格：客观中立，可以带一点犀利点评，不要套话
-   - 数据准确：所有数据必须基于我提供的市场数据
-   - 逻辑清晰：每个分析都要有因果关系
-   - 全球视角：用全球市场对比来评价A股表现
-   - 每条新闻都要有"影响分析"（<div class="impact">）
-
-5. 直接输出完整的 HTML 代码，不要有任何解释文字或 markdown 标记。
-
-请生成完整的 HTML 报告："""
+- news 至少9条，分4条a级+3条b级+2条c级
+- five_dims 正好5个维度
+- heat_sectors 正好10个板块
+- stocks 正好16只个股
+- industries 正好6个产业卡片
+- strategy_dirs 8个方向
+- risks 6条风险
+- 语言犀利客观，不要套话
+- 所有数据基于我提供的市场数据"""
 
     try:
-        headers = {
+        resp = requests.post(DASHSCOPE_API_URL, headers={
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {DASHSCOPE_API_KEY}'
-        }
-        
-        data = {
+        }, json={
             'model': MODEL_NAME,
-            'messages': [
-                {'role': 'user', 'content': prompt}
-            ],
+            'messages': [{'role': 'user', 'content': prompt}],
             'temperature': 0.7,
             'max_tokens': 8000
-        }
+        }, timeout=180)
+        resp.raise_for_status()
+        result = resp.json()['choices'][0]['message']['content'].strip()
         
-        response = requests.post(DASHSCOPE_API_URL, headers=headers, json=data, timeout=180)
-        response.raise_for_status()
+        # 清理 markdown 标记
+        if result.startswith('```json'): result = result[7:]
+        if result.startswith('```'): result = result[3:]
+        if result.endswith('```'): result = result[:-3]
         
-        result = response.json()
-        html_content = result['choices'][0]['message']['content']
-        
-        # 清理可能的 markdown 标记
-        html_content = html_content.strip()
-        if html_content.startswith('```html'):
-            html_content = html_content[7:]
-        if html_content.startswith('```'):
-            html_content = html_content[3:]
-        if html_content.endswith('```'):
-            html_content = html_content[:-3]
-        html_content = html_content.strip()
-        
-        print("HTML 报告生成成功")
-        return html_content
+        content = json.loads(result.strip())
+        print("✅ 内容生成成功")
+        return content
     except Exception as e:
-        print(f"HTML 报告生成失败: {e}")
+        print(f"❌ 内容生成失败: {e}")
         return None
 
+def build_html(content):
+    """用固定模板构建完整 HTML"""
+    d = get_today_display()
+    ds = get_today_str()
+    
+    # Hero
+    hero = f'''  <div class="hero">
+    <div class="hero-inner">
+      <div class="kicker">DAILY GLOBAL MARKET WATCH</div>
+      <h1>{content['hero_title']}</h1>
+      <div class="sub">{content['hero_sub']}</div>
+      <div class="datebar">
+        <span>{d} · 收盘全维度分析</span>
+        <span class="pulse"><span class="dot"></span> LIVE</span>
+      </div>
+    </div>
+  </div>'''
+    
+    # Overview (简化版，不含具体指数值，因为akshare可能抓不到)
+    overview = '''  <div class="sec" id="sec-overview">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">📈</div>
+      <div class="sec-title">A股收盘速览</div>
+      <div class="sec-note">收盘数据</div>
+    </div>
+    <div class="callout">
+      ''' + content['overview_callout'] + '''
+    </div>
+  </div>'''
+    
+    # Global
+    global_sec = '''  <div class="sec" id="sec-global">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">🌏</div>
+      <div class="sec-title">全球市场全景</div>
+    </div>
+    <div class="callout blue">
+      ''' + content['global_callout'] + '''
+    </div>
+  </div>'''
+    
+    # News
+    news_items = ''
+    for n in content['news']:
+        src_tags = ''.join(f'<span class="src{" intl" if s in ["Reuters","Bloomberg","WSJ","FT","CNBC","Invezz","gatekeepers","convex","vittarthi","TSMC","Samsung"] else ""}">{s}</span>' for s in n['sources'])
+        news_items += f'''    <div class="news {n['level']}">
+      <div class="news-top">
+        <span class="tag">{"🔴 极重要" if n['level']=='a' else "🟠 重要" if n['level']=='b' else "🔵 关注"}</span>
+        {src_tags}
+      </div>
+      <h3>{n['title']}</h3>
+      <p>{n['body']}</p>
+      <div class="impact">
+        <b>{n['impact_title']}</b>{n['impact_body']}
+      </div>
+    </div>
+'''
+    
+    news_sec = f'''  <div class="sec" id="sec-news">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">📰</div>
+      <div class="sec-title">环球要闻 · 深度解读</div>
+      <div class="sec-note">{len(content['news'])}条核心新闻</div>
+    </div>
+    <div class="news-legend">
+      <span class="tag mini a">🔴 极重要</span>
+      <span class="tag mini b">🟠 重要</span>
+      <span class="tag mini c">🔵 关注</span>
+    </div>
+{news_items}  </div>'''
+    
+    # Five dimensions
+    dim_icons = ['📰','','📊','🏛','']
+    dim_classes = ['d1','d2','d3','d4','d5']
+    dims = ''
+    for i, dm in enumerate(content['five_dims']):
+        pts = ''.join(f'<li><b>{p.split("：")[0]}：</b>{p.split("：",1)[1] if "：" in p else p}</li>' for p in dm['points'])
+        dims += f'''    <div class="dim {dim_classes[i]}">
+      <div class="dim-h"><span class="e">{dim_icons[i]}</span><span class="t">{dm['name']}</span><span class="score">{dm['score']}</span></div>
+      <ul>{pts}</ul>
+    </div>
+'''
+    
+    five_sec = f'''  <div class="sec" id="sec-five">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ede9fe">🎯</div>
+      <div class="sec-title">五维度深度拆解</div>
+      <div class="sec-note">消息 / 情绪 / 技术 / 政策 / 资金</div>
+    </div>
+{dims}  </div>'''
+    
+    # Heatmap
+    heat_rows = ''
+    for h in content['heat_sectors']:
+        fill_class = 'up' if h['direction']=='up' else 'down'
+        val_class = 'r' if h['direction']=='up' else 'g'
+        heat_rows += f'    <div class="heat"><div class="heat-row"><div class="heat-name">{h["name"]}</div><div class="heat-track"><div class="heat-fill {fill_class}" style="width:{h["width"]}%"></div></div><div class="heat-val {val_class}">{h["label"]}</div></div></div>\n'
+    
+    heat_sec = f'''  <div class="sec" id="sec-heat">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">🔥</div>
+      <div class="sec-title">板块热力图</div>
+      <div class="sec-note">红涨绿跌</div>
+    </div>
+{heat_rows}
+    <div class="callout">
+      {content['heat_callout']}
+    </div>
+  </div>'''
+    
+    # Stocks
+    chips = ''
+    for s in content['stocks']:
+        tag_cls = {'lim':'lim','taga':'taga','tagi':'tagi','limg':'limg'}.get(s['tag_type'],'limg')
+        cv_cls = 'r' if s['tag_type'] in ['lim','taga','tagi'] else 'g'
+        chips += f'      <div class="chip"><span class="cn">{s["name"]}</span><span class="{tag_cls}">{s["tag_text"]}</span><span class="cv {cv_cls}">{s["desc"]}</span></div>\n'
+    
+    stock_sec = f'''  <div class="sec" id="sec-stock">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">⭐</div>
+      <div class="sec-title">焦点个股与资金流</div>
+      <div class="sec-note">A股 + 港股 + 海外</div>
+    </div>
+    <div class="chips">
+{chips}    </div>
+    <div class="callout blue">
+      {content['stocks_callout']}
+    </div>
+  </div>'''
+    
+    # Commodity (简化表格)
+    commodity_sec = f'''  <div class="sec" id="sec-commodity">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fef3c7">🪙</div>
+      <div class="sec-title">大宗商品与汇率</div>
+    </div>
+    <div class="callout">
+      {content['commodity_callout']}
+    </div>
+  </div>'''
+    
+    # Industries
+    ind_cards = ''
+    for ind in content['industries']:
+        pts = ''.join(f'<li>{p}</li>' for p in ind['points'])
+        ind_cards += f'''      <div class="gf-card {ind['status_class']}">
+        <div class="gf-top">
+          <span class="gf-ico">{ind['icon']}</span>
+          <span class="gf-name">{ind['name']}</span>
+          <span class="gf-status {ind['status_class']}">{ind['status_text']}</span>
+        </div>
+        <ul>{pts}</ul>
+        <div class="gf-src">信源: {ind['sources']}</div>
+      </div>
+'''
+    
+    industry_sec = f'''  <div class="sec" id="sec-grassroots">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#f3fbf6"></div>
+      <div class="sec-title">产业高频数据 · 机构/大户必读</div>
+      <div class="sec-note">产业链一线追踪</div>
+    </div>
+    <div class="gf-grid">
+{ind_cards}    </div>
+    <div class="callout blue">
+      {content['industry_callout']}
+    </div>
+  </div>'''
+    
+    # Strategy
+    strat_pts = ''.join(f'<li><b>{p.split("：")[0]}：</b>{p.split("：",1)[1] if "：" in p else p}</li>' for p in content['strategy_points'])
+    dirs = ''.join(f'<span class="dir{" cool" if d.get("class")=="cool" else ""}">{d["text"]}</span>' for d in content['strategy_dirs'])
+    risk_items = ''.join(f'<li><b>{r.split("——")[0]}</b>{r.split("——",1)[1] if "——" in r else ""}</li>' for r in content['risks'])
+    
+    strategy_sec = f'''  <div class="sec" id="sec-strategy">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">🧭</div>
+      <div class="sec-title">后市展望与操作策略</div>
+    </div>
+    <div class="strat">
+      <div class="strat-in">
+        <h4> 核心判断</h4>
+        <ul>{strat_pts}</ul>
+        <div class="dirs">{dirs}</div>
+      </div>
+    </div>
+    <div class="risk">
+      <h4>⚠ 风险清单（按紧迫度排序）</h4>
+      <ul>{risk_items}</ul>
+    </div>
+  </div>'''
+    
+    # Footer
+    footer = f'''  <div class="foot">
+    <div class="bk">每日全球股市观察</div>
+    数据来源：路透社(Reuters) · 华尔街日报(WSJ) · 彭博(Bloomberg) · CNBC · 金融时报(FT) · 新华社 · 财联社 · 证券时报<br>
+    报告时间：{d} 15:30（北京时间）<br><br>
+    本报告基于公开信息整理，仅供研究参考，<b style="color:rgba(255,255,255,.6)">不构成任何投资建议</b>。<br>
+    市场有风险，投资需谨慎。据此操作，风险自担。
+  </div>'''
+    
+    # Read template CSS+JS+structure
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    tpl_path = os.path.join(script_dir, 'report_template.html')
+    with open(tpl_path, 'r', encoding='utf-8') as f:
+        tpl = f.read()
+    
+    # Extract head (CSS+JS) and wrap start/end
+    head_end = tpl.find('</head>')
+    body_start = tpl.find('<body>') + len('<body>')
+    wrap_start = tpl.find('<div class="wrap">', body_start)
+    wrap_end = tpl.rfind('</div>', wrap_start)
+    body_end = tpl.find('</body>')
+    
+    head_part = tpl[:head_end + len('</head>')]
+    wrap_open = tpl[body_start:wrap_start + len('<div class="wrap">')]
+    wrap_close = tpl[wrap_end:body_end] + tpl[body_end:]
+    
+    # Assemble
+    html = head_part + '\n' + wrap_open + '\n\n'
+    html += hero + '\n\n'
+    html += '''  <!-- 板块导航 -->
+  <div class="sec-nav">
+    <span class="sec-nav-label">快速跳转：</span>
+    <a href="#sec-overview">📈 A股速览</a>
+    <a href="#sec-global"> 全球市场</a>
+    <a href="#sec-news">📰 环球要闻</a>
+    <a href="#sec-five"> 五维分析</a>
+    <a href="#sec-heat">🔥 板块热力</a>
+    <a href="#sec-stock">💰 焦点个股</a>
+    <a href="#sec-commodity">🛢️ 大宗商品</a>
+    <a href="#sec-grassroots">🏭 产业高频</a>
+    <a href="#sec-strategy"> 策略研判</a>
+  </div>
+
+'''
+    html += overview + '\n\n' + global_sec + '\n\n' + news_sec + '\n\n'
+    html += five_sec + '\n\n' + heat_sec + '\n\n' + stock_sec + '\n\n'
+    html += commodity_sec + '\n\n' + industry_sec + '\n\n' + strategy_sec + '\n\n'
+    html += footer + '\n\n'
+    html += wrap_close
+    
+    return html
+
 def main():
-    """主函数"""
     print("=" * 60)
     print("每日全球股市报告生成器")
     print("=" * 60)
     
-    # 检查环境变量
     if not DASHSCOPE_API_KEY:
-        print("错误: 未设置 DASHSCOPE_API_KEY 环境变量")
-        sys.exit(1)
+        print("错误: 未设置 DASHSCOPE_API_KEY"); sys.exit(1)
     
-    # 抓取市场数据
-    market_data = {}
-    
-    a_share_data = fetch_a_share_data()
-    if a_share_data:
-        market_data['a_share'] = a_share_data
-    
-    hk_data = fetch_hk_data()
-    if hk_data:
-        market_data['hk'] = hk_data
-    
-    us_data = fetch_us_data()
-    if us_data:
-        market_data['us'] = us_data
-    
-    commodity_data = fetch_commodity_data()
-    if commodity_data:
-        market_data['commodity'] = commodity_data
-    
+    market_data = fetch_all_data()
     if not market_data:
-        print("错误: 无法获取任何市场数据")
-        sys.exit(1)
+        print("错误: 无法获取市场数据"); sys.exit(1)
     
-    # 生成 HTML 报告
-    html = generate_html_report(market_data)
-    if not html:
-        print("错误: 无法生成 HTML 报告")
-        sys.exit(1)
+    content = generate_content_json(market_data)
+    if not content:
+        print("错误: 无法生成内容"); sys.exit(1)
     
-    # 保存 HTML 文件
+    html = build_html(content)
+    
     script_dir = os.path.dirname(os.path.abspath(__file__))
     today_str = get_today_str()
-    output_file = os.path.join(script_dir, 'latest.html')
-    with open(output_file, 'w', encoding='utf-8') as f:
+    
+    out = os.path.join(script_dir, 'latest.html')
+    with open(out, 'w', encoding='utf-8') as f:
         f.write(html)
     
-    # 同时保存到归档
-    archive_dir = os.path.join(script_dir, 'archive')
-    if not os.path.exists(archive_dir):
-        os.makedirs(archive_dir)
-    archive_file = os.path.join(archive_dir, f'{today_str}.html')
-    with open(archive_file, 'w', encoding='utf-8') as f:
+    arch_dir = os.path.join(script_dir, 'archive')
+    os.makedirs(arch_dir, exist_ok=True)
+    with open(os.path.join(arch_dir, f'{today_str}.html'), 'w', encoding='utf-8') as f:
         f.write(html)
     
-    print(f"报告已保存到: {output_file}")
-    print(f"归档文件: {archive_file}")
+    print(f"✅ 报告已保存: {out}")
     print("=" * 60)
 
 if __name__ == '__main__':
