@@ -21,8 +21,8 @@ if not DASHSCOPE_API_KEY:
     print("错误：未设置 DASHSCOPE_API_KEY 环境变量")
     sys.exit(1)
 
-API_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions'
-MODEL = 'qwen-plus'
+API_URL = 'https://coding-intl.dashscope.aliyuncs.com/v1/chat/completions'
+MODEL = 'qwen3.7-plus'
 
 def today_str():
     """获取今天的日期字符串"""
