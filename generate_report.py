@@ -246,8 +246,9 @@ def generate_html(report_content, market_data):
     today_str = get_today_str()
     today_display = get_today_display()
     
-    # 读取HTML模板
-    template_path = os.path.join(os.path.dirname(__file__), 'deploy', 'latest.html')
+    # 读取HTML模板（修正路径）
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    template_path = os.path.join(script_dir, 'latest.html')
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
     
@@ -353,14 +354,18 @@ def main():
     # 生成HTML
     html = generate_html(report_content, market_data)
     
-    # 保存HTML文件
+    # 保存HTML文件（修正路径）
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     today_str = get_today_str()
-    output_file = os.path.join(os.path.dirname(__file__), 'deploy', 'latest.html')
+    output_file = os.path.join(script_dir, 'latest.html')
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
     
     # 同时保存到归档
-    archive_file = os.path.join(os.path.dirname(__file__), 'deploy', 'archive', f'{today_str}.html')
+    archive_dir = os.path.join(script_dir, 'archive')
+    if not os.path.exists(archive_dir):
+        os.makedirs(archive_dir)
+    archive_file = os.path.join(archive_dir, f'{today_str}.html')
     with open(archive_file, 'w', encoding='utf-8') as f:
         f.write(html)
     
