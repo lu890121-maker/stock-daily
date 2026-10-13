@@ -1,143 +1,307 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-每日全球股市报告生成器
-模板结构由 Python 固定（和 10/9 模板 100% 一致），LLM 只生成 JSON 文字内容
+每日全球股市报告生成器 - 增强版
+包含完整的数据抓取：A股、港股、美股、欧股、大宗商品、汇率、债券、加密货币
 """
 
-import os, sys, json, requests, akshare as ak
-from datetime import datetime
+import os
+import sys
+import json
+import requests
+import akshare as ak
+import yfinance as yf
+import pandas as pd
+from datetime import datetime, timedelta
 import pytz
 
+# 配置
 DASHSCOPE_API_KEY = os.environ.get('DASHSCOPE_API_KEY')
-API_URL = 'https://coding-intl.dashscope.aliyuncs.com/v1/chat/completions'
-MODEL = 'qwen3.7-plus'
+if not DASHSCOPE_API_KEY:
+    print("错误：未设置 DASHSCOPE_API_KEY 环境变量")
+    sys.exit(1)
+
+API_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions'
+MODEL = 'qwen-plus'
 
 def today_str():
-    return datetime.now(pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d')
+    """获取今天的日期字符串"""
+    beijing_tz = pytz.timezone('Asia/Shanghai')
+    now = datetime.now(beijing_tz)
+    return now.strftime('%Y-%m-%d')
 
 def today_display():
-    t = datetime.now(pytz.timezone('Asia/Shanghai'))
-    w = ['周一','周二','周三','周四','周五','周六','周日']
-    return f"{t.year}年{t.month}月{t.day}日 {w[t.weekday()]}"
+    """获取今天的显示格式"""
+    beijing_tz = pytz.timezone('Asia/Shanghai')
+    now = datetime.now(beijing_tz)
+    weekdays = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+    return f"{now.year}年{now.month}月{now.day}日 {weekdays[now.weekday()]}"
 
 def today_short():
-    t = datetime.now(pytz.timezone('Asia/Shanghai'))
-    return f"{t.month}/{t.day}"
+    """获取今天的短格式"""
+    beijing_tz = pytz.timezone('Asia/Shanghai')
+    now = datetime.now(beijing_tz)
+    return f"{now.month}/{now.day}"
 
-def fmt_pct(v):
-    if v > 0: return f"+{v:.2f}%"
-    elif v < 0: return f"−{abs(v):.2f}%"
-    return f"{v:.2f}%"
+def fmt_pct(value):
+    """格式化百分比"""
+    if value > 0:
+        return f"+{value:.2f}%"
+    elif value < 0:
+        return f"{value:.2f}%"
+    else:
+        return f"{value:.2f}%"
 
-def idx_cls(v):
-    return 'up' if v > 0 else ('down' if v < 0 else '')
+def idx_cls(value):
+    """判断指数涨跌类别"""
+    if value > 0:
+        return 'up'
+    elif value < 0:
+        return 'down'
+    else:
+        return 'flat'
 
 def fetch_data():
-    d = {}
+    """抓取所有市场数据"""
+    data = {}
+    
+    # 1. A股数据
+    print("抓取A股数据...")
     try:
         sh = ak.stock_zh_index_daily(symbol="sh000001").iloc[-2:]
         sz = ak.stock_zh_index_daily(symbol="sz399001").iloc[-2:]
         cy = ak.stock_zh_index_daily(symbol="sz399006").iloc[-2:]
         kc = ak.stock_zh_index_daily(symbol="sh000688").iloc[-2:]
-        d['a'] = {
-            'sh': {'v': f"{sh.iloc[1]['close']:.2f}", 'c': round((sh.iloc[1]['close']-sh.iloc[0]['close'])/sh.iloc[0]['close']*100,2)},
-            'sz': {'v': f"{sz.iloc[1]['close']:.2f}", 'c': round((sz.iloc[1]['close']-sz.iloc[0]['close'])/sz.iloc[0]['close']*100,2)},
-            'cy': {'v': f"{cy.iloc[1]['close']:.2f}", 'c': round((cy.iloc[1]['close']-cy.iloc[0]['close'])/cy.iloc[0]['close']*100,2)},
-            'kc': {'v': f"{kc.iloc[1]['close']:.2f}", 'c': round((kc.iloc[1]['close']-kc.iloc[0]['close'])/kc.iloc[0]['close']*100,2)},
+        
+        data['a'] = {
+            'sh': {'v': f"{sh.iloc[-1]['close']:.2f}", 'c': round((sh.iloc[-1]['close'] - sh.iloc[-2]['close']) / sh.iloc[-2]['close'] * 100, 2)},
+            'sz': {'v': f"{sz.iloc[-1]['close']:.2f}", 'c': round((sz.iloc[-1]['close'] - sz.iloc[-2]['close']) / sz.iloc[-2]['close'] * 100, 2)},
+            'cy': {'v': f"{cy.iloc[-1]['close']:.2f}", 'c': round((cy.iloc[-1]['close'] - cy.iloc[-2]['close']) / cy.iloc[-2]['close'] * 100, 2)},
+            'kc': {'v': f"{kc.iloc[-1]['close']:.2f}", 'c': round((kc.iloc[-1]['close'] - kc.iloc[-2]['close']) / kc.iloc[-2]['close'] * 100, 2)},
         }
-        print(f"A股: 沪指{d['a']['sh']['v']}({d['a']['sh']['c']:+.2f}%)")
+        print(f"  A股: 沪指{data['a']['sh']['v']}({data['a']['sh']['c']:+.2f}%)")
     except Exception as e:
-        print(f"A股失败: {e}"); return None
+        print(f"  A股失败: {e}")
+        return None
+    
+    # 2. A股板块数据
+    print("抓取A股板块数据...")
+    try:
+        sector_df = ak.stock_board_industry_name_em()
+        if sector_df is not None and len(sector_df) > 0:
+            # 获取涨幅前5和跌幅前5
+            sector_df = sector_df.sort_values('涨跌幅', ascending=False)
+            top5 = sector_df.head(5)[['板块名称', '涨跌幅']].to_dict('records')
+            bottom5 = sector_df.tail(5)[['板块名称', '涨跌幅']].to_dict('records')
+            data['a_sectors'] = {'top5': top5, 'bottom5': bottom5}
+            print(f"  板块: 涨幅第一 {top5[0]['板块名称']} +{top5[0]['涨跌幅']:.2f}%")
+    except Exception as e:
+        print(f"  板块失败: {e}")
+    
+    # 3. A股个股数据
+    print("抓取A股个股数据...")
+    try:
+        zt_df = ak.stock_zt_pool_em(date=today_str().replace('-', ''))
+        if zt_df is not None and len(zt_df) > 0:
+            data['a_stocks'] = {
+                'zt_count': len(zt_df),
+                'zt_top5': zt_df.head(5)[['代码', '名称', '涨跌幅']].to_dict('records')
+            }
+            print(f"  涨停: {len(zt_df)}家")
+    except Exception as e:
+        print(f"  个股失败: {e}")
+    
+    # 4. 港股数据
+    print("抓取港股数据...")
     try:
         hs = ak.stock_hk_index_daily_sina(symbol="HSI").iloc[-2:]
         ht = ak.stock_hk_index_daily_sina(symbol="HSTECH").iloc[-2:]
-        d['hk'] = {
-            'hsi': {'v': f"{hs.iloc[1]['close']:.2f}", 'c': round((hs.iloc[1]['close']-hs.iloc[0]['close'])/hs.iloc[0]['close']*100,2)},
-            'hstech': {'v': f"{ht.iloc[1]['close']:.2f}", 'c': round((ht.iloc[1]['close']-ht.iloc[0]['close'])/ht.iloc[0]['close']*100,2)},
+        data['hk'] = {
+            'hsi': {'v': f"{hs.iloc[-1]['close']:.2f}", 'c': round((hs.iloc[-1]['close'] - hs.iloc[-2]['close']) / hs.iloc[-2]['close'] * 100, 2)},
+            'hstech': {'v': f"{ht.iloc[-1]['close']:.2f}", 'c': round((ht.iloc[-1]['close'] - ht.iloc[-2]['close']) / ht.iloc[-2]['close'] * 100, 2)},
         }
-    except: pass
+        print(f"  港股: 恒指{data['hk']['hsi']['v']}({data['hk']['hsi']['c']:+.2f}%)")
+    except Exception as e:
+        print(f"  港股失败: {e}")
+    
+    # 5. 美股数据
+    print("抓取美股数据...")
     try:
         dj = ak.index_us_stock_sina(symbol=".DJI").iloc[-2:]
         sp = ak.index_us_stock_sina(symbol=".INX").iloc[-2:]
         nq = ak.index_us_stock_sina(symbol=".IXIC").iloc[-2:]
-        d['us'] = {
-            'dj': {'v': f"{dj.iloc[1]['close']:.2f}", 'c': round((dj.iloc[1]['close']-dj.iloc[0]['close'])/dj.iloc[0]['close']*100,2)},
-            'sp': {'v': f"{sp.iloc[1]['close']:.2f}", 'c': round((sp.iloc[1]['close']-sp.iloc[0]['close'])/sp.iloc[0]['close']*100,2)},
-            'nq': {'v': f"{nq.iloc[1]['close']:.2f}", 'c': round((nq.iloc[1]['close']-nq.iloc[0]['close'])/nq.iloc[0]['close']*100,2)},
+        data['us'] = {
+            'dj': {'v': f"{dj.iloc[-1]['close']:.2f}", 'c': round((dj.iloc[-1]['close'] - dj.iloc[-2]['close']) / dj.iloc[-2]['close'] * 100, 2)},
+            'sp': {'v': f"{sp.iloc[-1]['close']:.2f}", 'c': round((sp.iloc[-1]['close'] - sp.iloc[-2]['close']) / sp.iloc[-2]['close'] * 100, 2)},
+            'nq': {'v': f"{nq.iloc[-1]['close']:.2f}", 'c': round((nq.iloc[-1]['close'] - nq.iloc[-2]['close']) / nq.iloc[-2]['close'] * 100, 2)},
         }
-    except: pass
+        print(f"  美股: 道指{data['us']['dj']['v']}({data['us']['dj']['c']:+.2f}%)")
+    except Exception as e:
+        print(f"  美股失败: {e}")
+    
+    # 6. 欧股数据
+    print("抓取欧股数据...")
+    try:
+        dax = yf.Ticker("^GDAXI").history(period="2d")
+        cac = yf.Ticker("^FCHI").history(period="2d")
+        ftse = yf.Ticker("^FTSE").history(period="2d")
+        
+        if len(dax) >= 2 and len(cac) >= 2 and len(ftse) >= 2:
+            data['eu'] = {
+                'dax': {'v': f"{dax.iloc[-1]['Close']:.2f}", 'c': round((dax.iloc[-1]['Close'] - dax.iloc[-2]['Close']) / dax.iloc[-2]['Close'] * 100, 2)},
+                'cac': {'v': f"{cac.iloc[-1]['Close']:.2f}", 'c': round((cac.iloc[-1]['Close'] - cac.iloc[-2]['Close']) / cac.iloc[-2]['Close'] * 100, 2)},
+                'ftse': {'v': f"{ftse.iloc[-1]['Close']:.2f}", 'c': round((ftse.iloc[-1]['Close'] - ftse.iloc[-2]['Close']) / ftse.iloc[-2]['Close'] * 100, 2)},
+            }
+            print(f"  欧股: DAX{data['eu']['dax']['v']}({data['eu']['dax']['c']:+.2f}%)")
+    except Exception as e:
+        print(f"  欧股失败: {e}")
+    
+    # 7. 大宗商品数据
+    print("抓取大宗商品数据...")
     try:
         gold = ak.futures_foreign_hist(symbol="XAU").iloc[-2:]
-        oil = ak.futures_foreign_hist(symbol="B").iloc[-2:]
-        d['com'] = {
-            'gold': {'v': f"{gold.iloc[1]['收盘价']:.2f}", 'c': round((gold.iloc[1]['收盘价']-gold.iloc[0]['收盘价'])/gold.iloc[0]['收盘价']*100,2)},
-            'brent': {'v': f"{oil.iloc[1]['收盘价']:.2f}", 'c': round((oil.iloc[1]['收盘价']-oil.iloc[0]['收盘价'])/oil.iloc[0]['收盘价']*100,2)},
+        silver = ak.futures_foreign_hist(symbol="XAG").iloc[-2:]
+        oil_brent = ak.futures_foreign_hist(symbol="B").iloc[-2:]
+        oil_wti = ak.futures_foreign_hist(symbol="CL").iloc[-2:]
+        copper = ak.futures_foreign_hist(symbol="HG").iloc[-2:]
+        
+        data['com'] = {
+            'gold': {'v': f"{gold.iloc[-1]['收盘价']:.2f}", 'c': round((gold.iloc[-1]['收盘价'] - gold.iloc[-2]['收盘价']) / gold.iloc[-2]['收盘价'] * 100, 2)},
+            'silver': {'v': f"{silver.iloc[-1]['收盘价']:.2f}", 'c': round((silver.iloc[-1]['收盘价'] - silver.iloc[-2]['收盘价']) / silver.iloc[-2]['收盘价'] * 100, 2)},
+            'brent': {'v': f"{oil_brent.iloc[-1]['收盘价']:.2f}", 'c': round((oil_brent.iloc[-1]['收盘价'] - oil_brent.iloc[-2]['收盘价']) / oil_brent.iloc[-2]['收盘价'] * 100, 2)},
+            'wti': {'v': f"{oil_wti.iloc[-1]['收盘价']:.2f}", 'c': round((oil_wti.iloc[-1]['收盘价'] - oil_wti.iloc[-2]['收盘价']) / oil_wti.iloc[-2]['收盘价'] * 100, 2)},
+            'copper': {'v': f"{copper.iloc[-1]['收盘价']:.2f}", 'c': round((copper.iloc[-1]['收盘价'] - copper.iloc[-2]['收盘价']) / copper.iloc[-2]['收盘价'] * 100, 2)},
         }
-    except: pass
-    return d
+        print(f"  商品: 黄金{data['com']['gold']['v']}({data['com']['gold']['c']:+.2f}%)")
+    except Exception as e:
+        print(f"  商品失败: {e}")
+    
+    # 8. 汇率数据
+    print("抓取汇率数据...")
+    try:
+        dxy = yf.Ticker("DX-Y.NYB").history(period="2d")
+        usdcny = yf.Ticker("CNY=X").history(period="2d")
+        
+        if len(dxy) >= 2 and len(usdcny) >= 2:
+            data['fx'] = {
+                'dxy': {'v': f"{dxy.iloc[-1]['Close']:.2f}", 'c': round((dxy.iloc[-1]['Close'] - dxy.iloc[-2]['Close']) / dxy.iloc[-2]['Close'] * 100, 2)},
+                'usdcny': {'v': f"{usdcny.iloc[-1]['Close']:.4f}", 'c': round((usdcny.iloc[-1]['Close'] - usdcny.iloc[-2]['Close']) / usdcny.iloc[-2]['Close'] * 100, 2)},
+            }
+            print(f"  汇率: 美元指数{data['fx']['dxy']['v']}({data['fx']['dxy']['c']:+.2f}%)")
+    except Exception as e:
+        print(f"  汇率失败: {e}")
+    
+    # 9. 债券数据
+    print("抓取债券数据...")
+    try:
+        us10y = yf.Ticker("^TNX").history(period="2d")
+        
+        if len(us10y) >= 2:
+            data['bond'] = {
+                'us10y': {'v': f"{us10y.iloc[-1]['Close']:.3f}", 'c': round((us10y.iloc[-1]['Close'] - us10y.iloc[-2]['Close']) / us10y.iloc[-2]['Close'] * 100, 2)},
+            }
+            print(f"  债券: 10年美债{data['bond']['us10y']['v']}%({data['bond']['us10y']['c']:+.2f}%)")
+    except Exception as e:
+        print(f"  债券失败: {e}")
+    
+    # 10. 加密货币数据
+    print("抓取加密货币数据...")
+    try:
+        btc = yf.Ticker("BTC-USD").history(period="2d")
+        eth = yf.Ticker("ETH-USD").history(period="2d")
+        
+        if len(btc) >= 2 and len(eth) >= 2:
+            data['crypto'] = {
+                'btc': {'v': f"{btc.iloc[-1]['Close']:.0f}", 'c': round((btc.iloc[-1]['Close'] - btc.iloc[-2]['Close']) / btc.iloc[-2]['Close'] * 100, 2)},
+                'eth': {'v': f"{eth.iloc[-1]['Close']:.0f}", 'c': round((eth.iloc[-1]['Close'] - eth.iloc[-2]['Close']) / eth.iloc[-2]['Close'] * 100, 2)},
+            }
+            print(f"  加密: BTC{data['crypto']['btc']['v']}({data['crypto']['btc']['c']:+.2f}%)")
+    except Exception as e:
+        print(f"  加密货币失败: {e}")
+    
+    print(f"数据抓取完成: {len(data)} 个市场")
+    return data
 
 def gen_content(data):
+    """LLM 生成完整的报告内容"""
     td = today_display()
     ts = today_short()
-    prompt = f"""你是专业财经分析师。根据以下数据生成今日报告的文字内容。
+    
+    # 构建详细的数据描述
+    data_desc = json.dumps(data, ensure_ascii=False, indent=2)
+    
+    prompt = f"""你是专业财经分析师。根据以下市场数据生成完整的每日全球股市观察报告。
 
 日期：{td}（{ts}）
-数据：{json.dumps(data, ensure_ascii=False)}
 
-严格按以下 JSON 格式输出（不要任何额外文字，不要 markdown 标记）：
+市场数据：
+{data_desc}
+
+请严格按以下 JSON 格式输出（不要任何额外文字，不要 markdown 标记）：
 
 {{
-  "hero_title": "主标题（20字内，用·分隔，可用<em>和<i>标签强调）",
-  "hero_sub": "副标题（用·分隔关键数据）",
-  "overview_callout": "A股定性总结（200字，含<b>标签）",
-  "global_callout": "全球市场总结（300字，含<b>标签）",
+  "hero_title": "主标题（20字内，用·分隔两个要点，可用<em>和<i>标签强调关键部分）",
+  "hero_sub": "副标题（一句话概括关键数据，用·分隔）",
+  "overview_callout": "A股定性总结（200字，含<b>标签强调关键句，分析市场特点、资金行为、板块轮动）",
+  "global_callout": "全球市场总结（300字，含<b>标签，详细分析各市场表现、联动关系、风险点）",
   "news": [
-    {{"level":"a","sources":["Reuters","财联社"],"title":"标题","body":"正文","impact_title":"说人话：","impact_body":"分析"}}
+    {{"level":"a","sources":["Reuters","财联社"],"title":"新闻标题（15字内）","body":"新闻正文（100字，可用<span class=\"num\">等标签）","impact_title":"说人话：","impact_body":"影响分析（80字）"}}
   ],
   "five_dims": [
-    {{"name":"消息面","score":"利空主导 ★★☆☆☆","points":["要点1","要点2","要点3","要点4","结论"]}}
+    {{"name":"消息面","score":"利空主导 ★★☆☆☆","points":["要点1（50字）","要点2","要点3","要点4","结论（50字）"]}}
   ],
   "heat": [
-    {{"name":"板块名","dir":"up","w":95,"label":"说明"}}
+    {{"name":"板块名","dir":"up","w":95,"label":"说明（10字内）"}}
   ],
-  "heat_callout": "热力图总结（150字）",
+  "heat_callout": "热力图总结（150字，分析板块轮动逻辑）",
   "stocks": [
-    {{"name":"股票名","tag":"lim","tag_text":"20CM涨停","desc":"说明","cv_color":"r"}}
+    {{"name":"股票名","tag":"lim","tag_text":"标签","desc":"说明","cv_color":"r"}}
   ],
-  "stocks_callout": "个股总结（150字）",
-  "commodity_callout": "大宗总结（200字）",
+  "stocks_callout": "个股总结（150字，分析资金流向）",
+  "commodity_callout": "大宗商品总结（200字，分析各品种走势和逻辑）",
   "industries": [
-    {{"icon":"","name":"原油/能源链","status":"hot","status_text":"地缘溢价飙升","points":["要点1","要点2","要点3","要点4","要点5"],"sources":"Reuters · Bloomberg"}}
+    {{"icon":"","name":"产业名","status":"hot","status_text":"状态（4字）","points":["要点1（50字）","要点2","要点3","要点4","要点5"],"sources":"信源列表"}}
   ],
-  "industry_callout": "产业总结（200字）",
-  "strategy": ["短期判断","中期判断","长期判断","风险点"],
-  "dirs": [{{"text":"方向","cool":false}}],
-  "risks": ["风险1","风险2","风险3","风险4","风险5","风险6"]
+  "industry_callout": "产业总结（200字，分析产业链动态）",
+  "strategy": ["短期判断（80字）","中期判断（80字）","长期判断（80字）","风险点（80字）"],
+  "dirs": [{{"text":"方向名","cool":false}}],
+  "risks": ["风险1（50字）","风险2","风险3","风险4","风险5","风险6"]
 }}
 
 要求：
-- news: 9条（4条a + 3条b + 2条c）
-- five_dims: 5个维度（消息面/情绪面/技术面/政策面/资金面），每个5个points
-- heat: 10个板块（5涨5跌），dir为up或down，w为10-95
-- stocks: 16只个股，tag为lim/taga/tagi/limg之一，cv_color为r或g
-- industries: 6个产业卡片
-- strategy: 4条判断
-- dirs: 10个方向（部分cool:true）
-- risks: 6条风险
-- 语言犀利客观，不要套话，数据基于我提供的数据
-- 直接输出 JSON，不要 ```json 标记"""
+1. news: 9条（4条a级极重要 + 3条b级重要 + 2条c级关注），每条都要有深度分析
+2. five_dims: 5个维度（消息面/情绪面/技术面/政策面/资金面），每个5个points
+3. heat: 10个板块（5涨5跌），基于 a_sectors 数据，dir为up或down，w为10-95
+4. stocks: 16只个股（A股8只+港股4只+美股4只），基于 a_stocks 数据，tag为lim/taga/tagi/limg之一
+5. industries: 6个产业卡片（原油/能源、锂矿/能源金属、半导体/存储、传媒/AI应用、银行/高股息、贵金属）
+6. strategy: 4条判断（短期/中期/长期/风险）
+7. dirs: 10个方向（部分cool:true表示回避）
+8. risks: 6条风险
+9. 语言风格：犀利客观，可以带讽刺，不要套话，用"说人话"的方式解读
+10. 所有数据基于我提供的市场数据，不要编造
+11. 直接输出 JSON，不要 ```json 标记
+12. 重点分析：A股板块轮动、个股表现、资金流向、全球市场联动
+
+请生成完整报告："""
 
     try:
-        resp = requests.post(API_URL, headers={'Content-Type':'application/json','Authorization':f'Bearer {DASHSCOPE_API_KEY}'},
-            json={'model':MODEL,'messages':[{'role':'user','content':prompt}],'temperature':0.7,'max_tokens':8000}, timeout=180)
+        print("调用 LLM 生成报告...")
+        resp = requests.post(API_URL, 
+            headers={'Content-Type':'application/json','Authorization':f'Bearer {DASHSCOPE_API_KEY}'},
+            json={'model':MODEL,'messages':[{'role':'user','content':prompt}],'temperature':0.7,'max_tokens':8000}, 
+            timeout=180)
         resp.raise_for_status()
         raw = resp.json()['choices'][0]['message']['content'].strip()
         if raw.startswith('```'): raw = raw[raw.find('\n')+1:]
         if raw.endswith('```'): raw = raw[:-3]
-        return json.loads(raw.strip())
+        content = json.loads(raw.strip())
+        print("✅ LLM 生成成功")
+        return content
     except Exception as e:
-        print(f"LLM失败: {e}"); return None
+        print(f"❌ LLM 失败: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
 
 def build_html(c, data):
     """用固定模板构建 HTML（和 10/9 模板 100% 一致）"""
@@ -146,6 +310,7 @@ def build_html(c, data):
     a = data.get('a', {})
     hk = data.get('hk', {})
     us = data.get('us', {})
+    com = data.get('com', {})
 
     sh_c = a.get('sh',{}).get('c',0)
     sz_c = a.get('sz',{}).get('c',0)
@@ -156,6 +321,8 @@ def build_html(c, data):
     dj_c = us.get('dj',{}).get('c',0)
     sp_c = us.get('sp',{}).get('c',0)
     nq_c = us.get('nq',{}).get('c',0)
+    gold_c = com.get('gold',{}).get('c',0)
+    brent_c = com.get('brent',{}).get('c',0)
 
     hero = f'''  <div class="hero">
     <div class="hero-inner">
@@ -179,7 +346,7 @@ def build_html(c, data):
     <a href="#sec-stock">💰 焦点个股</a>
     <a href="#sec-commodity">🛢️ 大宗商品</a>
     <a href="#sec-grassroots">🏭 产业高频</a>
-    <a href="#sec-strategy"> 策略研判</a>
+    <a href="#sec-strategy">🎯 策略研判</a>
   </div>'''
 
     overview = f'''  <div class="sec" id="sec-overview">
@@ -250,12 +417,12 @@ def build_html(c, data):
     </div>
     <div class="news-legend">
       <span class="tag mini a">🔴 极重要</span>
-      <span class="tag mini b"> 重要</span>
+      <span class="tag mini b">🟠 重要</span>
       <span class="tag mini c">🔵 关注</span>
     </div>
 {news_items}  </div>'''
 
-    dim_icons = ['','🔥','📊','','💰']
+    dim_icons = ['📰','🔥','📊','🏛','💰']
     dim_cls = ['d1','d2','d3','d4','d5']
     dims = ''
     for i, dm in enumerate(c['five_dims']):
@@ -267,7 +434,7 @@ def build_html(c, data):
 '''
     five_sec = f'''  <div class="sec" id="sec-five">
     <div class="sec-head">
-      <div class="sec-ico" style="background:#ede9fe"></div>
+      <div class="sec-ico" style="background:#ede9fe">🎯</div>
       <div class="sec-title">五维度深度拆解</div>
       <div class="sec-note">消息 / 情绪 / 技术 / 政策 / 资金</div>
     </div>
@@ -307,11 +474,6 @@ def build_html(c, data):
     </div>
   </div>'''
 
-    com = data.get('com', {})
-    gold_v = com.get('gold',{}).get('v','')
-    gold_c = com.get('gold',{}).get('c',0)
-    brent_v = com.get('brent',{}).get('v','')
-    brent_c = com.get('brent',{}).get('c',0)
     commodity_sec = f'''  <div class="sec" id="sec-commodity">
     <div class="sec-head">
       <div class="sec-ico" style="background:#fef3c7">🪙</div>
@@ -321,8 +483,9 @@ def build_html(c, data):
     <table class="tbl">
       <thead><tr><th>品种</th><th>最新</th><th>涨跌</th></tr></thead>
       <tbody>
-        <tr class="{'hot' if gold_c>0 else ''}"><td class="name">现货黄金</td><td>~{gold_v} 美元/盎司</td><td class="{'r' if gold_c>0 else 'g'}">{fmt_pct(gold_c)}</td></tr>
-        <tr class="{'hot' if brent_c>0 else ''}"><td class="name">布伦特原油</td><td>{brent_v} 美元/桶</td><td class="{'r' if brent_c>0 else 'g'}">{fmt_pct(brent_c)}</td></tr>
+        <tr class="{'hot' if gold_c>0 else ''}"><td class="name">现货黄金</td><td>~{com.get('gold',{}).get('v','')} 美元/盎司</td><td class="{'r' if gold_c>0 else 'g'}">{fmt_pct(gold_c)}</td></tr>
+        <tr><td class="name">现货白银</td><td>~{com.get('silver',{}).get('v','')} 美元/盎司</td><td class="{'r' if com.get('silver',{}).get('c',0)>0 else 'g'}">{fmt_pct(com.get('silver',{}).get('c',0))}</td></tr>
+        <tr class="{'hot' if brent_c>0 else ''}"><td class="name">布伦特原油</td><td>{com.get('brent',{}).get('v','')} 美元/桶</td><td class="{'r' if brent_c>0 else 'g'}">{fmt_pct(brent_c)}</td></tr>
       </tbody>
     </table>
     <div class="callout">
@@ -407,10 +570,8 @@ def build_html(c, data):
 
 def main():
     print("=" * 60)
-    print("每日全球股市报告生成器")
+    print("每日全球股市报告生成器 - 增强版")
     print("=" * 60)
-    if not DASHSCOPE_API_KEY:
-        print("错误: 未设置 DASHSCOPE_API_KEY"); sys.exit(1)
     data = fetch_data()
     if not data:
         print("错误: 无法获取市场数据"); sys.exit(1)
