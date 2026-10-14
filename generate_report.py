@@ -447,6 +447,16 @@ def build_html(c, data):
 
     a_stats = data.get('a_stats', {})
     
+    # 构建 statbar 统计栏
+    statbar_html = ''
+    if a_stats:
+        statbar_html = f'''<div class="statbar">
+      <div class="stat"><div class="k">两市成交</div><div class="v">{a_stats.get('volume', '-')}</div></div>
+      <div class="stat"><div class="k">上涨家数</div><div class="v up">{a_stats.get('up_count', '-')}</div></div>
+      <div class="stat"><div class="k">下跌家数</div><div class="v down">{a_stats.get('down_count', '-')}</div></div>
+      <div class="stat"><div class="k">涨停家数</div><div class="v up">{data.get('a_stocks', {}).get('zt_count', '-')}</div></div>
+    </div>'''
+    
     overview = f'''  <div class="sec" id="sec-overview">
     <div class="sec-head">
       <div class="sec-ico" style="background:#ffe4e6">📈</div>
@@ -459,12 +469,7 @@ def build_html(c, data):
       {idx_card('创业板指', a.get('cy'))}
       {idx_card('科创50', a.get('kc'))}
     </div>
-    {"" if not a_stats else f'''<div class="statbar">
-      <div class="stat"><div class="k">两市成交</div><div class="v">{a_stats.get('volume', '-')}</div></div>
-      <div class="stat"><div class="k">上涨家数</div><div class="v up">{a_stats.get('up_count', '-')}</div></div>
-      <div class="stat"><div class="k">下跌家数</div><div class="v down">{a_stats.get('down_count', '-')}</div></div>
-      <div class="stat"><div class="k">涨停家数</div><div class="v up">{data.get('a_stocks', {}).get('zt_count', '-')}</div></div>
-    </div>'''}
+    {statbar_html}
     <div class="callout">
       {c['overview_callout']}
     </div>
