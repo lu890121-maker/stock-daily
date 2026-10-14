@@ -97,29 +97,29 @@ def yf_quote(sym):
 def fetch_data():
     data = {}
 
-    # ---------- 1. A股指数（实时行情） ----------
+    # ---------- 1. A股指数（使用全球指数接口，更稳定） ----------
     print("抓取A股指数...")
     try:
-        # 优先用实时行情接口
-        df = ak.stock_zh_index_spot_em()
+        # 使用全球指数接口，这个在GitHub Actions上更稳定
+        g = ak.index_global_spot_em()
         
-        def _a_spot(code):
-            row = df[df['代码'] == code]
+        def _g(code):
+            row = g[g['代码'] == code]
             if len(row):
                 r = row.iloc[0]
                 return {'v': float(r['最新价']), 'c': float(r['涨跌幅'])}
             return None
         
         data['a'] = {
-            'sh': _a_spot('000001'),  # 上证指数
-            'sz': _a_spot('399001'),  # 深证成指
-            'cy': _a_spot('399006'),  # 创业板指
-            'kc': _a_spot('000688'),  # 科创50
+            'sh': _g('000001'),  # 上证指数
+            'sz': _g('399001'),  # 深证成指
+            'cy': _g('399006'),  # 创业板指
+            'kc': _g('000688'),  # 科创50
         }
         
-        # 如果实时接口失败，回退到历史接口
+        # 如果全球指数接口失败，回退到历史接口
         if not data['a']['sh']:
-            print("  实时接口失败，回退历史接口...")
+            print("  全球指数接口失败，回退历史接口...")
             def _a_hist(sym):
                 d = ak.stock_zh_index_daily(symbol=sym).iloc[-2:]
                 return {'v': float(d.iloc[-1]['close']),
@@ -131,7 +131,7 @@ def fetch_data():
         
         # 获取成交额和涨跌家数（用于 statbar）
         try:
-            # 获取两市成交额
+            # 尝试用实时行情接口获取成交额和涨跌家数
             vol_df = ak.stock_zh_index_spot_em()
             sh_row = vol_df[vol_df['代码'] == '000001']
             sz_row = vol_df[vol_df['代码'] == '399001']
