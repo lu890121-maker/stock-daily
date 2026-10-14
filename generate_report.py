@@ -97,10 +97,13 @@ def yf_quote(sym):
 def fetch_data():
     data = {}
 
-    # ---------- 1. A股指数（使用全球指数接口，更稳定） ----------
+    # ---------- 1. A股指数（多接口回退策略） ----------
     print("抓取A股指数...")
+    
+    # 尝试策略1：全球指数接口
+    a_data = None
     try:
-        # 使用全球指数接口，这个在GitHub Actions上更稳定
+        print("  尝试全球指数接口...")
         g = ak.index_global_spot_em()
         
         def _g(code):
@@ -110,43 +113,57 @@ def fetch_data():
                 return {'v': float(r['最新价']), 'c': float(r['涨跌幅'])}
             return None
         
-        data['a'] = {
+        a_data = {
             'sh': _g('000001'),  # 上证指数
             'sz': _g('399001'),  # 深证成指
             'cy': _g('399006'),  # 创业板指
             'kc': _g('000688'),  # 科创50
         }
         
-        # 如果全球指数接口失败，回退到历史接口
-        if not data['a']['sh']:
-            print("  全球指数接口失败，回退历史接口...")
+        if a_data['sh']:
+            print("  ✅ 全球指数接口成功")
+        else:
+            print("  ⚠️ 全球指数接口返回空数据")
+            a_data = None
+    except Exception as e:
+        print(f"  ⚠️ 全球指数接口失败: {e}")
+        a_data = None
+    
+    # 尝试策略2：历史接口（回退）
+    if not a_data:
+        try:
+            print("  尝试历史接口...")
             def _a_hist(sym):
                 d = ak.stock_zh_index_daily(symbol=sym).iloc[-2:]
                 return {'v': float(d.iloc[-1]['close']),
                         'c': (float(d.iloc[-1]['close']) - float(d.iloc[-2]['close'])) / float(d.iloc[-2]['close']) * 100}
-            data['a'] = {'sh': _a_hist("sh000001"), 'sz': _a_hist("sz399001"), 
+            a_data = {'sh': _a_hist("sh000001"), 'sz': _a_hist("sz399001"), 
                         'cy': _a_hist("sz399006"), 'kc': _a_hist("sh000688")}
-        
-        print(f"  A股: 沪指{data['a']['sh']['v']:.2f}({data['a']['sh']['c']:+.2f}%)")
-        
-        # 获取成交额和涨跌家数（用于 statbar）
-        try:
-            # 尝试用实时行情接口获取成交额和涨跌家数
-            vol_df = ak.stock_zh_index_spot_em()
-            sh_row = vol_df[vol_df['代码'] == '000001']
-            sz_row = vol_df[vol_df['代码'] == '399001']
-            if len(sh_row) and len(sz_row):
-                sh_vol = float(sh_row.iloc[0].get('成交额', 0)) / 1e8  # 转为亿
-                sz_vol = float(sz_row.iloc[0].get('成交额', 0)) / 1e8
-                data['a_stats'] = {
-                    'volume': f"{(sh_vol + sz_vol) / 10000:.2f}万亿",  # 转为万亿
-                    'up_count': int(sh_row.iloc[0].get('上涨家数', 0)) + int(sz_row.iloc[0].get('上涨家数', 0)),
-                    'down_count': int(sh_row.iloc[0].get('下跌家数', 0)) + int(sz_row.iloc[0].get('下跌家数', 0)),
-                }
-                print(f"  成交额: {data['a_stats']['volume']} | 上涨: {data['a_stats']['up_count']} | 下跌: {data['a_stats']['down_count']}")
+            print("  ✅ 历史接口成功")
         except Exception as e:
-            print(f"  成交额/涨跌家数获取失败: {e}")
+            print(f"  ❌ 历史接口也失败: {e}")
+            return None
+    
+    data['a'] = a_data
+    print(f"  A股: 沪指{data['a']['sh']['v']:.2f}({data['a']['sh']['c']:+.2f}%)")
+    
+    # 获取成交额和涨跌家数（用于 statbar）
+    try:
+        print("  获取成交额和涨跌家数...")
+        vol_df = ak.stock_zh_index_spot_em()
+        sh_row = vol_df[vol_df['代码'] == '000001']
+        sz_row = vol_df[vol_df['代码'] == '399001']
+        if len(sh_row) and len(sz_row):
+            sh_vol = float(sh_row.iloc[0].get('成交额', 0)) / 1e8  # 转为亿
+            sz_vol = float(sz_row.iloc[0].get('成交额', 0)) / 1e8
+            data['a_stats'] = {
+                'volume': f"{(sh_vol + sz_vol) / 10000:.2f}万亿",  # 转为万亿
+                'up_count': int(sh_row.iloc[0].get('上涨家数', 0)) + int(sz_row.iloc[0].get('上涨家数', 0)),
+                'down_count': int(sh_row.iloc[0].get('下跌家数', 0)) + int(sz_row.iloc[0].get('下跌家数', 0)),
+            }
+            print(f"  ✅ 成交额: {data['a_stats']['volume']} | 上涨: {data['a_stats']['up_count']} | 下跌: {data['a_stats']['down_count']}")
     except Exception as e:
+        print(f"  ⚠️ 成交额/涨跌家数获取失败: {e}")
         print(f"  A股失败: {e}")
         return None
 
