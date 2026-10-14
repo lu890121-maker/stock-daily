@@ -32,13 +32,15 @@ jobs:
     - name: Fetch market data and generate report
       env:
         DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
+        QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+        ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
       run: |
         python generate_report.py
-        
+
     - name: Commit and push
       run: |
         git config user.name "GitHub Actions Bot"
         git config user.email "actions@github.com"
-        git add latest.html archive/ index.html
+        git add -A
         git diff --staged --quiet || git commit -m "Update daily report $(date +%Y-%m-%d)"
         git push
