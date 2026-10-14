@@ -95,7 +95,7 @@ def yf_quote(sym):
 
 
 def fetch_data():
-    data = {}
+    data = {'fx': {}}
 
     # ---------- 1. A股指数（多接口回退策略） ----------
     print("抓取A股指数...")
@@ -163,9 +163,8 @@ def fetch_data():
             }
             print(f"  ✅ 成交额: {data['a_stats']['volume']} | 上涨: {data['a_stats']['up_count']} | 下跌: {data['a_stats']['down_count']}")
     except Exception as e:
-        print(f"  ⚠️ 成交额/涨跌家数获取失败: {e}")
-        print(f"  A股失败: {e}")
-        return None
+        print(f"  ⚠️ 成交额/涨跌家数获取失败: {e}（跳过，不影响主数据）")
+        data.setdefault('a_stats', None)
 
     # ---------- 2. A股板块 ----------
     print("抓取A股板块...")
