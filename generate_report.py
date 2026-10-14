@@ -97,15 +97,55 @@ def yf_quote(sym):
 def fetch_data():
     data = {}
 
-    # ---------- 1. A股指数 ----------
+    # ---------- 1. A股指数（实时行情） ----------
     print("抓取A股指数...")
     try:
-        def _a(sym):
-            d = ak.stock_zh_index_daily(symbol=sym).iloc[-2:]
-            return {'v': float(d.iloc[-1]['close']),
-                    'c': (float(d.iloc[-1]['close']) - float(d.iloc[-2]['close'])) / float(d.iloc[-2]['close']) * 100}
-        data['a'] = {'sh': _a("sh000001"), 'sz': _a("sz399001"), 'cy': _a("sz399006"), 'kc': _a("sh000688")}
+        # 优先用实时行情接口
+        df = ak.stock_zh_index_spot_em()
+        
+        def _a_spot(code):
+            row = df[df['代码'] == code]
+            if len(row):
+                r = row.iloc[0]
+                return {'v': float(r['最新价']), 'c': float(r['涨跌幅'])}
+            return None
+        
+        data['a'] = {
+            'sh': _a_spot('000001'),  # 上证指数
+            'sz': _a_spot('399001'),  # 深证成指
+            'cy': _a_spot('399006'),  # 创业板指
+            'kc': _a_spot('000688'),  # 科创50
+        }
+        
+        # 如果实时接口失败，回退到历史接口
+        if not data['a']['sh']:
+            print("  实时接口失败，回退历史接口...")
+            def _a_hist(sym):
+                d = ak.stock_zh_index_daily(symbol=sym).iloc[-2:]
+                return {'v': float(d.iloc[-1]['close']),
+                        'c': (float(d.iloc[-1]['close']) - float(d.iloc[-2]['close'])) / float(d.iloc[-2]['close']) * 100}
+            data['a'] = {'sh': _a_hist("sh000001"), 'sz': _a_hist("sz399001"), 
+                        'cy': _a_hist("sz399006"), 'kc': _a_hist("sh000688")}
+        
         print(f"  A股: 沪指{data['a']['sh']['v']:.2f}({data['a']['sh']['c']:+.2f}%)")
+        
+        # 获取成交额和涨跌家数（用于 statbar）
+        try:
+            # 获取两市成交额
+            vol_df = ak.stock_zh_index_spot_em()
+            sh_row = vol_df[vol_df['代码'] == '000001']
+            sz_row = vol_df[vol_df['代码'] == '399001']
+            if len(sh_row) and len(sz_row):
+                sh_vol = float(sh_row.iloc[0].get('成交额', 0)) / 1e8  # 转为亿
+                sz_vol = float(sz_row.iloc[0].get('成交额', 0)) / 1e8
+                data['a_stats'] = {
+                    'volume': f"{(sh_vol + sz_vol) / 10000:.2f}万亿",  # 转为万亿
+                    'up_count': int(sh_row.iloc[0].get('上涨家数', 0)) + int(sz_row.iloc[0].get('上涨家数', 0)),
+                    'down_count': int(sh_row.iloc[0].get('下跌家数', 0)) + int(sz_row.iloc[0].get('下跌家数', 0)),
+                }
+                print(f"  成交额: {data['a_stats']['volume']} | 上涨: {data['a_stats']['up_count']} | 下跌: {data['a_stats']['down_count']}")
+        except Exception as e:
+            print(f"  成交额/涨跌家数获取失败: {e}")
     except Exception as e:
         print(f"  A股失败: {e}")
         return None
@@ -286,9 +326,9 @@ def gen_content(data, news):
   "hero_sub": "副标题，一句话概括关键数据，用·分隔",
   "overview_callout": "A股定性总结（200字，含<b>标签，分析市场特点/资金行为/板块轮动）",
   "global_callout": "全球市场总结（320字，含<b>标签，逐一分析亚太/美股/欧股表现、联动关系、风险点）",
-  "index_notes": {{"上证指数":"缩量阴跌","深证成指":"","创业板指":"失守3000","科创50":"","恒生指数":"","恒生科技":"","韩国 KOSPI":"外资砸盘","日经225":"","道琼斯":"","标普500":"逼近新高","纳斯达克":"","欧洲斯托克50":"","德国DAX":"领涨","法国CAC40":"","英国富时100":""}},
+  "index_notes": {{"上证指数":"缩量阴跌","深证成指":"","创业板指":"失守3000","科创50":"","恒生指数":"","恒生科技":"","韩国 KOSPI":"外资砸盘","日经225":"","道琼斯":"","标普500":"逼近新高","纳斯达克":"","欧洲斯托克600":"","德国DAX":"领涨","法国CAC40":"","英国富时100":""}},
   "com_notes": {{"现货黄金":"续创新高","COMEX白银期货":"","布伦特原油":"微跌","WTI原油":"","COMEX铜":"","美元/离岸人民币":"","美元指数":"","10年期美债收益率":"高位","VIX恐慌指数":"恐慌退潮","比特币":"","以太坊":""}},
-  "news": [{{"level":"a","sources":["Reuters","财联社"],"title":"标题15字内","body":"正文100字，可用<span class=\\"num\\">等标签","impact_title":"说人话：","impact_body":"影响分析80字"}}],
+  "news": [{{"level":"a","sources":["Reuters","财联社"],"title":"标题30字内，包含关键数据和影响","body":"正文100字，可用<span class=\\"num\\">等标签","impact_title":"说人话：","impact_body":"影响分析80字"}}],
   "five_dims": [{{"name":"消息面","score":"利空主导 ★★☆☆☆","points":["要点1（50字）","要点2","要点3","要点4","结论（50字）"]}}],
   "heat": [{{"name":"板块名","dir":"up","w":95,"label":"说明10字内"}}],
   "heat_callout": "热力图总结（150字，分析板块轮动逻辑）",
@@ -405,6 +445,8 @@ def build_html(c, data):
         return (f'<div class="idx {cls_of(q["c"])}"><div class="n">{name}</div>'
                 f'<div class="v">{num(q["v"])}</div><div class="c">{fmt_pct(q["c"])}</div></div>')
 
+    a_stats = data.get('a_stats', {})
+    
     overview = f'''  <div class="sec" id="sec-overview">
     <div class="sec-head">
       <div class="sec-ico" style="background:#ffe4e6">📈</div>
@@ -417,6 +459,12 @@ def build_html(c, data):
       {idx_card('创业板指', a.get('cy'))}
       {idx_card('科创50', a.get('kc'))}
     </div>
+    {"" if not a_stats else f'''<div class="statbar">
+      <div class="stat"><div class="k">两市成交</div><div class="v">{a_stats.get('volume', '-')}</div></div>
+      <div class="stat"><div class="k">上涨家数</div><div class="v up">{a_stats.get('up_count', '-')}</div></div>
+      <div class="stat"><div class="k">下跌家数</div><div class="v down">{a_stats.get('down_count', '-')}</div></div>
+      <div class="stat"><div class="k">涨停家数</div><div class="v up">{data.get('a_stocks', {}).get('zt_count', '-')}</div></div>
+    </div>'''}
     <div class="callout">
       {c['overview_callout']}
     </div>
