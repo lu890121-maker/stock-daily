@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年8月31日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6;
+    color: #1a2233;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
+  .hero {
+    position: relative;
+    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
+    padding: 40px 26px 34px;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background: radial-gradient(circle, rgba(232,72,85,.32) 0%, transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:280px; height:280px; border-radius:50%;
+    background: radial-gradient(circle, rgba(64,158,255,.24) 0%, transparent 70%);
+    bottom:-160px; left:-90px;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .kicker {
+    display:inline-block; font-size:11px; letter-spacing:3px; font-weight:600;
+    background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1 { font-size:26px; font-weight:800; letter-spacing:-.6px; line-height:1.32; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; color:#ff9aa5; }
+  .hero h1 i { font-style:normal; color:#7ee2a8; }
+  .hero .sub { font-size:13.5px; color:rgba(255,255,255,.72); }
+  .hero .datebar {
+    margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
+    display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
+  }
+  .pulse { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
+  .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
+  .sec:last-of-type { border-bottom: none; }
+  .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .sec-ico {
+    width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
+  .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .idx {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
+    padding:12px 9px 11px; position:relative; overflow:hidden;
+  }
+  .idx::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .idx.up::before { background:#e84855; }
+  .idx.down::before { background:#12a05c; }
+  .idx .n { font-size:11px; color:#7c8698; margin-bottom:5px; font-weight:500; }
+  .idx .v { font-size:15.5px; font-weight:800; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+  .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .up .v, .up .c { color:#e84855; }
+  .down .v, .down .c { color:#12a05c; }
+  .statbar {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
+  }
+  .stat { background:#fff; padding:12px 6px; text-align:center; }
+  .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
+  .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
+  .callout {
+    margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
+    border:1px solid #ffdcd8; border-left:3px solid #e84855;
+    border-radius:10px; padding:13px 15px; font-size:13.5px; color:#5a3a3a;
+  }
+  .callout b { color:#c9313e; }
+  .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
+  .callout.blue b { color:#2456c4; }
+  .news-legend {
+    display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .news-legend span { display:flex; align-items:center; gap:5px; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .tag.a { background:#ffe4e6; color:#c9313e; }
+  .tag.b { background:#fff0dc; color:#b8690f; }
+  .tag.c { background:#e2ecfd; color:#2456c4; }
+  .tag.mini { font-size:10px; padding:2px 8px; }
+  .src { font-size:10px; padding:2px 8px; border-radius:12px; background:#eef2f8; color:#6b7688; }
+  .src.intl { background:#eae4fb; color:#6a4bb8; }
+  .news {
+    position:relative; margin-bottom:16px; border-radius:12px; padding:16px 18px;
+    border:1px solid transparent;
+  }
+  .news:last-child { margin-bottom:0; }
+  .news.a { background:linear-gradient(135deg,#fff5f5,#fff0f0); border-color:#ffd5d5; }
+  .news.b { background:linear-gradient(135deg,#fff9f0,#fff5e8); border-color:#ffe4c4; }
+  .news.c { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); border-color:#d0dff8; }
+  .news-top { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; align-items:center; }
+  .news h3 { font-size:15px; font-weight:800; line-height:1.5; margin-bottom:7px; letter-spacing:-.2px; }
+  .news p { font-size:13px; line-height:1.85; color:#3d4660; margin-bottom:7px; }
+  .news p:last-of-type { margin-bottom:0; }
+  .hl { color:#e84855; font-weight:700; }
+  .num { color:#e84855; font-weight:700; font-variant-numeric:tabular-nums; }
+  .numg { color:#12a05c; font-weight:700; font-variant-numeric:tabular-nums; }
+  .ph { color:#3b6fe0; font-weight:700; }
+  .pl { color:#12a05c; font-weight:700; }
+  .impact {
+    margin-top:10px; padding:10px 13px; background:rgba(255,255,255,.65);
+    border-radius:8px; border:1px solid rgba(0,0,0,.04);
+    font-size:12.5px; color:#4a5568; line-height:1.8;
+  }
+  .dim {
+    border-radius:12px; padding:16px 18px; margin-bottom:12px; position:relative; overflow:hidden;
+  }
+  .dim:last-child { margin-bottom:0; }
+  .dim::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .dim.d1::before { background:#e84855; }
+  .dim.d2::before { background:#f0932b; }
+  .dim.d3::before { background:#3b6fe0; }
+  .dim.d4::before { background:#6a4bb8; }
+  .dim.d5::before { background:#12a05c; }
+  .dim.d1 { background:linear-gradient(135deg,#fff5f5,#fff0f0); }
+  .dim.d2 { background:linear-gradient(135deg,#fff9f0,#fff5e8); }
+  .dim.d3 { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); }
+  .dim.d4 { background:linear-gradient(135deg,#f8f5ff,#f5f0ff); }
+  .dim.d5 { background:linear-gradient(135deg,#f0fff5,#e8fff0); }
+  .dim-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .dim-h .e { font-size:18px; }
+  .dim-h .t { font-size:15px; font-weight:800; letter-spacing:-.2px; }
+  .dim-h .score { margin-left:auto; font-size:11px; font-weight:600; color:#7c8698; }
+  .dim ul { list-style:none; }
+  .dim li {
+    position:relative; padding:7px 0 7px 16px; font-size:13px; line-height:1.8;
+    color:#3d4660; border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  .dim li:last-child { border-bottom:none; }
+  .dim li::before {
+    content:''; position:absolute; left:0; top:15px; width:5px; height:5px;
+    border-radius:50%; background:#b8c0ce;
+  }
+  .dim li b { color:#1a2233; }
+  .heat { margin-bottom:10px; }
+  .heat-row { display:flex; align-items:center; gap:8px; }
+  .heat-name { width:90px; font-size:12.5px; font-weight:700; text-align:right; color:#3d4660; flex-shrink:0; }
+  .heat-track { flex:1; height:22px; background:#f1f4f9; border-radius:11px; overflow:hidden; position:relative; }
+  .heat-fill { height:100%; border-radius:11px; transition:width .6s ease; }
+  .heat-fill.up { background:linear-gradient(90deg,#ffe4e6,#ff9aa5); }
+  .heat-fill.down { background:linear-gradient(90deg,#d1fae5,#6ee7b7); }
+  .heat-val { width:70px; font-size:11.5px; font-weight:700; }
+  .heat-val.r { color:#e84855; }
+  .heat-val.g { color:#12a05c; }
+  .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .chip {
+    display:flex; align-items:center; gap:8px;
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:10px; padding:9px 12px;
+  }
+  .chip .cn { font-size:13px; font-weight:700; flex:1; }
+  .chip .lim { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#ffe4e6; color:#c9313e; }
+  .chip .tagi { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#eae4fb; color:#6a4bb8; }
+  .chip .taga { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e2ecfd; color:#2456c4; }
+  .chip .limg { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e8ecf3; color:#5a6678; }
+  .chip .cv { font-size:12px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th { text-align:left; padding:10px 8px; font-size:11px; color:#8892a6; font-weight:600; border-bottom:1px solid #e8ecf3; }
+  .tbl td { padding:10px 8px; border-bottom:1px solid #f1f4f9; }
+  .tbl .name { font-weight:600; }
+  .tbl .r { color:#e84855; font-weight:700; }
+  .tbl .g { color:#12a05c; font-weight:700; }
+  .tbl .n0 { color:#1a2233; font-weight:600; }
+  .tbl tr.grp td { font-size:12px; font-weight:700; color:#5a6678; background:#f7f9fc; padding:8px; }
+  .tbl tr.hot td { background:#fff9f0; }
+  .tbl .st { font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; margin-left:6px; }
+  .tbl .st.close { background:#e2ecfd; color:#2456c4; }
+  .tbl .st.live { background:#fff0dc; color:#b8690f; }
+  .tbl .st.ovn { background:#eae4fb; color:#6a4bb8; }
+  .mkt-legend {
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .mkt-legend span { display:flex; align-items:center; gap:5px; }
+  .mkt-legend .dot { width:6px; height:6px; border-radius:50%; }
+  .mkt-legend .dot.close { background:#3b6fe0; }
+  .mkt-legend .dot.live { background:#f0932b; }
+  .mkt-legend .dot.ovn { background:#6a4bb8; }
+  .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .gf-card {
+    background:#fff; border:1px solid #e8ecf3; border-radius:12px;
+    padding:14px 15px; position:relative; overflow:hidden;
+  }
+  .gf-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .gf-card.hot::before { background:#e84855; }
+  .gf-card.warm::before { background:#f0932b; }
+  .gf-card.cool::before { background:#3b6fe0; }
+  .gf-card.neut::before { background:#9aa6b8; }
+  .gf-top { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .gf-ico { font-size:20px; }
+  .gf-name { font-size:14px; font-weight:800; flex:1; }
+  .gf-status { font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px; }
+  .gf-status.hot { background:#ffe4e6; color:#c9313e; }
+  .gf-status.warm { background:#fff0dc; color:#b8690f; }
+  .gf-status.cool { background:#e2ecfd; color:#2456c4; }
+  .gf-status.neut { background:#eef1f6; color:#5a6678; }
+  .gf-card ul { list-style:none; }
+  .gf-card li {
+    position:relative; padding:6px 0 6px 14px; font-size:12.5px; line-height:1.7;
+    color:#3d4660; border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  .gf-card li:last-child { border-bottom:none; }
+  .gf-card li::before {
+    content:''; position:absolute; left:0; top:13px; width:4px; height:4px;
+    border-radius:50%; background:#b8c0ce;
+  }
+  .gf-card li b { color:#1a2233; }
+  .gf-card li .up { color:#e84855; font-weight:700; }
+  .gf-card li .dn { color:#12a05c; font-weight:700; }
+  .gf-src { font-size:10px; color:#9aa2b0; margin-top:7px; }
+  @media (max-width:480px) { .gf-grid { grid-template-columns:1fr; } }
+  .strat {
+    background:linear-gradient(145deg,#1a2233,#2a3550); border-radius:14px;
+    padding:22px 20px; color:#fff; margin-bottom:14px;
+  }
+  .strat-in h4 { font-size:16px; font-weight:800; margin-bottom:12px; }
+  .strat-in ul { list-style:none; }
+  .strat-in li {
+    position:relative; padding:8px 0 8px 18px; font-size:13px; line-height:1.85;
+    color:rgba(255,255,255,.82); border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .strat-in li:last-child { border-bottom:none; }
+  .strat-in li::before {
+    content:''; position:absolute; left:0; top:16px; width:6px; height:6px;
+    border-radius:50%; background:#4ade80;
+  }
+  .strat-in li b { color:#fff; }
+  .strat-in li .ph { color:#ff9aa5; font-weight:700; }
+  .strat-in li .pl { color:#7ee2a8; font-weight:700; }
+  .dirs { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .dir {
+    font-size:12px; font-weight:700; padding:6px 13px; border-radius:20px;
+    background:rgba(232,72,85,.2); color:#ff9aa5; border:1px solid rgba(232,72,85,.3);
+  }
+  .dir.cool {
+    background:rgba(59,111,224,.15); color:#93b5ff; border-color:rgba(59,111,224,.25);
+  }
+  .risk {
+    background:#fff5f5; border:1px solid #ffd5d5; border-radius:12px;
+    padding:16px 18px;
+  }
+  .risk h4 { font-size:14px; font-weight:800; color:#c9313e; margin-bottom:10px; }
+  .risk ul { list-style:none; }
+  .risk li {
+    position:relative; padding:7px 0 7px 18px; font-size:12.5px; line-height:1.8;
+    color:#5a3a3a; border-bottom:1px solid rgba(201,49,62,.08);
+  }
+  .risk li:last-child { border-bottom:none; }
+  .risk li::before {
+    content:'⚠'; position:absolute; left:0; top:7px; font-size:10px;
+  }
+  .risk li b { color:#c9313e; }
+  .foot {
+    padding:28px 26px 34px; background:linear-gradient(145deg,#1a2233,#131a2e);
+    color:rgba(255,255,255,.55); font-size:11.5px; line-height:1.8; text-align:center;
+  }
+  .foot .bk { font-size:14px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:10px; letter-spacing:1px; }
+  .sec-nav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,.95); backdrop-filter:blur(12px);
+    border-bottom:1px solid #e8ecf3; padding:10px 26px;
+    display:flex; align-items:center; gap:8px; overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .sec-nav::-webkit-scrollbar { display:none; }
+  .sec-nav-label {
+    font-size:12px; font-weight:700; color:#8892a6; white-space:nowrap;
+    margin-right:8px; flex-shrink:0;
+  }
+  .sec-nav a {
+    display:inline-block; font-size:12px; font-weight:600; color:#5a6678;
+    padding:5px 14px; border-radius:20px; white-space:nowrap;
+    background:#f1f4f9; text-decoration:none; transition:all .2s;
+    flex-shrink:0;
+  }
+  .sec-nav a:hover { background:#e2ecfd; color:#2456c4; }
+  .sec-nav a.active { background:#3b6fe0; color:#fff; }
+  @media (max-width:480px) {
+    .idx-grid { grid-template-columns:repeat(2,1fr); }
+    .chips { grid-template-columns:1fr; }
+    .heat-name { width:78px; font-size:11.5px; }
+    .heat-val { width:60px; font-size:12px; }
+    .hero h1 { font-size:23px; }
+    .sec-nav { padding:10px 12px; }
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var navLinks = document.querySelectorAll('.sec-nav a');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href').substring(1);
+      var target = document.getElementById(targetId);
+      if (target) {
+        var nav = document.querySelector('.sec-nav');
+        var navH = nav.offsetHeight;
+        var targetPos = target.getBoundingClientRect().top + window.pageYOffset - navH - 10;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        navLinks.forEach(function(l) { l.classList.remove('active'); });
+        this.classList.add('active');
+        setTimeout(function() { link.classList.remove('active'); }, 1500);
+      }
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="kicker">DAILY GLOBAL MARKET WATCH</div>
+      <h1><em>ASML爆单</em>·<i>美债回落</i></h1>
+      <div class="sub">沪指微涨守3800·美股静待CPI·黄金高位盘整</div>
+      <div class="datebar">
+        <span>2026年10月14日 周三 · 收盘全维度分析</span>
+        <span class="pulse"><span class="dot"></span> LIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-nav">
+    <span class="sec-nav-label">快速跳转：</span>
+    <a href="#sec-overview">📈 A股速览</a>
+    <a href="#sec-global">🌍 全球市场</a>
+    <a href="#sec-news">📰 环球要闻</a>
+    <a href="#sec-five">🔍 五维分析</a>
+    <a href="#sec-heat">🔥 板块热力</a>
+    <a href="#sec-stock">💰 焦点个股</a>
+    <a href="#sec-commodity">🛢️ 大宗商品</a>
+    <a href="#sec-grassroots">🏭 产业高频</a>
+    <a href="#sec-strategy">🎯 策略研判</a>
+  </div>
+
+  <div class="sec" id="sec-overview">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">📈</div>
+      <div class="sec-title">A股收盘速览</div>
+      <div class="sec-note">10/14 15:00 收盘</div>
+    </div>
+    <div class="idx-grid">
+      <div class="idx r"><div class="n">上证指数</div><div class="v">3,800.86</div><div class="c">+0.10%</div></div>
+      <div class="idx g"><div class="n">深证成指</div><div class="v">12,353.70</div><div class="c">-0.25%</div></div>
+      <div class="idx g"><div class="n">创业板指</div><div class="v">2,958.34</div><div class="c">-0.18%</div></div>
+      <div class="idx r"><div class="n">科创50</div><div class="v">1,427.18</div><div class="c">+0.03%</div></div>
+    </div>
+    <div class="callout">
+      A股今日呈现<b>缩量震荡</b>格局，沪指微涨0.09%勉强守住3800点，而深成指与创业板指则双双收绿，创业板更是失守3000点整数关口。市场<b>赚钱效应一般</b>，涨停家数仅36家，资金在<b>传统制造与消费</b>之间快速轮动，如冰山冷热、阳光乳业等逆势涨停。整体来看，在缺乏重磅宏观催化剂的背景下，<b>存量博弈</b>特征显著，资金避险情绪升温，高位题材股面临兑现压力，市场处于方向选择的敏感期。
+    </div>
+  </div>
+
+  <div class="sec" id="sec-global">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">🌏</div>
+      <div class="sec-title">全球市场全景</div>
+      <div class="sec-note">数据截至 10/14 15:30</div>
+    </div>
+    <div class="mkt-legend">
+      <span><span class="dot close"></span><b>收盘</b>：A股/港股/亚太 10/14</span>
+      <span><span class="dot ovn"></span><b>昨夜</b>：美股/欧股 最近收盘</span>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>市场 / 指数</th><th>点位</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="3">亚太 <span class="st close">10/14 收盘</span></td></tr>
+        <tr class=""><td class="name">上证指数</td><td>3,800.86</td><td class="r">+0.10% 缩量震荡</td></tr>
+<tr class=""><td class="name">深证成指</td><td>12,353.70</td><td class="g">-0.25% 弱势整理</td></tr>
+<tr class=""><td class="name">创业板指</td><td>2,958.34</td><td class="g">-0.18% 失守3000</td></tr>
+<tr class=""><td class="name">科创50</td><td>1,427.18</td><td class="r">+0.03% 窄幅微涨</td></tr>
+<tr class=""><td class="name">恒生指数</td><td>24,345.22</td><td class="r">+0.30% 弱势翻红</td></tr>
+<tr class=""><td class="name">恒生科技</td><td>4,136.63</td><td class="g">-0.79% 科技拖累</td></tr>
+<tr class=""><td class="name">韩国 KOSPI</td><td>6,008.81</td><td class="g">-0.44% 外资砸盘</td></tr>
+<tr class=""><td class="name">日经225</td><td>67,744.29</td><td class="g">-0.05% 高位盘整</td></tr>
+        <tr class="grp"><td colspan="3">美股 <span class="st ovn">最近收盘</span></td></tr>
+        <tr class=""><td class="name">道琼斯</td><td>51,670.10</td><td class="g">-0.35% 窄幅震荡</td></tr>
+<tr class=""><td class="name">标普500</td><td>7,805.45</td><td class="g">-0.02% 逼近新高</td></tr>
+<tr class=""><td class="name">纳斯达克</td><td>27,204.38</td><td class="g">-0.15% 芯片承压</td></tr>
+        <tr class="grp"><td colspan="3">欧股 <span class="st ovn">最近收盘</span></td></tr>
+        <tr class=""><td class="name">欧洲斯托克50</td><td>6,205.49</td><td class="r">+0.62% 领涨欧洲</td></tr>
+<tr class=""><td class="name">德国 DAX</td><td>25,369.30</td><td class="r">+0.43% 领涨</td></tr>
+<tr class=""><td class="name">法国 CAC40</td><td>7,866.42</td><td class="r">+0.50% 温和上涨</td></tr>
+<tr class=""><td class="name">英国 富时100</td><td>10,682.73</td><td class="r">+0.30% 稳步攀升</td></tr>
+      </tbody>
+    </table>
+    <div class="callout blue">
+      全球市场今日表现分化，<b>欧股领涨</b>，欧洲斯托克50涨0.62%，德国DAX涨0.43%。美股三大指数<b>窄幅震荡</b>，道指微跌0.35%，标普与纳指几乎平盘，市场等待CPI数据之际保持谨慎，<b>AI疲劳</b>导致芯片股承压。亚太市场略显疲态，韩国KOSPI跌0.44%。港股恒生指数微涨0.30%，但<b>恒生科技</b>下挫0.79%。受地缘局势影响，<b>原油维持高位</b>，布伦特稳在105美元上方；黄金在4166美元高位微调。全球资金在<b>避险与抗通胀</b>间寻找平衡，美债收益率回落至5.21%缓解估值压力，但地缘冲突与债务隐患仍是悬在头顶的利剑。
+    </div>
+  </div>
+
+  <div class="sec" id="sec-news">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">📰</div>
+      <div class="sec-title">环球要闻 · 深度解读</div>
+      <div class="sec-note">9条核心新闻</div>
+    </div>
+    <div class="news-legend">
+      <span class="tag mini a">🔴 极重要</span>
+      <span class="tag mini b">🟠 重要</span>
+      <span class="tag mini c">🔵 关注</span>
+    </div>
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">CNBC</span><span class="src intl">MarketWatch</span>
+      </div>
+      <h3>ASML爆单排到2030</h3>
+      <p>光刻机巨头ASML公布财报，利润大幅超预期。公司透露客户对先进制程设备需求强劲，订单意向已排至2030年，显示半导体上游资本开支依然坚挺。</p>
+      <div class="impact">
+        <b>说人话：</b>AI算力需求倒逼晶圆厂扩产，上游设备商吃香喝辣。但下游芯片股因AI疲劳承压，产业链利润向设备端集中，国内半导体设备国产替代逻辑进一步强化。
+      </div>
+    </div>
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Reuters</span><span class="src intl">CNBC</span>
+      </div>
+      <h3>伊朗战局致柴油短缺</h3>
+      <p>IEA警告称，受伊朗战争扰乱供应链影响，全球柴油短缺局面可能一直持续到2027年。地缘冲突正从原油现货蔓延至成品油市场，加剧全球能源通胀压力。</p>
+      <div class="impact">
+        <b>说人话：</b>打仗不仅烧油，还让炼油厂停摆。柴油是工业和物流的血液，短缺将直接推高全球运输和制造成本，油价易涨难跌，能源股和航运股迎来长期利好。
+      </div>
+    </div>
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">MarketWatch</span><span class="src intl">WSJ</span>
+      </div>
+      <h3>芯片股遭16个月最差表现</h3>
+      <p>随着AI疲劳情绪笼罩市场，芯片板块遭遇16个月以来最糟糕的连续下跌。投资者开始质疑AI巨额资本开支能否在短期内转化为实际盈利，资金从科技股撤离。</p>
+      <div class="impact">
+        <b>说人话：</b>AI故事讲得太满，市场开始要利润了。短期芯片股估值杀跌不可避免，但这也是挤泡沫的过程，未来只有真正能兑现业绩的算力龙头和端侧AI公司能活下来。
+      </div>
+    </div>
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">CNBC</span><span class="src intl">Bloomberg</span>
+      </div>
+      <h3>美股期货上涨 await CPI</h3>
+      <p>美股期货小幅走高，交易员在关键消费者通胀报告公布前保持谨慎乐观。市场普遍预期CPI数据将温和回落，这将为美联储后续降息提供更多政策空间。</p>
+      <div class="impact">
+        <b>说人话：</b>大家都在等CPI数据落地。如果通胀降温，降息预期升温，美股就能继续嗨；如果数据爆表，美债收益率飙升，股市还得挨锤。目前市场偏向乐观。
+      </div>
+    </div>
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Reuters</span><span class="src intl">CNBC</span>
+      </div>
+      <h3>IMF警告美国赤字飙升</h3>
+      <p>IMF总裁指出，美国财长贝森特的经济增长计划不足以遏制不断膨胀的财政赤字和债务规模。美国债务失控风险加剧，可能对未来全球金融稳定构成系统性威胁。</p>
+      <div class="impact">
+        <b>说人话：</b>美国借钱借上瘾了，IMF都看不下去了。债务雪球越滚越大，最终要么靠通胀稀释，要么靠美债收益率飙升来硬扛，长期看美元信用受损，利好黄金。
+      </div>
+    </div>
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Reuters</span><span class="src intl">FT</span>
+      </div>
+      <h3>俄轰炸乌能源基建</h3>
+      <p>俄罗斯对乌克兰能源基础设施发动猛烈袭击，导致60万人断电。此举不仅加剧了乌克兰的人道主义危机，也再次凸显了欧洲能源供应链的脆弱性。</p>
+      <div class="impact">
+        <b>说人话：</b>冬天还没到，乌克兰先挨了冻。俄乌冲突进入消耗战，能源设施成首要打击目标。欧洲天然气和电力价格随时可能反弹，欧洲本土能源股和电网设备商受益。
+      </div>
+    </div>
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">MarketWatch</span><span class="src intl">WSJ</span>
+      </div>
+      <h3>SpaceX威胁AT&T股票</h3>
+      <p>分析师警告，SpaceX星链业务的快速扩张可能对传统电信巨头AT&T构成 prolonged 威胁。卫星互联网正在蚕食偏远地区和部分企业级通信市场份额。</p>
+      <div class="impact">
+        <b>说人话：</b>马斯克的星链上天了，传统电信运营商慌了。AT&T这种老牌巨头如果转型慢了，市场份额会被降维打击。通信行业洗牌加速，得赶紧拥抱6G和卫星通信。
+      </div>
+    </div>
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">MarketWatch</span><span class="src intl">Reuters</span>
+      </div>
+      <h3>六旗公园致命事件</h3>
+      <p>知名主题乐园六旗（Six Flags）因发生致命安全事件，股价暴跌至近17年低点。事件引发公众对游乐园安全性的担忧，监管审查可能进一步影响其运营。</p>
+      <div class="impact">
+        <b>说人话：</b>出人命了，股价直接脚踝斩。主题公园这种靠体验吃饭的行业，安全是底线。一旦出事，品牌声誉受损，客流和营收双杀，短期很难翻身，千万别去接飞刀。
+      </div>
+    </div>
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">CNBC</span><span class="src intl">WSJ</span>
+      </div>
+      <h3>法官阻止特朗普封禁媒体</h3>
+      <p>美国联邦法官延长了对特朗普白宫禁止MS NOW、CNN和Politico等媒体进入的禁令。这一裁决暂时保住了主流媒体的采访权，凸显了行政权与新闻自由的博弈。</p>
+      <div class="impact">
+        <b>说人话：</b>懂王想捂嘴，法官不买账。这属于美国内部政治斗争的常规操作，对资本市场直接影响不大，但反映了美国政治极化加剧，政策不确定性依然是潜在风险。
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-five">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ede9fe">🎯</div>
+      <div class="sec-title">五维度深度拆解</div>
+      <div class="sec-note">消息 / 情绪 / 技术 / 政策 / 资金</div>
+    </div>
+    <div class="dim d1">
+      <div class="dim-h"><span class="e">📰</span><span class="t">消息面</span><span class="score">利空主导 ★★☆☆☆</span></div>
+      <ul><li>伊朗战局扰动能源供应链，IEA警告柴油短缺至2027年</li><li>ASML爆单难掩AI整体疲劳，芯片股遭16个月最差表现</li><li>美国债务规模引发IMF担忧，财政赤字失控风险加剧</li><li>俄乌冲突升级，俄罗斯轰炸乌克兰能源基础设施</li><li>结论：外部宏观与地缘利空交织，内部缺乏强力催化，消息面整体偏空。</li></ul>
+    </div>
+    <div class="dim d2">
+      <div class="dim-h"><span class="e">🔥</span><span class="t">情绪面</span><span class="score">观望情绪浓厚 ★★★☆☆</span></div>
+      <ul><li>美股静待CPI数据落地，交易员保持谨慎乐观</li><li>VIX指数回落至15.21，显示市场恐慌情绪退潮</li><li>A股涨停数仅36家，赚钱效应较差，资金观望</li><li>港股科技股遭资金抛售，恒生科技指数下挫0.79%</li><li>结论：全球资金处于观望状态，风险偏好中性偏低，缺乏做多激情。</li></ul>
+    </div>
+    <div class="dim d3">
+      <div class="dim-h"><span class="e">📊</span><span class="t">技术面</span><span class="score">震荡筑底 ★★★☆☆</span></div>
+      <ul><li>沪指缩量微涨守住3800点支撑，深成指弱势整理</li><li>创业板失守3000点整数关口，短期均线呈空头排列</li><li>标普500在7800点附近逼近新高，高位钝化需警惕</li><li>10年期美债收益率高位回落至5.21%，缓解估值压力</li><li>结论：A股处于上有压力下有支撑的箱体震荡，美股高位钝化，技术面等待方向选择。</li></ul>
+    </div>
+    <div class="dim d4">
+      <div class="dim-h"><span class="e">🏛</span><span class="t">政策面</span><span class="score">边际宽松 ★★★★☆</span></div>
+      <ul><li>美联储降息预期仍在发酵，市场等待CPI数据确认</li><li>国内稳增长政策持续落地，新质生产力获政策倾斜</li><li>欧洲央行维持宽松基调，支撑欧洲股市领涨全球</li><li>产业政策向高端制造与半导体自主可控方向聚焦</li><li>结论：全球流动性拐点已现，国内政策呵护意图明显，政策面整体偏暖。</li></ul>
+    </div>
+    <div class="dim d5">
+      <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">存量博弈 ★★☆☆☆</span></div>
+      <ul><li>A股成交量萎缩，显示增量资金入场意愿匮乏</li><li>外资在亚太市场呈现净流出态势，韩国KOSPI承压</li><li>美股资金从科技股向传统防御板块及高股息轮动</li><li>加密货币市场资金流入放缓，BTC高位震荡</li><li>结论：缺乏增量资金入场，场内资金博弈激烈，板块轮动过快导致操作难度加大。</li></ul>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-heat">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">🔥</div>
+      <div class="sec-title">板块热力图</div>
+      <div class="sec-note">红涨绿跌</div>
+    </div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">机械设备</div><div class="heat-track"><div class="heat-fill up" style="width:95%"></div></div><div class="heat-val r">冰山冷热领涨</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">家电</div><div class="heat-track"><div class="heat-fill up" style="width:85%"></div></div><div class="heat-val r">出口数据超预期</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">食品饮料</div><div class="heat-track"><div class="heat-fill up" style="width:80%"></div></div><div class="heat-val r">阳光乳业涨停</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">医药生物</div><div class="heat-track"><div class="heat-fill up" style="width:70%"></div></div><div class="heat-val r">防御属性显现</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">纺织服装</div><div class="heat-track"><div class="heat-fill up" style="width:60%"></div></div><div class="heat-val r">消费复苏预期</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">半导体</div><div class="heat-track"><div class="heat-fill down" style="width:90%"></div></div><div class="heat-val g">AI疲劳拖累</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">消费电子</div><div class="heat-track"><div class="heat-fill down" style="width:85%"></div></div><div class="heat-val g">需求不及预期</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">计算机</div><div class="heat-track"><div class="heat-fill down" style="width:75%"></div></div><div class="heat-val g">资金持续流出</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">传媒</div><div class="heat-track"><div class="heat-fill down" style="width:65%"></div></div><div class="heat-val g">缺乏新催化</div></div></div>
+    <div class="heat"><div class="heat-row"><div class="heat-name">房地产</div><div class="heat-track"><div class="heat-fill down" style="width:55%"></div></div><div class="heat-val g">销售数据疲软</div></div></div>
+    <div class="callout">
+      今日板块轮动呈现明显的<b>“高低切换”</b>特征。资金从高估值的科技成长股撤出，转而流入具备防御属性和业绩确定性的传统制造与消费板块。机械设备、家电和食品饮料逆势走强，反映出资金在宏观不确定性下的避险需求。相反，半导体、消费电子和计算机等AI相关板块因“AI疲劳”遭遇资金抛售，跌幅居前。整体来看，市场缺乏主线，资金博弈激烈，板块轮动过快，追高风险极大，建议逢低布局低位滞涨的防御性品种。
+    </div>
+  </div>
+
+  <div class="sec" id="sec-stock">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">⭐</div>
+      <div class="sec-title">焦点个股与资金流</div>
+      <div class="sec-note">A股 + 港股 + 海外</div>
+    </div>
+    <div class="chips">
+      <div class="chip"><span class="cn">冰山冷热</span><span class="lim">涨停</span><span class="cv r">冷链设备龙头，资金抱团</span></div>
+      <div class="chip"><span class="cn">荣丰控股</span><span class="lim">涨停</span><span class="cv r">重组预期发酵，游资接力</span></div>
+      <div class="chip"><span class="cn">超声电子</span><span class="lim">涨停</span><span class="cv r">PCB概念活跃，技术面突破</span></div>
+      <div class="chip"><span class="cn">阳光乳业</span><span class="lim">涨停</span><span class="cv r">区域乳企，消费防御属性</span></div>
+      <div class="chip"><span class="cn">宝鼎科技</span><span class="lim">涨停</span><span class="cv r">船舶制造，周期复苏预期</span></div>
+      <div class="chip"><span class="cn">百洋股份</span><span class="lim">涨停</span><span class="cv r">水产加工，农业板块异动</span></div>
+      <div class="chip"><span class="cn">星帅尔</span><span class="lim">涨停</span><span class="cv r">家电零部件，出口逻辑驱动</span></div>
+      <div class="chip"><span class="cn">哈空调</span><span class="lim">涨停</span><span class="cv r">暖通设备，传统制造轮动</span></div>
+      <div class="chip"><span class="cn">腾讯控股</span><span class="tagi">港股</span><span class="cv r">科技龙头，回购支撑股价</span></div>
+      <div class="chip"><span class="cn">阿里巴巴</span><span class="tagi">港股</span><span class="cv g">电商巨头，估值修复进行中</span></div>
+      <div class="chip"><span class="cn">美团</span><span class="tagi">港股</span><span class="cv g">本地生活，业绩超预期</span></div>
+      <div class="chip"><span class="cn">小米集团</span><span class="tagi">港股</span><span class="cv r">智能硬件，汽车业务放量</span></div>
+      <div class="chip"><span class="cn">ASML</span><span class="taga">美股</span><span class="cv r">光刻机巨头，订单排到2030</span></div>
+      <div class="chip"><span class="cn">AT&T</span><span class="taga">美股</span><span class="cv g">电信运营商，受SpaceX威胁</span></div>
+      <div class="chip"><span class="cn">Six Flags</span><span class="taga">美股</span><span class="cv g">主题乐园，致命事件致暴跌</span></div>
+      <div class="chip"><span class="cn">英伟达</span><span class="taga">美股</span><span class="cv g">AI芯片龙头，受AI疲劳拖累</span></div>
+    </div>
+    <div class="callout blue">
+      个股方面，A股涨停板主要集中在<b>传统制造与消费</b>领域，冰山冷热、阳光乳业等逆势封板，显示资金在避险情绪下向低位确定性品种抱团。港股方面，腾讯、小米等科技龙头表现分化，互联网巨头估值修复仍在进行中。美股则呈现明显的<b>“设备强、芯片弱”</b>格局，ASML凭借超预期订单和2030年的排单意向大涨，而英伟达等下游AI芯片股因市场“AI疲劳”承压。此外，Six Flags因安全事件暴跌，提示个股黑天鹅风险不容忽视。
+    </div>
+  </div>
+
+  <div class="sec" id="sec-commodity">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fef3c7">🪙</div>
+      <div class="sec-title">大宗商品与汇率</div>
+      <div class="sec-note">10/14 数据</div>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>品种</th><th>最新</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class=""><td class="name">现货黄金</td><td>~4,166.00 美元/盎司</td><td class="g">-0.27% 续创新高</td></tr>
+<tr class=""><td class="name">COMEX白银期货</td><td>58.74 美元/盎司</td><td class="g">-0.70% 跟随回落</td></tr>
+<tr class=""><td class="name">布伦特原油</td><td>105.69 美元/桶</td><td class="n0">0.00% 微跌</td></tr>
+<tr class=""><td class="name">WTI原油</td><td>94.39 美元/桶</td><td class="r">+0.27% 小幅反弹</td></tr>
+<tr class=""><td class="name">COMEX铜</td><td>6.75 美元/磅</td><td class="r">+1.14% 显著反弹</td></tr>
+        <tr class="grp"><td colspan="3">汇率与利率</td></tr>
+        <tr class=""><td class="name">美元/人民币</td><td>6.6924</td><td class="r">+0.01% 汇率承压</td></tr>
+<tr class=""><td class="name">美元指数</td><td>102.23</td><td class="r">+0.03% 窄幅震荡</td></tr>
+<tr class=""><td class="name">10年期美债收益率</td><td>5.22 %</td><td class="g">-0.44% 高位</td></tr>
+<tr class=""><td class="name">VIX恐慌指数</td><td>15.21</td><td class="g">-0.39% 恐慌退潮</td></tr>
+        <tr class="grp"><td colspan="3">数字资产</td></tr>
+        <tr class=""><td class="name">比特币</td><td>~83,379 美元</td><td class="r">+0.34% 高位震荡</td></tr>
+<tr class=""><td class="name">以太坊</td><td>~2,504 美元</td><td class="r">+0.31% 弱势跟涨</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      大宗商品与汇率方面，受伊朗战局扰动，<b>原油维持高位</b>，布伦特稳在105.69美元，IEA警告柴油短缺或持续至2027年。<b>贵金属</b>高位盘整，现货黄金微跌至4166美元，白银跟跌0.70%。<b>工业金属</b>表现亮眼，COMEX铜大涨1.14%，反映制造业复苏预期。汇率方面，<b>美元指数</b>微涨至102.23，<b>离岸人民币</b>承压微贬至6.6924。整体来看，地缘溢价支撑能源价格，美债收益率回落为商品提供流动性缓冲，但需警惕美元反弹对商品价格的压制。
+    </div>
+  </div>
+
+  <div class="sec" id="sec-grassroots">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#f3fbf6">🔬</div>
+      <div class="sec-title">产业高频数据 · 机构/大户必读</div>
+      <div class="sec-note">产业链一线追踪</div>
+    </div>
+    <div class="gf-grid">
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🛢</span>
+          <span class="gf-name">原油/能源</span>
+          <span class="gf-status hot">地缘溢价</span>
+        </div>
+        <ul><li>伊朗战局扰乱供应链，IEA警告柴油短缺至2027年</li><li>俄罗斯轰炸乌克兰能源基建，加剧欧洲能源脆弱性</li><li>布伦特原油稳在105美元上方，WTI微涨至94.39美元</li><li>全球物流与制造成本面临长期通胀压力</li><li>能源股与航运股迎来长期基本面支撑</li></ul>
+        <div class="gf-src">信源: CNBC, Reuters, FT</div>
+      </div>
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">🔋</span>
+          <span class="gf-name">锂矿/能源金属</span>
+          <span class="gf-status cool">底部震荡</span>
+        </div>
+        <ul><li>新能源车增速放缓，终端需求不及预期</li><li>碳酸锂价格在底部区间反复震荡，缺乏向上弹性</li><li>电池厂去库存进程仍在继续，采购意愿低迷</li><li>上游锂矿企业利润空间持续受到挤压</li><li>行业洗牌加速，低成本龙头具备长期配置价值</li></ul>
+        <div class="gf-src">信源: Bloomberg, WSJ, MarketWatch</div>
+      </div>
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">💾</span>
+          <span class="gf-name">半导体/存储</span>
+          <span class="gf-status warm">冰火两重天</span>
+        </div>
+        <ul><li>ASML利润大超预期，设备订单意向排至2030年</li><li>上游资本开支坚挺，先进制程扩产需求强劲</li><li>但下游AI疲劳导致芯片股遭16个月最差表现</li><li>产业链利润向设备端集中，下游设计厂承压</li><li>国内半导体设备国产替代逻辑进一步强化</li></ul>
+        <div class="gf-src">信源: CNBC, MarketWatch, WSJ</div>
+      </div>
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">📺</span>
+          <span class="gf-name">传媒/AI应用</span>
+          <span class="gf-status cool">资金流出</span>
+        </div>
+        <ul><li>特朗普封禁媒体被法官阻止，政治新闻受关注</li><li>AI应用端缺乏新催化，商业化落地进度不及预期</li><li>市场从炒作概念转向关注实际盈利兑现</li><li>资金从高位AI应用板块持续流出，估值承压</li><li>短期需规避纯概念炒作，关注有真实业绩的标的</li></ul>
+        <div class="gf-src">信源: CNBC, MarketWatch, Reuters</div>
+      </div>
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🏦</span>
+          <span class="gf-name">银行/高股息</span>
+          <span class="gf-status warm">防御凸显</span>
+        </div>
+        <ul><li>10年期美债收益率高位回落至5.21%，缓解估值压力</li><li>全球宏观不确定性增加，高股息资产受资金青睐</li><li>欧洲银行股表现稳健，支撑欧洲股市领涨全球</li><li>国内银行板块股息率依然具备较强吸引力</li><li>防御属性凸显，适合作为底仓配置平滑波动</li></ul>
+        <div class="gf-src">信源: Reuters, FT, Bloomberg</div>
+      </div>
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">🥇</span>
+          <span class="gf-name">贵金属</span>
+          <span class="gf-status hot">避险支撑</span>
+        </div>
+        <ul><li>现货黄金在4166美元高位盘整，续创新高后微调</li><li>全球央行购金需求持续，提供坚实底部支撑</li><li>地缘避险情绪升温，推升贵金属风险溢价</li><li>白银跟随黄金波动，COMEX白银期货跌0.70%</li><li>长期看，美国债务失控风险利好黄金避险价值</li></ul>
+        <div class="gf-src">信源: Reuters, Bloomberg, CNBC</div>
+      </div>
+    </div>
+    <div class="callout blue">
+      当前产业链呈现明显的<b>“冰火两重天”</b>格局。能源与贵金属受地缘冲突与避险情绪双重驱动，维持高景气度，原油供应链脆弱性被放大，IEA警告为油价提供坚实底部。相比之下，<b>半导体与AI应用</b>遭遇“成长的烦恼”，尽管ASML上游订单饱满，但下游AI疲劳导致芯片股承压，板块分化加剧。高股息与银行板块在宏观不确定性中展现防御价值。整体而言，资金正从<b>高估值成长</b>向<b>确定性红利与上游资源</b>转移，投资需顺应“避险+抗通胀”主线。
+    </div>
+  </div>
+
+  <div class="sec" id="sec-strategy">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">🧭</div>
+      <div class="sec-title">后市展望与操作策略</div>
+    </div>
+    <div class="strat">
+      <div class="strat-in">
+        <h4>🧭 核心判断</h4>
+        <ul><li>短期：A股缩量震荡，等待CPI数据落地。操作上建议控制仓位，逢低布局传统制造与消费防御板块，规避高位AI题材。</li><li>中期：美债收益率高位回落有望缓解全球估值压力。关注国内稳增长政策落地效果，逢低吸纳具备业绩支撑的核心资产与高股息红利标的。</li><li>长期：全球流动性拐点已现，新质生产力与高端制造仍是长牛主线。忽略短期波动，聚焦半导体自主可控、能源转型及人口老龄化带来的结构性机遇。</li><li>风险：警惕伊朗战局升级导致原油价格失控；美国债务规模飙升引发美债流动性危机；AI商业化落地不及预期导致科技股估值杀跌。</li></ul>
+        <div class="dirs"><span class="dir">冷链设备</span><span class="dir">乳制品</span><span class="dir">光刻机</span><span class="dir">高股息红利</span><span class="dir">原油开采</span><span class="dir cool">AI应用</span><span class="dir cool">消费电子</span><span class="dir cool">房地产</span><span class="dir cool">主题乐园</span><span class="dir cool">传媒游戏</span></div>
+      </div>
+    </div>
+    <div class="risk">
+      <h4>⚠ 风险清单（按紧迫度排序）</h4>
+      <ul><li>伊朗战局升级导致全球原油供应链断裂，引发恶性通胀。</li><li>美国债务规模失控，美债遭抛售导致收益率飙升，冲击全球资产定价。</li><li>AI商业化落地不及预期，科技股估值面临大幅回调风险。</li><li>俄乌冲突进一步升级，波及欧洲能源安全与经济复苏。</li><li>国内经济复苏动能不足，房地产销售持续低迷拖累宏观经济。</li><li>美联储降息节奏放缓，美元指数反弹压制新兴市场流动性。</li></ul>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="bk">每日全球股市观察</div>
+    数据来源：路透社(Reuters) · 华尔街日报(WSJ) · 彭博(Bloomberg) · CNBC · 金融时报(FT) · Yahoo Finance · MarketWatch · 新华社 · 财联社 · 证券时报<br>
+    报告时间：2026年10月14日 周三 15:30（北京时间）<br><br>
+    本报告基于公开信息整理，仅供研究参考，<b style="color:rgba(255,255,255,.6)">不构成任何投资建议</b>。<br>
+    市场有风险，投资需谨慎。据此操作，风险自担。
+  </div>
+
+</div>
+
+</body>
+</html>
