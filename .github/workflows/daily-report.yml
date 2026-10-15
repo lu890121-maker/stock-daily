@@ -1,14 +1,9 @@
 name: Daily Stock Report
 
-# DISABLED - Report now generated manually by WorkBuddy automation
-# on:
-#   schedule:
-#     - cron: '30 7 * * *'
-#
-#   workflow_dispatch:
-
 on:
-  workflow_dispatch:  # Keep manual trigger only
+  schedule:
+    - cron: '30 7 * * *'  # 北京时间 15:30
+  workflow_dispatch:
 
 permissions:
   contents: write
