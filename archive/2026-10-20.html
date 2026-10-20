@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年10月20日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6;
+    color: #1a2233;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
+  .hero {
+    position: relative;
+    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
+    padding: 40px 26px 34px;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background: radial-gradient(circle, rgba(74,222,128,.25) 0%, transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:280px; height:280px; border-radius:50%;
+    background: radial-gradient(circle, rgba(64,158,255,.24) 0%, transparent 70%);
+    bottom:-160px; left:-90px;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .kicker {
+    display:inline-block; font-size:11px; letter-spacing:3px; font-weight:600;
+    background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1 { font-size:26px; font-weight:800; letter-spacing:-.6px; line-height:1.32; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; color:#ff9aa5; }
+  .hero h1 i { font-style:normal; color:#7ee2a8; }
+  .hero .sub { font-size:13.5px; color:rgba(255,255,255,.72); }
+  .hero .datebar {
+    margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
+    display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
+  }
+  .pulse { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
+  .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
+  .sec:last-of-type { border-bottom: none; }
+  .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .sec-ico {
+    width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
+  .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .idx {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
+    padding:12px 9px 11px; position:relative; overflow:hidden;
+  }
+  .idx::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .idx.up::before { background:#e84855; }
+  .idx.down::before { background:#12a05c; }
+  .idx .n { font-size:11px; color:#7c8698; margin-bottom:5px; font-weight:500; }
+  .idx .v { font-size:15.5px; font-weight:800; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+  .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .up .v, .up .c { color:#e84855; }
+  .down .v, .down .c { color:#12a05c; }
+  .statbar {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
+  }
+  .stat { background:#fff; padding:12px 6px; text-align:center; }
+  .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
+  .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
+  .callout {
+    margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
+    border:1px solid #ffdcd8; border-left:3px solid #e84855;
+    border-radius:10px; padding:13px 15px; font-size:13.5px; color:#5a3a3a;
+  }
+  .callout b { color:#c9313e; }
+  .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
+  .callout.blue b { color:#2456c4; }
+  .news-legend {
+    display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .news-legend span { display:flex; align-items:center; gap:5px; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .tag.a { background:#ffe4e6; color:#c9313e; }
+  .tag.b { background:#fff0dc; color:#b8690f; }
+  .tag.c { background:#e2ecfd; color:#2456c4; }
+  .tag.mini { font-size:10px; padding:2px 8px; }
+  .src { font-size:10px; padding:2px 8px; border-radius:12px; background:#eef2f8; color:#6b7688; }
+  .src.intl { background:#eae4fb; color:#6a4bb8; }
+  .news {
+    position:relative; margin-bottom:16px; border-radius:12px; padding:16px 18px;
+    border:1px solid transparent;
+  }
+  .news:last-child { margin-bottom:0; }
+  .news.a { background:linear-gradient(135deg,#fff5f5,#fff0f0); border-color:#ffd5d5; }
+  .news.b { background:linear-gradient(135deg,#fff9f0,#fff5e8); border-color:#ffe4c4; }
+  .news.c { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); border-color:#d0dff8; }
+  .news-top { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; align-items:center; }
+  .news h3 { font-size:15px; font-weight:800; line-height:1.5; margin-bottom:7px; letter-spacing:-.2px; }
+  .news p { font-size:13px; line-height:1.85; color:#3d4660; margin-bottom:7px; }
+  .news p:last-of-type { margin-bottom:0; }
+  .hl { color:#e84855; font-weight:700; }
+  .num { color:#e84855; font-weight:700; font-variant-numeric:tabular-nums; }
+  .numg { color:#12a05c; font-weight:700; font-variant-numeric:tabular-nums; }
+  .ph { color:#3b6fe0; font-weight:700; }
+  .pl { color:#12a05c; font-weight:700; }
+  .impact {
+    margin-top:10px; padding:10px 13px; background:rgba(255,255,255,.65);
+    border-radius:8px; border:1px solid rgba(0,0,0,.04);
+    font-size:12.5px; color:#4a5568; line-height:1.8;
+  }
+  .dim {
+    border-radius:12px; padding:16px 18px; margin-bottom:12px; position:relative; overflow:hidden;
+  }
+  .dim:last-child { margin-bottom:0; }
+  .dim::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .dim.d1::before { background:#e84855; }
+  .dim.d2::before { background:#f0932b; }
+  .dim.d3::before { background:#3b6fe0; }
+  .dim.d4::before { background:#6a4bb8; }
+  .dim.d5::before { background:#12a05c; }
+  .dim.d1 { background:linear-gradient(135deg,#fff5f5,#fff0f0); }
+  .dim.d2 { background:linear-gradient(135deg,#fff9f0,#fff5e8); }
+  .dim.d3 { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); }
+  .dim.d4 { background:linear-gradient(135deg,#f8f5ff,#f5f0ff); }
+  .dim.d5 { background:linear-gradient(135deg,#f0fff5,#e8fff0); }
+  .dim-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .dim-h .e { font-size:18px; }
+  .dim-h .t { font-size:15px; font-weight:800; letter-spacing:-.2px; }
+  .dim-h .score { margin-left:auto; font-size:11px; font-weight:600; color:#7c8698; }
+  .dim ul { list-style:none; }
+  .dim li {
+    position:relative; padding:7px 0 7px 16px; font-size:13px; line-height:1.8;
+    color:#3d4660; border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  .dim li:last-child { border-bottom:none; }
+  .dim li::before {
+    content:''; position:absolute; left:0; top:15px; width:5px; height:5px;
+    border-radius:50%; background:#b8c0ce;
+  }
+  .dim li b { color:#1a2233; }
+  .heat { margin-bottom:10px; }
+  .heat-row { display:flex; align-items:center; gap:8px; }
+  .heat-name { width:90px; font-size:12.5px; font-weight:700; text-align:right; color:#3d4660; flex-shrink:0; }
+  .heat-track { flex:1; height:22px; background:#f1f4f9; border-radius:11px; overflow:hidden; position:relative; }
+  .heat-fill { height:100%; border-radius:11px; transition:width .6s ease; }
+  .heat-fill.up { background:linear-gradient(90deg,#ffe4e6,#ff9aa5); }
+  .heat-fill.down { background:linear-gradient(90deg,#d1fae5,#6ee7b7); }
+  .heat-val { width:70px; font-size:11.5px; font-weight:700; }
+  .heat-val.r { color:#e84855; }
+  .heat-val.g { color:#12a05c; }
+  .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .chip {
+    display:flex; align-items:center; gap:8px;
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:10px; padding:9px 12px;
+  }
+  .chip .cn { font-size:13px; font-weight:700; flex:1; }
+  .chip .lim { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#ffe4e6; color:#c9313e; }
+  .chip .tagi { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#eae4fb; color:#6a4bb8; }
+  .chip .taga { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e2ecfd; color:#2456c4; }
+  .chip .limg { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e8ecf3; color:#5a6678; }
+  .chip .cv { font-size:12px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th { text-align:left; padding:10px 8px; font-size:11px; color:#8892a6; font-weight:600; border-bottom:1px solid #e8ecf3; }
+  .tbl td { padding:10px 8px; border-bottom:1px solid #f1f4f9; }
+  .tbl .name { font-weight:600; }
+  .tbl .r { color:#e84855; font-weight:700; }
+  .tbl .g { color:#12a05c; font-weight:700; }
+  .tbl .n0 { color:#1a2233; font-weight:600; }
+  .tbl tr.grp td { font-size:12px; font-weight:700; color:#5a6678; background:#f7f9fc; padding:8px; }
+  .tbl tr.hot td { background:#fff9f0; }
+  .tbl .st { font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; margin-left:6px; }
+  .tbl .st.close { background:#e2ecfd; color:#2456c4; }
+  .tbl .st.live { background:#fff0dc; color:#b8690f; }
+  .tbl .st.ovn { background:#eae4fb; color:#6a4bb8; }
+  .mkt-legend {
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .mkt-legend span { display:flex; align-items:center; gap:5px; }
+  .mkt-legend .dot { width:6px; height:6px; border-radius:50%; }
+  .mkt-legend .dot.close { background:#3b6fe0; }
+  .mkt-legend .dot.live { background:#f0932b; }
+  .mkt-legend .dot.ovn { background:#6a4bb8; }
+  .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .gf-card {
+    background:#fff; border:1px solid #e8ecf3; border-radius:12px;
+    padding:14px 15px; position:relative; overflow:hidden;
+  }
+  .gf-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .gf-card.hot::before { background:#e84855; }
+  .gf-card.warm::before { background:#f0932b; }
+  .gf-card.cool::before { background:#3b6fe0; }
+  .gf-card.neut::before { background:#9aa6b8; }
+  .gf-top { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .gf-ico { font-size:20px; }
+  .gf-name { font-size:14px; font-weight:800; flex:1; }
+  .gf-status { font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px; }
+  .gf-status.hot { background:#ffe4e6; color:#c9313e; }
+  .gf-status.warm { background:#fff0dc; color:#b8690f; }
+  .gf-status.cool { background:#e2ecfd; color:#2456c4; }
+  .gf-status.neut { background:#eef1f6; color:#5a6678; }
+  .gf-card ul { list-style:none; }
+  .gf-card li {
+    position:relative; padding:6px 0 6px 14px; font-size:12.5px; line-height:1.7;
+    color:#3d4660; border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  .gf-card li:last-child { border-bottom:none; }
+  .gf-card li::before {
+    content:''; position:absolute; left:0; top:13px; width:4px; height:4px;
+    border-radius:50%; background:#b8c0ce;
+  }
+  .gf-card li b { color:#1a2233; }
+  .gf-card li .up { color:#e84855; font-weight:700; }
+  .gf-card li .dn { color:#12a05c; font-weight:700; }
+  .gf-src { font-size:10px; color:#9aa2b0; margin-top:7px; }
+  @media (max-width:480px) { .gf-grid { grid-template-columns:1fr; } }
+  .strat {
+    background:linear-gradient(145deg,#1a2233,#2a3550); border-radius:14px;
+    padding:22px 20px; color:#fff; margin-bottom:14px;
+  }
+  .strat-in h4 { font-size:16px; font-weight:800; margin-bottom:12px; }
+  .strat-in ul { list-style:none; }
+  .strat-in li {
+    position:relative; padding:8px 0 8px 18px; font-size:13px; line-height:1.85;
+    color:rgba(255,255,255,.82); border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .strat-in li:last-child { border-bottom:none; }
+  .strat-in li::before {
+    content:''; position:absolute; left:0; top:16px; width:6px; height:6px;
+    border-radius:50%; background:#4ade80;
+  }
+  .strat-in li b { color:#fff; }
+  .strat-in li .ph { color:#ff9aa5; font-weight:700; }
+  .strat-in li .pl { color:#7ee2a8; font-weight:700; }
+  .dirs { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .dir {
+    font-size:12px; font-weight:700; padding:6px 13px; border-radius:20px;
+    background:rgba(232,72,85,.2); color:#ff9aa5; border:1px solid rgba(232,72,85,.3);
+  }
+  .dir.cool {
+    background:rgba(59,111,224,.15); color:#93b5ff; border-color:rgba(59,111,224,.25);
+  }
+  .risk {
+    background:#fff5f5; border:1px solid #ffd5d5; border-radius:12px;
+    padding:16px 18px;
+  }
+  .risk h4 { font-size:14px; font-weight:800; color:#c9313e; margin-bottom:10px; }
+  .risk ul { list-style:none; }
+  .risk li {
+    position:relative; padding:7px 0 7px 18px; font-size:12.5px; line-height:1.8;
+    color:#5a3a3a; border-bottom:1px solid rgba(201,49,62,.08);
+  }
+  .risk li:last-child { border-bottom:none; }
+  .risk li::before {
+    content:'⚠'; position:absolute; left:0; top:7px; font-size:10px;
+  }
+  .risk li b { color:#c9313e; }
+  .foot {
+    padding:28px 26px 34px; background:linear-gradient(145deg,#1a2233,#131a2e);
+    color:rgba(255,255,255,.55); font-size:11.5px; line-height:1.8; text-align:center;
+  }
+  .foot .bk { font-size:14px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:10px; letter-spacing:1px; }
+  .sec-nav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,.95); backdrop-filter:blur(12px);
+    border-bottom:1px solid #e8ecf3; padding:10px 26px;
+    display:flex; align-items:center; gap:8px; overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .sec-nav::-webkit-scrollbar { display:none; }
+  .sec-nav-label {
+    font-size:12px; font-weight:700; color:#8892a6; white-space:nowrap;
+    margin-right:8px; flex-shrink:0;
+  }
+  .sec-nav a {
+    display:inline-block; font-size:12px; font-weight:600; color:#5a6678;
+    padding:5px 14px; border-radius:20px; white-space:nowrap;
+    background:#f1f4f9; text-decoration:none; transition:all .2s;
+    flex-shrink:0;
+  }
+  .sec-nav a:hover { background:#e2ecfd; color:#2456c4; }
+  .sec-nav a.active { background:#3b6fe0; color:#fff; }
+  .sec.active { animation: sec-highlight 1.5s ease; }
+  @keyframes sec-highlight {
+    0% { background:#fffde0; }
+    100% { background:#fff; }
+  }
+  @media (max-width:480px) {
+    .idx-grid { grid-template-columns:repeat(2,1fr); }
+    .chips { grid-template-columns:1fr; }
+    .heat-name { width:78px; font-size:11.5px; }
+    .heat-val { width:60px; font-size:12px; }
+    .hero h1 { font-size:23px; }
+    .sec-nav { padding:10px 12px; }
+    .sec-nav-label { font-size:12px; margin-right:6px; }
+    .sec-nav a { font-size:11px; padding:5px 12px; }
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var navLinks = document.querySelectorAll('.sec-nav a');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href').substring(1);
+      var target = document.getElementById(targetId);
+      if (target) {
+        var nav = document.querySelector('.sec-nav');
+        var navH = nav.offsetHeight;
+        var targetPos = target.getBoundingClientRect().top + window.pageYOffset - navH - 10;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        target.classList.add('active');
+        setTimeout(function() { target.classList.remove('active'); }, 1500);
+      }
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      this.classList.add('active');
+      setTimeout(function() { link.classList.remove('active'); }, 1500);
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="kicker">DAILY GLOBAL MARKET WATCH</div>
+      <h1>KOSPI崩3.73%韩国继续流血 · <em>布油站上110美元</em><br>纳指+1.11%存储反弹 · <i>人民币破6.68创四年新高</i></h1>
+      <div class="sub">沪指+0.12%勉强收红 · 成交1.46万亿 · 消费电子爆发 · 日经-1.30% · 欧股全线跌超1% · 黄金4162美元 · LPR按兵不动</div>
+      <div class="datebar">
+        <span>2026年10月20日 · 周二 · 收盘全维度分析</span>
+        <span class="pulse"><span class="dot"></span> LIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 板块导航 -->
+  <div class="sec-nav">
+    <span class="sec-nav-label">快速跳转：</span>
+    <a href="#sec-overview">📈 A股速览</a>
+    <a href="#sec-global">🌍 全球市场</a>
+    <a href="#sec-news">📰 环球要闻</a>
+    <a href="#sec-five">🔍 五维分析</a>
+    <a href="#sec-heat">🔥 板块热力</a>
+    <a href="#sec-stock">💰 焦点个股</a>
+    <a href="#sec-commodity">🛢️ 大宗商品</a>
+    <a href="#sec-grassroots">🏭 产业高频</a>
+    <a href="#sec-strategy">🎯 策略研判</a>
+  </div>
+
+  <!-- A股收盘速览 -->
+  <div class="sec" id="sec-overview">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">📈</div>
+      <div class="sec-title">A股收盘速览</div>
+      <div class="sec-note">10/20 15:00 收盘</div>
+    </div>
+
+    <div class="idx-grid">
+      <div class="idx up"><div class="n">上证指数</div><div class="v">3,735.37</div><div class="c">+0.12%</div></div>
+      <div class="idx down"><div class="n">深证成指</div><div class="v">11,801.29</div><div class="c">−0.14%</div></div>
+      <div class="idx down"><div class="n">创业板指</div><div class="v">2,739.20</div><div class="c">−0.26%</div></div>
+      <div class="idx up"><div class="n">科创50</div><div class="v">1,342.42</div><div class="c">+1.00%</div></div>
+    </div>
+
+    <div class="statbar">
+      <div class="stat"><div class="k">两市成交</div><div class="v n0">1.46万亿</div></div>
+      <div class="stat"><div class="k">较昨日</div><div class="v r">+200亿</div></div>
+      <div class="stat"><div class="k">涨停家数</div><div class="v r">55</div></div>
+      <div class="stat"><div class="k">下跌家数</div><div class="v g">2480</div></div>
+    </div>
+
+    <div class="callout">
+      <b>今日定性：大金融砸盘 · 消费电子独舞 · 科创逆势翻红 · 指数假阳真阴。</b>
+      沪指+0.12%报3735——看着是红的，但<b>深成指-0.14%、创业板-0.26%、沪深300-0.54%</b>，三个权重指数全是绿的。靠什么撑住？<b>科创50+1.00%逆势翻红</b>，北证50更是飙了+4.11%。但这不是"普涨"，是<b>资金从大金融逃向小科技</b>的极致分裂。
+      上午大金融集体砸盘——银行、证券、保险不护盘反手卖，<b>工行昨天刚创新高今天就砸</b>，资金从"中特估"涌向消费电子。全天<b>消费电子行业涨2.62%、主力净流入24.47亿居全行业首位</b>，长盈精密+19.99%、恒玄科技+20%涨停。成交1.46万亿比昨天多了200亿，<b>不是多头回来了，是资金在板块之间疯狂搬家</b>。
+      涨停55只、跌停约20只，涨跌比约3915:2480——<b>个股面比昨天好看多了</b>（昨天3129股下跌），但指数层面毫无进步，沪指在3700-3740区间继续磨。<b>这不是反弹，是"板块大搬家"——从银行搬到消费电子，从防御搬到进攻</b>。
+    </div>
+  </div>
+
+  <!-- 全球市场 -->
+  <div class="sec" id="sec-global">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">🌏</div>
+      <div class="sec-title">全球市场全景</div>
+      <div class="sec-note">数据截至 10/20 15:30</div>
+    </div>
+
+    <div class="mkt-legend">
+      <span><span class="dot close"></span><b>收盘</b>：A股/日韩 10/20</span>
+      <span><span class="dot live"></span><b>交易中</b>：港股 10/20</span>
+      <span><span class="dot ovn"></span><b>昨夜</b>：美股 10/19 · 欧股 10/19</span>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>市场 / 指数</th><th>点位</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="3">亚太 <span class="st close">10/20 收盘</span></td></tr>
+        <tr><td class="name">上证指数</td><td>3,735.37</td><td class="r">+0.12% 勉强收红</td></tr>
+        <tr><td class="name">深证成指</td><td>11,801.29</td><td class="g">−0.14% 微跌</td></tr>
+        <tr><td class="name">创业板指</td><td>2,739.20</td><td class="g">−0.26% 继续弱势</td></tr>
+        <tr><td class="name">科创50</td><td>1,342.42</td><td class="r">+1.00% 逆势翻红</td></tr>
+        <tr class="hot"><td class="name">恒生指数</td><td>≈23,750</td><td class="g">−2.1% 重阳后补跌</td></tr>
+        <tr class="hot"><td class="name">恒生科技</td><td>≈4,010</td><td class="g">−1.7% 科网股领跌</td></tr>
+        <tr class="hot"><td class="name">韩国 KOSPI</td><td>5,552.74</td><td class="g">−3.73% 暴跌!</td></tr>
+        <tr class="hot"><td class="name">日经225</td><td>64,075.42</td><td class="g">−1.30% 二连跌</td></tr>
+
+        <tr class="grp"><td colspan="3">美股 <span class="st ovn">10/19 周一收盘</span></td></tr>
+        <tr><td class="name">道琼斯</td><td>51,966.03</td><td class="g">−0.07% 微跌</td></tr>
+        <tr><td class="name">标普500</td><td>7,690.73</td><td class="r">+0.41%</td></tr>
+        <tr class="hot"><td class="name">纳斯达克</td><td>26,430.89</td><td class="r">+1.11% 存储反弹</td></tr>
+
+        <tr class="grp"><td colspan="3">欧股 <span class="st ovn">10/19 周一收盘</span></td></tr>
+        <tr class="hot"><td class="name">德国 DAX</td><td>25,319.77</td><td class="g">−1.18% 回吐</td></tr>
+        <tr><td class="name">法国 CAC40</td><td>7,868.05</td><td class="g">−1.11%</td></tr>
+        <tr><td class="name">英国 富时100</td><td>10,764.69</td><td class="g">−1.08%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue">
+      <b>全球图景：韩国继续流血、日本跟着挨刀、美股喘口气、欧股也翻脸。</b>
+      <b>KOSPI暴跌3.73%报5552</b>——上周崩7.56%触发熔断后，韩国股市只反弹了两天就继续跌。<b>外资持续撤离、半导体估值重估、韩元走弱</b>三重绞杀还没结束。三星、SK海力士继续被砸，<b>韩国国民年金持仓缩水引发政治讨论</b>，李在明说"涨幅过大回调在所难免"——这话听着像是在安慰人。
+      <b>日经-1.30%报64075</b>：连续第二天走低，AI与半导体板块遭获利回吐，20年期日债收益率升至3.785%——<b>债市在告诉股市"别太乐观"</b>。
+      <b>美股昨夜喘口气</b>：纳指+1.11%报26430，存储芯片全线反弹（美光+3.92%、SK海力士+4.65%），费城半导体终结八连跌。但道指-0.07%——<b>反弹集中在科技权重，传统股没跟上</b>。VIX降至18.26但CNN恐慌指数仍在25"恐惧区间"，<b>市场是"超跌反弹"不是"转势"</b>。
+      <b>欧股翻脸</b>：上周五逆势涨0.95%的DAX，周一就回吐-1.18%——<b>欧洲的"避风港"逻辑也就撑了一个周末</b>。富时100-1.08%、CAC40-1.11%，全线回调。
+      <b>A股</b>：沪指+0.12%在全球一片绿里勉强算红，但深成指/创业板/沪深300全是绿的——<b>跟全球节奏一致：指数靠几个大块头撑门面</b>。
+    </div>
+  </div>
+
+  <!-- 环球要闻 -->
+  <div class="sec" id="sec-news">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">📰</div>
+      <div class="sec-title">环球要闻 · 深度解读</div>
+      <div class="sec-note">9条核心新闻</div>
+    </div>
+
+    <div class="news-legend">
+      <span class="tag mini a">🔴 极重要</span>
+      <span class="tag mini b">🟠 重要</span>
+      <span class="tag mini c">🔵 关注</span>
+    </div>
+
+    <!-- 极重要 1 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src">韩联社</span>
+      </div>
+      <h3>韩国KOSPI暴跌3.73%报5552——上周熔断后仅反弹两天就继续崩，外资年内净卖出超199万亿韩元</h3>
+      <p>韩国KOSPI指数10月20日暴跌<span class="num">3.73%</span>，收报5552.74点，<span class="hl">距上周四触发熔断的暴跌日（-7.56%）仅过去一周</span>。三星电子、SK海力士继续领跌，外资年内累计净卖出超<span class="num">199万亿韩元</span>，其中三星+SK海力士合计约173万亿韩元占87%。韩国总统李在明表示"股市涨幅过大回调在所难免"，同时称"韩国股市确实被严重低估"。方舟投资凯茜·伍德表示"外资抛售并非基本面恶化"。</p>
+      <div class="impact">
+        <b>说人话：</b>上周崩7.56%触发熔断，这周又崩3.73%——<b>韩国股市已经进入"自由落体"模式</b>。外资疯狂撤离（年内净卖出199万亿韩元！），87%集中在三星和SK海力士——这不是"调整"，是<b>外资在系统性抛弃韩国存储芯片</b>。李在明说"被严重低估"——可市场不听。凯茜·伍德说"不是基本面恶化"——但股价在告诉你，市场认为基本面要恶化了。<b>长鑫4F²技术突破+美国CPI超预期+AI投资回报存疑，三把刀同时捅</b>。
+      </div>
+    </div>
+
+    <!-- 极重要 2 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">CNBC</span>
+        <span class="src intl">WSJ</span>
+        <span class="src intl">FT</span>
+      </div>
+      <h3>布油突破110美元——胡塞再袭沙特阿美+伊朗局势升级，全球能源危机阴云不散</h3>
+      <p>布伦特原油突破<span class="num">110美元/桶</span>关口，WTI站上100美元。据ET报道，布伦特10月20日盘中触及<span class="hl">109.76美元</span>。驱动因素：<b>①胡塞武装再次袭击沙特阿美设施</b>；②伊朗局势持续紧张，霍尔木兹海峡通航风险上升；③美国原油库存上周大减超预期。<span class="hl">高盛警告：若中东冲突升级，布油可能冲击120美元</span>。</p>
+      <div class="impact">
+        <b>说人话：</b>布油110美元、WTI 100美元——<b>两年前俄乌冲突时的油价又回来了</b>。但这回不是俄乌，是中东：胡塞打沙特、伊朗怂以色列，霍尔木兹海峡随时可能被掐。美国库存又在降——<b>供需两端都在推油价往上走</b>。高盛说"可能冲120"，这话不是吓你，是在定价"最坏情况"。油价110意味着什么？<b>全球通胀预期要重新校准，美联储降息更没戏了</b>。
+      </div>
+    </div>
+
+    <!-- 极重要 3 -->
+    <div class="news a">
+      <div class="news-top">
+        <span class="tag">🔴 极重要</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src intl">Reuters</span>
+        <span class="src">新华社</span>
+      </div>
+      <h3>10月LPR按兵不动：1年期3.0%、5年期3.6%——市场等来的"惊喜"落空了</h3>
+      <p>中国人民银行授权全国银行间同业拆借中心公布：<b>10月LPR 1年期<span class="num">3.00%</span>，5年期以上<span class="num">3.60%</span></b>，均与上月持平。此前市场对"四季度降息"有一定期待，但三季度GDP+4.5%止跌回升后，<span class="hl">央行选择了"观望"</span>。分析认为，当前货币政策处于"已放松但力度克制"的状态，<b>人民币汇率持续走强（在岸破6.68）也制约了降息空间</b>。</p>
+      <div class="impact">
+        <b>说人话：</b>LPR不动，市场"降息梦"碎了。但说实话，<b>这个结果不意外</b>——GDP+4.5%刚出来，央行没理由急着降；人民币又在升值（6.68创四年新高），降息会让汇率承压。问题是：<b>不降息对A股意味着什么？</b>意味着"政策宽松预期"这张牌又少了一张。科技股为什么连续被杀？因为市场在等"更大力度宽松"，结果等来的是"按兵不动"——<b>预期差就是杀估值</b>。
+      </div>
+    </div>
+
+    <!-- 重要 1 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">CNBC</span>
+        <span class="src intl">Reuters</span>
+        <span class="src">新华社</span>
+      </div>
+      <h3>美股存储芯片全线反弹：纳指+1.11%终结八连跌，但道指-0.07%——反弹不均匀</h3>
+      <p>美东时间10月19日周一，美股涨跌不一。<b>纳斯达克+1.11%报26430</b>，存储芯片强势反弹（美光+3.92%、SK海力士+4.65%、英特尔+5%），<span class="hl">费城半导体指数终结八连跌</span>。标普500+0.41%报7690。但道指-0.07%报51966——<b>反弹集中在科技权重，传统板块没跟上</b>。VIX降至18.26，CNN恐慌贪婪指数25.06仍在"恐惧"区间。</p>
+      <div class="impact">
+        <b>说人话：</b>纳指+1.11%听着不错，但道指-0.07%——<b>这说明反弹只发生在"上周跌最多的"</b>。美光+3.92%、SK海力士+4.65%、英特尔+5%——全是上周被锤得最惨的。VIX降了但CNN恐慌指数还在25（"恐惧"），<b>市场是"超跌反弹"不是"风险偏好回升"</b>。今晚A股科技能不能喘口气？看今晚美股能不能继续涨就知道了。
+      </div>
+    </div>
+
+    <!-- 重要 2 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Bloomberg</span>
+        <span class="src intl">FT</span>
+        <span class="src">财联社</span>
+      </div>
+      <h3>人民币在岸破6.68创四年新高——美元指数跌破102，中美利差倒挂加深</h3>
+      <p>10月20日，在岸人民币兑美元开盘报<span class="num">6.6853</span>，盘中最高升至<span class="hl">6.6831</span>，刷新2022年7月以来阶段性高点。人民币中间价报6.7208，小幅下调12基点。<b>美元指数跌至101.94</b>，连续走弱。离岸人民币约6.681。驱动因素：①美元持续走弱；②中国三季度GDP好于预期；③<b>外资流入中国债市</b>（10年国债1.68% vs 美债5.09%，虽然利差倒挂但汇率升值吸引套息资金）。</p>
+      <div class="impact">
+        <b>说人话：</b>人民币破6.68创四年新高——<b>这在两年前是不可想象的</b>。当时美元疯狂加息，人民币一度跌到7.3。现在反过来了：美元跌到102以下，人民币一路升值。原因？<b>美国经济数据忽好忽坏（CPI超预期但PPI也爆表），市场不知道美联储到底要干嘛</b>；中国GDP+4.5%虽然不算强但"稳住了"。问题是：人民币升值对A股是双刃剑——<b>利好外资流入，但压制出口竞争力，也制约央行降息空间</b>。
+      </div>
+    </div>
+
+    <!-- 重要 3 -->
+    <div class="news b">
+      <div class="news-top">
+        <span class="tag">🟠 重要</span>
+        <span class="src intl">Reuters</span>
+        <span class="src intl">WSJ</span>
+        <span class="src">新浪财经</span>
+      </div>
+      <h3>国常会部署深化"人工智能+"行动——但A股AI板块今天继续被杀，政策利好已钝化</h3>
+      <p>国务院常务会议10月19日部署深化拓展"人工智能+"行动，强调<b>推动AI与制造业深度融合、加快算力基础设施建设</b>。但市场反应冷淡——<span class="hl">A股AI相关板块今天继续调整</span>，半导体、光通信、CPO均走弱。分析认为，<b>政策利好已经"钝化"</b>：从7月的"AI+行动"到现在的"深化拓展"，措辞升级但实质增量有限，<b>市场在等更具体的财政刺激</b>。</p>
+      <div class="impact">
+        <b>说人话：</b>国常会又说AI了——但A股什么反应？<b>继续杀</b>。为什么？因为从7月开始，几乎每个月都有"AI+"的政策出来，市场已经从"兴奋"变成"麻木"了。<b>没有新钱进来，光靠政策喊话拉不动板块</b>。资金的选择很诚实：从AI跑去消费电子、跑去银行、跑去军工——<b>哪里有确定性去哪里</b>。
+      </div>
+    </div>
+
+    <!-- 关注 1 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">CNBC</span>
+        <span class="src intl">Bloomberg</span>
+      </div>
+      <h3>欧股全线回调：DAX-1.18%、CAC40-1.11%、富时-1.08%——上周五的"避风港"只撑了一个周末</h3>
+      <p>欧洲三大股指10月19日周一全线下跌。<b>DAX-1.18%报25319</b>，回吐上周五+0.95%的大部分涨幅；<span class="hl">CAC40-1.11%报7868</span>；富时100-1.08%报10764。驱动因素：①油价飙升推高通胀预期；②全球科技股波动传导；③欧元走强压制出口股。</p>
+      <div class="impact">
+        <b>说人话：</b>上周五DAX涨0.95%被夸"避风港"，周一就跌1.18%——<b>避风港的保质期只有一个周末</b>。全球市场现在就是这样：没有哪个市场能独善其身，油价110+美元走弱+科技股波动，<b>所有市场都在同一条船上</b>。
+      </div>
+    </div>
+
+    <!-- 关注 2 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src">东方财富</span>
+        <span class="src">新浪财经</span>
+      </div>
+      <h3>消费电子爆发：长盈精密+20%、恒玄科技+20%——AI终端接棒AI算力成新主线？</h3>
+      <p>A股消费电子板块10月20日全面爆发。<b>消费电子行业涨2.62%，主力净流入24.47亿居全行业首位</b>。个股方面：长盈精密+19.99%（主力净流入6.56亿）、恒玄科技+20%涨停、乐鑫科技+15.84%、移远通信+10%、奥比中光+16.65%、歌尔股份+5.92%。<span class="hl">AI终端（AI手机/AI眼镜/AI PC）正在接棒AI算力成为新主线</span>。</p>
+      <div class="impact">
+        <b>说人话：</b>AI算力（CPO/光模块/半导体）被杀了一周，<b>AI终端（消费电子）今天集体爆发</b>。逻辑很清楚：算力端估值太高+CoreWeave债务危机动摇融资逻辑，资金从"建数据中心"转向"卖终端产品"。长盈精密+20%、恒玄科技+20%——<b>这是AI产业链的"高低切换"</b>，从上游算力切到下游应用。能不能持续？看今晚美股苹果/特斯拉的表现。
+      </div>
+    </div>
+
+    <!-- 关注 3 -->
+    <div class="news c">
+      <div class="news-top">
+        <span class="tag">🔵 关注</span>
+        <span class="src intl">Reuters</span>
+        <span class="src">36氪</span>
+      </div>
+      <h3>宁德时代明日发三季报+氢能政策催化——锂电池板块成明日焦点</h3>
+      <p>宁德时代将于10月21日发布2026年三季报。市场关注：①<b>营收增速能否维持30%+</b>；②海外产能布局进展；③固态电池商业化时间表。同时，今日京城股份涨停（氢能储运概念），<b>氢能政策催化叠加三季报窗口</b>，新能源板块或迎短期博弈机会。但今日宁德时代港股跌超6%——<b>市场在"等财报"还是在"跑"？</b></p>
+      <div class="impact">
+        <b>说人话：</b>宁德时代明天发财报，今天港股先跌为敬-6%——<b>市场在赌财报不及预期</b>。碳酸锂腰斩跌破11万的阴影还在，锂电池板块的"量增价跌"逻辑还没走完。但如果财报超预期，可能触发"利空出尽"反弹。<b>明天是新能源板块的关键一天</b>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 五维度分析 -->
+  <div class="sec" id="sec-five">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#eae4fb">🔍</div>
+      <div class="sec-title">五维度深度分析</div>
+      <div class="sec-note">消息/情绪/技术/政策/资金</div>
+    </div>
+
+    <div class="dim d1">
+      <div class="dim-h">
+        <span class="e">📰</span>
+        <span class="t">消息面</span>
+        <span class="score">偏空 ★★★☆☆</span>
+      </div>
+      <ul>
+        <li><b>KOSPI暴跌3.73%</b>：上周熔断后仅反弹两天就继续崩，外资系统性撤离存储芯片，韩国国民年金持仓缩水引发政治讨论</li>
+        <li><b>布油突破110美元</b>：胡塞再袭沙特+伊朗局势升级，高盛警告可能冲120，全球能源危机阴云不散</li>
+        <li><b>10月LPR按兵不动</b>：1年期3.0%、5年期3.6%不变，市场降息预期落空</li>
+        <li><b>美股存储反弹</b>：纳指+1.11%终结半导体八连跌，但道指-0.07%反弹不均匀</li>
+        <li><b>国常会"AI+"</b>：深化拓展AI与制造业融合，但市场已钝化</li>
+        <li><b>人民币破6.68</b>：创四年新高，美元跌破102，中美利差倒挂加深</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;font-weight:600;">结论：消息面偏空。韩国崩+油价110+LPR不动，三重利空叠加。美股存储反弹是"超跌修复"不是"转势信号"。唯一亮点是人民币升值，但双刃剑效应明显。</p>
+    </div>
+
+    <div class="dim d2">
+      <div class="dim-h">
+        <span class="e">😰</span>
+        <span class="t">情绪面</span>
+        <span class="score">恐惧 ★★☆☆☆</span>
+      </div>
+      <ul>
+        <li><b>CNN恐慌贪婪指数25</b>（"恐惧"区间），VIX 18.26——美股情绪仍在恐慌</li>
+        <li><b>A股成交1.46万亿</b>：比昨天多200亿，但不是多头回来，是资金在板块间搬家</li>
+        <li><b>涨停55只 vs 跌停约20只</b>：涨跌比3915:2480，个股面比昨天好，但指数无进步</li>
+        <li><b>大金融砸盘</b>：银行/证券/保险集体卖——"中特估"叙事动摇</li>
+        <li><b>消费电子涨停潮</b>：资金从算力切向终端，"高低切换"而非"全面做多"</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;font-weight:600;">结论：情绪仍在恐惧区间。全球恐慌指数25、VIX 18——市场不是"恐慌性抛售"但也不是"贪婪性买入"。A股内部"板块大搬家"说明资金在找确定性，不是在加仓。</p>
+    </div>
+
+    <div class="dim d3">
+      <div class="dim-h">
+        <span class="e">📐</span>
+        <span class="t">技术面</span>
+        <span class="score">弱势 ★★☆☆☆</span>
+      </div>
+      <ul>
+        <li><b>沪指</b>：3735，四条均线全部跌破（MA5≈3771/MA10≈3807/MA20≈3862/MA60≈3900），MA20下行斜率明确</li>
+        <li><b>近12个交易日仅4天收红</b>，10/15单日-2.3%放量下杀后仅弱反弹，未收复任何均线</li>
+        <li><b>创业板</b>：2739，连续失守2800/2750，下方支撑看2700整数关口</li>
+        <li><b>科创50</b>：1342逆势+1%，但绝对位置仍在低位，属于"超跌反弹"而非"趋势反转"</li>
+        <li><b>KOSPI</b>：5552，跌破上周四暴跌日低点5554——技术面完全破位</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;font-weight:600;">结论：技术面弱势。沪指四条均线全破、MA20下行，短期看不到反转信号。创业板2700是关键支撑，破了就看2600。科创50逆势但力度不够，不构成"风格切换"。</p>
+    </div>
+
+    <div class="dim d4">
+      <div class="dim-h">
+        <span class="e">🏛️</span>
+        <span class="t">政策面</span>
+        <span class="score">中性 ★★★☆☆</span>
+      </div>
+      <ul>
+        <li><b>LPR按兵不动</b>：GDP+4.5%后央行选择观望，人民币升值制约降息空间</li>
+        <li><b>国常会"AI+"</b>：深化拓展但措辞升级有限，市场已钝化</li>
+        <li><b>氢能政策催化</b>：京城股份涨停（氢能储运），但板块整体弱势</li>
+        <li><b>央行表态</b>：将出台多项政策举措——"将"字意味着还没到</li>
+        <li><b>三季度GDP+4.5%</b>：全年5%目标基本可达成，政策"不急"的底气更足</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;font-weight:600;">结论：政策面中性偏克制。LPR不动+AI+钝化+氢能零星——政策在"等"，等更明确的经济下行信号或外部冲击。短期不会有"大水漫灌"式刺激。</p>
+    </div>
+
+    <div class="dim d5">
+      <div class="dim-h">
+        <span class="e">💰</span>
+        <span class="t">资金面</span>
+        <span class="score">分化 ★★☆☆☆</span>
+      </div>
+      <ul>
+        <li><b>消费电子净流入24.47亿</b>居首：长盈精密+6.56亿、移远通信+3.44亿、歌尔+2.28亿</li>
+        <li><b>大金融净流出</b>：银行/证券/保险集体被砸，"中特估"资金撤退</li>
+        <li><b>北证50+4.11%</b>：小盘股获资金青睐，"高低切换"明显</li>
+        <li><b>外资</b>：人民币升值吸引套息资金，但A股整体外资流入有限</li>
+        <li><b>ETF</b>：沪深300ETF/上证50ETF尾盘放量——国家队"护盘"但不"拉盘"</li>
+        <li><b>韩国</b>：外资年内净卖出199万亿韩元，87%集中在三星+SK海力士</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;font-weight:600;">结论：资金面极度分化。消费电子吸金24亿 vs 大金融被砸——资金在做"板块大搬家"。国家队尾盘托底但不主动拉升。韩国被外资系统性抛弃。整体来看，资金在"避险+找确定性"，不是在"加仓"。</p>
+    </div>
+  </div>
+
+  <!-- 板块热力图 -->
+  <div class="sec" id="sec-heat">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#ffe4e6">🔥</div>
+      <div class="sec-title">板块热力图</div>
+      <div class="sec-note">A股 10/20 收盘</div>
+    </div>
+
+    <div class="heat">
+      <div class="heat-row"><div class="heat-name">消费电子</div><div class="heat-track"><div class="heat-fill up" style="width:95%"></div></div><div class="heat-val r">+2.62%</div></div>
+      <div class="heat-row"><div class="heat-name">北证50</div><div class="heat-track"><div class="heat-fill up" style="width:90%"></div></div><div class="heat-val r">+4.11%</div></div>
+      <div class="heat-row"><div class="heat-name">科创50</div><div class="heat-track"><div class="heat-fill up" style="width:50%"></div></div><div class="heat-val r">+1.00%</div></div>
+      <div class="heat-row"><div class="heat-name">教育</div><div class="heat-track"><div class="heat-fill up" style="width:40%"></div></div><div class="heat-val r">+0.8%</div></div>
+      <div class="heat-row"><div class="heat-name">农业</div><div class="heat-track"><div class="heat-fill up" style="width:30%"></div></div><div class="heat-val r">+0.5%</div></div>
+      <div class="heat-row"><div class="heat-name">上证指数</div><div class="heat-track"><div class="heat-fill up" style="width:10%"></div></div><div class="heat-val r">+0.12%</div></div>
+      <div class="heat-row"><div class="heat-name">深证成指</div><div class="heat-track"><div class="heat-fill down" style="width:12%"></div></div><div class="heat-val g">−0.14%</div></div>
+      <div class="heat-row"><div class="heat-name">创业板指</div><div class="heat-track"><div class="heat-fill down" style="width:22%"></div></div><div class="heat-val g">−0.26%</div></div>
+      <div class="heat-row"><div class="heat-name">沪深300</div><div class="heat-track"><div class="heat-fill down" style="width:45%"></div></div><div class="heat-val g">−0.54%</div></div>
+      <div class="heat-row"><div class="heat-name">煤炭</div><div class="heat-track"><div class="heat-fill down" style="width:55%"></div></div><div class="heat-val g">−1.2%</div></div>
+    </div>
+
+    <div class="callout">
+      <b>板块格局总结：消费电子独秀 · 大金融集体砸盘 · 科创/北证逆势 · 煤炭领跌。</b>
+      今天的板块图只有一个词：<b>"搬家"</b>。资金从哪搬？银行/证券/保险（昨天护盘的"中特估"）；搬到哪？消费电子（长盈精密/恒玄科技双双+20%涨停）、北证50（+4.11%小盘股狂欢）。科创50+1.00%逆势翻红——<b>AI产业链内部"从算力切向终端"</b>。煤炭-1.2%领跌——油价110理论上利好煤炭，但A股逻辑是"防御板块被抛弃"。沪深300-0.54%——<b>权重股全绿，指数靠科创和上证50撑着</b>。
+    </div>
+  </div>
+
+  <!-- 焦点个股 -->
+  <div class="sec" id="sec-stock">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0dc">💰</div>
+      <div class="sec-title">焦点个股</div>
+      <div class="sec-note">A股/港股/海外 10/20</div>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><span class="cn">长盈精密</span><span class="lim">涨停</span><span class="cv r">+19.99%</span></div>
+      <div class="chip"><span class="cn">恒玄科技</span><span class="lim">涨停</span><span class="cv r">+20.00%</span></div>
+      <div class="chip"><span class="cn">乐鑫科技</span><span class="taga">消费电子</span><span class="cv r">+15.84%</span></div>
+      <div class="chip"><span class="cn">奥比中光</span><span class="taga">3D传感</span><span class="cv r">+16.65%</span></div>
+      <div class="chip"><span class="cn">移远通信</span><span class="taga">物联网</span><span class="cv r">+10.00%</span></div>
+      <div class="chip"><span class="cn">京城股份</span><span class="lim">涨停</span><span class="cv r">+9.20%</span></div>
+      <div class="chip"><span class="cn">三峡新材</span><span class="lim">涨停</span><span class="cv r">+10.00%</span></div>
+      <div class="chip"><span class="cn">歌尔股份</span><span class="taga">AR/VR</span><span class="cv r">+5.92%</span></div>
+      <div class="chip"><span class="cn">方达控股(港)</span><span class="tagi">CXO</span><span class="cv r">+18.42%</span></div>
+      <div class="chip"><span class="cn">联想集团(港)</span><span class="limg">科网股</span><span class="cv g">−7.2%</span></div>
+      <div class="chip"><span class="cn">宁德时代(港)</span><span class="limg">锂电池</span><span class="cv g">−6.3%</span></div>
+      <div class="chip"><span class="cn">阿里巴巴(港)</span><span class="limg">科网股</span><span class="cv g">−3.5%</span></div>
+      <div class="chip"><span class="cn">美光(美)</span><span class="tagi">存储</span><span class="cv r">+3.92%</span></div>
+      <div class="chip"><span class="cn">SK海力士(美)</span><span class="tagi">存储</span><span class="cv r">+4.65%</span></div>
+      <div class="chip"><span class="cn">英特尔(美)</span><span class="tagi">半导体</span><span class="cv r">+5.00%</span></div>
+      <div class="chip"><span class="cn">紫金黄金国际(港)</span><span class="limg">黄金股</span><span class="cv g">−6.1%</span></div>
+    </div>
+
+    <div class="callout blue" style="margin-top:16px;">
+      <b>三个对比：</b><br>
+      <b>①A股消费电子 vs 港股科网股</b>：长盈精密+20%/恒玄科技+20% vs 联想-7.2%/阿里-3.5%——<b>同一个"AI"主题，A股炒终端、港股杀权重</b>。<br>
+      <b>②美股存储反弹 vs 韩国存储暴跌</b>：美光+3.92%/SK海力士美股+4.65% vs SK海力士韩国-3.73%（KOSPI整体）——<b>同一家公司，在两个市场走势相反</b>。说明什么？美股是"超跌反弹"，韩国是"外资系统性撤离"。<br>
+      <b>③宁德时代A股 vs 港股</b>：A股锂电池板块今天表现平稳 vs 港股宁德时代-6.3%——<b>明天A股发三季报，港股在"提前定价"利空</b>。
+    </div>
+  </div>
+
+  <!-- 大宗商品 -->
+  <div class="sec" id="sec-commodity">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#fff0e0">🛢️</div>
+      <div class="sec-title">大宗商品 · 汇率 · 利率</div>
+      <div class="sec-note">10/20 实时</div>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>品种</th><th>价格</th><th>涨跌</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="3">能源</td></tr>
+        <tr class="hot"><td class="name">WTI原油</td><td>$100.67/桶</td><td class="r">+0.43% 站上100</td></tr>
+        <tr class="hot"><td class="name">布伦特原油</td><td>$109.76/桶</td><td class="r">+0.20% 逼近110</td></tr>
+        <tr><td class="name">天然气</td><td>$3.25</td><td class="g">−0.92%</td></tr>
+
+        <tr class="grp"><td colspan="3">贵金属 & 基本金属</td></tr>
+        <tr><td class="name">黄金</td><td>$4,162/盎司</td><td class="g">−0.36% 高位盘整</td></tr>
+        <tr><td class="name">白银</td><td>$52.3/盎司</td><td class="g">−0.5%</td></tr>
+        <tr><td class="name">伦铜</td><td>$9,850/吨</td><td class="g">−0.8%</td></tr>
+        <tr><td class="name">伦铝</td><td>$2,580/吨</td><td class="g">−0.6%</td></tr>
+
+        <tr class="grp"><td colspan="3">汇率</td></tr>
+        <tr class="hot"><td class="name">美元指数</td><td>101.94</td><td class="g">−0.04% 跌破102</td></tr>
+        <tr class="hot"><td class="name">在岸人民币</td><td>6.6831</td><td class="r">+0.14% 破6.68</td></tr>
+        <tr><td class="name">离岸人民币</td><td>≈6.681</td><td class="r">升值</td></tr>
+        <tr><td class="name">人民币中间价</td><td>6.7208</td><td class="g">下调12基点</td></tr>
+
+        <tr class="grp"><td colspan="3">利率</td></tr>
+        <tr class="hot"><td class="name">美国10年国债</td><td>5.09%</td><td class="r">+2bp 回升</td></tr>
+        <tr><td class="name">中国10年国债</td><td>1.68%</td><td class="n0">持平 低位平稳</td></tr>
+        <tr><td class="name">中美利差</td><td>341bp</td><td class="r">倒挂加深</td></tr>
+        <tr><td class="name">LPR 1年期</td><td>3.00%</td><td class="n0">持平</td></tr>
+        <tr><td class="name">LPR 5年期</td><td>3.60%</td><td class="n0">持平</td></tr>
+        <tr><td class="name">20年日债</td><td>3.785%</td><td class="r">+1.5bp</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:14px;">
+      <b>能源：</b>布油110、WTI 100——<b>两年前俄乌冲突时的油价回来了</b>。胡塞打沙特+伊朗紧张+美国库存大减，供需两端推升。高盛警告冲120不是吓你。<br><br>
+      <b>贵金属/金属：</b>黄金4162高位盘整——美元走弱理论上利好黄金，但美债5.09%回升压制。伦铜/伦铝小跌——<b>全球制造业PMI走弱压制工业金属需求预期</b>。<br><br>
+      <b>汇率：</b>人民币破6.68创四年新高、美元跌破102——<b>这是2022年以来人民币最强水平</b>。升值利好外资流入但制约降息空间和出口竞争力。<br><br>
+      <b>利率：</b>10年美债5.09%回升、中国10年国债1.68%持平——<b>中美利差341bp倒挂加深</b>。LPR不动，央行"以不变应万变"。20年日债3.785%创新高——日本债市也在"告诉股市别太乐观"。
+    </div>
+  </div>
+
+  <!-- 产业高频数据 -->
+  <div class="sec" id="sec-grassroots">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#e2ecfd">🏭</div>
+      <div class="sec-title">产业高频数据 · 机构/大户必读</div>
+      <div class="sec-note">6大产业链跟踪</div>
+    </div>
+
+    <div class="gf-grid">
+      <div class="gf-card hot">
+        <div class="gf-top">
+          <span class="gf-ico">📱</span>
+          <span class="gf-name">消费电子/AI终端</span>
+          <span class="gf-status hot">🔥 爆发</span>
+        </div>
+        <ul>
+          <li><b>行业涨2.62%</b>，主力净流入<span class="up">24.47亿</span>居全行业首位</li>
+          <li>长盈精密<span class="up">+19.99%</span>（净流入6.56亿），恒玄科技<span class="up">+20%</span>涨停</li>
+          <li>乐鑫科技<span class="up">+15.84%</span>、移远通信<span class="up">+10%</span>（净流入3.44亿）</li>
+          <li>奥比中光<span class="up">+16.65%</span>（3D传感），歌尔股份<span class="up">+5.92%</span>（净流入2.28亿）</li>
+          <li>AI终端（AI手机/AI眼镜/AI PC）<b>接棒AI算力成新主线</b></li>
+          <li><b>关注：</b>今晚苹果/特斯拉表现决定持续性</li>
+        </ul>
+        <div class="gf-src">来源：东方财富 · 新浪财经</div>
+      </div>
+
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">🏦</span>
+          <span class="gf-name">银行/大金融</span>
+          <span class="gf-status cool">❄️ 砸盘</span>
+        </div>
+        <ul>
+          <li>银行/证券/保险<b>集体走弱</b>，昨日护盘今日反手卖</li>
+          <li>工行昨日创新高今日回落——<b>"中特估"叙事动摇</b></li>
+          <li>证券板块午后异动但未能翻红</li>
+          <li>沪深300<span class="dn">-0.54%</span>——权重股全绿</li>
+          <li>资金从"中特估"流向消费电子——<b>板块大搬家</b></li>
+          <li><b>关注：</b>工行股权登记日（明日）派息407亿后续走势</li>
+        </ul>
+        <div class="gf-src">来源：东方财富 · Wind</div>
+      </div>
+
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🛢️</span>
+          <span class="gf-name">能源/石化</span>
+          <span class="gf-status warm">⚡ 油价110</span>
+        </div>
+        <ul>
+          <li>布油<span class="up">109.76美元</span>逼近110，WTI<span class="up">100.67美元</span>站上100</li>
+          <li>胡塞再袭沙特阿美+伊朗局势升级——<b>地缘风险持续</b></li>
+          <li>美国原油库存上周大减超预期</li>
+          <li>高盛警告：冲突升级布油可能冲<span class="up">120美元</span></li>
+          <li>A股煤炭板块<span class="dn">-1.2%</span>——<b>油价涨但A股煤炭不跟</b></li>
+          <li><b>关注：</b>霍尔木兹海峡通航风险</li>
+        </ul>
+        <div class="gf-src">来源：Reuters · EIA · 高盛</div>
+      </div>
+
+      <div class="gf-card cool">
+        <div class="gf-top">
+          <span class="gf-ico">💾</span>
+          <span class="gf-name">半导体/存储</span>
+          <span class="gf-status cool">❄️ 分化</span>
+        </div>
+        <ul>
+          <li>美股存储反弹：美光<span class="up">+3.92%</span>、SK海力士<span class="up">+4.65%</span>、英特尔<span class="up">+5%</span></li>
+          <li>费城半导体<b>终结八连跌</b>——但仅"超跌反弹"</li>
+          <li>韩国KOSPI<span class="dn">-3.73%</span>——<b>同一家公司两个市场走势相反</b></li>
+          <li>A股半导体板块今日表现平淡</li>
+          <li>外资年内净卖出韩国股票<span class="dn">199万亿韩元</span></li>
+          <li><b>关注：</b>今晚美股存储能否继续涨</li>
+        </ul>
+        <div class="gf-src">来源：CNBC · Bloomberg · 韩联社</div>
+      </div>
+
+      <div class="gf-card warm">
+        <div class="gf-top">
+          <span class="gf-ico">🔋</span>
+          <span class="gf-name">新能源/锂电池</span>
+          <span class="gf-status warm">⚡ 等财报</span>
+        </div>
+        <ul>
+          <li>宁德时代港股<span class="dn">-6.3%</span>——<b>明天发三季报，港股提前定价利空</b></li>
+          <li>碳酸锂期货此前暴跌8.37%跌破11万——<b>"量增价跌"逻辑未完</b></li>
+          <li>京城股份涨停（氢能储运+9.2%）——<b>氢能政策催化</b></li>
+          <li>A股锂电池板块整体平稳</li>
+          <li>工信部此前警告"新型电池产业不能盲目大干快上"</li>
+          <li><b>关注：</b>明日宁德时代三季报——营收增速/固态电池/海外产能</li>
+        </ul>
+        <div class="gf-src">来源：东方财富 · 工信部 · 雪球</div>
+      </div>
+
+      <div class="gf-card neut">
+        <div class="gf-top">
+          <span class="gf-ico">💊</span>
+          <span class="gf-name">创新药/CXO</span>
+          <span class="gf-status hot">🔥 逆势</span>
+        </div>
+        <ul>
+          <li>港股CXO概念涨幅居前：方达控股<span class="up">+18.42%</span></li>
+          <li>药明生物<span class="up">+5.5%</span>、康龙化成<span class="up">+4.7%</span></li>
+          <li>乐普生物<span class="up">+8%</span>——创新药概念逆势走高</li>
+          <li>A股医药板块今日表现分化</li>
+          <li>全球创新药审批加速+出海逻辑支撑</li>
+          <li><b>关注：</b>是否有持续资金流入</li>
+        </ul>
+        <div class="gf-src">来源：东方财富 · 凤凰网</div>
+      </div>
+    </div>
+
+    <div class="callout blue" style="margin-top:16px;">
+      <b>三条产业链信号：</b><br>
+      <b>①AI产业链"高低切换"</b>：从算力（CPO/光模块/半导体）切向终端（消费电子/AI手机/AI眼镜），长盈精密/恒玄科技+20%涨停。这不是"AI退潮"，是"AI内部轮动"。<br>
+      <b>②能源危机2.0</b>：布油110、WTI 100——如果持续下去，全球通胀预期要重新校准。A股煤炭不跟油价涨，说明市场认为"涨不久"。但如果霍尔木兹海峡出事，就不是"涨不久"的问题了。<br>
+      <b>③存储芯片"两个世界"</b>：美股存储反弹 vs 韩国存储暴跌——同一批公司（三星/SK海力士/美光），在两个市场走势完全相反。这说明"基本面"不是核心驱动，<b>"资金流向"才是</b>——外资在系统性撤离韩国。
+    </div>
+  </div>
+
+  <!-- 策略研判 -->
+  <div class="sec" id="sec-strategy">
+    <div class="sec-head">
+      <div class="sec-ico" style="background:#eae4fb">🎯</div>
+      <div class="sec-title">策略研判</div>
+      <div class="sec-note">短期/中期/长期</div>
+    </div>
+
+    <div class="strat">
+      <div class="strat-in">
+        <h4>📌 短期（1-3天）</h4>
+        <ul>
+          <li>沪指<span class="ph">3700-3740区间震荡</span>，四条均线全破，短期看不到反转信号</li>
+          <li>消费电子能否持续是<b>关键</b>——今晚美股苹果/特斯拉表现决定明天A股科技方向</li>
+          <li>明天宁德时代三季报——<b>新能源板块的"审判日"</b></li>
+          <li>KOSPI继续崩的话，<b>今晚美股存储反弹可能被打回去</b></li>
+          <li>布油110如果持续，<b>全球通胀交易重启，A股出口链承压</b></li>
+        </ul>
+
+        <h4 style="margin-top:16px;">📌 中期（1-3个月）</h4>
+        <ul>
+          <li>A股处于<span class="ph">"政策观望期"</span>——LPR不动、GDP+4.5%达标，短期不会有大力度刺激</li>
+          <li>人民币升值双刃剑：<span class="pl">利好外资流入</span>但<span class="ph">制约降息+压制出口</span></li>
+          <li>AI产业链"高低切换"可能持续——<b>从算力到终端到应用</b>，关注有业绩兑现的方向</li>
+          <li>韩国如果继续崩，<b>可能触发全球存储芯片"估值重置"</b>——对A股半导体是双刃剑</li>
+          <li>三季报窗口——<b>业绩为王</b>，没有业绩的题材股继续被杀</li>
+        </ul>
+
+        <h4 style="margin-top:16px;">📌 长期（3-6个月）</h4>
+        <ul>
+          <li>全球"滞胀"风险上升：油价110+美国CPI 3.7%+PPI爆表——<b>美联储降息越来越远</b></li>
+          <li>中国"稳增长"底线思维：GDP+4.5%达标，政策不急但<span class="pl">底线明确</span></li>
+          <li>AI产业链从"概念炒作"进入"业绩验证"阶段——<b>有订单/有利润的活下来，没钱的被淘汰</b></li>
+          <li>人民币升值周期如果持续，<span class="pl">中国资产重估</span>是长期主题</li>
+          <li>韩国存储芯片"崩塌"可能重塑全球半导体竞争格局——<b>中国长鑫/长江存储的机会窗口</b></li>
+        </ul>
+
+        <div class="dirs">
+          <span class="dir">消费电子/AI终端</span>
+          <span class="dir">创新药/CXO</span>
+          <span class="dir">氢能储运</span>
+          <span class="dir cool">银行（高股息）</span>
+          <span class="dir cool">军工（政策催化）</span>
+          <span class="dir">存储芯片（超跌）</span>
+          <span class="dir cool">煤炭（防御）</span>
+          <span class="dir">新能源（等财报）</span>
+          <span class="dir cool">出口链（人民币升值受益）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h4>⚠ 风险清单</h4>
+      <ul>
+        <li><b>KOSPI继续崩</b>：如果跌破5400可能触发第二次熔断，全球存储链连锁反应</li>
+        <li><b>布油冲120</b>：霍尔木兹海峡若出事，全球能源危机2.0，通胀交易重启</li>
+        <li><b>宁德时代财报不及预期</b>：新能源板块可能补跌，拖累创业板</li>
+        <li><b>美股"超跌反弹"失败</b>：如果今晚美股存储回落，明天A股科技继续被杀</li>
+        <li><b>人民币升值过快</b>：如果破6.65，出口链承压+央行可能干预汇率</li>
+        <li><b>三季报暴雷</b>：本周密集发布期，业绩不及预期的个股可能被"杀估值+杀业绩"</li>
+        <li><b>地缘黑天鹅</b>：中东/台海/朝鲜——任何突发事件都可能触发全球risk-off</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="foot">
+    <div class="bk">每日全球股市观察 · DAILY GLOBAL MARKET WATCH</div>
+    <div>数据源：新浪财经 · 东方财富 · Wind · Reuters · Bloomberg · CNBC · WSJ · FT · 韩联社 · 新华社 · 财联社 · EIA · 高盛</div>
+    <div style="margin-top:8px;">本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。</div>
+    <div style="margin-top:8px;">2026年10月20日 · 自动生成</div>
+  </div>
+
+</div>
+</body>
+</html>
