@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年10月23日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6;
+    color: #1a2233;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
+  .hero {
+    position: relative;
+    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
+    padding: 40px 26px 34px;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background: radial-gradient(circle, rgba(232,72,85,.28) 0%, transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:280px; height:280px; border-radius:50%;
+    background: radial-gradient(circle, rgba(64,158,255,.24) 0%, transparent 70%);
+    bottom:-160px; left:-90px;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .kicker {
+    display:inline-block; font-size:11px; letter-spacing:3px; font-weight:600;
+    background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1 { font-size:26px; font-weight:800; letter-spacing:-.6px; line-height:1.32; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; color:#ff9aa5; }
+  .hero h1 i { font-style:normal; color:#7ee2a8; }
+  .hero .sub { font-size:13.5px; color:rgba(255,255,255,.72); }
+  .hero .datebar {
+    margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
+    display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
+  }
+  .pulse { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
+  .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
+  .sec:last-of-type { border-bottom: none; }
+  .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .sec-ico {
+    width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
+  .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .idx {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
+    padding:12px 9px 11px; position:relative; overflow:hidden;
+  }
+  .idx::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .idx.up::before { background:#e84855; }
+  .idx.down::before { background:#12a05c; }
+  .idx .n { font-size:11px; color:#7c8698; margin-bottom:5px; font-weight:500; }
+  .idx .v { font-size:15.5px; font-weight:800; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+  .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .up .v, .up .c { color:#e84855; }
+  .down .v, .down .c { color:#12a05c; }
+  .statbar {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:#e8ecf3; border-radius:11px; overflow:hidden; margin-top:12px;
+  }
+  .stat { background:#fff; padding:12px 6px; text-align:center; }
+  .stat .k { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
+  .stat .v { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .r { color:#e84855; } .g { color:#12a05c; } .n0 { color:#1a2233; }
+  .callout {
+    margin-top:14px; background:linear-gradient(135deg,#fff6f6,#fff9f0);
+    border:1px solid #ffdcd8; border-left:3px solid #e84855;
+    border-radius:10px; padding:13px 15px; font-size:13.5px; color:#5a3a3a;
+  }
+  .callout b { color:#c9313e; }
+  .callout.blue { background:linear-gradient(135deg,#f4f8ff,#f7f5ff); border-color:#d5e2fb; border-left-color:#3b6fe0; color:#2f3f5c; }
+  .callout.blue b { color:#2456c4; }
+  .news-legend {
+    display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .news-legend span { display:flex; align-items:center; gap:5px; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .tag.a { background:#ffe4e6; color:#c9313e; }
+  .tag.b { background:#fff0dc; color:#b8690f; }
+  .tag.c { background:#e2ecfd; color:#2456c4; }
+  .tag.mini { font-size:10px; padding:2px 8px; }
+  .src { font-size:10px; padding:2px 8px; border-radius:12px; background:#eef2f8; color:#6b7688; }
+  .src.intl { background:#eae4fb; color:#6a4bb8; }
+  .news {
+    position:relative; margin-bottom:16px; border-radius:12px; padding:16px 18px;
+    border:1px solid transparent;
+  }
+  .news:last-child { margin-bottom:0; }
+  .news.a { background:linear-gradient(135deg,#fff5f5,#fff0f0); border-color:#ffd5d5; }
+  .news.b { background:linear-gradient(135deg,#fff9f0,#fff5e8); border-color:#ffe4c4; }
+  .news.c { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); border-color:#d0dff8; }
+  .news-top { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; align-items:center; }
+  .news h3 { font-size:15px; font-weight:800; line-height:1.5; margin-bottom:7px; letter-spacing:-.2px; }
+  .news p { font-size:13px; line-height:1.85; color:#3d4660; margin-bottom:7px; }
+  .news p:last-of-type { margin-bottom:0; }
+  .hl { color:#e84855; font-weight:700; }
+  .num { color:#e84855; font-weight:700; font-variant-numeric:tabular-nums; }
+  .numg { color:#12a05c; font-weight:700; font-variant-numeric:tabular-nums; }
+  .ph { color:#3b6fe0; font-weight:700; }
+  .pl { color:#12a05c; font-weight:700; }
+  .impact {
+    margin-top:10px; padding:10px 13px; background:rgba(255,255,255,.65);
+    border-radius:8px; border:1px solid rgba(0,0,0,.04);
+    font-size:12.5px; color:#4a5568; line-height:1.8;
+  }
+  .dim {
+    border-radius:12px; padding:16px 18px; margin-bottom:12px; position:relative; overflow:hidden;
+  }
+  .dim:last-child { margin-bottom:0; }
+  .dim::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .dim.d1::before { background:#e84855; }
+  .dim.d2::before { background:#f0932b; }
+  .dim.d3::before { background:#3b6fe0; }
+  .dim.d4::before { background:#6a4bb8; }
+  .dim.d5::before { background:#12a05c; }
+  .dim.d1 { background:linear-gradient(135deg,#fff5f5,#fff0f0); }
+  .dim.d2 { background:linear-gradient(135deg,#fff9f0,#fff5e8); }
+  .dim.d3 { background:linear-gradient(135deg,#f5f8ff,#f0f5ff); }
+  .dim.d4 { background:linear-gradient(135deg,#f8f5ff,#f5f0ff); }
+  .dim.d5 { background:linear-gradient(135deg,#f0fff5,#e8fff0); }
+  .dim-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .dim-h .e { font-size:18px; }
+  .dim-h .t { font-size:15px; font-weight:800; letter-spacing:-.2px; }
+  .dim-h .score { margin-left:auto; font-size:11px; font-weight:600; color:#7c8698; }
+  .dim ul { list-style:none; }
+  .dim li {
+    position:relative; padding:7px 0 7px 16px; font-size:13px; line-height:1.8;
+    color:#3d4660; border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  .dim li:last-child { border-bottom:none; }
+  .dim li::before {
+    content:''; position:absolute; left:0; top:15px; width:5px; height:5px;
+    border-radius:50%; background:#b8c0ce;
+  }
+  .dim li b { color:#1a2233; }
+  .heat { margin-bottom:10px; }
+  .heat-row { display:flex; align-items:center; gap:8px; }
+  .heat-name { width:90px; font-size:12.5px; font-weight:700; text-align:right; color:#3d4660; flex-shrink:0; }
+  .heat-track { flex:1; height:22px; background:#f1f4f9; border-radius:11px; overflow:hidden; position:relative; }
+  .heat-fill { height:100%; border-radius:11px; transition:width .6s ease; }
+  .heat-fill.up { background:linear-gradient(90deg,#ffe4e6,#ff9aa5); }
+  .heat-fill.down { background:linear-gradient(90deg,#d1fae5,#6ee7b7); }
+  .heat-val { width:70px; font-size:11.5px; font-weight:700; }
+  .heat-val.r { color:#e84855; }
+  .heat-val.g { color:#12a05c; }
+  .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .chip {
+    display:flex; align-items:center; gap:8px;
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:10px; padding:9px 12px;
+  }
+  .chip .cn { font-size:13px; font-weight:700; flex:1; }
+  .chip .lim { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#ffe4e6; color:#c9313e; }
+  .chip .tagi { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#eae4fb; color:#6a4bb8; }
+  .chip .taga { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e2ecfd; color:#2456c4; }
+  .chip .limg { font-size:10px; font-weight:700; padding:2px 7px; border-radius:10px; background:#e8ecf3; color:#5a6678; }
+  .chip .cv { font-size:12px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th { text-align:left; padding:10px 8px; font-size:11px; color:#8892a6; font-weight:600; border-bottom:1px solid #e8ecf3; }
+  .tbl td { padding:10px 8px; border-bottom:1px solid #f1f4f9; }
+  .tbl .name { font-weight:600; }
+  .tbl .r { color:#e84855; font-weight:700; }
+  .tbl .g { color:#12a05c; font-weight:700; }
+  .tbl .n0 { color:#1a2233; font-weight:600; }
+  .tbl tr.grp td { font-size:12px; font-weight:700; color:#5a6678; background:#f7f9fc; padding:8px; }
+  .tbl tr.hot td { background:#fff9f0; }
+  .tbl .st { font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; margin-left:6px; }
+  .tbl .st.close { background:#e2ecfd; color:#2456c4; }
+  .tbl .st.live { background:#fff0dc; color:#b8690f; }
+  .tbl .st.ovn { background:#eae4fb; color:#6a4bb8; }
+  .mkt-legend {
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;
+    padding:10px 14px; background:#f7f9fc; border-radius:10px; font-size:12px; color:#5a6678;
+  }
+  .mkt-legend span { display:flex; align-items:center; gap:5px; }
+  .mkt-legend .dot { width:6px; height:6px; border-radius:50%; }
+  .mkt-legend .dot.close { background:#3b6fe0; }
+  .mkt-legend .dot.live { background:#f0932b; }
+  .mkt-legend .dot.ovn { background:#6a4bb8; }
+  .gf-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .gf-card {
+    background:#fff; border:1px solid #e8ecf3; border-radius:12px;
+    padding:14px 15px; position:relative; overflow:hidden;
+  }
+  .gf-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .gf-card.c1::before { background:#e84855; }
+  .gf-card.c2::before { background:#f0932b; }
+  .gf-card.c3::before { background:#3b6fe0; }
+  .gf-card.c4::before { background:#6a4bb8; }
+  .gf-card.c5::before { background:#12a05c; }
+  .gf-card.c6::before { background:#e84855; }
+  .gf-card .gf-t { font-size:13px; font-weight:800; margin-bottom:8px; letter-spacing:-.2px; }
+  .gf-card .gf-l { font-size:11.5px; color:#5a6678; line-height:1.7; }
+  .gf-card .gf-l b { color:#1a2233; }
+  .nav {
+    position:sticky; top:0; z-index:10; background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px); border-bottom:1px solid #e8ecf3;
+    padding:10px 26px; display:flex; gap:6px; overflow-x:auto;
+  }
+  .nav a {
+    font-size:11.5px; font-weight:600; color:#5a6678; text-decoration:none;
+    padding:5px 12px; border-radius:16px; background:#f1f4f9; white-space:nowrap;
+  }
+  .nav a:hover { background:#e2ecfd; color:#2456c4; }
+  .footer {
+    padding:30px 26px; background:#f7f9fc; border-top:1px solid #e8ecf3;
+    font-size:11.5px; color:#8892a6; line-height:1.8;
+  }
+  .footer b { color:#5a6678; }
+  .strategy-box {
+    background:linear-gradient(135deg,#f8f5ff,#f0f5ff);
+    border:1px solid #d5e2fb; border-radius:12px;
+    padding:18px 20px; margin-bottom:14px;
+  }
+  .strategy-box h4 { font-size:14px; font-weight:800; margin-bottom:10px; color:#2456c4; }
+  .strategy-box p { font-size:13px; line-height:1.85; color:#3d4660; }
+  .risk-list { margin-top:12px; padding-left:18px; }
+  .risk-list li { font-size:12.5px; color:#5a3a3a; line-height:1.8; margin-bottom:4px; }
+  .direction-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .direction-tags span {
+    font-size:11px; font-weight:600; padding:4px 10px; border-radius:14px;
+    background:#e2ecfd; color:#2456c4;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="kicker">每日全球股市观察</div>
+    <h1>
+      创业板<em>深V反转+4.16%</em><br>
+      费城半导体<em>暴跌6.72%</em>纳指-2.6%<br>
+      人形机器人<em>集体涨停</em>宇树重返2000亿<br>
+      黄金<em>失守4000美元</em>美债跌破5%
+    </h1>
+    <div class="sub">A股上演深V反转 vs 美股科技血洗 · 费城半导体30只成分股全跌 · 资金从AI硬件涌向机器人</div>
+    <div class="datebar">
+      <span>2026年10月23日 · 周五</span>
+      <span class="pulse"><span class="dot"></span>收盘</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <a href="#a-stock">A股速览</a>
+  <a href="#global">全球市场</a>
+  <a href="#news">环球要闻</a>
+  <a href="#analysis">五维度分析</a>
+  <a href="#sector">板块热力图</a>
+  <a href="#focus">焦点个股</a>
+  <a href="#commodity">大宗商品</a>
+  <a href="#industry">产业高频</a>
+  <a href="#strategy">策略研判</a>
+</div>
+
+<!-- A股速览 -->
+<div class="sec" id="a-stock">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff0f0;">📊</div>
+    <div class="sec-title">A股速览</div>
+    <div class="sec-note">10月23日 · 收盘</div>
+  </div>
+  
+  <div class="idx-grid">
+    <div class="idx up">
+      <div class="n">上证指数</div>
+      <div class="v">3690.48</div>
+      <div class="c">+0.89%</div>
+    </div>
+    <div class="idx up">
+      <div class="n">深证成指</div>
+      <div class="v">11523.67</div>
+      <div class="c">+2.79%</div>
+    </div>
+    <div class="idx up">
+      <div class="n">创业板指</div>
+      <div class="v">2648.92</div>
+      <div class="c">+4.16%</div>
+    </div>
+    <div class="idx up">
+      <div class="n">科创50</div>
+      <div class="v">1310.28</div>
+      <div class="c">+3.04%</div>
+    </div>
+  </div>
+  
+  <div class="statbar">
+    <div class="stat">
+      <div class="k">成交额</div>
+      <div class="v r">1.97万亿</div>
+    </div>
+    <div class="stat">
+      <div class="k">较昨日</div>
+      <div class="v r">+4310亿</div>
+    </div>
+    <div class="stat">
+      <div class="k">涨停</div>
+      <div class="v r">~60只</div>
+    </div>
+    <div class="stat">
+      <div class="k">上涨家数</div>
+      <div class="v r">4500+</div>
+    </div>
+  </div>
+  
+  <div class="callout">
+    <b>深V反转！</b>早盘沪指跌破3600点、创业板跌超3%，午后直线拉升翻红，创业板最终大涨4.16%。成交1.97万亿放量4310亿，超4500股上涨。<b>人形机器人板块爆发</b>：宇树科技20CM涨停重返2000亿市值，海天瑞声等多股涨停。半导体午后回暖，粤芯半导、晶丰明源20cm涨停。银行板块逆势回落，中国银行领跌。
+  </div>
+</div>
+
+<!-- 全球市场 -->
+<div class="sec" id="global">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f0f5ff;">🌍</div>
+    <div class="sec-title">全球市场</div>
+    <div class="sec-note">多市场对比</div>
+  </div>
+  
+  <div class="mkt-legend">
+    <span><span class="dot close"></span>已收盘</span>
+    <span><span class="dot live"></span>交易中</span>
+    <span><span class="dot ovn"></span>隔夜</span>
+  </div>
+  
+  <table class="tbl">
+    <tr><th>市场</th><th>指数</th><th>点位</th><th>涨跌幅</th></tr>
+    
+    <tr class="grp"><td colspan="4">🇭🇰 港股 · 已收盘</td></tr>
+    <tr>
+      <td class="name">恒生指数</td>
+      <td>HSI</td>
+      <td>23133</td>
+      <td class="r">+0.58%</td>
+    </tr>
+    <tr>
+      <td class="name">恒生科技</td>
+      <td>HSTECH</td>
+      <td>3832</td>
+      <td class="r">+0.86%</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">🇯🇵🇰🇷 日韩 · 已收盘</td></tr>
+    <tr>
+      <td class="name">日经225</td>
+      <td>N225</td>
+      <td>62693</td>
+      <td class="g">-0.34%</td>
+    </tr>
+    <tr>
+      <td class="name">KOSPI</td>
+      <td>KS11</td>
+      <td>5550</td>
+      <td class="r">+0.30%</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">🇺🇸 美股 · 隔夜收盘</td></tr>
+    <tr class="hot">
+      <td class="name">道琼斯</td>
+      <td>DJI</td>
+      <td>52868</td>
+      <td class="r">+0.02%</td>
+    </tr>
+    <tr class="hot">
+      <td class="name">标普500</td>
+      <td>SPX</td>
+      <td>7663</td>
+      <td class="g">-1.21%</td>
+    </tr>
+    <tr class="hot">
+      <td class="name">纳斯达克</td>
+      <td>IXIC</td>
+      <td>26009</td>
+      <td class="g">-2.60%</td>
+    </tr>
+    <tr class="hot">
+      <td class="name">费城半导体</td>
+      <td>SOX</td>
+      <td>—</td>
+      <td class="g">-6.72%</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">🇪🇺 欧股 · 隔夜收盘</td></tr>
+    <tr>
+      <td class="name">STOXX 600</td>
+      <td>SXXP</td>
+      <td>—</td>
+      <td class="g">-1.01%</td>
+    </tr>
+    <tr>
+      <td class="name">德国DAX</td>
+      <td>DAX</td>
+      <td>—</td>
+      <td class="g">-1.04%</td>
+    </tr>
+    <tr>
+      <td class="name">法国CAC40</td>
+      <td>CAC</td>
+      <td>—</td>
+      <td class="g">-1.42%</td>
+    </tr>
+    <tr>
+      <td class="name">英国富时100</td>
+      <td>UKX</td>
+      <td>—</td>
+      <td class="g">-0.27%</td>
+    </tr>
+  </table>
+  
+  <div class="callout blue">
+    <b>全球分化明显：</b>A股深V反转创业板+4.16%，港股小幅收涨。但美股昨夜血洗——纳指-2.60%创6月来最大单日跌幅，<b>费城半导体暴跌6.72%</b>，30只成分股全跌。欧股全线回调，STOXX600跌1%。资金从AI硬件撤离，必需消费品+3.31%、公用事业+2.07%防御板块领涨标普。
+  </div>
+</div>
+
+<!-- 环球要闻 -->
+<div class="sec" id="news">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff9f0;">📰</div>
+    <div class="sec-title">环球要闻</div>
+    <div class="sec-note">9条 · 多信源</div>
+  </div>
+  
+  <div class="news-legend">
+    <span><span class="tag a">极重要</span> 4条</span>
+    <span><span class="tag b">重要</span> 3条</span>
+    <span><span class="tag c">关注</span> 2条</span>
+  </div>
+  
+  <!-- 新闻1 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">Reuters</span>
+      <span class="src intl">Bloomberg</span>
+      <span class="src">财联社</span>
+    </div>
+    <h3>费城半导体暴跌6.72%创6月来最大单日跌幅，30只成分股全跌</h3>
+    <p>10月22日，费城半导体指数暴跌6.72%，创6月23日以来最大单日跌幅，30只成分股无一幸免。英伟达-4.40%、台积电-2.89%、博通-3.31%、SK海力士-4.49%、美光-3.94%、AMD-5.56%、英特尔-6.03%、应用材料-5.85%、泛林集团-10.03%、ARM-5.89%。</p>
+    <p><b>说人话：</b>AI硬件信仰遭遇重击。市场担忧AI企业巨额资本支出及融资风险，CoreWeave债券收益率飙至15%成"风暴眼"。资金从科技成长涌向防御板块——必需消费品+3.31%、公用事业+2.07%、医疗保健+1.32%，标普等权指数+0.73%。钱没离场，只是换了方向。</p>
+    <div class="impact">
+      <b>影响推演：</b>①A股半导体开盘承压但午后反转，资金转向人形机器人；②美股风格轮动加速，从"科技成长"切向"价值防御"；③AI产业链估值重估，硬件端承压、应用端受益。
+    </div>
+  </div>
+  
+  <!-- 新闻2 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">Bloomberg</span>
+      <span class="src intl">WSJ</span>
+      <span class="src">新华社</span>
+    </div>
+    <h3>纳指-2.60%创6月来最大单日跌幅，标普-1.21%，道指仅+0.02%</h3>
+    <p>美股三大指数涨跌不一。纳斯达克收跌2.60%报26009点，创6月23日以来最大单日跌幅；标普500跌1.21%报7663点，创7月29日以来最大跌幅；道琼斯仅涨12点勉强收红。"科技七巨头"多数下跌，Meta-6.98%、亚马逊-4.57%、英伟达-4.40%。</p>
+    <p><b>说人话：</b>道指涨幅是纳指的130倍——传统股碾压科技。市场在交易"AI泡沫担忧+滞胀风险"，而不是"经济衰退"。资金从高风险科技股撤向防御性资产，这是风格轮动，不是系统性崩盘。</p>
+    <div class="impact">
+      <b>影响推演：</b>①A股科技板块开盘承压但午后反转，说明内资不买美股的账；②美股风格轮动可能持续，科技股短期估值承压；③关注后续科技巨头财报能否稳住AI信仰。
+    </div>
+  </div>
+  
+  <!-- 新闻3 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">CNBC</span>
+      <span class="src intl">FT</span>
+      <span class="src">央视财经</span>
+    </div>
+    <h3>现货黄金跌破4000美元大关，COMEX黄金-2.66%报4039美元</h3>
+    <p>10月23日，现货黄金一度跌破4000美元/盎司关口，为今年7月以来首次，最低报3986美元。COMEX黄金期货跌2.66%报4039美元，COMEX白银跌5.34%报54.63美元。国内金饰价格下调，周生生报1206元/克跌32元，周大福报1208元/克跌29元。</p>
+    <p><b>说人话：</b>黄金跌破4000美元心理关口。直接压力来自10年期美债收益率回落至4.96%（但仍高位），持有黄金机会成本高企。但央行购金仍在加速——8月全球央行购金79吨，折合年化1000吨。高盛维持2027年底目标价5400美元。</p>
+    <div class="impact">
+      <b>影响推演：</b>①短期黄金承压，4000美元有强劲支撑；②A股贵金属板块早盘领跌；③中长期看，央行购金+地缘不确定性仍支撑金价。
+    </div>
+  </div>
+  
+  <!-- 新闻4 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">Reuters</span>
+      <span class="src">新华社</span>
+      <span class="src">中国金融信息网</span>
+    </div>
+    <h3>10年期美债收益率跌破5%至4.96%，避险资金涌入</h3>
+    <p>当地时间10月22日，美股科技板块大跌，避险资金涌入美债市场。10年期美债收益率跌15.8bp报4.961%，跌破5%心理关口；30年期跌12.4bp报5.286%；2年期跌16bp报4.648%。</p>
+    <p><b>说人话：</b>美债收益率跌破5%是避险信号，不是降息信号。市场担忧AI泡沫+地缘风险，资金从股票撤向国债。但10月加息预期仍在，12月加息仍是主要预期。</p>
+    <div class="impact">
+      <b>影响推演：</b>①美债收益率回落短期利好黄金和新兴市场；②但高位震荡格局未变，5%仍是重要心理关口；③人民币汇率压力暂缓。
+    </div>
+  </div>
+  
+  <!-- 新闻5 -->
+  <div class="news b">
+    <div class="news-top">
+      <span class="tag b">重要</span>
+      <span class="src intl">Bloomberg</span>
+      <span class="src">东方财富</span>
+    </div>
+    <h3>A股深V反转：创业板+4.16%，人形机器人板块爆发</h3>
+    <p>10月23日，A股上演深V反转。早盘沪指跌破3600点、创业板跌超3%，午后直线拉升翻红。截至收盘，沪指+0.89%报3690点，创业板+4.16%报2649点，科创50+3.04%。成交1.97万亿放量4310亿，超4500股上涨。人形机器人板块爆发：宇树科技20CM涨停重返2000亿市值，海天瑞声等多股涨停。</p>
+    <p><b>说人话：</b>早盘被美股科技崩盘吓尿，午后内资直接抄底机器人。宇树科技前一天刚开完合作伙伴生态大会，今天直接20CM涨停。资金从AI硬件（半导体）转向AI应用（机器人），这是"替代效应"不是"板块轮动"。</p>
+    <div class="impact">
+      <b>影响推演：</b>①人形机器人成为新主线，宇树科技重返2000亿市值；②资金从"AI硬件"切向"AI应用"；③创业板大涨4%修复昨日跌幅，市场情绪回暖。
+    </div>
+  </div>
+  
+  <!-- 新闻6 -->
+  <div class="news b">
+    <div class="news-top">
+      <span class="tag b">重要</span>
+      <span class="src intl">CNBC</span>
+      <span class="src">金投网</span>
+    </div>
+    <h3>国际油价高位震荡：WTI约102美元，布油113美元</h3>
+    <p>国际油价高位震荡。WTI原油报101.77美元/桶，布伦特原油开盘113.15美元/桶。美国与伊朗紧张局势升级推动油价上涨，但美国库存数据和需求前景压制涨幅。</p>
+    <p><b>说人话：</b>油价围绕100美元震荡，布油113美元高位。美伊局势是主要支撑，但全球经济放缓预期压制需求。短期油价维持高位震荡，突破120美元需要地缘冲突升级。</p>
+    <div class="impact">
+      <b>影响推演：</b>①高油价推升通胀预期，制约美联储降息空间；②A股石化板块受益但持续性存疑；③关注美伊局势进展。
+    </div>
+  </div>
+  
+  <!-- 新闻7 -->
+  <div class="news b">
+    <div class="news-top">
+      <span class="tag b">重要</span>
+      <span class="src intl">FT</span>
+      <span class="src">财联社</span>
+    </div>
+    <h3>欧洲主要股指集体收跌：STOXX600-1.01%，DAX-1.04%，CAC40-1.42%</h3>
+    <p>10月22日，欧洲主要股指普遍下跌。欧洲斯托克600指数跌1.01%，英国富时100跌0.27%，德国DAX跌1.04%，法国CAC40跌1.42%，西班牙IBEX跌1.98%。</p>
+    <p><b>说人话：</b>欧股跟随美股科技股回调，但跌幅相对温和。欧洲经济基本面偏弱，高油价推升通胀压力。西班牙跌幅最大（-1.98%），可能受银行业担忧影响。</p>
+    <div class="impact">
+      <b>影响推演：</b>①欧股回调对A股影响有限；②高油价+欧元走弱利好欧洲出口但推升通胀；③关注欧央行后续政策。
+    </div>
+  </div>
+  
+  <!-- 新闻8 -->
+  <div class="news c">
+    <div class="news-top">
+      <span class="tag c">关注</span>
+      <span class="src">每经</span>
+      <span class="src">新华社</span>
+    </div>
+    <h3>日经225-0.34%报62693点，KOSPI+0.30%报5550点</h3>
+    <p>10月23日，日经225指数收跌0.34%报62693点；韩国KOSPI指数收涨0.30%报5550点。日本10年期国债收益率下跌2bp至2.87%。</p>
+    <p><b>说人话：</b>日韩股市分化。日经小幅回调，受美股科技崩盘拖累但跌幅有限。KOSPI连续两天反弹，累计收复近期跌幅约10%，但离上周四暴跌前的6008还差得远。</p>
+    <div class="impact">
+      <b>影响推演：</b>①日韩股市对A股影响有限；②韩国存储芯片股反弹但持续性存疑；③日本国债收益率回落缓解日元升值压力。
+    </div>
+  </div>
+  
+  <!-- 新闻9 -->
+  <div class="news c">
+    <div class="news-top">
+      <span class="tag c">关注</span>
+      <span class="src">搜狐</span>
+      <span class="src">中国外汇交易中心</span>
+    </div>
+    <h3>人民币中间价报6.7180上调15基点，美元指数约101.7</h3>
+    <p>10月23日，人民币兑美元中间价报6.7180，上调15基点。在岸即期报价约6.67元，离岸报价约6.67元。美元指数在101.7附近徘徊。</p>
+    <p><b>说人话：</b>人民币继续升值，中间价上调15基点。美元指数跌破102至101.7，人民币升值双刃剑：利好外资流入但制约降息空间+压制出口竞争力。</p>
+    <div class="impact">
+      <b>影响推演：</b>①人民币升值利好外资流入A股；②但制约央行降息空间；③出口企业利润承压。
+    </div>
+  </div>
+</div>
+
+<!-- 五维度分析 -->
+<div class="sec" id="analysis">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f5f0ff;">🔍</div>
+    <div class="sec-title">五维度分析</div>
+    <div class="sec-note">综合研判</div>
+  </div>
+  
+  <div class="dim d1">
+    <div class="dim-h">
+      <span class="e">📰</span>
+      <span class="t">消息面</span>
+      <span class="score">⭐⭐⭐⭐☆</span>
+    </div>
+    <ul>
+      <li><b>费城半导体暴跌6.72%</b>：30只成分股全跌，泛林集团-10%领跌。AI硬件信仰遭遇重击，CoreWeave债券收益率飙至15%成"风暴眼"。</li>
+      <li><b>宇树科技合作伙伴生态大会</b>：10月22日杭州召开，董事长王兴兴明确宇树战略方向。今天宇树科技20CM涨停重返2000亿市值。</li>
+      <li><b>黄金跌破4000美元</b>：现货黄金一度跌破4000美元为7月来首次，COMEX黄金-2.66%。央行购金仍在加速但短期承压。</li>
+      <li><b>10年期美债跌破5%</b>：避险资金涌入，10年美债收益率跌15.8bp至4.961%。但12月加息仍是主要预期。</li>
+      <li><b>美伊局势升级</b>：推动油价上涨，WTI约102美元，布油113美元。但全球经济放缓预期压制涨幅。</li>
+      <li><b>结论：</b>消息面偏空但A股走出独立行情。美股科技崩盘+黄金暴跌+美债收益率回落，A股深V反转说明内资信心回暖。</li>
+    </ul>
+  </div>
+  
+  <div class="dim d2">
+    <div class="dim-h">
+      <span class="e">😟</span>
+      <span class="t">情绪面</span>
+      <span class="score">⭐⭐⭐☆☆</span>
+    </div>
+    <ul>
+      <li><b>A股深V反转</b>：早盘恐慌性抛售，午后抄底资金涌入。成交1.97万亿放量4310亿，超4500股上涨，情绪快速修复。</li>
+      <li><b>人形机器人爆发</b>：宇树科技20CM涨停，海天瑞声等多股涨停。资金从AI硬件转向AI应用，情绪从恐慌转向贪婪。</li>
+      <li><b>银行板块逆势回落</b>：中国银行领跌，资金从防御板块撤出转向成长股。风格轮动明显。</li>
+      <li><b>美股VIX恐慌指数</b>：昨夜飙升但具体数据未披露。费城半导体暴跌6.72%说明科技股恐慌情绪蔓延。</li>
+      <li><b>结论：</b>A股情绪快速修复，但美股科技股恐慌仍在蔓延。内资不买美股的账，走独立行情。</li>
+    </ul>
+  </div>
+  
+  <div class="dim d3">
+    <div class="dim-h">
+      <span class="e">📈</span>
+      <span class="t">技术面</span>
+      <span class="score">⭐⭐⭐⭐☆</span>
+    </div>
+    <ul>
+      <li><b>创业板深V反转</b>：从跌超3%到收涨4.16%，单日振幅超7%。这是强势反转信号，说明3600点附近支撑强劲。</li>
+      <li><b>沪指收复3600点</b>：早盘跌破3600点后午后拉回，收盘3690点。3600点是重要心理关口，收复说明多头占优。</li>
+      <li><b>成交放量</b>：1.97万亿较昨日放量4310亿，量价齐升是健康反弹信号。</li>
+      <li><b>美股纳指-2.60%</b>：创6月来最大单日跌幅，短期技术面破位。费城半导体暴跌6.72%更惨。</li>
+      <li><b>结论：</b>A股技术面强势反转，创业板大涨4%修复昨日跌幅。美股科技股技术面破位，短期承压。</li>
+    </ul>
+  </div>
+  
+  <div class="dim d4">
+    <div class="dim-h">
+      <span class="e">🏛️</span>
+      <span class="t">政策面</span>
+      <span class="score">⭐⭐⭐☆☆</span>
+    </div>
+    <ul>
+      <li><b>美联储加息预期</b>：10月加息概率回落至15%，但12月加息仍是主要预期。高利率环境压制科技股估值。</li>
+      <li><b>中国央行</b>：LPR维持不变，人民币升值制约降息空间。政策面偏中性。</li>
+      <li><b>人民币升值</b>：中间价上调15基点至6.7180，利好外资流入但制约出口。</li>
+      <li><b>产业政策</b>：人形机器人、半导体等战略产业仍获政策支持。宇树科技生态大会说明产业趋势明确。</li>
+      <li><b>结论：</b>政策面中性偏暖。美联储加息预期压制全球科技股，但中国产业政策支持AI应用。</li>
+    </ul>
+  </div>
+  
+  <div class="dim d5">
+    <div class="dim-h">
+      <span class="e">💰</span>
+      <span class="t">资金面</span>
+      <span class="score">⭐⭐⭐⭐☆</span>
+    </div>
+    <ul>
+      <li><b>A股成交放量</b>：1.97万亿较昨日放量4310亿，量价齐升。超4500股上涨，资金全面做多。</li>
+      <li><b>人形机器人吸金</b>：宇树科技20CM涨停，资金从AI硬件（半导体）转向AI应用（机器人）。</li>
+      <li><b>银行板块失血</b>：中国银行领跌，资金从防御板块撤出转向成长股。风格轮动明显。</li>
+      <li><b>美股资金撤离科技</b>：费城半导体暴跌6.72%，必需消费品+3.31%、公用事业+2.07%领涨。资金从科技成长转向防御。</li>
+      <li><b>结论：</b>A股资金面健康，成交放量+风格轮动。美股资金撤离科技股，短期承压。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 板块热力图 -->
+<div class="sec" id="sector">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff5e8;">🔥</div>
+    <div class="sec-title">板块热力图</div>
+    <div class="sec-note">A股板块涨跌</div>
+  </div>
+  
+  <div class="heat">
+    <div class="heat-row">
+      <div class="heat-name">人形机器人</div>
+      <div class="heat-track"><div class="heat-fill up" style="width:95%;"></div></div>
+      <div class="heat-val r">+5.2%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">半导体</div>
+      <div class="heat-track"><div class="heat-fill up" style="width:70%;"></div></div>
+      <div class="heat-val r">+3.8%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">电机</div>
+      <div class="heat-track"><div class="heat-fill up" style="width:65%;"></div></div>
+      <div class="heat-val r">+3.5%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">软件</div>
+      <div class="heat-track"><div class="heat-fill up" style="width:60%;"></div></div>
+      <div class="heat-val r">+3.2%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">零售</div>
+      <div class="heat-track"><div class="heat-fill up" style="width:50%;"></div></div>
+      <div class="heat-val r">+2.5%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">银行</div>
+      <div class="heat-track"><div class="heat-fill down" style="width:40%;"></div></div>
+      <div class="heat-val g">-1.5%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">兵装重组</div>
+      <div class="heat-track"><div class="heat-fill down" style="width:55%;"></div></div>
+      <div class="heat-val g">-3.0%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">贵金属</div>
+      <div class="heat-track"><div class="heat-fill down" style="width:65%;"></div></div>
+      <div class="heat-val g">-3.8%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">通信设备</div>
+      <div class="heat-track"><div class="heat-fill down" style="width:60%;"></div></div>
+      <div class="heat-val g">-3.5%</div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">元件</div>
+      <div class="heat-track"><div class="heat-fill down" style="width:55%;"></div></div>
+      <div class="heat-val g">-3.0%</div>
+    </div>
+  </div>
+  
+  <div class="callout">
+    <b>板块格局总结：</b>人形机器人+5.2%领涨全场，宇树科技20CM涨停重返2000亿市值。半导体+3.8%午后反转，晶丰明源20cm涨停。银行-1.5%逆势回落，资金从防御转向成长。贵金属-3.8%领跌，受黄金跌破4000美元拖累。兵装重组-3.0%跌幅居前，东安动力领跌。
+  </div>
+</div>
+
+<!-- 焦点个股 -->
+<div class="sec" id="focus">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f0fff5;">🎯</div>
+    <div class="sec-title">焦点个股</div>
+    <div class="sec-note">A股+港股+海外</div>
+  </div>
+  
+  <div class="chips">
+    <div class="chip">
+      <span class="cn">宇树科技</span>
+      <span class="lim">20CM</span>
+      <span class="cv r">+20.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">海天瑞声</span>
+      <span class="lim">涨停</span>
+      <span class="cv r">+10.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">粤芯半导</span>
+      <span class="lim">20CM</span>
+      <span class="cv r">+20.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">晶丰明源</span>
+      <span class="lim">20CM</span>
+      <span class="cv r">+20.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">兆威机电</span>
+      <span class="lim">涨停</span>
+      <span class="cv r">+10.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">鸣志电器</span>
+      <span class="lim">涨停</span>
+      <span class="cv r">+10.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">百大集团</span>
+      <span class="lim">涨停</span>
+      <span class="cv r">+10.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">新华百货</span>
+      <span class="lim">涨停</span>
+      <span class="cv r">+10.00%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">中国银行</span>
+      <span class="taga">领跌</span>
+      <span class="cv g">-2.5%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">东安动力</span>
+      <span class="taga">领跌</span>
+      <span class="cv g">-5.0%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">小米集团</span>
+      <span class="tagi">港股</span>
+      <span class="cv r">+5.0%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">宁德时代</span>
+      <span class="tagi">港股</span>
+      <span class="cv r">+4.0%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">英伟达</span>
+      <span class="limg">美股</span>
+      <span class="cv g">-4.40%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">台积电</span>
+      <span class="limg">美股</span>
+      <span class="cv g">-2.89%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">泛林集团</span>
+      <span class="limg">美股</span>
+      <span class="cv g">-10.03%</span>
+    </div>
+    <div class="chip">
+      <span class="cn">Meta</span>
+      <span class="limg">美股</span>
+      <span class="cv g">-6.98%</span>
+    </div>
+  </div>
+  
+  <div class="callout blue" style="margin-top:14px;">
+    <b>三个对比：</b><br>
+    ①<b>宇树科技 vs 费城半导体</b>：宇树20CM涨停重返2000亿市值，费城半导体暴跌6.72%。资金从AI硬件转向AI应用（机器人）。<br>
+    ②<b>宁德时代港股 vs A股</b>：港股+4%反弹，A股创业板+4.16%。昨日宁德时代港股暴跌10%利好出尽，今天修复。<br>
+    ③<b>银行 vs 机器人</b>：银行-1.5%逆势回落，机器人+5.2%领涨。资金从防御转向成长，风格轮动明显。
+  </div>
+</div>
+
+<!-- 大宗商品 -->
+<div class="sec" id="commodity">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff0dc;">🛢️</div>
+    <div class="sec-title">大宗商品</div>
+    <div class="sec-note">能源+贵金属+汇率+利率</div>
+  </div>
+  
+  <table class="tbl">
+    <tr><th>品种</th><th>价格</th><th>涨跌幅</th><th>备注</th></tr>
+    
+    <tr class="grp"><td colspan="4">能源</td></tr>
+    <tr>
+      <td class="name">WTI原油</td>
+      <td>101.77美元/桶</td>
+      <td class="r">+1.90%</td>
+      <td>围绕100震荡</td>
+    </tr>
+    <tr>
+      <td class="name">布伦特原油</td>
+      <td>113.15美元/桶</td>
+      <td class="r">+1.5%</td>
+      <td>高位震荡</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">贵金属</td></tr>
+    <tr class="hot">
+      <td class="name">现货黄金</td>
+      <td>4016美元/盎司</td>
+      <td class="g">-0.21%</td>
+      <td>一度跌破4000</td>
+    </tr>
+    <tr class="hot">
+      <td class="name">COMEX黄金</td>
+      <td>4039美元/盎司</td>
+      <td class="g">-2.66%</td>
+      <td>跌破4000心理关口</td>
+    </tr>
+    <tr>
+      <td class="name">现货白银</td>
+      <td>54.47美元/盎司</td>
+      <td class="g">-6.00%</td>
+      <td>跌幅更大</td>
+    </tr>
+    <tr>
+      <td class="name">COMEX白银</td>
+      <td>54.63美元/盎司</td>
+      <td class="g">-5.34%</td>
+      <td>工业属性拖累</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">汇率</td></tr>
+    <tr>
+      <td class="name">美元指数</td>
+      <td>101.70</td>
+      <td class="g">-0.29%</td>
+      <td>跌破102</td>
+    </tr>
+    <tr>
+      <td class="name">在岸人民币</td>
+      <td>6.6700</td>
+      <td class="r">+0.15%</td>
+      <td>升值</td>
+    </tr>
+    <tr>
+      <td class="name">离岸人民币</td>
+      <td>6.6700</td>
+      <td class="r">+0.15%</td>
+      <td>升值</td>
+    </tr>
+    <tr>
+      <td class="name">人民币中间价</td>
+      <td>6.7180</td>
+      <td class="r">+15bp</td>
+      <td>上调</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">利率</td></tr>
+    <tr class="hot">
+      <td class="name">10年美债</td>
+      <td>4.961%</td>
+      <td class="g">-15.8bp</td>
+      <td>跌破5%心理关口</td>
+    </tr>
+    <tr>
+      <td class="name">30年美债</td>
+      <td>5.286%</td>
+      <td class="g">-12.4bp</td>
+      <td>避险资金涌入</td>
+    </tr>
+    <tr>
+      <td class="name">2年美债</td>
+      <td>4.648%</td>
+      <td class="g">-16.0bp</td>
+      <td>短端回落</td>
+    </tr>
+    <tr>
+      <td class="name">中国10年国债</td>
+      <td>~1.68%</td>
+      <td class="n0">持平</td>
+      <td>低位平稳</td>
+    </tr>
+    <tr>
+      <td class="name">LPR 1年</td>
+      <td>3.00%</td>
+      <td class="n0">不变</td>
+      <td>维持</td>
+    </tr>
+    <tr>
+      <td class="name">LPR 5年</td>
+      <td>3.50%</td>
+      <td class="n0">不变</td>
+      <td>维持</td>
+    </tr>
+  </table>
+  
+  <div class="callout" style="margin-top:14px;">
+    <b>能源：</b>WTI 102美元、布油113美元高位震荡。美伊局势升级推升油价，但全球经济放缓预期压制需求。<br><br>
+    <b>贵金属：</b>黄金跌破4000美元心理关口，COMEX黄金-2.66%。直接压力来自美债收益率高位（虽回落至4.96%但仍高企），持有黄金机会成本高。但央行购金仍在加速——8月全球央行购金79吨折合年化1000吨。高盛维持2027年底目标价5400美元。<br><br>
+    <b>汇率：</b>美元指数跌破102至101.7，人民币升值至6.67。人民币升值双刃剑：利好外资流入但制约降息空间+压制出口竞争力。<br><br>
+    <b>利率：</b>10年美债跌破5%至4.96%，避险资金涌入。但12月加息仍是主要预期，高位震荡格局未变。
+  </div>
+</div>
+
+<!-- 产业高频数据 -->
+<div class="sec" id="industry">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f4f8ff;">🏭</div>
+    <div class="sec-title">产业高频数据 · 机构/大户必读</div>
+    <div class="sec-note">6大产业链</div>
+  </div>
+  
+  <div class="gf-grid">
+    <div class="gf-card c1">
+      <div class="gf-t">🤖 人形机器人</div>
+      <div class="gf-l">
+        <b>宇树科技</b>：20CM涨停重返2000亿市值，合作伙伴生态大会催化<br>
+        <b>海天瑞声</b>：涨停，数据服务受益<br>
+        <b>兆威机电</b>：涨停，电机龙头<br>
+        <b>鸣志电器</b>：涨停，步进电机<br>
+        <b>三花智控</b>：+4.55%，执行器龙头<br>
+        <b>拓普集团</b>：+2.46%，减速器<br>
+        <b>关注点</b>：宇树生态大会明确战略方向，产业链订单预期升温
+      </div>
+    </div>
+    
+    <div class="gf-card c2">
+      <div class="gf-t">💾 半导体</div>
+      <div class="gf-l">
+        <b>粤芯半导</b>：20cm涨停，晶圆代工<br>
+        <b>晶丰明源</b>：20cm涨停，电源管理芯片<br>
+        <b>费城半导体</b>：暴跌6.72%，30只成分股全跌<br>
+        <b>英伟达</b>：-4.40%，AI芯片龙头<br>
+        <b>台积电</b>：-2.89%，代工龙头<br>
+        <b>泛林集团</b>：-10.03%，设备龙头领跌<br>
+        <b>关注点</b>：A股半导体午后反转，与美股走势背离
+      </div>
+    </div>
+    
+    <div class="gf-card c3">
+      <div class="gf-t">🔋 新能源</div>
+      <div class="gf-l">
+        <b>宁德时代港股</b>：+4%反弹，昨日暴跌10%后修复<br>
+        <b>碳酸锂</b>：期货跌破11万创年内新低，5月高点20万腰斩<br>
+        <b>工信部</b>：储能大会警告"新型电池产业绝不能盲目大干快上"<br>
+        <b>关注点</b>：碳酸锂腰斩反映市场交易"明年会更差"预期
+      </div>
+    </div>
+    
+    <div class="gf-card c4">
+      <div class="gf-t">🏦 金融</div>
+      <div class="gf-l">
+        <b>银行板块</b>：-1.5%逆势回落，中国银行领跌<br>
+        <b>工行/建行</b>：盘中创新高后回落<br>
+        <b>工行股权登记日</b>：明天派息407亿，股息率4%+ vs 国债1.68%<br>
+        <b>两融余额</b>：24556.92亿，较上日减少234亿<br>
+        <b>关注点</b>：资金从防御板块撤出转向成长股
+      </div>
+    </div>
+    
+    <div class="gf-card c5">
+      <div class="gf-t">🛒 消费</div>
+      <div class="gf-l">
+        <b>零售概念</b>：午后活跃，百大集团、新华百货涨停<br>
+        <b>白酒</b>：早盘涨幅居前但涨幅普遍在0.4%以内<br>
+        <b>金饰价格</b>：周生生1206元/克跌32元，周大福1208元/克跌29元<br>
+        <b>关注点</b>：黄金暴跌传导至零售端，金饰克价大幅回落
+      </div>
+    </div>
+    
+    <div class="gf-card c6">
+      <div class="gf-t">🏗️ 周期</div>
+      <div class="gf-l">
+        <b>贵金属板块</b>：-3.8%领跌，受黄金跌破4000美元拖累<br>
+        <b>兵装重组</b>：-3.0%跌幅居前，东安动力领跌<br>
+        <b>通信设备</b>：-3.5%跌幅居前<br>
+        <b>元件</b>：-3.0%跌幅居前<br>
+        <b>关注点</b>：周期板块全线回调，资金转向成长
+      </div>
+    </div>
+  </div>
+  
+  <div class="callout blue" style="margin-top:14px;">
+    <b>三条产业链信号：</b><br>
+    ①<b>人形机器人爆发</b>：宇树科技20CM涨停重返2000亿，产业链订单预期升温。资金从AI硬件转向AI应用。<br>
+    ②<b>半导体分化</b>：A股半导体午后反转与美股走势背离，说明内资不买美股的账。但费城半导体暴跌6.72%说明全球AI硬件信仰遭遇重击。<br>
+    ③<b>碳酸锂腰斩</b>：期货跌破11万创年内新低，市场交易"明年会更差"预期。新能源产业链承压。
+  </div>
+</div>
+
+<!-- 策略研判 -->
+<div class="sec" id="strategy">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f8f5ff;">🎯</div>
+    <div class="sec-title">策略研判</div>
+    <div class="sec-note">短期+中期+长期</div>
+  </div>
+  
+  <div class="strategy-box">
+    <h4>📌 短期判断（1-2周）</h4>
+    <p>A股深V反转说明3600点支撑强劲，创业板大涨4%修复昨日跌幅。人形机器人成为新主线，宇树科技重返2000亿市值。但美股科技股恐慌仍在蔓延，费城半导体暴跌6.72%创6月来最大单日跌幅。短期A股可能走出独立行情，但需警惕美股科技股继续下跌的传导风险。</p>
+  </div>
+  
+  <div class="strategy-box">
+    <h4>📌 中期判断（1-3个月）</h4>
+    <p>美股风格轮动加速，从"科技成长"切向"价值防御"。AI硬件信仰遭遇重击，CoreWeave债券收益率飙至15%成"风暴眼"。A股资金从AI硬件转向AI应用（机器人），这是"替代效应"不是"板块轮动"。中期关注人形机器人产业链订单兑现情况。</p>
+  </div>
+  
+  <div class="strategy-box">
+    <h4>📌 长期判断（3-6个月）</h4>
+    <p>美联储加息预期仍在，12月加息仍是主要预期。高利率环境压制科技股估值，但AI产业趋势明确。人形机器人、AI应用是长期方向。黄金跌破4000美元但央行购金仍在加速，中长期仍有支撑。人民币升值双刃剑：利好外资流入但制约降息空间+压制出口竞争力。</p>
+  </div>
+  
+  <div class="direction-tags">
+    <span>人形机器人</span>
+    <span>AI应用</span>
+    <span>半导体</span>
+    <span>新能源</span>
+    <span>银行</span>
+    <span>消费</span>
+    <span>周期</span>
+    <span>防御</span>
+    <span>成长</span>
+  </div>
+  
+  <ul class="risk-list">
+    <li><b>风险1：</b>美股科技股继续下跌传导至A股</li>
+    <li><b>风险2：</b>美联储12月加息超预期</li>
+    <li><b>风险3：</b>美伊局势升级推升油价突破120美元</li>
+    <li><b>风险4：</b>黄金跌破4000美元后继续下跌</li>
+    <li><b>风险5：</b>人民币升值过快压制出口</li>
+    <li><b>风险6：</b>碳酸锂继续下跌拖累新能源产业链</li>
+    <li><b>风险7：</b>人形机器人产业链订单不及预期</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <b>信源：</b>Reuters · Bloomberg · WSJ · FT · CNBC · 新华社 · 财联社 · 东方财富 · 新浪财经 · 央视财经 · 金投网 · 中国外汇交易中心 · 中国金融信息网<br>
+  <b>免责声明：</b>本报告仅供参考，不构成投资建议。股市有风险，投资需谨慎。<br>
+  <b>更新时间：</b>2026年10月23日 15:30
+</div>
+
+</div>
+</body>
+</html>
