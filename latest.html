@@ -45,6 +45,25 @@
     margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
     display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
   }
+  .hero-actions {
+    position:absolute; top:20px; right:20px; display:flex; gap:8px; z-index:3;
+  }
+  .hero-btn {
+    padding:6px 14px; border-radius:16px; font-size:12px; font-weight:600;
+    text-decoration:none; transition:all .2s; border:1px solid rgba(255,255,255,.3);
+  }
+  .hero-btn-free {
+    background:rgba(255,255,255,.15); color:#fff;
+  }
+  .hero-btn-free:hover {
+    background:rgba(255,255,255,.25);
+  }
+  .hero-btn-paid {
+    background:linear-gradient(135deg,#FFD700,#FFA500); color:#1a1a2e; border-color:transparent;
+  }
+  .hero-btn-paid:hover {
+    transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,215,0,.3);
+  }
   .pulse { display:inline-flex; align-items:center; gap:6px; }
   .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
   .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
@@ -298,7 +317,8 @@
       <p>免费版：核心数据+简版分析 | 付费版：深度解读+策略研判+产业追踪</p>
     </div>
     <div class="banner-right">
-      <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">加入知识星球</a>
+      <a href="javascript:void(0)" onclick="alert('收藏本网站，每日15:30更新')" class="btn btn-free">⭐ 订阅免费版</a>
+      <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">💎 加入知识星球</a>
     </div>
   </div>
 </div>
@@ -318,6 +338,10 @@
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-actions">
+    <a href="javascript:void(0)" onclick="alert('⭐ 收藏本网站，每日15:30更新免费版内容')" class="hero-btn hero-btn-free">⭐ 订阅免费版</a>
+    <a href="https://wx.zsxq.com/group/88884524422882" target="_blank" class="hero-btn hero-btn-paid">💎 加入知识星球</a>
+  </div>
   <div class="hero-inner">
     <div class="kicker">DAILY GLOBAL MARKET</div>
     <h1>
