@@ -261,6 +261,17 @@
   .upgrade-card { margin: 20px 26px; background: #f8f9fa; border: 1px solid #e8ecf3; border-radius: 16px; padding: 22px 20px; }
   .upgrade-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
   .upgrade-card .sub { font-size: 12px; color: #8892a6; margin-bottom: 12px; }
+  .upgrade-card .dp-head { font-size: 13px; font-weight: 800; color: #2456c4; margin: 16px 0 9px; padding-top: 14px; border-top: 1px dashed #dde3ee; }
+  .dim-preview { display: grid; gap: 7px; margin-bottom: 4px; }
+  .dp-item { background: #fff; border: 1px solid #e8ecf3; border-left: 3px solid #3b6fe0; border-radius: 9px; padding: 10px 12px; }
+  .dp-item .dp-t { display: block; font-size: 12.5px; font-weight: 800; color: #1a2233; margin-bottom: 4px; }
+  .dp-item .dp-d { display: block; font-size: 12px; line-height: 1.8; color: #5a6678; }
+  .dp-item .dp-free { color: #a8b2c4; font-weight: 600; }
+  .dp-item:nth-child(1) { border-left-color: #e84855; }
+  .dp-item:nth-child(2) { border-left-color: #f0932b; }
+  .dp-item:nth-child(3) { border-left-color: #3b6fe0; }
+  .dp-item:nth-child(4) { border-left-color: #6a4bb8; }
+  .dp-item:nth-child(5) { border-left-color: #12a05c; }
   .upgrade-card ul { list-style: none; margin-bottom: 16px; }
   .upgrade-card li { font-size: 13px; line-height: 2; color: #3d4660; }
   .upgrade-card .price { font-size: 17px; font-weight: 800; color: #e84855; text-align: center; margin-bottom: 10px; }
@@ -640,14 +651,39 @@
 <!-- 引流卡片 -->
 <div class="upgrade-card">
   <h4>📌 以上是今日免费版内容</h4>
-  <p class="sub">完整版包含更多深度分析</p>
+  <p class="sub">付费版不是多写几句，是把分析过程、量化数据、可执行判断给你补齐</p>
+
+  <div class="dp-head">🔍 五维度深度分析 —— 付费版每个维度具体给什么</div>
+  <div class="dim-preview">
+    <div class="dp-item">
+      <span class="dp-t">📰 消息面　<span class="dp-free">免费版：只有"偏空"两个字</span></span>
+      <span class="dp-d">付费版：当日政策文件、会议表态、海外事件逐条拆解 5–7 条。每条写清影响链条（利好谁、利空谁）、时效长短（几天还是几周）、有没有被市场提前消化，并附信源要点。看完你知道该盯哪条、哪条是噪音。</span>
+    </div>
+    <div class="dp-item">
+      <span class="dp-t">😰 情绪面　<span class="dp-free">免费版：只有"冰点"两个字</span></span>
+      <span class="dp-d">付费版：涨跌家数、涨停/跌停梯队、封板率与炸板率、连板高度、成交额分布全部量化。判断情绪处在冰点/修复/亢奋哪一档，并对照历史同档位次日的实际表现——不是感觉冷，是有数据说多冷。</span>
+    </div>
+    <div class="dp-item">
+      <span class="dp-t">📐 技术面　<span class="dp-free">免费版：只有"破位"两个字</span></span>
+      <span class="dp-d">付费版：沪指、创业板、科创50的支撑位与压力位，均线排列、缺口位置、量价配合，MACD 与 KDJ 状态逐项列出。明确这次是"技术性破位"还是"洗盘"，点位具体到数字，不是一句"走弱"。</span>
+    </div>
+    <div class="dp-item">
+      <span class="dp-t">🏛️ 政策面　<span class="dp-free">免费版：只有"中性"两个字</span></span>
+      <span class="dp-d">付费版：货币政策（LPR／逆回购／降准预期）、财政与产业政策、监管口径逐条过一遍，每条给出落地概率和真正受影响的板块。帮你分清哪些是"喊话"，哪些是"真金白银"，以及政策为什么迟迟不出。</span>
+    </div>
+    <div class="dp-item">
+      <span class="dp-t">💰 资金面　<span class="dp-free">免费版：只有"偏空"两个字</span></span>
+      <span class="dp-d">付费版：北向资金、南向资金、主力资金（超大单／大单／中单／小单）三路资金净额全给，行业净流入与净流出 TOP5 排名，两融余额变化。最后落到一句话——今天到底是谁在买、谁在跑，钱去了哪个方向。</span>
+    </div>
+  </div>
+
+  <div class="dp-head">📦 另外还包含这些模块</div>
   <ul>
-    <li>✅ 五维度详细分析（每个维度5-7条数据+结论）</li>
-    <li>✅ 板块热力图（10大板块涨跌+资金流向）</li>
-    <li>✅ 焦点个股（16只个股追踪+三个对比）</li>
-    <li>✅ 大宗商品（18项数据+四段解读）</li>
+    <li>✅ 板块热力图（10大板块涨跌排名 + 资金流向）</li>
+    <li>✅ 焦点个股（16只个股追踪 + 三个对比）</li>
+    <li>✅ 大宗商品（18项数据 + 四段解读）</li>
     <li>✅ 产业高频数据（6大产业量化分析）</li>
-    <li>✅ 策略研判（短中长期+方向标签+风险清单）</li>
+    <li>✅ 策略研判（短期/中期/长期 + 方向标签 + 风险清单）</li>
     <li>✅ 每日问答（每天回答1-2个问题）</li>
   </ul>
   <p class="price">年费199元，每天不到6毛钱</p>
