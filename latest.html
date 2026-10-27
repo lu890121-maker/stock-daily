@@ -219,6 +219,8 @@
     background:#f1f4f9; transition:all .2s;
   }
   .nav a:hover { background:#e84855; color:#fff; }
+  html { scroll-behavior: smooth; }
+  #a-stock, #global, #news, #dims, #chart-compare, #heatmap, #qa, #poll { scroll-margin-top: 58px; }
   .footer {
     padding:30px 26px; background:#f7f9fc; border-top:1px solid #e8ecf3;
     font-size:11.5px; color:#8892a6; line-height:1.9;
@@ -312,11 +314,10 @@
   <a href="#global">全球市场</a>
   <a href="#news">环球要闻</a>
   <a href="#dims">五维度分析</a>
-  <a href="#heatmap">板块热力图</a>
-  <a href="#focus">焦点个股</a>
-  <a href="#commodity">大宗商品</a>
-  <a href="#industry">产业高频</a>
-  <a href="#strategy">策略研判</a>
+  <a href="#chart-compare">涨跌对比</a>
+  <a href="#heatmap">产业热力图</a>
+  <a href="#qa">今日问答</a>
+  <a href="#poll">今日投票</a>
 </div>
 
 <!-- HERO -->
@@ -342,7 +343,7 @@
   <h3>📋 今日核心摘要</h3>
   <p>A股高开低走全面杀跌：沪指-1.33%失守3650报3648.30，深成指-2.50%报11245.73，创业板-3.41%报2548，科创50-4.81%报1252全场最惨。成交1.47万亿缩量1502亿，近5000股下跌。隔夜美股反弹、日韩大涨，A股完全无视外围利好。</p>
   <p>全球冰火两重天：KOSPI+3.09%、日经+1.73%、美股纳指+0.82%、费城半导体+2.82%。但巴西股灾触发熔断暴跌13.9%，2020年3月以来首次。黄金4003美元在4000关口拉锯，WTI回落至100.84美元。</p>
-  <p>五维度评分：消息面偏空★★☆☆☆、情绪面冰点★☆☆☆☆、技术面破位★★☆☆☆、政策面中性★★★☆☆、资金面偏空★★☆☆☆。银行逆势新高+1.26%，军工-5.2%跌停潮，风格大切换。</p>
+  <p>风格大切换：银行逆势新高+1.26%，军工-5.2%跌停潮，软件、半导体全线走弱。资金正从科技成长往高股息防御板块迁移，这是本周最值得盯的一条主线。</p>
 </div>
 
 <!-- A股速览（免费版） -->
@@ -599,14 +600,14 @@
 
 
 <!-- 数据可视化（免费版） -->
-<div class="chart-section">
+<div class="chart-section" id="chart-compare">
   <h4>📊 全球市场涨跌对比</h4>
   <div class="chart-wrap">
     <canvas id="marketChart"></canvas>
   </div>
 </div>
 
-<div class="chart-section">
+<div class="chart-section" id="heatmap">
   <h4>🔥 六大产业热力图</h4>
   <div class="heatmap-grid">
     <div class="heatmap-item" style="background: linear-gradient(135deg, #ff6b6b, #ee5a6f);">
@@ -656,7 +657,7 @@
 </div>
 
 <!-- 问答区 -->
-<div class="qa-section">
+<div class="qa-section" id="qa">
   <h4>💬 今日问答（付费用户专属）</h4>
   <p style="font-size: 12px; color: #8892a6; margin-bottom: 12px;">每天回答1-2个问题，欢迎在知识星球提问</p>
   <div class="qa-item">
@@ -671,7 +672,7 @@
 </div>
 
 <!-- 投票区 -->
-<div class="poll-section">
+<div class="poll-section" id="poll">
   <h4>📊 今日投票</h4>
   <p style="font-size: 13px; color: #5a6678; margin-bottom: 10px;">明天你看好哪个市场？</p>
   <div class="poll-options">
@@ -697,22 +698,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-// 展开/收起功能
-function toggleContent() {
-  const fullContent = document.getElementById('fullContent');
-  const expandBtn = document.getElementById('expandBtn');
-  
-  if (fullContent.classList.contains('show')) {
-    fullContent.classList.remove('show');
-    expandBtn.classList.remove('active');
-    expandBtn.querySelector('span').textContent = '查看付费版深度内容';
-  } else {
-    fullContent.classList.add('show');
-    expandBtn.classList.add('active');
-    expandBtn.querySelector('span').textContent = '收起付费内容';
-  }
-}
-
 // 投票功能
 function vote(choice, btn) {
   const result = document.getElementById('pollResult');
