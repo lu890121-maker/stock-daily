@@ -392,7 +392,7 @@
     </div>
     <div class="banner-right">
       <a href="#free" class="btn btn-free">免费订阅</a>
-      <a href="https://zsxq.com/link?your-link" class="btn btn-paid" target="_blank">加入知识星球（完整版）</a>
+      <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">加入知识星球（完整版）</a>
     </div>
   </div>
 </div>
@@ -438,14 +438,396 @@
 
 <!-- 展开按钮 -->
 <button class="expand-btn" onclick="toggleContent()" id="expandBtn">
-  <span>展开全文（全球市场 · 9条要闻 · 五维度 · 板块 · 个股 · 大宗 · 产业 · 策略）</span>
+  <span>查看付费版内容（深度分析 · 板块 · 个股 · 大宗 · 产业 · 策略）</span>
   <span class="arrow">▼</span>
 </button>
 
-<!-- 第二层：完整内容（默认隐藏） -->
+<!-- A股速览（免费版） -->
+<div class="sec" id="a-stock">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff0f0;">📊</div>
+    <div class="sec-title">A股速览</div>
+    <div class="sec-note">10月26日 · 收盘</div>
+  </div>
+  
+  <div class="idx-grid">
+    <div class="idx up">
+      <div class="n">上证指数</div>
+      <div class="v">3697.52</div>
+      <div class="c">+0.19%</div>
+    </div>
+    <div class="idx down">
+      <div class="n">深证成指</div>
+      <div class="v">11534.38</div>
+      <div class="c">-1.19%</div>
+    </div>
+    <div class="idx down">
+      <div class="n">创业板指</div>
+      <div class="v">2638.23</div>
+      <div class="c">-1.71%</div>
+    </div>
+    <div class="idx down">
+      <div class="n">科创50</div>
+      <div class="v">1315.50</div>
+      <div class="c">-2.23%</div>
+    </div>
+  </div>
+  
+  <div class="statbar">
+    <div class="stat">
+      <div class="k">成交额</div>
+      <div class="v n0">1.60万亿</div>
+    </div>
+    <div class="stat">
+      <div class="k">较昨日</div>
+      <div class="v g">-3700亿</div>
+    </div>
+    <div class="stat">
+      <div class="k">涨停</div>
+      <div class="v r">~42只</div>
+    </div>
+    <div class="stat">
+      <div class="k">下跌家数</div>
+      <div class="v g">2900+</div>
+    </div>
+  </div>
+  
+  <div class="callout">
+    <b>分化加剧！</b>沪指+0.19%勉强收红靠权重护盘，创业板-1.71%、科创50-2.23%领跌。成交1.60万亿缩量3700亿，超2900股下跌。<b>机器人七连板</b>：宇树科技+8%市值突破2700亿，7个交易日累涨超60%。游戏股集体上涨（电魂网络涨停、掌趣科技+7%）。AI硬件杀跌，银行板块走弱。资金从"防御"切回"成长"，但只认机器人不认科技。
+  </div>
+</div>
+
+<!-- 全球市场（免费版） -->
+<div class="sec" id="global">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f0f5ff;">🌍</div>
+    <div class="sec-title">全球市场</div>
+    <div class="sec-note">多市场对比</div>
+  </div>
+  
+  <div class="mkt-legend">
+    <span><span class="dot close"></span>已收盘</span>
+    <span><span class="dot live"></span>交易中</span>
+    <span><span class="dot ovn"></span>隔夜</span>
+  </div>
+  
+  <table class="tbl">
+    <tr><th>市场</th><th>指数</th><th>点位</th><th>涨跌幅</th></tr>
+    
+    <tr class="grp"><td colspan="4">🇭🇰 港股 · 已收盘</td></tr>
+    <tr>
+      <td class="name">恒生指数</td>
+      <td>HSI</td>
+      <td>23194</td>
+      <td class="r">+0.44%</td>
+    </tr>
+    <tr>
+      <td class="name">恒生科技</td>
+      <td>HSTECH</td>
+      <td>3857</td>
+      <td class="g">-0.37%</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">🇯🇵🇰🇷 日韩 · 已收盘</td></tr>
+    <tr>
+      <td class="name">日经225</td>
+      <td>N225</td>
+      <td>62193</td>
+      <td class="g">-0.80%</td>
+    </tr>
+    <tr>
+      <td class="name">KOSPI</td>
+      <td>KS11</td>
+      <td>5470</td>
+      <td class="g">-1.45%</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">🇺🇸 美股 · 上周五收盘</td></tr>
+    <tr class="hot">
+      <td class="name">道琼斯</td>
+      <td>DJI</td>
+      <td>52215</td>
+      <td class="g">-1.23%</td>
+    </tr>
+    <tr class="hot">
+      <td class="name">标普500</td>
+      <td>SPX</td>
+      <td>7624</td>
+      <td class="g">-0.52%</td>
+    </tr>
+    <tr class="hot">
+      <td class="name">纳斯达克</td>
+      <td>IXIC</td>
+      <td>25955</td>
+      <td class="g">-0.21%</td>
+    </tr>
+    
+    <tr class="grp"><td colspan="4">🇪🇺 欧股 · 上周五收盘</td></tr>
+    <tr>
+      <td class="name">STOXX 600</td>
+      <td>SXXP</td>
+      <td>636</td>
+      <td class="g">-0.31%</td>
+    </tr>
+  </table>
+  
+  <div class="callout blue">
+    <b>全球分化：</b>A股沪指勉强收红但创业板-1.71%，港股小幅收涨恒指+0.44%。日韩双双收跌——日经-0.80%，<b>KOSPI-1.45%</b>（高盛大幅下调目标价25%从12000点降至9000点）。美股上周五道指跌652点-1.23%，油价上涨推升通胀担忧。欧股STOXX600-0.31%本周累计-1.39%。
+  </div>
+</div>
+
+<!-- 环球要闻（免费版） -->
+<div class="sec" id="news">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff9f0;">📰</div>
+    <div class="sec-title">环球要闻</div>
+    <div class="sec-note">9条 · 多信源</div>
+  </div>
+  
+  <div class="news-legend">
+    <span><span class="tag a">极重要</span> 4条</span>
+    <span><span class="tag b">重要</span> 3条</span>
+    <span><span class="tag c">关注</span> 2条</span>
+  </div>
+  
+  <!-- 新闻1 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">Reuters</span>
+      <span class="src intl">Bloomberg</span>
+      <span class="src">财联社</span>
+    </div>
+    <h3>央行开展7000亿元MLF操作，期限为1年期</h3>
+    <p>10月26日，中国人民银行以固定数量、利率招标、多重价位中标方式开展7000亿元MLF操作，期限为1年期。此举旨在保持银行体系流动性充裕。</p>
+    <p><b>说人话：</b>7000亿MLF续作，央行维持"精准有效"基调。LPR连续6个月按兵不动（1年期3.0%、5年期3.5%），人民币升值制约降息空间。但银行间流动性合理充裕，引导金融机构加大对实体经济和高技术制造业支持——钱要流向"该去的地方"。</p>
+    <div class="impact">
+      <b>影响推演：</b>①银行间流动性充裕但降息预期落空；②人民币升值制约货币政策空间；③高技术制造业仍是政策扶持重点。
+    </div>
+  </div>
+  
+  <!-- 新闻2 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">Bloomberg</span>
+      <span class="src intl">WSJ</span>
+      <span class="src">新华社</span>
+    </div>
+    <h3>高盛大幅下调韩国KOSPI指数目标价25%，从12000点降至9000点</h3>
+    <p>高盛将韩国综合股价指数12个月目标价从12000点下调至9000点，为今年多次上调后首次大幅下调，理由是市场对AI行业巨额资本开支回报的担忧加剧，需采用更保守估值假设。当前KOSPI较6月峰值已暴跌超35%，预期市盈率仅约4倍，为2006年以来全球主要市场最低。</p>
+    <p><b>说人话：</b>高盛"翻脸"了——之前上调目标价，现在直接砍25%。KOSPI从6月高点6008跌到5470，跌了35%但市盈率只有4倍——全球最便宜的市场，但没人敢买。AI资本开支回报担忧+外资连续净卖出，韩国存储芯片"双雄"本周发财报是关键验证点。</p>
+    <div class="impact">
+      <b>影响推演：</b>①韩国存储芯片本周发财报（SK海力士周三、三星电子周四）；②AI资本开支回报担忧压制估值；③A股半导体/存储板块情绪承压。
+    </div>
+  </div>
+  
+  <!-- 新闻3 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">CNBC</span>
+      <span class="src intl">FT</span>
+      <span class="src">央视财经</span>
+    </div>
+    <h3>美股上周五道指跌652点-1.23%，布油创4月以来新高</h3>
+    <p>10月24日，美股三大指数收跌，抛售压力从AI交易扩散至更广泛领域。道指跌652.82点-1.23%报52215.16点（本周+0.41%），标普500跌39.75点-0.52%报7623.68点（本周-0.47%），纳指跌53.51点-0.21%报25955.34点。油价上涨，市场日益担心美伊冲突将再次爆发。</p>
+    <p><b>说人话：</b>道指本周累涨0.41%但周五单日跌652点——"周末避险"情绪+油价飙升。布油创4月新高（116-117美元区间），通胀担忧升温。10年期美债收益率回升但仍低于5%门槛（4.995%）。市场抛售范围扩大，不再只是科技股。</p>
+    <div class="impact">
+      <b>影响推演：</b>①油价高位推升通胀预期；②10年美债4.995%在5%关口拉锯；③美联储10月28日议息大概率维持不变，关注12月措辞。
+    </div>
+  </div>
+  
+  <!-- 新闻4 -->
+  <div class="news a">
+    <div class="news-top">
+      <span class="tag a">极重要</span>
+      <span class="src intl">Reuters</span>
+      <span class="src intl">CNBC</span>
+      <span class="src">新华社</span>
+    </div>
+    <h3>现货黄金在4000美元拉锯，国内金饰报1200元/克</h3>
+    <p>10月26日，现货黄金开盘于3995.14美元/盎司，最高触及4019.31美元，最低3978.01美元，在4000美元心理关口反复拉锯。国内金饰价格：亚一金店报1200元/克。金银比73.96。</p>
+    <p><b>说人话：</b>黄金在4000美元关口拉锯——上周五跌破4000美元后反弹，但上不去。10年美债4.995%高位压制，持有黄金机会成本高。但央行购金仍在加速（8月全球央行购金79吨折合年化1000吨）。短期4000美元有强劲支撑，但向上突破需要催化。</p>
+    <div class="impact">
+      <b>影响推演：</b>①黄金4000美元关口拉锯，短期震荡；②A股贵金属板块承压；③中长期看央行购金+地缘不确定性支撑。
+    </div>
+  </div>
+  
+  <!-- 新闻5 -->
+  <div class="news b">
+    <div class="news-top">
+      <span class="tag b">重要</span>
+      <span class="src intl">Bloomberg</span>
+      <span class="src">财联社</span>
+    </div>
+    <h3>亚马逊CEO：2026年投入2200亿美元资本开支，AWS算力产能售罄</h3>
+    <p>10月23日，亚马逊首席执行官安迪·贾西表示，即使2026年投入约2200亿美元资本开支，仍有大量客户需求无法满足。目前AWS 2026年的主要算力产能已经售罄，2027年大部分产能已被预订，2028年也有相当一部分获得客户承诺。</p>
+    <p><b>说人话：</b>亚马逊"花钱不手软"——2200亿美元资本开支，算力产能售罄到2028年。AI需求"极度强劲"，但市场担忧回报周期。这是"AI泡沫"还是"AI革命"？资金用脚投票：硬件端承压（费城半导体暴跌），应用端受益（机器人、AI应用）。</p>
+    <div class="impact">
+      <b>影响推演：</b>①AI需求验证但回报担忧压制估值；②A股AI硬件承压、应用受益；③关注科技巨头财报季验证。
+    </div>
+  </div>
+  
+  <!-- 新闻6 -->
+  <div class="news b">
+    <div class="news-top">
+      <span class="tag b">重要</span>
+      <span class="src">新华社</span>
+      <span class="src">财联社</span>
+    </div>
+    <h3>国家外汇局就11项资本项目便利化新政征求意见</h3>
+    <p>国家外汇局就11项资本项目便利化新政征求意见，中国国债富时权重达11.9%稳居全球第二。</p>
+    <p><b>说人话：</b>资本项目便利化——"开门迎客"。中国国债富时权重11.9%全球第二，外资配置人民币资产需求增加。但人民币升值制约货币政策空间，"不可能三角"平衡术。</p>
+    <div class="impact">
+      <b>影响推演：</b>①外资流入便利化，利好债市；②人民币国际化推进；③但升值制约降息空间。
+    </div>
+  </div>
+  
+  <!-- 新闻7 -->
+  <div class="news b">
+    <div class="news-top">
+      <span class="tag b">重要</span>
+      <span class="src intl">Reuters</span>
+      <span class="src">央视财经</span>
+    </div>
+    <h3>全球央行利率决议密集登场，A股三季报披露收官</h3>
+    <p>10月26日至11月1日这一周，全球多家主要央行将集中公布利率决议。A股三季报披露进入最后阶段，国内成品油调价窗口也将在周内开启。</p>
+    <p><b>说人话：</b>"超级央行周"——全球央行利率决议密集。美联储10月28日议息大概率维持不变，但关注12月措辞。A股三季报收官，业绩雷+业绩惊喜并存。成品油调价窗口开启，油价高位传导至终端。</p>
+    <div class="impact">
+      <b>影响推演：</b>①美联储10月28日议息，关注声明措辞；②A股三季报收官，业绩分化；③成品油调价窗口，油价传导。
+    </div>
+  </div>
+  
+  <!-- 新闻8 -->
+  <div class="news c">
+    <div class="news-top">
+      <span class="tag c">关注</span>
+      <span class="src">新华社</span>
+    </div>
+    <h3>中国共产党第二十届中央委员会第五次全体会议定于10月26日至29日举行</h3>
+    <p>中国共产党第二十届中央委员会第五次全体会议定于10月26日至29日举行。</p>
+    <p><b>说人话：</b>五中全会——通常聚焦重大政策方向。市场关注经济政策、改革方向。短期情绪面支撑，但具体政策需等公报。</p>
+    <div class="impact">
+      <b>影响推演：</b>①短期情绪面支撑；②关注公报政策方向；③中长期改革预期。
+    </div>
+  </div>
+  
+  <!-- 新闻9 -->
+  <div class="news c">
+    <div class="news-top">
+      <span class="tag c">关注</span>
+      <span class="src intl">Reuters</span>
+    </div>
+    <h3>俄罗斯央行维持基准利率14%不变</h3>
+    <p>俄罗斯央行维持基准利率14%不变。</p>
+    <p><b>说人话：</b>俄罗斯14%利率——"战时经济"常态。地缘冲突持续，油价高位支撑卢布。对A股影响有限，但地缘风险溢价持续。</p>
+    <div class="impact">
+      <b>影响推演：</b>①地缘风险溢价持续；②油价高位支撑；③对A股影响有限。
+    </div>
+  </div>
+</div>
+
+<!-- 第二层：付费版内容（默认隐藏） -->
 <div class="full-content" id="fullContent">
 
-<!-- A股速览 -->
+<!-- 付费内容标识 -->
+<div class="paid-content-badge">
+  <span class="badge-icon">🔒</span>
+  <span class="badge-text">以下为付费内容</span>
+  <a href="https://wx.zsxq.com/group/88884524422882" class="badge-link" target="_blank">解锁完整版 →</a>
+</div>
+
+<!-- 五维度深度分析（付费版） -->
+<div class="sec" id="analysis-full">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f5f0ff;">🔍</div>
+    <div class="sec-title">五维度深度分析</div>
+    <div class="sec-note">付费版 · 详细解读</div>
+  </div>
+  
+  <div class="dim d1">
+    <div class="dim-h">
+      <span class="e">📰</span>
+      <span class="t">消息面</span>
+      <span class="score">评分：中性偏空 ★★★☆☆</span>
+    </div>
+    <ul>
+      <li><b>央行7000亿MLF续作：</b>维持流动性充裕，但LPR连续6个月不变，降息预期落空。</li>
+      <li><b>高盛下调KOSPI目标25%：</b>AI资本开支回报担忧，韩国存储芯片承压。</li>
+      <li><b>亚马逊2200亿美元资本开支：</b>AI需求强劲但回报周期担忧。</li>
+      <li><b>全球央行利率决议密集：</b>美联储10月28日议息，关注措辞。</li>
+      <li><b>五中全会10月26-29日：</b>短期情绪支撑，关注政策方向。</li>
+    </ul>
+    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>消息面中性偏空。MLF续作但降息落空，高盛下调韩国目标压制情绪，亚马逊AI需求验证但回报担忧。五中全会短期支撑。</p>
+  </div>
+  
+  <div class="dim d2">
+    <div class="dim-h">
+      <span class="e">💭</span>
+      <span class="t">情绪面</span>
+      <span class="score">评分：偏空 ★★☆☆☆</span>
+    </div>
+    <ul>
+      <li><b>A股缩量分化：</b>成交1.60万亿缩量3700亿，超2900股下跌，市场缺合力。</li>
+      <li><b>日韩收跌：</b>日经-0.80%，KOSPI-1.45%，高盛下调目标压制。</li>
+      <li><b>美股上周五道指跌652点：</b>油价上涨推升通胀担忧。</li>
+      <li><b>黄金4000美元拉锯：</b>避险情绪 vs 高利率压制。</li>
+      <li><b>机器人七连板：</b>局部热点但难带大盘。</li>
+    </ul>
+    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>情绪偏空。缩量分化+日韩收跌+美股道指大跌，市场缺合力。机器人局部热点但难带大盘，观望情绪浓。</p>
+  </div>
+  
+  <div class="dim d3">
+    <div class="dim-h">
+      <span class="e">📐</span>
+      <span class="t">技术面</span>
+      <span class="score">评分：中性 ★★★☆☆</span>
+    </div>
+    <ul>
+      <li><b>沪指3697点：</b>勉强收红靠权重护盘，3700点关口拉锯。</li>
+      <li><b>创业板-1.71%：</b>失守2650点，创近期新低。</li>
+      <li><b>科创50-2.23%：</b>领跌全场，AI硬件杀跌。</li>
+      <li><b>成交缩量：</b>1.60万亿较昨日缩量3700亿，量能不足。</li>
+      <li><b>支撑位：</b>沪指3650点，压力位：3750点。</li>
+    </ul>
+    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>技术面中性。沪指3700点关口拉锯，创业板创新低，科创50领跌。缩量分化，方向未明。关注3650点支撑。</p>
+  </div>
+  
+  <div class="dim d4">
+    <div class="dim-h">
+      <span class="e">🏛️</span>
+      <span class="t">政策面</span>
+      <span class="score">评分：中性偏多 ★★★★☆</span>
+    </div>
+    <ul>
+      <li><b>央行7000亿MLF：</b>维持流动性充裕，精准有效。</li>
+      <li><b>资本项目便利化：</b>11项新政征求意见，开门迎客。</li>
+      <li><b>五中全会：</b>聚焦重大政策方向，改革预期。</li>
+      <li><b>LPR不变：</b>人民币升值制约降息空间。</li>
+      <li><b>高技术制造业扶持：</b>引导金融机构支持。</li>
+    </ul>
+    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>政策面中性偏多。MLF续作+资本便利化+五中全会，政策托底。但人民币升值制约降息，"不可能三角"平衡。</p>
+  </div>
+  
+  <div class="dim d5">
+    <div class="dim-h">
+      <span class="e">💰</span>
+      <span class="t">资金面</span>
+      <span class="score">评分：中性 ★★★☆☆</span>
+    </div>
+    <ul>
+      <li><b>缩量分化：</b>1.60万亿缩量3700亿，主力净流出72.96亿。</li>
+      <li><b>ETF资金涌入：</b>近两交易日股票型ETF净流入超1000亿。</li>
+      <li><b>机器人板块：</b>宇树科技7个交易日累涨超60%，资金集中。</li>
+      <li><b>AI硬件杀跌：</b>资金从硬件切向应用。</li>
+      <li><b>银行走弱：</b>资金从防御切向成长。</li>
+    </ul>
+    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>资金面中性。缩量分化但ETF资金涌入，机器人吸金，AI硬件被抛弃。风格切换：从"防御"切向"成长"，但只认机器人。</p>
+  </div>
+</div>
+
+<!-- 板块热力图（付费版） -->
 <div class="sec" id="a-stock">
   <div class="sec-head">
     <div class="sec-ico" style="background:#fff0f0;">📊</div>
@@ -731,7 +1113,7 @@
   </div>
 </div>
 
-<!-- 五维度分析 -->
+<!-- 五维度分析（免费版：只给结论） -->
 <div class="sec" id="analysis">
   <div class="sec-head">
     <div class="sec-ico" style="background:#f5f0ff;">🔍</div>
@@ -745,14 +1127,7 @@
       <span class="t">消息面</span>
       <span class="score">评分：中性偏空 ★★★☆☆</span>
     </div>
-    <ul>
-      <li><b>央行7000亿MLF续作：</b>维持流动性充裕，但LPR连续6个月不变，降息预期落空。</li>
-      <li><b>高盛下调KOSPI目标25%：</b>AI资本开支回报担忧，韩国存储芯片承压。</li>
-      <li><b>亚马逊2200亿美元资本开支：</b>AI需求强劲但回报周期担忧。</li>
-      <li><b>全球央行利率决议密集：</b>美联储10月28日议息，关注措辞。</li>
-      <li><b>五中全会10月26-29日：</b>短期情绪支撑，关注政策方向。</li>
-    </ul>
-    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>消息面中性偏空。MLF续作但降息落空，高盛下调韩国目标压制情绪，亚马逊AI需求验证但回报担忧。五中全会短期支撑。</p>
+    <p style="margin-top:10px;font-size:13px;color:#5a3a3a;line-height:1.8;"><b>结论：</b>消息面中性偏空。MLF续作但降息落空，高盛下调韩国目标压制情绪，亚马逊AI需求验证但回报担忧。五中全会短期支撑。</p>
   </div>
   
   <div class="dim d2">
@@ -761,14 +1136,7 @@
       <span class="t">情绪面</span>
       <span class="score">评分：偏空 ★★☆☆☆</span>
     </div>
-    <ul>
-      <li><b>A股缩量分化：</b>成交1.60万亿缩量3700亿，超2900股下跌，市场缺合力。</li>
-      <li><b>日韩收跌：</b>日经-0.80%，KOSPI-1.45%，高盛下调目标压制。</li>
-      <li><b>美股上周五道指跌652点：</b>油价上涨推升通胀担忧。</li>
-      <li><b>黄金4000美元拉锯：</b>避险情绪 vs 高利率压制。</li>
-      <li><b>机器人七连板：</b>局部热点但难带大盘。</li>
-    </ul>
-    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>情绪偏空。缩量分化+日韩收跌+美股道指大跌，市场缺合力。机器人局部热点但难带大盘，观望情绪浓。</p>
+    <p style="margin-top:10px;font-size:13px;color:#5a3a3a;line-height:1.8;"><b>结论：</b>情绪偏空。缩量分化+日韩收跌+美股道指大跌，市场缺合力。机器人局部热点但难带大盘，观望情绪浓。</p>
   </div>
   
   <div class="dim d3">
@@ -777,14 +1145,7 @@
       <span class="t">技术面</span>
       <span class="score">评分：中性 ★★★☆☆</span>
     </div>
-    <ul>
-      <li><b>沪指3697点：</b>勉强收红靠权重护盘，3700点关口拉锯。</li>
-      <li><b>创业板-1.71%：</b>失守2650点，创近期新低。</li>
-      <li><b>科创50-2.23%：</b>领跌全场，AI硬件杀跌。</li>
-      <li><b>成交缩量：</b>1.60万亿较昨日缩量3700亿，量能不足。</li>
-      <li><b>支撑位：</b>沪指3650点，压力位：3750点。</li>
-    </ul>
-    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>技术面中性。沪指3700点关口拉锯，创业板创新低，科创50领跌。缩量分化，方向未明。关注3650点支撑。</p>
+    <p style="margin-top:10px;font-size:13px;color:#5a3a3a;line-height:1.8;"><b>结论：</b>技术面中性。沪指3700点关口拉锯，创业板创新低，科创50领跌。缩量分化，方向未明。关注3650点支撑。</p>
   </div>
   
   <div class="dim d4">
@@ -793,14 +1154,7 @@
       <span class="t">政策面</span>
       <span class="score">评分：中性偏多 ★★★★☆</span>
     </div>
-    <ul>
-      <li><b>央行7000亿MLF：</b>维持流动性充裕，精准有效。</li>
-      <li><b>资本项目便利化：</b>11项新政征求意见，开门迎客。</li>
-      <li><b>五中全会：</b>聚焦重大政策方向，改革预期。</li>
-      <li><b>LPR不变：</b>人民币升值制约降息空间。</li>
-      <li><b>高技术制造业扶持：</b>引导金融机构支持。</li>
-    </ul>
-    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>政策面中性偏多。MLF续作+资本便利化+五中全会，政策托底。但人民币升值制约降息，"不可能三角"平衡。</p>
+    <p style="margin-top:10px;font-size:13px;color:#5a3a3a;line-height:1.8;"><b>结论：</b>政策面中性偏多。MLF续作+资本便利化+五中全会，政策托底。但人民币升值制约降息，"不可能三角"平衡。</p>
   </div>
   
   <div class="dim d5">
@@ -809,23 +1163,16 @@
       <span class="t">资金面</span>
       <span class="score">评分：中性 ★★★☆☆</span>
     </div>
-    <ul>
-      <li><b>缩量分化：</b>1.60万亿缩量3700亿，主力净流出72.96亿。</li>
-      <li><b>ETF资金涌入：</b>近两交易日股票型ETF净流入超1000亿。</li>
-      <li><b>机器人板块：</b>宇树科技7个交易日累涨超60%，资金集中。</li>
-      <li><b>AI硬件杀跌：</b>资金从硬件切向应用。</li>
-      <li><b>银行走弱：</b>资金从防御切向成长。</li>
-    </ul>
-    <p style="margin-top:10px;font-size:12.5px;color:#5a3a3a;"><b>结论：</b>资金面中性。缩量分化但ETF资金涌入，机器人吸金，AI硬件被抛弃。风格切换：从"防御"切向"成长"，但只认机器人。</p>
+    <p style="margin-top:10px;font-size:13px;color:#5a3a3a;line-height:1.8;"><b>结论：</b>资金面中性。缩量分化但ETF资金涌入，机器人吸金，AI硬件被抛弃。风格切换：从"防御"切向"成长"，但只认机器人。</p>
   </div>
 </div>
 
-<!-- 板块热力图 -->
+<!-- 板块热力图（付费版） -->
 <div class="sec" id="sector">
   <div class="sec-head">
     <div class="sec-ico" style="background:#fff5e8;">🔥</div>
     <div class="sec-title">板块热力图</div>
-    <div class="sec-note">10大板块</div>
+    <div class="sec-note">付费版 · 10大板块</div>
   </div>
   
   <div class="heat">
@@ -886,12 +1233,12 @@
   </div>
 </div>
 
-<!-- 焦点个股 -->
+<!-- 焦点个股（付费版） -->
 <div class="sec" id="focus">
   <div class="sec-head">
     <div class="sec-ico" style="background:#f0fff5;">🎯</div>
     <div class="sec-title">焦点个股</div>
-    <div class="sec-note">16只</div>
+    <div class="sec-note">付费版 · 16只</div>
   </div>
   
   <div class="chips">
@@ -980,12 +1327,12 @@
   </div>
 </div>
 
-<!-- 大宗商品 -->
+<!-- 大宗商品（付费版） -->
 <div class="sec" id="commodity">
   <div class="sec-head">
     <div class="sec-ico" style="background:#fff0f0;">🛢️</div>
     <div class="sec-title">大宗商品</div>
-    <div class="sec-note">18项</div>
+    <div class="sec-note">付费版 · 18项</div>
   </div>
   
   <table class="tbl">
@@ -1101,12 +1448,12 @@
   </div>
 </div>
 
-<!-- 产业高频数据 -->
+<!-- 产业高频数据（付费版） -->
 <div class="sec" id="industry">
   <div class="sec-head">
     <div class="sec-ico" style="background:#f5f8ff;">🏭</div>
     <div class="sec-title">产业高频数据 · 机构/大户必读</div>
-    <div class="sec-note">6大产业</div>
+    <div class="sec-note">付费版 · 6大产业</div>
   </div>
   
   <div class="gf-grid">
@@ -1193,12 +1540,12 @@
   </div>
 </div>
 
-<!-- 策略研判 -->
+<!-- 策略研判（付费版） -->
 <div class="sec" id="strategy">
   <div class="sec-head">
     <div class="sec-ico" style="background:#f0f5ff;">🎯</div>
     <div class="sec-title">策略研判</div>
-    <div class="sec-note">短期/中期/长期</div>
+    <div class="sec-note">付费版 · 短期/中期/长期</div>
   </div>
   
   <div class="strategy-box">
@@ -1292,29 +1639,29 @@
 <div class="paid-content-badge">
   <span class="badge-icon">🔒</span>
   <span class="badge-text">以下为付费内容</span>
-  <a href="https://zsxq.com/link?your-link" class="badge-link" target="_blank">解锁完整版 →</a>
+  <a href="https://wx.zsxq.com/group/88884524422882" class="badge-link" target="_blank">解锁完整版 →</a>
 </div>
 
 <!-- 底部引流卡片 -->
 <div class="upgrade-card">
   <div class="upgrade-header">
-    <h4>📌 本期为免费版（简版）</h4>
-    <p>完整版包含更多深度内容</p>
+    <h4>📌 以上是今日免费版内容</h4>
+    <p>如果你觉得这个日报对你有帮助，完整版还包含：</p>
   </div>
   <div class="upgrade-features">
     <ul>
-      <li>✅ 资金流向详细分析（北向/南向/主力）</li>
-      <li>✅ 6大产业深度点评（含个股追踪+产业链数据）</li>
-      <li>✅ 技术面+资金面分析（支撑/压力位+主力动向）</li>
-      <li>✅ 短中期趋势研判（1-3天+1-4周）</li>
-      <li>✅ 数据表格+图表分析（可下载Excel）</li>
-      <li>✅ 每日问答互动（每天回答1-2个问题）</li>
-      <li>✅ 周报+月报（本周复盘+下周展望）</li>
+      <li>✅ <b>五维度深度分析</b>：每个维度的详细数据+影响解读（不只是结论）</li>
+      <li>✅ <b>板块热力图</b>：10大板块详细涨跌+格局总结</li>
+      <li>✅ <b>焦点个股</b>：16只个股追踪（A股+港股+海外）+三个对比分析</li>
+      <li>✅ <b>大宗商品</b>：18项详细数据（能源/贵金属/汇率/利率）+四段解读</li>
+      <li>✅ <b>产业高频数据</b>：6大产业量化分析（产量/库存/产能利用率）</li>
+      <li>✅ <b>策略研判</b>：短期/中期/长期判断+9个方向标签+7条风险清单</li>
+      <li>✅ <b>每日问答</b>：每天回答1-2个问题+投票互动</li>
     </ul>
   </div>
   <div class="upgrade-cta">
     <p class="price">年费199元，每天不到6毛钱</p>
-    <a href="https://zsxq.com/link?your-link" class="btn btn-paid" target="_blank">👉 点击加入知识星球</a>
+    <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">👉 点击加入知识星球</a>
   </div>
 </div>
 
@@ -1326,10 +1673,10 @@
     <div class="qa-item">
       <p class="qa-question">Q：机器人板块还能追吗？宇树科技7连板后会不会崩？</p>
       <p class="qa-answer">A：短期涨幅过大（7个交易日+60%），技术面有回调需求。但产业逻辑未变：2026H1全球出货3.6万台同比+300%，中国产量预计突破10万台。建议等回调到20日线再介入，不追高。重点关注本周韩国存储双雄财报，若不及预期可能拖累整个科技链...</p>
-      <a href="https://zsxq.com/link?your-link" class="qa-link" target="_blank">查看完整回答 →</a>
+      <a href="https://wx.zsxq.com/group/88884524422882" class="qa-link" target="_blank">查看完整回答 →</a>
     </div>
   </div>
-  <a href="https://zsxq.com/link?your-link" class="btn btn-paid" target="_blank">👉 加入知识星球提问</a>
+  <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">👉 加入知识星球提问</a>
 </div>
 
 <!-- 投票区 -->
