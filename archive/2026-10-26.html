@@ -236,10 +236,166 @@
     font-size:11px; font-weight:600; padding:4px 10px; border-radius:14px;
     background:#e2ecfd; color:#2456c4;
   }
+
+  /* ====== 改造一：订阅横幅 ====== */
+  .subscription-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 18px 26px;
+    color: #fff;
+  }
+  .banner-content {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .banner-left h3 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .banner-left p { font-size: 12px; color: rgba(255,255,255,.7); line-height: 1.6; }
+  .banner-right { display: flex; gap: 8px; flex-shrink: 0; }
+  .btn {
+    display: inline-block; font-size: 12.5px; font-weight: 700; padding: 8px 18px;
+    border-radius: 8px; text-decoration: none; text-align: center; white-space: nowrap;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-free {
+    background: transparent; border: 1.5px solid rgba(255,255,255,.5);
+    color: #fff;
+  }
+  .btn-free:hover { border-color: #fff; }
+  .btn-paid {
+    background: linear-gradient(135deg, #FFD700, #FFA500); border: none;
+    color: #1a1a2e; box-shadow: 0 4px 14px rgba(255,215,0,.3);
+  }
+  .btn-paid:hover { box-shadow: 0 6px 20px rgba(255,215,0,.45); }
+
+  /* ====== 改造二：分层阅读 ====== */
+  .summary-section {
+    padding: 24px 26px; background: linear-gradient(135deg, #f8f5ff, #f0f5ff);
+    border-bottom: 1px solid #e8ecf3;
+  }
+  .summary-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 12px; color: #2456c4; }
+  .summary-section p { font-size: 13.5px; line-height: 1.85; color: #3d4660; margin-bottom: 8px; }
+  .expand-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: calc(100% - 52px); margin: 16px 26px; padding: 12px;
+    background: #f1f4f9; border: 1px solid #e8ecf3; border-radius: 10px;
+    font-size: 13px; font-weight: 700; color: #3b6fe0; cursor: pointer;
+    transition: background .2s ease;
+  }
+  .expand-btn:hover { background: #e2ecfd; }
+  .expand-btn .arrow { font-size: 11px; transition: transform .3s ease; }
+  .expand-btn.active .arrow { transform: rotate(180deg); }
+  .full-content { display: none; }
+  .full-content.show { display: block; }
+
+  /* ====== 改造三：图表区域 ====== */
+  .chart-section {
+    padding: 20px 26px; border-bottom: 8px solid #f1f4f9;
+  }
+  .chart-section h4 { font-size: 15px; font-weight: 800; margin-bottom: 14px; color: #1a2233; }
+  .chart-wrap { position: relative; width: 100%; height: 220px; }
+  .chart-wrap canvas { width: 100% !important; height: 100% !important; }
+
+  /* 产业热力图 */
+  .industry-heatmap { margin-top: 16px; }
+  .industry-heatmap h4 { font-size: 15px; font-weight: 800; margin-bottom: 12px; color: #1a2233; }
+  .heatmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .heatmap-item {
+    border-radius: 10px; padding: 14px 10px; text-align: center;
+    position: relative; overflow: hidden; transition: transform .15s ease;
+  }
+  .heatmap-item:hover { transform: scale(1.03); }
+  .heatmap-item .industry-name { display: block; font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .heatmap-item .industry-change { display: block; font-size: 15px; font-weight: 800; color: #fff; }
+
+  /* ====== 改造一（续）：底部引流卡片 ====== */
+  .upgrade-card {
+    margin: 24px 26px; background: #f8f9fa; border: 1px solid #e8ecf3;
+    border-radius: 16px; padding: 24px 22px; box-shadow: 0 4px 20px rgba(20,30,60,.06);
+  }
+  .upgrade-header h4 { font-size: 16px; font-weight: 800; color: #1a2233; margin-bottom: 4px; }
+  .upgrade-header p { font-size: 12.5px; color: #8892a6; margin-bottom: 14px; }
+  .upgrade-features ul { list-style: none; padding: 0; margin-bottom: 18px; }
+  .upgrade-features li {
+    font-size: 13px; line-height: 2; color: #3d4660; padding-left: 4px;
+  }
+  .upgrade-cta { text-align: center; }
+  .upgrade-cta .price {
+    font-size: 18px; font-weight: 800; color: #e84855; margin-bottom: 12px;
+  }
+  .upgrade-cta .btn-paid {
+    display: inline-block; font-size: 14px; padding: 12px 32px; border-radius: 10px;
+  }
+
+  /* ====== 改造四：问答区 + 投票 ====== */
+  .qa-section {
+    padding: 24px 26px; border-bottom: 8px solid #f1f4f9;
+  }
+  .qa-section h4 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+  .qa-description { font-size: 12.5px; color: #8892a6; margin-bottom: 14px; }
+  .qa-sample { margin-bottom: 16px; }
+  .qa-item {
+    background: #f8f9fa; border: 1px solid #e8ecf3; border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 10px;
+  }
+  .qa-question { font-size: 13.5px; font-weight: 700; color: #1a2233; margin-bottom: 6px; }
+  .qa-answer { font-size: 13px; line-height: 1.8; color: #3d4660; margin-bottom: 8px; }
+  .qa-link { font-size: 12px; font-weight: 700; color: #3b6fe0; text-decoration: none; }
+  .qa-link:hover { text-decoration: underline; }
+
+  .poll-section {
+    padding: 24px 26px; border-bottom: 8px solid #f1f4f9;
+  }
+  .poll-section h4 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+  .poll-section > p { font-size: 13px; color: #5a6678; margin-bottom: 12px; }
+  .poll-options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .poll-btn {
+    flex: 1; min-width: calc(50% - 4px); padding: 10px 8px;
+    background: #f1f4f9; border: 1.5px solid #e8ecf3; border-radius: 10px;
+    font-size: 13px; font-weight: 700; color: #3d4660; cursor: pointer;
+    transition: all .15s ease;
+  }
+  .poll-btn:hover { background: #e2ecfd; border-color: #3b6fe0; color: #2456c4; }
+  .poll-btn.voted { background: #e2ecfd; border-color: #3b6fe0; color: #2456c4; }
+  .poll-result { font-size: 12.5px; color: #8892a6; line-height: 1.7; }
+
+  /* ====== 付费标识 ====== */
+  .paid-content-badge {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; margin: 0 26px 0;
+    background: linear-gradient(135deg, #fff9e6, #fff3cc);
+    border: 1px solid #ffe58a; border-radius: 10px;
+    font-size: 12px;
+  }
+  .badge-icon { font-size: 16px; }
+  .badge-text { font-weight: 700; color: #b8860b; flex: 1; }
+  .badge-link { font-size: 11px; font-weight: 700; color: #b8860b; text-decoration: none; }
+  .badge-link:hover { text-decoration: underline; }
+
+  /* ====== 响应式 ====== */
+  @media (max-width: 480px) {
+    .banner-content { flex-direction: column; text-align: center; }
+    .banner-right { width: 100%; }
+    .banner-right .btn { flex: 1; }
+    .heatmap-grid { grid-template-columns: repeat(2, 1fr); }
+    .poll-btn { min-width: calc(50% - 4px); }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<!-- 订阅横幅 -->
+<div class="subscription-banner">
+  <div class="banner-content">
+    <div class="banner-left">
+      <h3>📊 每日全球股市观察</h3>
+      <p>免费版：核心数据 + 简版分析 | 付费版：资金流向 + 产业深度 + 策略研判</p>
+    </div>
+    <div class="banner-right">
+      <a href="#free" class="btn btn-free">免费订阅</a>
+      <a href="https://zsxq.com/link?your-link" class="btn btn-paid" target="_blank">加入知识星球（完整版）</a>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -271,6 +427,23 @@
   <a href="#industry">产业高频</a>
   <a href="#strategy">策略研判</a>
 </div>
+
+<!-- 核心摘要（第一层：默认显示） -->
+<div class="summary-section">
+  <h3>📋 今日核心摘要</h3>
+  <p>A股分化加剧：沪指+0.19%勉强收红靠权重护盘，创业板-1.71%、科创50-2.23%领跌。成交1.60万亿缩量3700亿，超2900股下跌。机器人七连板（宇树科技+8%市值2700亿），游戏股活跃，AI硬件杀跌。</p>
+  <p>港股恒指+0.44%报23194，恒生科技-0.37%。日韩双双收跌（日经-0.80%，KOSPI-1.45%），高盛大幅下调KOSPI目标价25%。美股上周五道指-1.23%跌652点，布油创4月新高约116美元。</p>
+  <p>黄金3995美元在4000关口拉锯，央行开展7000亿元MLF操作，LPR连续6个月不变。五维度评分：消息面中性偏空、情绪面偏空、技术面中性、政策面中性偏多、资金面中性。</p>
+</div>
+
+<!-- 展开按钮 -->
+<button class="expand-btn" onclick="toggleContent()" id="expandBtn">
+  <span>展开全文（全球市场 · 9条要闻 · 五维度 · 板块 · 个股 · 大宗 · 产业 · 策略）</span>
+  <span class="arrow">▼</span>
+</button>
+
+<!-- 第二层：完整内容（默认隐藏） -->
+<div class="full-content" id="fullContent">
 
 <!-- A股速览 -->
 <div class="sec" id="a-stock">
@@ -1072,14 +1245,207 @@
   </div>
 </div>
 
+</div><!-- 关闭 full-content -->
+
+<!-- 数据可视化：涨跌柱状图 -->
+<div class="chart-section">
+  <h4>📈 今日全球市场涨跌一览</h4>
+  <div class="chart-wrap">
+    <canvas id="marketChart"></canvas>
+  </div>
+</div>
+
+<!-- 产业热力图 -->
+<div class="chart-section">
+  <h4>🔥 6大产业今日表现</h4>
+  <div class="industry-heatmap">
+    <div class="heatmap-grid">
+      <div class="heatmap-item" style="background: linear-gradient(135deg, #e84855, #ff6b6b);">
+        <span class="industry-name">人形机器人</span>
+        <span class="industry-change">+3.5%</span>
+      </div>
+      <div class="heatmap-item" style="background: linear-gradient(135deg, #e84855, #ff8787);">
+        <span class="industry-name">游戏</span>
+        <span class="industry-change">+2.8%</span>
+      </div>
+      <div class="heatmap-item" style="background: linear-gradient(135deg, #e84855, #ffa8a8);">
+        <span class="industry-name">石油石化</span>
+        <span class="industry-change">+2.4%</span>
+      </div>
+      <div class="heatmap-item" style="background: linear-gradient(135deg, #12a05c, #51cf66);">
+        <span class="industry-name">半导体</span>
+        <span class="industry-change">-2.0%</span>
+      </div>
+      <div class="heatmap-item" style="background: linear-gradient(135deg, #12a05c, #69db7c);">
+        <span class="industry-name">AI硬件</span>
+        <span class="industry-change">-2.4%</span>
+      </div>
+      <div class="heatmap-item" style="background: linear-gradient(135deg, #12a05c, #8ce99a);">
+        <span class="industry-name">消费电子</span>
+        <span class="industry-change">-3.2%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 付费内容标识 -->
+<div class="paid-content-badge">
+  <span class="badge-icon">🔒</span>
+  <span class="badge-text">以下为付费内容</span>
+  <a href="https://zsxq.com/link?your-link" class="badge-link" target="_blank">解锁完整版 →</a>
+</div>
+
+<!-- 底部引流卡片 -->
+<div class="upgrade-card">
+  <div class="upgrade-header">
+    <h4>📌 本期为免费版（简版）</h4>
+    <p>完整版包含更多深度内容</p>
+  </div>
+  <div class="upgrade-features">
+    <ul>
+      <li>✅ 资金流向详细分析（北向/南向/主力）</li>
+      <li>✅ 6大产业深度点评（含个股追踪+产业链数据）</li>
+      <li>✅ 技术面+资金面分析（支撑/压力位+主力动向）</li>
+      <li>✅ 短中期趋势研判（1-3天+1-4周）</li>
+      <li>✅ 数据表格+图表分析（可下载Excel）</li>
+      <li>✅ 每日问答互动（每天回答1-2个问题）</li>
+      <li>✅ 周报+月报（本周复盘+下周展望）</li>
+    </ul>
+  </div>
+  <div class="upgrade-cta">
+    <p class="price">年费199元，每天不到6毛钱</p>
+    <a href="https://zsxq.com/link?your-link" class="btn btn-paid" target="_blank">👉 点击加入知识星球</a>
+  </div>
+</div>
+
+<!-- 问答区 -->
+<div class="qa-section">
+  <h4>💬 今日问答（付费用户专属）</h4>
+  <p class="qa-description">每天回答1-2个问题，欢迎在知识星球提问</p>
+  <div class="qa-sample">
+    <div class="qa-item">
+      <p class="qa-question">Q：机器人板块还能追吗？宇树科技7连板后会不会崩？</p>
+      <p class="qa-answer">A：短期涨幅过大（7个交易日+60%），技术面有回调需求。但产业逻辑未变：2026H1全球出货3.6万台同比+300%，中国产量预计突破10万台。建议等回调到20日线再介入，不追高。重点关注本周韩国存储双雄财报，若不及预期可能拖累整个科技链...</p>
+      <a href="https://zsxq.com/link?your-link" class="qa-link" target="_blank">查看完整回答 →</a>
+    </div>
+  </div>
+  <a href="https://zsxq.com/link?your-link" class="btn btn-paid" target="_blank">👉 加入知识星球提问</a>
+</div>
+
+<!-- 投票区 -->
+<div class="poll-section">
+  <h4>📊 今日投票</h4>
+  <p>明天你看好哪个市场？</p>
+  <div class="poll-options">
+    <button class="poll-btn" onclick="vote('A股', this)">A股</button>
+    <button class="poll-btn" onclick="vote('港股', this)">港股</button>
+    <button class="poll-btn" onclick="vote('美股', this)">美股</button>
+    <button class="poll-btn" onclick="vote('都不看好', this)">都不看好</button>
+  </div>
+  <p class="poll-result" id="pollResult">投票后查看结果</p>
+</div>
+
 <!-- Footer -->
 <div class="footer">
   <p><b>信源：</b>Reuters / Bloomberg / WSJ / FT / CNBC / 新华社 / 财联社 / 央视财经 / 东方财富 / 新浪财经 / 金投网</p>
   <p><b>数据截止：</b>2026年10月26日15:00（A股/港股收盘）/ 10月24日（美股/欧股收盘）</p>
-  <p><b>免责声明：</b>本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。</p>
+  <p><b>免责声明：</b>本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。文中提到的策略和收益均为历史表现，不代表未来结果。</p>
   <p style="margin-top:10px;text-align:center;color:#b8c0ce;">每日全球股市观察 · 2026</p>
 </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// 展开/收起功能
+function toggleContent() {
+  const fullContent = document.getElementById('fullContent');
+  const btn = document.getElementById('expandBtn');
+  const isShown = fullContent.classList.contains('show');
+  
+  if (isShown) {
+    fullContent.classList.remove('show');
+    btn.classList.remove('active');
+    btn.querySelector('span:first-child').textContent = '展开全文（全球市场 · 9条要闻 · 五维度 · 板块 · 个股 · 大宗 · 产业 · 策略）';
+  } else {
+    fullContent.classList.add('show');
+    btn.classList.add('active');
+    btn.querySelector('span:first-child').textContent = '收起全文';
+  }
+}
+
+// 投票功能
+function vote(choice, btn) {
+  // 禁用所有按钮
+  document.querySelectorAll('.poll-btn').forEach(b => {
+    b.disabled = true;
+    b.style.opacity = '0.6';
+    b.style.cursor = 'not-allowed';
+  });
+  
+  // 高亮选中的按钮
+  btn.classList.add('voted');
+  btn.style.opacity = '1';
+  
+  // 显示结果
+  document.getElementById('pollResult').innerHTML = 
+    '感谢投票！你选择了 <b>' + choice + '</b>。<br>完整投票结果请在知识星球查看。';
+}
+
+// Chart.js 柱状图
+const marketData = {
+  labels: ['上证', '深证', '创业板', '科创50', '恒指', '恒生科技', '日经', 'KOSPI', '道琼斯', '标普500', '纳斯达克'],
+  data: [0.19, -1.19, -1.71, -2.23, 0.44, -0.37, -0.80, -1.45, -1.23, -0.52, -0.21]
+};
+
+const colors = marketData.data.map(val => val >= 0 ? '#e84855' : '#12a05c');
+
+new Chart(document.getElementById('marketChart'), {
+  type: 'bar',
+  data: {
+    labels: marketData.labels,
+    datasets: [{
+      data: marketData.data,
+      backgroundColor: colors,
+      borderWidth: 0,
+      borderRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      title: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.parsed.y.toFixed(2) + '%';
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: { display: false },
+        ticks: { 
+          callback: value => value + '%',
+          font: { size: 11, weight: '600' },
+          color: '#8892a6'
+        }
+      },
+      x: {
+        grid: { display: false },
+        ticks: { 
+          font: { size: 11, weight: '600' },
+          color: '#5a6678'
+        }
+      }
+    }
+  }
+});
+</script>
+
 </body>
 </html>
