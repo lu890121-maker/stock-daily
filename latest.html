@@ -229,10 +229,79 @@
   .strategy-tag.hold { background:#fff0dc; color:#b8690f; }
   .strategy-tag.sell { background:#d1fae5; color:#047857; }
   .strategy-tag.watch { background:#e2ecfd; color:#2456c4; }
+
+  /* === 产品化改造 v2.1 === */
+  .subscription-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 16px 26px; color: #fff;
+  }
+  .banner-content { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .banner-left h3 { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+  .banner-left p { font-size: 11.5px; color: rgba(255,255,255,.65); }
+  .banner-right { display: flex; gap: 8px; flex-shrink: 0; }
+  .btn { display: inline-block; font-size: 12px; font-weight: 700; padding: 7px 16px; border-radius: 8px; text-decoration: none; text-align: center; white-space: nowrap; }
+  .btn-free { background: transparent; border: 1.5px solid rgba(255,255,255,.45); color: #fff; }
+  .btn-paid { background: linear-gradient(135deg, #FFD700, #FFA500); border: none; color: #1a1a2e; box-shadow: 0 3px 12px rgba(255,215,0,.25); }
+  .summary-section { padding: 22px 26px; background: linear-gradient(135deg, #f8f5ff, #f0f5ff); border-bottom: 1px solid #e8ecf3; }
+  .summary-section h3 { font-size: 15px; font-weight: 800; margin-bottom: 10px; color: #2456c4; }
+  .summary-section p { font-size: 13px; line-height: 1.85; color: #3d4660; margin-bottom: 6px; }
+  .expand-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: calc(100% - 52px); margin: 16px 26px; padding: 12px; background: #f1f4f9; border: 1px solid #e8ecf3; border-radius: 10px; font-size: 13px; font-weight: 700; color: #3b6fe0; cursor: pointer; }
+  .expand-btn:hover { background: #e2ecfd; }
+  .expand-btn .arrow { font-size: 11px; transition: transform .3s; }
+  .expand-btn.active .arrow { transform: rotate(180deg); }
+  .full-content { display: none; }
+  .full-content.show { display: block; }
+  .paid-badge { display: flex; align-items: center; gap: 8px; padding: 10px 16px; margin: 0 26px 16px; background: linear-gradient(135deg, #fff9e6, #fff3cc); border: 1px solid #ffe58a; border-radius: 10px; font-size: 12px; }
+  .paid-badge .icon { font-size: 16px; }
+  .paid-badge .text { font-weight: 700; color: #b8860b; flex: 1; }
+  .paid-badge a { font-size: 11px; font-weight: 700; color: #b8860b; text-decoration: none; }
+  .upgrade-card { margin: 20px 26px; background: #f8f9fa; border: 1px solid #e8ecf3; border-radius: 16px; padding: 22px 20px; }
+  .upgrade-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .upgrade-card .sub { font-size: 12px; color: #8892a6; margin-bottom: 12px; }
+  .upgrade-card ul { list-style: none; margin-bottom: 16px; }
+  .upgrade-card li { font-size: 13px; line-height: 2; color: #3d4660; }
+  .upgrade-card .price { font-size: 17px; font-weight: 800; color: #e84855; text-align: center; margin-bottom: 10px; }
+  .upgrade-card .cta { text-align: center; }
+  .qa-section, .poll-section { padding: 22px 26px; border-bottom: 8px solid #f1f4f9; }
+  .qa-section h4, .poll-section h4 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .qa-item { background: #f8f9fa; border: 1px solid #e8ecf3; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
+  .qa-q { font-size: 13px; font-weight: 700; color: #1a2233; margin-bottom: 6px; }
+  .qa-a { font-size: 13px; line-height: 1.8; color: #3d4660; margin-bottom: 8px; }
+  .qa-link { font-size: 12px; font-weight: 700; color: #3b6fe0; text-decoration: none; }
+  .poll-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .poll-btn { flex: 1; min-width: calc(50% - 4px); padding: 10px 8px; background: #f1f4f9; border: 1.5px solid #e8ecf3; border-radius: 10px; font-size: 13px; font-weight: 700; color: #3d4660; cursor: pointer; }
+  .poll-btn:hover { background: #e2ecfd; border-color: #3b6fe0; color: #2456c4; }
+  .poll-btn.voted { background: #e2ecfd; border-color: #3b6fe0; color: #2456c4; opacity: .6; cursor: default; }
+  .poll-result { font-size: 12.5px; color: #8892a6; }
+  .chart-section { padding: 20px 26px; border-bottom: 8px solid #f1f4f9; }
+  .chart-section h4 { font-size: 15px; font-weight: 800; margin-bottom: 12px; }
+  .chart-wrap { position: relative; width: 100%; height: 200px; }
+  .heatmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+  .heatmap-item { border-radius: 10px; padding: 12px 8px; text-align: center; }
+  .heatmap-item .iname { display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .heatmap-item .ichg { display: block; font-size: 14px; font-weight: 800; color: #fff; }
+  @media (max-width: 480px) {
+    .banner-content { flex-direction: column; text-align: center; }
+    .banner-right { width: 100%; }
+    .heatmap-grid { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<!-- 订阅横幅 -->
+<div class="subscription-banner">
+  <div class="banner-content">
+    <div class="banner-left">
+      <h3>📊 每日全球股市观察</h3>
+      <p>免费版：核心数据+简版分析 | 付费版：深度解读+策略研判+产业追踪</p>
+    </div>
+    <div class="banner-right">
+      <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">加入知识星球</a>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <div class="nav">
@@ -263,6 +332,30 @@
       <span class="pulse"><span class="dot"></span>数据截至北京时间 15:30</span>
     </div>
   </div>
+</div>
+
+<!-- 核心摘要（免费版） -->
+<div class="summary-section">
+  <h3>📋 今日核心摘要</h3>
+  <p>A股高开低走全面杀跌：沪指-1.33%失守3650报3648.30，深成指-2.50%报11245.73，创业板-3.41%报2548，科创50-4.81%报1252全场最惨。成交1.47万亿缩量1502亿，近5000股下跌。隔夜美股反弹、日韩大涨，A股完全无视外围利好。</p>
+  <p>全球冰火两重天：KOSPI+3.09%、日经+1.73%、美股纳指+0.82%、费城半导体+2.82%。但巴西股灾触发熔断暴跌13.9%，2020年3月以来首次。黄金4003美元在4000关口拉锯，WTI回落至100.84美元。</p>
+  <p>五维度评分：消息面偏空★★☆☆☆、情绪面冰点★☆☆☆☆、技术面破位★★☆☆☆、政策面中性★★★☆☆、资金面偏空★★☆☆☆。银行逆势新高+1.26%，军工-5.2%跌停潮，风格大切换。</p>
+</div>
+
+<!-- 展开按钮 -->
+<button class="expand-btn" onclick="toggleContent()" id="expandBtn">
+  <span>查看付费版深度内容</span>
+  <span class="arrow">▼</span>
+</button>
+
+<!-- 付费内容区域 -->
+<div class="full-content" id="fullContent">
+
+<!-- 付费内容标识 -->
+<div class="paid-badge">
+  <span class="icon">🔒</span>
+  <span class="text">以下为付费内容</span>
+  <a href="https://wx.zsxq.com/group/88884524422882" target="_blank">解锁完整版 →</a>
 </div>
 
 <!-- A股速览 -->
@@ -849,6 +942,93 @@
   </div>
 </div>
 
+</div><!-- 关闭付费内容 -->
+
+<!-- 数据可视化（免费版） -->
+<div class="chart-section">
+  <h4>📊 全球市场涨跌对比</h4>
+  <div class="chart-wrap">
+    <canvas id="marketChart"></canvas>
+  </div>
+</div>
+
+<div class="chart-section">
+  <h4>🔥 六大产业热力图</h4>
+  <div class="heatmap-grid">
+    <div class="heatmap-item" style="background: linear-gradient(135deg, #ff6b6b, #ee5a6f);">
+      <span class="iname">新能源车</span>
+      <span class="ichg">渗透率52%</span>
+    </div>
+    <div class="heatmap-item" style="background: linear-gradient(135deg, #51cf66, #40c057);">
+      <span class="iname">光伏</span>
+      <span class="ichg">硅料<4万</span>
+    </div>
+    <div class="heatmap-item" style="background: linear-gradient(135deg, #339af0, #228be6);">
+      <span class="iname">半导体</span>
+      <span class="ichg">SOX+2.82%</span>
+    </div>
+    <div class="heatmap-item" style="background: linear-gradient(135deg, #845ef7, #7950f8);">
+      <span class="iname">机器人</span>
+      <span class="ichg">~3万台/月</span>
+    </div>
+    <div class="heatmap-item" style="background: linear-gradient(135deg, #51cf66, #40c057);">
+      <span class="iname">锂电</span>
+      <span class="ichg">碳酸锂10.8万</span>
+    </div>
+    <div class="heatmap-item" style="background: linear-gradient(135deg, #ff6b6b, #ee5a6f);">
+      <span class="iname">石化</span>
+      <span class="ichg">WTI 100.84</span>
+    </div>
+  </div>
+</div>
+
+<!-- 引流卡片 -->
+<div class="upgrade-card">
+  <h4>📌 以上是今日免费版内容</h4>
+  <p class="sub">完整版包含更多深度分析</p>
+  <ul>
+    <li>✅ 五维度详细分析（每个维度5-7条数据+结论）</li>
+    <li>✅ 板块热力图（10大板块涨跌+资金流向）</li>
+    <li>✅ 焦点个股（16只个股追踪+三个对比）</li>
+    <li>✅ 大宗商品（18项数据+四段解读）</li>
+    <li>✅ 产业高频数据（6大产业量化分析）</li>
+    <li>✅ 策略研判（短中长期+方向标签+风险清单）</li>
+    <li>✅ 每日问答（每天回答1-2个问题）</li>
+  </ul>
+  <p class="price">年费199元，每天不到6毛钱</p>
+  <div class="cta">
+    <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">👉 点击加入知识星球</a>
+  </div>
+</div>
+
+<!-- 问答区 -->
+<div class="qa-section">
+  <h4>💬 今日问答（付费用户专属）</h4>
+  <p style="font-size: 12px; color: #8892a6; margin-bottom: 12px;">每天回答1-2个问题，欢迎在知识星球提问</p>
+  <div class="qa-item">
+    <p class="qa-q">Q：银行股还能追吗？工行已经创新高</p>
+    <p class="qa-a">A：银行股的逻辑不是"追涨"，是"配置"。股息率4% vs 国债1.68%，这个利差在四季度只会扩大不会缩小。但要注意：银行股不适合短线追高，适合长线配置。如果你已经持有，继续拿着吃分红；如果没有，等回调5%-8%再分批建仓。工行创新高后短期可能有获利盘回吐，但中长期趋势没变。</p>
+  </div>
+  <div class="qa-item">
+    <p class="qa-q">Q：科创50-4.81%，是抄底机会还是继续跌？</p>
+    <p class="qa-a">A：科创50今天-4.81%是今年第二大单日跌幅，这种跌法不是"抄底"信号，是"恐慌"信号。电子板块两天失血206亿，资金在出逃不是在洗盘。短期看3600点支撑，如果破了可能还有下探。建议：不要抄底，等放量企稳再说。真正的底部是"没人敢买"的时候，现在还有人想抄底，说明还没到底。</p>
+  </div>
+  <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank" style="display: block; text-align: center; margin-top: 12px;">👉 加入知识星球提问</a>
+</div>
+
+<!-- 投票区 -->
+<div class="poll-section">
+  <h4>📊 今日投票</h4>
+  <p style="font-size: 13px; color: #5a6678; margin-bottom: 10px;">明天你看好哪个市场？</p>
+  <div class="poll-options">
+    <button class="poll-btn" onclick="vote('A股', this)">A股</button>
+    <button class="poll-btn" onclick="vote('港股', this)">港股</button>
+    <button class="poll-btn" onclick="vote('美股', this)">美股</button>
+    <button class="poll-btn" onclick="vote('都不看好', this)">都不看好</button>
+  </div>
+  <p class="poll-result" id="pollResult"></p>
+</div>
+
 <!-- FOOTER -->
 <div class="footer">
   <b>信源：</b>Reuters · Bloomberg · WSJ · FT · CNBC · 新浪财经 · 财联社 · 东方财富 · 金投网 · 21财经 · 每经 · 界面新闻 · 中国基金报 · 国家统计局 · 新华社<br>
@@ -860,3 +1040,81 @@
 </div>
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// 展开/收起功能
+function toggleContent() {
+  const fullContent = document.getElementById('fullContent');
+  const expandBtn = document.getElementById('expandBtn');
+  
+  if (fullContent.classList.contains('show')) {
+    fullContent.classList.remove('show');
+    expandBtn.classList.remove('active');
+    expandBtn.querySelector('span').textContent = '查看付费版深度内容';
+  } else {
+    fullContent.classList.add('show');
+    expandBtn.classList.add('active');
+    expandBtn.querySelector('span').textContent = '收起付费内容';
+  }
+}
+
+// 投票功能
+function vote(choice, btn) {
+  const result = document.getElementById('pollResult');
+  const buttons = document.querySelectorAll('.poll-btn');
+  
+  buttons.forEach(b => {
+    b.classList.add('voted');
+    b.disabled = true;
+  });
+  
+  result.innerHTML = `你选择了：<strong>${choice}</strong>。感谢投票！完整投票结果请在知识星球查看。`;
+}
+
+// 图表数据
+const ctx = document.getElementById('marketChart').getContext('2d');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['沪指', '深成指', '创业板', '科创50', '恒生', '恒生科技', '日经', 'KOSPI', '道琼斯', '标普', '纳指'],
+    datasets: [{
+      label: '涨跌幅',
+      data: [-1.33, -2.50, -3.41, -4.81, -0.27, -1.03, 1.73, 3.09, 0.28, 0.70, 0.82],
+      backgroundColor: function(context) {
+        const value = context.raw;
+        return value >= 0 ? 'rgba(232, 72, 85, 0.8)' : 'rgba(18, 160, 92, 0.8)';
+      },
+      borderColor: function(context) {
+        const value = context.raw;
+        return value >= 0 ? 'rgb(232, 72, 85)' : 'rgb(18, 160, 92)';
+      },
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.raw + '%';
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          callback: function(value) {
+            return value + '%';
+          }
+        }
+      }
+    }
+  }
+});
+</script>
