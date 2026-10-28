@@ -241,7 +241,7 @@
   .banner-left h3 { font-size: 14px; font-weight: 800; margin-bottom: 3px; }
   .banner-left p { font-size: 11.5px; line-height: 1.7; color: rgba(255,255,255,.62); }
   .banner-left p + p { color: rgba(255,255,255,.62); }
-  .banner-right { display: flex; gap: 8px; flex-shrink: 0; }
+  .banner-right { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
   .btn { display: inline-block; font-size: 12px; font-weight: 700; padding: 7px 16px; border-radius: 8px; text-decoration: none; text-align: center; white-space: nowrap; }
   .btn-free { background: transparent; border: 1.5px solid rgba(255,255,255,.45); color: #fff; }
   .btn-paid { background: linear-gradient(135deg, #FFD700, #FFA500); border: none; color: #1a1a2e; box-shadow: 0 3px 12px rgba(255,215,0,.25); }
@@ -301,20 +301,21 @@
   .poll-result { font-size: 12.5px; color: #8892a6; }
   .chart-section { padding: 20px 26px; border-bottom: 8px solid #f1f4f9; }
   .chart-section h4 { font-size: 15px; font-weight: 800; margin-bottom: 12px; }
-  .chart-wrap { position: relative; width: 100%; height: 200px; }
+  .chart-wrap { position: relative; width: 100%; height: 390px; }
   .heatmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
   .heatmap-item { border-radius: 10px; padding: 12px 8px; text-align: center; }
   .heatmap-item .iname { display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 2px; }
   .heatmap-item .ichg { display: block; font-size: 14px; font-weight: 800; color: #fff; }
   @media (max-width: 480px) {
-    /* 横幅 - 保持横向排列 */
-    .subscription-banner { padding: 12px 14px; }
-    .banner-content { flex-direction: row; flex-wrap: nowrap; text-align: left; gap: 6px; align-items: center; }
+    /* 横幅 - 文字在左，按钮在最右竖排 */
+    .subscription-banner { padding: 12px 13px; }
+    .banner-content { flex-direction: row; flex-wrap: nowrap; text-align: left; gap: 8px; align-items: center; }
     .banner-left { flex: 1; min-width: 0; }
-    .banner-left h3 { font-size: 12px; margin-bottom: 2px; white-space: nowrap; }
-    .banner-left p { font-size: 10px; line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .banner-right { flex-shrink: 0; display: flex; gap: 6px; }
-    .btn { font-size: 10px; padding: 5px 10px; white-space: nowrap; }
+    .banner-left h3 { font-size: 12px; margin-bottom: 3px; white-space: nowrap; }
+    .banner-left p { font-size: 10px; line-height: 1.55; white-space: normal; overflow: visible; text-overflow: clip; }
+    .banner-right { flex-shrink: 0; display: flex; flex-direction: column; gap: 5px; }
+    .banner-right .btn { flex: none; }
+    .btn { font-size: 10.5px; padding: 6px 9px; white-space: nowrap; }
     
     /* Hero */
     .hero { padding: 30px 20px 28px; }
@@ -369,7 +370,7 @@
     
     /* 图表 */
     .chart-section { padding: 16px; }
-    .chart-wrap { height: 180px; }
+    .chart-wrap { height: 400px; }
     
     /* 摘要 */
     .summary-section { padding: 18px 16px; }
@@ -513,18 +514,18 @@
 
   <table class="tbl">
     <tr><th>市场</th><th>指数</th><th>点位</th><th>涨跌幅</th></tr>
-    <tr class="grp"><td colspan="4">🇨🇳 港股 · 已收盘</td></tr>
+    <tr class="grp"><td colspan="4">中国港股 · 已收盘</td></tr>
     <tr><td>恒生指数</td><td>HSI</td><td>23093</td><td class="r">+0.23%</td></tr>
     <tr><td>恒生科技</td><td>HSTECH</td><td>3853</td><td class="r">+1.40%</td></tr>
-    <tr class="grp"><td colspan="4">🇯🇵🇰🇷 亚太 · 已收盘</td></tr>
+    <tr class="grp"><td colspan="4">日本韩国 · 已收盘</td></tr>
     <tr class="hot"><td>日经225</td><td>N225</td><td>63954.19</td><td class="r">+1.08%</td></tr>
     <tr class="hot"><td>KOSPI</td><td>KS11</td><td>6012.44</td><td class="r"><b>+6.63%</b></td></tr>
-    <tr class="grp"><td colspan="4">🇺🇸 美股 · 隔夜收盘（10/27）</td></tr>
+    <tr class="grp"><td colspan="4">美国股市 · 隔夜收盘（10/27）</td></tr>
     <tr><td>道琼斯</td><td>DJI</td><td>52377.57</td><td class="r">+0.03%</td></tr>
     <tr><td>标普500</td><td>SPX</td><td>7722.60</td><td class="r">+0.60%</td></tr>
     <tr><td>纳斯达克</td><td>IXIC</td><td>26477.81</td><td class="r">+1.18%</td></tr>
     <tr><td>费城半导体</td><td>SOX</td><td>—</td><td class="r">+~3%</td></tr>
-    <tr class="grp"><td colspan="4">🇪🇺 欧股 · 10/27收盘</td></tr>
+    <tr class="grp"><td colspan="4">欧洲股市 · 10/27收盘</td></tr>
     <tr><td>德国DAX</td><td>DAX</td><td>25590.77</td><td class="r">+0.71%</td></tr>
     <tr><td>法国CAC40</td><td>CAC</td><td>7887.14</td><td class="r">+0.51%</td></tr>
     <tr><td>富时100</td><td>UKX</td><td>10686.54</td><td class="g">-0.75%</td></tr>
@@ -887,6 +888,7 @@ new Chart(ctx, {
     }]
   },
   options: {
+    indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -900,13 +902,20 @@ new Chart(ctx, {
       }
     },
     scales: {
-      y: {
+      x: {
         beginAtZero: true,
         ticks: {
+          font: { size: 10 },
           callback: function(value) {
             return value + '%';
           }
-        }
+        },
+        grid: { color: 'rgba(0,0,0,.05)' }
+      },
+      y: {
+        reverse: true,
+        ticks: { font: { size: 11 }, autoSkip: false },
+        grid: { display: false }
       }
     }
   }
