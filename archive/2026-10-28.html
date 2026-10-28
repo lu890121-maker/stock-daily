@@ -815,10 +815,10 @@ const ctx = document.getElementById('marketChart').getContext('2d');
 new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['KOSPI', '创业板', '恒生科技', '深成指', '科创50', '日经', '纳斯达克', '标普500', '沪指', 'DAX', 'CAC40', '恒指', '道指', '富时100', '白酒', '证券'],
+    labels: ['沪指', '创业板', '科创50', '恒指', '恒生科技', '道指', '标普500', '纳斯达克', '日经', 'KOSPI', 'DAX', 'CAC40'],
     datasets: [{
       label: '涨跌幅',
-      data: [6.63, 3.40, 1.40, 2.02, 2.45, 1.08, 1.18, 0.60, 0.91, 0.71, 0.51, 0.23, 0.03, -0.75, -1.8, -1.2],
+      data: [0.91, 3.40, 2.45, 0.23, 1.40, 0.03, 0.60, 1.18, 1.08, 6.63, 0.71, 0.51],
       backgroundColor: function(context) {
         const value = context.raw;
         return value >= 0 ? 'rgba(232, 72, 85, 0.8)' : 'rgba(18, 160, 92, 0.8)';
