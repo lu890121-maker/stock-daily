@@ -339,9 +339,14 @@
     .statbar { grid-template-columns: repeat(2, 1fr); }
     .stat .v { font-size: 13px; }
     
-    /* 表格 - 横向滚动 */
-    .tbl { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
-    .tbl th, .tbl td { padding: 8px 6px; font-size: 12px; }
+    /* 表格 - 固定布局撑满屏宽
+       （注意：不能给 table 设 display:block，否则内部匿名表格会收缩到内容宽度，右侧留白） */
+    .tbl { display: table; width: 100%; table-layout: fixed; }
+    .tbl th, .tbl td { padding: 8px 5px; font-size: 11.5px; word-break: break-word; }
+    .tbl th:nth-child(1), .tbl tr:not(.grp) td:nth-child(1) { width: 33%; }
+    .tbl th:nth-child(2), .tbl tr:not(.grp) td:nth-child(2) { width: 21%; }
+    .tbl th:nth-child(3), .tbl tr:not(.grp) td:nth-child(3) { width: 25%; text-align: right; }
+    .tbl th:nth-child(4), .tbl tr:not(.grp) td:nth-child(4) { width: 21%; text-align: right; }
     
     /* 新闻卡片 */
     .news { padding: 14px 14px; }
