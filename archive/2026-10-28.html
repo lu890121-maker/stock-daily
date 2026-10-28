@@ -245,6 +245,28 @@
   .btn { display: inline-block; font-size: 12px; font-weight: 700; padding: 7px 16px; border-radius: 8px; text-decoration: none; text-align: center; white-space: nowrap; }
   .btn-free { background: transparent; border: 1.5px solid rgba(255,255,255,.45); color: #fff; }
   .btn-paid { background: linear-gradient(135deg, #FFD700, #FFA500); border: none; color: #1a1a2e; box-shadow: 0 3px 12px rgba(255,215,0,.25); }
+  
+  /* Toast提示 */
+  .toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,.85);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+    max-width: 90%;
+    text-align: center;
+  }
+  .toast.show { opacity: 1; }
+  .toast .toast-title { font-weight: 700; margin-bottom: 4px; }
+  .toast .toast-desc { font-size: 12px; color: rgba(255,255,255,.7); }
   .summary-section { padding: 22px 26px; background: linear-gradient(135deg, #f8f5ff, #f0f5ff); border-bottom: 1px solid #e8ecf3; }
   .summary-section h3 { font-size: 15px; font-weight: 800; margin-bottom: 10px; color: #2456c4; }
   .summary-section p { font-size: 13px; line-height: 1.85; color: #3d4660; margin-bottom: 6px; }
@@ -373,6 +395,12 @@
 <body>
 <div class="wrap">
 
+<!-- Toast提示 -->
+<div class="toast" id="bookmarkToast">
+  <div class="toast-title">📌 收藏提示</div>
+  <div class="toast-desc">iPhone：点击底部分享按钮 → 添加到主屏幕<br>Android：点击菜单 → 添加书签<br>电脑：按 Ctrl+D (Mac: ⌘+D)</div>
+</div>
+
 <!-- 订阅横幅 -->
 <div class="subscription-banner">
   <div class="banner-content">
@@ -382,7 +410,7 @@
       <p>付费版：深度解读+策略研判+产业追踪</p>
     </div>
     <div class="banner-right">
-      <a href="javascript:void(0)" onclick="alert('⭐ 收藏本网站，每日16:00更新免费版内容')" class="btn btn-free">⭐ 订阅免费版</a>
+      <a href="javascript:void(0)" onclick="showBookmarkToast()" class="btn btn-free">⭐ 订阅免费版</a>
       <a href="https://wx.zsxq.com/group/88884524422882" class="btn btn-paid" target="_blank">💎 加入知识星球</a>
     </div>
   </div>
@@ -801,6 +829,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+// 订阅提示
+function showBookmarkToast() {
+  const toast = document.getElementById('bookmarkToast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
 // 投票功能
 function vote(choice, btn) {
   const result = document.getElementById('pollResult');
