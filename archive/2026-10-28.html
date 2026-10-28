@@ -286,12 +286,13 @@
   .heatmap-item .ichg { display: block; font-size: 14px; font-weight: 800; color: #fff; }
   @media (max-width: 480px) {
     /* 横幅 - 保持横向排列 */
-    .subscription-banner { padding: 14px 16px; }
-    .banner-content { flex-direction: row; text-align: left; gap: 8px; }
-    .banner-left h3 { font-size: 13px; margin-bottom: 2px; }
-    .banner-left p { font-size: 10.5px; line-height: 1.6; }
-    .banner-right { flex-shrink: 0; }
-    .btn { font-size: 11px; padding: 6px 12px; }
+    .subscription-banner { padding: 12px 14px; }
+    .banner-content { flex-direction: row; flex-wrap: nowrap; text-align: left; gap: 6px; align-items: center; }
+    .banner-left { flex: 1; min-width: 0; }
+    .banner-left h3 { font-size: 12px; margin-bottom: 2px; white-space: nowrap; }
+    .banner-left p { font-size: 10px; line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .banner-right { flex-shrink: 0; display: flex; gap: 6px; }
+    .btn { font-size: 10px; padding: 5px 10px; white-space: nowrap; }
     
     /* Hero */
     .hero { padding: 30px 20px 28px; }
