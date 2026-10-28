@@ -831,7 +831,23 @@
 <script>
 // 订阅提示
 function showBookmarkToast() {
+  const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  
+  let msg = '';
+  if (isWeChat) {
+    msg = '点击右上角「…」→ 收藏\n或「添加到桌面」方便每日查看';
+  } else if (isIOS) {
+    msg = '点击底部分享按钮 → 添加到主屏幕';
+  } else if (isAndroid) {
+    msg = '点击菜单 → 添加书签/添加到桌面';
+  } else {
+    msg = '按 Ctrl+D (Mac: +D) 收藏本网站';
+  }
+  
   const toast = document.getElementById('bookmarkToast');
+  toast.innerHTML = '<div class="toast-title">📌 收藏提示</div><div class="toast-desc" style="white-space:pre-line;">' + msg + '</div>';
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 3500);
 }
