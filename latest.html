@@ -285,10 +285,13 @@
   .heatmap-item .iname { display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 2px; }
   .heatmap-item .ichg { display: block; font-size: 14px; font-weight: 800; color: #fff; }
   @media (max-width: 480px) {
-    /* 横幅 */
-    .banner-content { flex-direction: column; text-align: center; gap: 10px; }
-    .banner-right { width: 100%; justify-content: center; }
-    .btn { flex: 1; min-width: 120px; }
+    /* 横幅 - 保持横向排列 */
+    .subscription-banner { padding: 14px 16px; }
+    .banner-content { flex-direction: row; text-align: left; gap: 8px; }
+    .banner-left h3 { font-size: 13px; margin-bottom: 2px; }
+    .banner-left p { font-size: 10.5px; line-height: 1.6; }
+    .banner-right { flex-shrink: 0; }
+    .btn { font-size: 11px; padding: 6px 12px; }
     
     /* Hero */
     .hero { padding: 30px 20px 28px; }
