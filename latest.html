@@ -54,16 +54,42 @@
     padding:14px 20px; background:linear-gradient(135deg,#1e2a4a,#2a1f45);
     border-bottom:1px solid rgba(255,255,255,.08);
   }
-  .sub-banner .sb-text { flex:1; }
+  .sub-banner .sb-text { flex:1; min-width:0; }
   .sub-banner .sb-text .l1 { font-size:12px; color:rgba(255,255,255,.7); line-height:1.6; }
   .sub-banner .sb-text .l2 { font-size:12px; color:rgba(255,215,0,.85); line-height:1.6; font-weight:600; }
-  .sub-banner .sb-btns { display:flex; gap:8px; flex-shrink:0; }
+  .sub-banner .sb-btns { display:flex; flex-direction:column; gap:6px; flex-shrink:0; }
   .sub-banner .sb-btn {
     display:inline-block; padding:7px 14px; border-radius:20px; font-size:11.5px; font-weight:700;
-    text-decoration:none; white-space:nowrap; transition:all .2s;
+    text-decoration:none; white-space:nowrap; transition:all .2s; text-align:center;
   }
   .sb-btn.free { background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.2); }
   .sb-btn.paid { background:linear-gradient(135deg,#FFD700,#FFA500); color:#1a2233; border:none; }
+  .back-bar {
+    width:30px; height:30px; flex-shrink:0;
+    display:inline-flex; align-items:center; justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(160deg, rgba(255,255,255,.20), rgba(255,255,255,.08));
+    border:1px solid rgba(255,255,255,.24);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18), 0 1px 4px rgba(0,0,0,.18);
+    color:#fff; text-decoration:none;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .back-bar:active { background:rgba(255,255,255,.34); transform:scale(.92); }
+  .back-bar svg { width:15px; height:15px; display:block; margin-left:-1px; }
+
+  /* 收藏提示 toast */
+  .toast {
+    position:fixed; top:20px; left:50%; transform:translateX(-50%);
+    background:rgba(0,0,0,.88); color:#fff;
+    padding:13px 20px; border-radius:10px;
+    font-size:13px; z-index:9999;
+    opacity:0; transition:opacity .3s; pointer-events:none;
+    max-width:88%; text-align:center; line-height:1.6;
+  }
+  .toast.show { opacity:1; }
+  .toast .toast-title { font-weight:800; margin-bottom:5px; font-size:13.5px; }
+  .toast .toast-desc { font-size:12px; color:rgba(255,255,255,.75); }
 
   /* 导航条 */
   .nav-bar {
@@ -250,8 +276,11 @@
     .idx { padding:10px 8px 9px; }
     .idx .v { font-size:14px; }
     .statbar { grid-template-columns:repeat(2,1fr); }
-    .sub-banner { flex-direction:column; padding:12px 16px; }
-    .sub-banner .sb-btns { width:100%; justify-content:center; }
+    .sub-banner { padding:12px 14px; gap:8px; }
+    .sub-banner .sb-text .l1, .sub-banner .sb-text .l2 { font-size:10.5px; line-height:1.5; }
+    .sub-banner .sb-btns { width:auto; gap:5px; }
+    .sub-banner .sb-btn { padding:6px 10px; font-size:10.5px; }
+    .back-bar { width:28px; height:28px; }
     .nav-bar a { padding:10px 11px; font-size:11px; }
     .ind-grid { grid-template-columns:1fr; }
     .news { padding:14px 14px; }
@@ -264,15 +293,19 @@
 
 <!-- 订阅横幅 -->
 <div class="sub-banner">
+  <a class="back-bar" href="/stock-daily/index.html" aria-label="返回报告列表" title="返回报告列表"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
   <div class="sb-text">
     <div class="l1">免费版：核心数据+简版分析</div>
-    <div class="l2">付费版：完整版·今日速览+五维度深挖+策略研判</div>
+    <div class="l2">付费版：完整版·五维度深挖+策略研判</div>
   </div>
   <div class="sb-btns">
-    <a class="sb-btn free" href="#nav">⭐订阅免费版</a>
-    <a class="sb-btn paid" href="https://t.zsxq.com/17qIYbFbl" target="_blank">💎加入知识星球</a>
+    <a class="sb-btn free" href="javascript:void(0)" onclick="showBookmarkToast()">⭐订阅免费版</a>
+    <a class="sb-btn paid" href="https://wx.zsxq.com/group/88884524422882" target="_blank" rel="noopener">💎加入知识星球</a>
   </div>
 </div>
+
+<!-- 收藏提示 -->
+<div class="toast" id="bookmarkToast"></div>
 
 <!-- 导航条 -->
 <nav class="nav-bar" id="nav">
@@ -734,7 +767,7 @@
     </div>
   </div>
 
-  <a class="pw-btn" href="https://t.zsxq.com/17qIYbFbl" target="_blank">💎 加入知识星球 · 查看完整版</a>
+  <a class="pw-btn" href="https://wx.zsxq.com/group/88884524422882" target="_blank">💎 加入知识星球 · 查看完整版</a>
 </div>
 
 <!-- 今日问答 -->
@@ -834,6 +867,25 @@ new Chart(ctx, {
     }
   }
 });
+</script>
+<script>
+function showBookmarkToast() {
+  var ua = navigator.userAgent;
+  var isWeChat = /MicroMessenger/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua);
+  var isAndroid = /Android/i.test(ua);
+  var msg;
+  if (isWeChat) { msg = '点击右上角「…」→ 收藏\n或「添加到桌面」方便每日查看'; }
+  else if (isIOS) { msg = '点击底部分享按钮 → 添加到主屏幕'; }
+  else if (isAndroid) { msg = '点击菜单 → 添加书签 / 添加到桌面'; }
+  else { msg = '按 Ctrl+D（Mac: ⌘+D）收藏本网站'; }
+  var toast = document.getElementById('bookmarkToast');
+  if (!toast) return;
+  toast.innerHTML = '<div class="toast-title">📌 收藏提示</div><div class="toast-desc" style="white-space:pre-line;">' + msg + '</div>';
+  toast.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(function () { toast.classList.remove('show'); }, 3500);
+}
 </script>
 </body>
 </html>
