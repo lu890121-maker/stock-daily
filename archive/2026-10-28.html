@@ -233,6 +233,19 @@
   .strategy-tag.watch { background:#e2ecfd; color:#2456c4; }
 
   /* === 产品化改造 v2.1 === */
+  .back-bar {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin: 14px 0 0 16px;
+    padding: 7px 14px;
+    font-size: 12.5px; font-weight: 700; color: #5b6472;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid #e5e8ee;
+    border-radius: 999px;
+    box-shadow: 0 1px 3px rgba(20,24,31,.05);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .back-bar:active { background: #f5f7fa; }
   .subscription-banner {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     padding: 16px 26px; color: #fff;
@@ -309,6 +322,7 @@
   @media (max-width: 480px) {
     /* 横幅 - 文字在左，按钮在最右竖排 */
     .subscription-banner { padding: 12px 13px; }
+    .back-bar { margin: 12px 0 0 13px; font-size: 12px; padding: 6px 12px; }
     .banner-content { flex-direction: row; flex-wrap: nowrap; text-align: left; gap: 8px; align-items: center; }
     .banner-left { flex: 1; min-width: 0; }
     .banner-left h3 { font-size: 12px; margin-bottom: 3px; white-space: nowrap; }
@@ -406,6 +420,9 @@
   <div class="toast-title">📌 收藏提示</div>
   <div class="toast-desc">iPhone：点击底部分享按钮 → 添加到主屏幕<br>Android：点击菜单 → 添加书签<br>电脑：按 Ctrl+D (Mac: ⌘+D)</div>
 </div>
+
+<!-- 返回列表 -->
+<a class="back-bar" href="/stock-daily/index.html">← 返回报告列表</a>
 
 <!-- 订阅横幅 -->
 <div class="subscription-banner">
@@ -827,6 +844,7 @@
   <b>信源：</b>Reuters · Bloomberg · WSJ · FT · CNBC · SK海力士财报 · CME FedWatch · 新浪财经 · 财联社 · 东方财富 · 金投网 · 中国货币网 · IEA · 工信部<br>
   <b>免责声明：</b>本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。<br>
   <b>更新时间：</b>2026年10月28日 16:00 CST<br>
+  <b>返回列表：</b><a href="/stock-daily/index.html" style="color:#3b6fe0;">← 查看全部历史报告</a><br>
   <b>在线访问：</b><a href="https://lu890121-maker.github.io/stock-daily/" style="color:#3b6fe0;">GitHub Pages</a>
 </div>
 
