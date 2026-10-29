@@ -233,19 +233,25 @@
   .strategy-tag.watch { background:#e2ecfd; color:#2456c4; }
 
   /* === 产品化改造 v2.1 === */
+  .banner-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .banner-left .banner-title-row h3 { margin-bottom: 0; }
   .back-bar {
-    display: inline-flex; align-items: center; gap: 4px;
-    margin: 14px 0 0 16px;
-    padding: 7px 14px;
-    font-size: 12.5px; font-weight: 700; color: #5b6472;
+    width: 30px; height: 30px; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(160deg, rgba(255,255,255,.20), rgba(255,255,255,.08));
+    border: 1px solid rgba(255,255,255,.24);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 1px 4px rgba(0,0,0,.18);
+    color: #fff; font-size: 15px; font-weight: 700; line-height: 1;
     text-decoration: none;
-    background: #fff;
-    border: 1px solid #e5e8ee;
-    border-radius: 999px;
-    box-shadow: 0 1px 3px rgba(20,24,31,.05);
     -webkit-tap-highlight-color: transparent;
+    transition: background .15s ease, transform .15s ease;
   }
-  .back-bar:active { background: #f5f7fa; }
+  .back-bar:active {
+    background: rgba(255,255,255,.34);
+    transform: scale(.92);
+  }
+  .back-bar svg { width: 15px; height: 15px; display: block; margin-left: -1px; }
   .subscription-banner {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     padding: 16px 26px; color: #fff;
@@ -322,7 +328,8 @@
   @media (max-width: 480px) {
     /* 横幅 - 文字在左，按钮在最右竖排 */
     .subscription-banner { padding: 12px 13px; }
-    .back-bar { margin: 12px 0 0 13px; font-size: 12px; padding: 6px 12px; }
+    .back-bar { width: 28px; height: 28px; font-size: 14px; }
+    .banner-title-row { gap: 7px; margin-bottom: 3px; }
     .banner-content { flex-direction: row; flex-wrap: nowrap; text-align: left; gap: 8px; align-items: center; }
     .banner-left { flex: 1; min-width: 0; }
     .banner-left h3 { font-size: 12px; margin-bottom: 3px; white-space: nowrap; }
@@ -421,14 +428,14 @@
   <div class="toast-desc">iPhone：点击底部分享按钮 → 添加到主屏幕<br>Android：点击菜单 → 添加书签<br>电脑：按 Ctrl+D (Mac: ⌘+D)</div>
 </div>
 
-<!-- 返回列表 -->
-<a class="back-bar" href="/stock-daily/index.html">← 返回报告列表</a>
-
 <!-- 订阅横幅 -->
 <div class="subscription-banner">
   <div class="banner-content">
     <div class="banner-left">
-      <h3>📊 每日全球股市观察</h3>
+      <div class="banner-title-row">
+        <a class="back-bar" href="/stock-daily/index.html" aria-label="返回报告列表" title="返回报告列表"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
+        <h3>📊 每日全球股市观察</h3>
+      </div>
       <p>免费版：核心数据、环球要闻、简版分析</p>
       <p>付费版：完整版·今日速览+五维度深挖+策略研判</p>
     </div>

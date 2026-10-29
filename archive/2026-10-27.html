@@ -233,6 +233,23 @@
   .strategy-tag.watch { background:#e2ecfd; color:#2456c4; }
 
   /* === 产品化改造 v2.1 === */
+    .back-bar {
+    width: 30px; height: 30px; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(160deg, rgba(255,255,255,.20), rgba(255,255,255,.08));
+    border: 1px solid rgba(255,255,255,.24);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 1px 4px rgba(0,0,0,.18);
+    color: #fff; font-size: 15px; font-weight: 700; line-height: 1;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .back-bar:active { background: rgba(255,255,255,.34); transform: scale(.92); }
+  .back-bar svg { width: 15px; height: 15px; display: block; margin-left: -1px; }
+  .subscription-banner { position: relative; }
+  .subscription-banner > .back-bar { position: absolute; left: 13px; top: 13px; z-index: 3; }
+
   .subscription-banner {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     padding: 16px 26px; color: #fff;
@@ -305,7 +322,7 @@
 <div class="wrap">
 
 <!-- 订阅横幅 -->
-<div class="subscription-banner">
+<div class="subscription-banner"><a class="back-bar" href="/stock-daily/index.html" aria-label="返回报告列表" title="返回报告列表"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
   <div class="banner-content">
     <div class="banner-left">
       <h3>📊 每日全球股市观察</h3>
