@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日全球股市观察 | 2026年11月5日</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #eef1f6;
+    color: #1a2233;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; background: #fff; box-shadow: 0 2px 40px rgba(20,30,60,.08); }
+  .hero {
+    position: relative;
+    background: linear-gradient(145deg, #131a2e 0%, #1e2a4a 45%, #2a1f45 100%);
+    padding: 40px 26px 34px;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
+    background: radial-gradient(circle, rgba(232,72,85,.28) 0%, transparent 68%);
+    top:-150px; right:-110px;
+  }
+  .hero::after {
+    content:''; position:absolute; width:280px; height:280px; border-radius:50%;
+    background: radial-gradient(circle, rgba(64,158,255,.24) 0%, transparent 70%);
+    bottom:-160px; left:-90px;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero .kicker {
+    display:inline-block; font-size:11px; letter-spacing:3px; font-weight:600;
+    background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1 { font-size:26px; font-weight:800; letter-spacing:-.6px; line-height:1.32; margin-bottom:10px; }
+  .hero h1 em { font-style:normal; color:#ff9aa5; }
+  .hero h1 i { font-style:normal; color:#7ee2a8; }
+  .hero .sub { font-size:13.5px; color:rgba(255,255,255,.72); }
+  .hero .datebar {
+    margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.13);
+    display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:rgba(255,255,255,.55);
+  }
+  .pulse { display:inline-flex; align-items:center; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 3px rgba(74,222,128,.22); }
+
+  /* 订阅横幅 */
+  .sub-banner {
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:14px 20px; background:linear-gradient(135deg,#1e2a4a,#2a1f45);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .sub-banner .sb-text { flex:1; min-width:0; }
+  .sub-banner .sb-text .l1 { font-size:12px; color:rgba(255,255,255,.7); line-height:1.6; }
+  .sub-banner .sb-text .l2 { font-size:12px; color:rgba(255,215,0,.85); line-height:1.6; font-weight:600; }
+  .sub-banner .sb-btns { display:flex; flex-direction:column; gap:6px; flex-shrink:0; }
+  .sub-banner .sb-btn {
+    display:inline-block; padding:7px 14px; border-radius:20px; font-size:11.5px; font-weight:700;
+    text-decoration:none; white-space:nowrap; transition:all .2s; text-align:center;
+  }
+  .sb-btn.free { background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.2); }
+  .sb-btn.paid { background:linear-gradient(135deg,#FFD700,#FFA500); color:#1a2233; border:none; }
+
+  /* 导航条 */
+  .nav-bar {
+    display:flex; overflow-x:auto; gap:0; background:#f7f9fc; border-bottom:1px solid #e8ecf3;
+    position:sticky; top:0; z-index:100; -webkit-overflow-scrolling: touch;
+  }
+  .nav-bar::-webkit-scrollbar { display:none; }
+  .nav-bar a {
+    display:block; padding:11px 14px; font-size:12px; font-weight:700; color:#5a6678;
+    text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent;
+    transition:all .15s;
+  }
+  .nav-bar a:hover { color:#3b6fe0; border-bottom-color:#3b6fe0; background:#fff; }
+
+  .sec { padding: 30px 26px; border-bottom: 8px solid #f1f4f9; }
+  .sec:last-of-type { border-bottom: none; }
+  .sec-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .sec-ico {
+    width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .sec-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .sec-note { font-size:12px; color:#8892a6; margin-left:auto; white-space:nowrap; }
+  .idx-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .idx {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px;
+    padding:12px 9px 11px; position:relative; overflow:hidden;
+  }
+  .idx::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .idx.up::before { background:#e84855; }
+  .idx.down::before { background:#12a05c; }
+  .idx .n { font-size:11px; color:#7c8698; margin-bottom:5px; font-weight:500; }
+  .idx .v { font-size:15.5px; font-weight:800; letter-spacing:-.4px; font-variant-numeric:tabular-nums; }
+  .idx .c { font-size:11.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .idx.up .v, .idx.up .c { color:#e84855; }
+  .idx.down .v, .idx.down .c { color:#12a05c; }
+
+  .statbar { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:14px; }
+  .stat {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:10px;
+    padding:11px 9px; text-align:center;
+  }
+  .stat .sl { font-size:10.5px; color:#8892a6; margin-bottom:4px; }
+  .stat .sv { font-size:14px; font-weight:800; font-variant-numeric:tabular-nums; }
+
+  .tbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .tbl th { text-align:left; font-size:11px; color:#8892a6; font-weight:600; padding:8px 6px; border-bottom:1px solid #e8ecf3; }
+  .tbl td { padding:10px 6px; border-bottom:1px solid #f1f4f9; }
+  .tbl .up { color:#e84855; font-weight:700; }
+  .tbl .down { color:#12a05c; font-weight:700; }
+  .tbl .group { background:#f7f9fc; font-weight:700; font-size:12px; color:#5a6678; }
+  .tbl .hot { background:#fff5f5; }
+
+  .news { margin-bottom:18px; padding:14px 16px; background:#fafbfd; border-radius:11px; border-left:3px solid #3b6fe0; }
+  .news.imp1 { border-left-color:#e84855; }
+  .news.imp2 { border-left-color:#ff9500; }
+  .news.imp3 { border-left-color:#3b6fe0; }
+  .news .nt { font-size:14px; font-weight:700; margin-bottom:6px; line-height:1.5; }
+  .news .nd { font-size:13px; color:#4a5568; line-height:1.7; }
+  .news .impact { margin-top:8px; padding:8px 12px; background:#fff; border-radius:8px; font-size:12.5px; color:#5a6678; line-height:1.65; }
+  .news .impact::before { content:'💡 说人话：'; font-weight:700; color:#3b6fe0; }
+
+  .rating-card {
+    background:linear-gradient(135deg,#f7f9fc,#fff); border:1px solid #e8ecf3;
+    border-radius:12px; padding:16px 18px; margin-bottom:12px;
+  }
+  .rating-card .rc-head { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .rating-card .rc-ico { font-size:18px; }
+  .rating-card .rc-title { font-size:14px; font-weight:700; }
+  .rating-card .rc-stars { margin-left:auto; color:#ffb800; font-size:14px; letter-spacing:2px; }
+  .rating-card .rc-text { font-size:13px; color:#4a5568; line-height:1.7; }
+
+  .chart-wrap { background:#fafbfd; border:1px solid #e8ecf3; border-radius:12px; padding:18px; }
+  .chart-wrap canvas { max-height:280px; }
+
+  .heat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .heat {
+    border-radius:10px; padding:14px 10px; text-align:center; color:#fff;
+    position:relative; overflow:hidden;
+  }
+  .heat .hn { font-size:12px; font-weight:700; margin-bottom:4px; }
+  .heat .hv { font-size:18px; font-weight:800; }
+  .heat.up1 { background:linear-gradient(135deg,#ff6b6b,#e84855); }
+  .heat.up2 { background:linear-gradient(135deg,#ff8787,#ff6b6b); }
+  .heat.up3 { background:linear-gradient(135deg,#ffa8a8,#ff8787); }
+  .heat.dn1 { background:linear-gradient(135deg,#20c997,#12a05c); }
+  .heat.dn2 { background:linear-gradient(135deg,#38d9a9,#20c997); }
+  .heat.dn3 { background:linear-gradient(135deg,#63e6be,#38d9a9); }
+
+  .pay-card {
+    background:linear-gradient(145deg,#1e2a4a,#2a1f45); border-radius:14px;
+    padding:24px 22px; color:#fff; margin:20px 0;
+  }
+  .pay-card .pc-title { font-size:18px; font-weight:800; margin-bottom:12px; }
+  .pay-card .pc-list { list-style:none; }
+  .pay-card .pc-list li { font-size:13px; line-height:1.8; padding-left:20px; position:relative; }
+  .pay-card .pc-list li::before { content:'✓'; position:absolute; left:0; color:#4ade80; font-weight:700; }
+  .pay-card .pc-btn {
+    display:block; text-align:center; margin-top:18px; padding:12px;
+    background:linear-gradient(135deg,#FFD700,#FFA500); color:#1a2233;
+    border-radius:10px; font-weight:700; text-decoration:none;
+  }
+
+  .qa-card {
+    background:#fafbfd; border:1px solid #e8ecf3; border-radius:12px;
+    padding:18px 20px; margin-bottom:14px;
+  }
+  .qa-card .q { font-size:14px; font-weight:700; margin-bottom:10px; color:#1a2233; }
+  .qa-card .a { font-size:13px; color:#4a5568; line-height:1.75; }
+
+  .poll-card {
+    background:linear-gradient(135deg,#f7f9fc,#fff); border:1px solid #e8ecf3;
+    border-radius:12px; padding:20px;
+  }
+  .poll-card .pt { font-size:15px; font-weight:700; margin-bottom:14px; }
+  .poll-opt {
+    display:flex; align-items:center; gap:10px; padding:10px 14px;
+    background:#fff; border:1px solid #e8ecf3; border-radius:8px;
+    margin-bottom:8px; cursor:pointer; transition:all .15s;
+  }
+  .poll-opt:hover { border-color:#3b6fe0; background:#f0f5ff; }
+  .poll-opt .po-text { flex:1; font-size:13px; }
+  .poll-opt .po-pct { font-size:12px; color:#8892a6; font-weight:600; }
+
+  footer {
+    background:#1a2233; color:rgba(255,255,255,.6); padding:30px 26px;
+    font-size:11.5px; line-height:1.8;
+  }
+  footer .ft { color:#fff; font-size:13px; font-weight:700; margin-bottom:10px; }
+  footer a { color:rgba(255,255,255,.8); text-decoration:none; }
+
+  @media (max-width:480px) {
+    .hero h1 { font-size:22px; }
+    .idx-grid { grid-template-columns:repeat(2,1fr); }
+    .statbar { grid-template-columns:repeat(2,1fr); }
+    .heat-grid { grid-template-columns:repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 订阅横幅 -->
+<div class="sub-banner">
+  <div class="sb-text">
+    <div class="l1">免费版：核心数据+简版分析</div>
+    <div class="l2">付费版：完整版·今日速览+五维度深挖+策略研判</div>
+  </div>
+  <div class="sb-btns">
+    <a href="javascript:void(0)" onclick="alert('按 Ctrl+D（Mac: ⌘+D）收藏本页')" class="sb-btn free">⭐收藏网页</a>
+    <a href="https://wx.zsxq.com/group/88884524422882" target="_blank" class="sb-btn paid">💎加入知识星球</a>
+  </div>
+</div>
+
+<!-- 导航条 -->
+<nav class="nav-bar">
+  <a href="#astock">A股速览</a>
+  <a href="#global">全球市场</a>
+  <a href="#news">环球要闻</a>
+  <a href="#rating">五维度分析</a>
+  <a href="#compare">涨跌对比</a>
+  <a href="#industry">产业热力图</a>
+  <a href="#qa">今日问答</a>
+  <a href="#poll">今日投票</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">每日全球股市观察</div>
+    <h1>
+      A股低开高走<em>4869股上涨</em>光伏涨停潮<br>
+      港股恒指<i>+3.67%</i>恒生科技飙升<i>+5.55%</i><br>
+      美伊停战预期引爆油价<em>暴跌8%</em>能化跌停<br>
+      KOSPI<em>-5.28%</em>存储崩SK海力士跌超10%
+    </h1>
+    <div class="sub">成交2.12万亿连续两日2万亿+ · 86只涨停0只跌停 · 主力净流入415亿 · 民主党横扫两院油价崩</div>
+    <div class="datebar">
+      <span>2026年11月5日 周四</span>
+      <span class="pulse"><span class="dot"></span>数据截至 18:00 CST</span>
+    </div>
+  </div>
+</section>
+
+<!-- 今日核心摘要 -->
+<section class="sec" id="summary">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff3e0;">📊</div>
+    <div class="sec-title">今日核心摘要</div>
+  </div>
+  <p style="font-size:14px; line-height:1.85; color:#2d3748; margin-bottom:14px;">
+    <strong>A股低开高走，4869只个股上涨，86只涨停0只跌停。</strong>隔夜美股存储芯片暴跌、KOSPI崩5.28%，A股三大指数集体低开后单边回升。沪指+0.10%报3690，深成指+1.19%，创业板+0.87%（盘中一度涨超3%后冲高回落），科创50+1.68%。成交2.12万亿连续两日站上2万亿。光伏设备板块涨停潮——迈为股份20cm涨停，捷佳伟创+13%，阳光电源+4.89%主力净流入超15亿。宁德时代+4.42%成交超100亿。资金从"昨日半导体"切换到"今日光伏新能源"。
+  </p>
+  <p style="font-size:14px; line-height:1.85; color:#2d3748; margin-bottom:14px;">
+    <strong>民主党横扫两院+美伊停战预期引爆油价暴跌8%。</strong>美国中期选举民主党拿下众参两院，副总统万斯公开将伊朗战事归咎于特朗普，市场押注美伊停战。WTI暴跌8.29%至88.12美元，国内SC原油暴跌超10%，PP/PE/EG等6个能化品种封死跌停。地缘溢价被集中挤出——但特朗普说"何时结束由我决定"，实际停战还有变数。
+  </p>
+  <p style="font-size:14px; line-height:1.85; color:#2d3748;">
+    <strong>港股大涨，恒指+3.67%恒生科技+5.55%创年内最大单日涨幅。</strong>隔夜美股大型科技股普涨（微软+6.68%、亚马逊+6.12%、苹果+5.31%），中概金龙+3.49%，港股今日全线爆发。网易+8%、美团+8%、理想+8%、阿里+7%。但日韩存储芯片崩了——SK海力士跌超10%、三星跌超8%，KOSPI触发卖出侧车机制收跌5.28%。
+  </p>
+</section>
+
+<!-- A股速览 -->
+<section class="sec" id="astock">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#ffe3e3;">📈</div>
+    <div class="sec-title">A股速览</div>
+    <div class="sec-note">11月5日 18:00</div>
+  </div>
+  <div class="idx-grid">
+    <div class="idx up">
+      <div class="n">上证指数</div>
+      <div class="v">3,690</div>
+      <div class="c">+0.10%</div>
+    </div>
+    <div class="idx up">
+      <div class="n">深证成指</div>
+      <div class="v">11,471</div>
+      <div class="c">+1.19%</div>
+    </div>
+    <div class="idx up">
+      <div class="n">创业板指</div>
+      <div class="v">2,567</div>
+      <div class="c">+0.87%</div>
+    </div>
+    <div class="idx up">
+      <div class="n">科创50</div>
+      <div class="v">1,287</div>
+      <div class="c">+1.68%</div>
+    </div>
+  </div>
+  <div class="statbar">
+    <div class="stat">
+      <div class="sl">成交额</div>
+      <div class="sv">2.12万亿</div>
+    </div>
+    <div class="stat">
+      <div class="sl">较昨日</div>
+      <div class="sv" style="color:#e84855;">+832亿</div>
+    </div>
+    <div class="stat">
+      <div class="sl">涨停</div>
+      <div class="sv" style="color:#e84855;">86</div>
+    </div>
+    <div class="stat">
+      <div class="sl">上涨家数</div>
+      <div class="sv" style="color:#e84855;">4869</div>
+    </div>
+  </div>
+</section>
+
+<!-- 全球市场 -->
+<section class="sec" id="global">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#e3f2fd;">🌏</div>
+    <div class="sec-title">全球市场</div>
+    <div class="sec-note">截至18:00 CST</div>
+  </div>
+  <table class="tbl">
+    <tr class="group"><td colspan="3">🇭🇰 港股</td></tr>
+    <tr class="hot"><td>恒生指数</td><td>24,797</td><td class="up">+3.67%</td></tr>
+    <tr class="hot"><td>恒生科技</td><td>4,154</td><td class="up">+5.55%</td></tr>
+    <tr class="group"><td colspan="3">🇯🇵🇰🇷 日韩</td></tr>
+    <tr class="hot"><td>日经225</td><td>61,078</td><td class="down">-1.79%</td></tr>
+    <tr class="hot"><td>KOSPI</td><td>5,384</td><td class="down">-5.28%</td></tr>
+    <tr class="group"><td colspan="3">🇺🇸 美股（11月4日收盘）</td></tr>
+    <tr class="hot"><td>道琼斯</td><td>53,356</td><td class="up">+3.03%</td></tr>
+    <tr><td>标普500</td><td>7,689</td><td class="up">+1.58%</td></tr>
+    <tr><td>纳斯达克</td><td>25,737</td><td class="up">+1.44%</td></tr>
+    <tr><td>费城半导体</td><td>--</td><td class="down">-3.13%</td></tr>
+    <tr class="group"><td colspan="3">🇪🇺 欧股（11月5日收盘）</td></tr>
+    <tr><td>德国DAX</td><td>--</td><td class="up">+2.38%</td></tr>
+    <tr><td>法国CAC40</td><td>--</td><td class="up">+2.15%</td></tr>
+    <tr><td>英国富时100</td><td>--</td><td class="up">+1.79%</td></tr>
+  </table>
+</section>
+
+<!-- 环球要闻 -->
+<section class="sec" id="news">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fce4ec;">📰</div>
+    <div class="sec-title">环球要闻</div>
+    <div class="sec-note">9条</div>
+  </div>
+  
+  <div class="news imp1">
+    <div class="nt">🔴 美伊停战预期引爆油价暴跌8%：SC原油崩超10%，能化6品种跌停</div>
+    <div class="nd">美国中期选举民主党横扫两院，副总统万斯公开将伊朗战事归咎于特朗普，市场押注美伊停战。WTI暴跌8.29%至88.12美元/桶，布伦特-8.67%至94.62美元。国内SC原油暴跌超10%，PP/PE/EG/纯苯等能化品种封死跌停。特朗普称"伊朗战争将在我想要的时候结束"。</div>
+    <div class="impact">地缘溢价被集中挤出——过去两个月油价因霍尔木兹海峡危机累积的30美元风险溢价，一个晚上挤掉大半。但特朗普说"何时结束由我决定"，伊朗要求7项条件全部满足才开放海峡。实际停战还有变数，油价短期可能超跌反弹。</div>
+  </div>
+
+  <div class="news imp1">
+    <div class="nt">🔴 KOSPI暴跌5.28%触发卖出侧车：SK海力士跌超10%，三星跌超8%</div>
+    <div class="nd">韩国KOSPI指数暴跌5.28%报5384点，盘中一度跌超6%触发卖出侧车机制（暂停程序化卖单5分钟）。SK海力士跌超10%，三星电子跌超8%。隔夜美股存储芯片全线大跌——美光-7%、希捷-8%、闪迪-7.9%、西部数据-6.8%。日经225同步跌1.79%报61078。</div>
+    <div class="impact">存储芯片的"买预期卖事实"进入第二阶段——Q3业绩炸裂已price in，民主党胜选→AI监管收紧→数据中心建设放缓→存储需求预期下修。光通信同步崩——Ciena-9%、Lumentum-7%、迈威尔-7%。AI军备竞赛的反噬从韩国蔓延到全球。</div>
+  </div>
+
+  <div class="news imp1">
+    <div class="nt">🔴 美股道指暴涨3.03%：微软+6.68%、苹果+5.31%，但存储崩了</div>
+    <div class="nd">美东时间11月4日，美股三大指数集体大涨。道指+3.03%报53356，标普+1.58%报7689，纳指+1.44%报25737。大型科技股领涨——微软+6.68%、亚马逊+6.12%、苹果+5.31%、谷歌+3.25%。银行股全线上涨，摩根士丹利、摩根大通涨超4%。Moderna+13%。但费城半导体-3.13%，存储、光通信拖累。</div>
+    <div class="impact">道指+3.03%是"选举利好+停战预期"的双重驱动——银行、医药、消费全线暴涨。但费半-3.13%说明市场在"做大盘、杀科技"——民主党胜选意味着AI监管收紧，高估值科技股承压。这种分化格局可能持续。</div>
+  </div>
+
+  <div class="news imp1">
+    <div class="nt">🔴 港股爆发：恒指+3.67%、恒生科技+5.55%创年内最大单日涨幅</div>
+    <div class="nd">港股三大指数全线走强。恒生指数+3.67%报24797，恒生科技+5.55%报4154创年内最大单日涨幅。科网股领涨——网易+8%、美团+8%、理想+8%、阿里+7%、小米+7%、腾讯音乐+8%。新消费、云计算板块全面爆发。隔夜美股中概金龙指数+3.49%。</div>
+    <div class="impact">港股的暴涨逻辑：隔夜美股大盘暴涨+中概股走强+油价暴跌缓解通胀担忧+民主党胜选意味着中美科技对抗可能缓和。恒生科技+5.55%是年内最强单日表现，资金从"避险"切回"进攻"。</div>
+  </div>
+
+  <div class="news imp2">
+    <div class="nt">🟠 A股低开高走显韧性：光伏设备涨停潮，迈为股份20cm涨停</div>
+    <div class="nd">隔夜存储暴跌、KOSPI崩5%，A股三大指数集体低开后单边回升。光伏设备板块涨停潮——迈为股份20cm涨停，捷佳伟创+13%，贝特利、中利集团、海源复材2连板。阳光电源+4.89%主力净流入超15亿，宁德时代+4.42%成交超100亿主力净流入超10亿。全市场4869只上涨、625只下跌、86只涨停、0只跌停。</div>
+    <div class="impact">光伏暴涨的核心逻辑：民主党横扫两院→IRA清洁能源补贴保留→光伏装机预期上修。叠加Q3中国光伏装机+38%+反内卷政策，资金集中涌入。但创业板盘中涨超3%回落到0.87%，说明高位有分歧。</div>
+  </div>
+
+  <div class="news imp2">
+    <div class="nt">🟠 黄金反弹站上4100美元：COMEX黄金+3.34%报4072美元</div>
+    <div class="nd">现货黄金上涨1.53%至4124美元/盎司附近，COMEX黄金期货+3.34%报4072美元。白银T+D+5.17%，沪银+5.43%。美元走弱+地缘不确定性+美联储暂停加息预期，贵金属全线反弹。</div>
+    <div class="impact">黄金从3875美元低点反弹超250美元——中期选举不确定性+油价暴跌缓解通胀但增加经济放缓预期+美元走弱。但10年美债4.89%仍然偏高，黄金的反弹空间受限于"高利率+强美元"的大背景。</div>
+  </div>
+
+  <div class="news imp2">
+    <div class="nt">🟠 欧元区10月通胀率4.0%创三年新高：能源价格是主因</div>
+    <div class="nd">欧盟统计局初步估计，欧元区2026年10月通胀率达到4.0%，高于9月份的3.8%，创三年来新高。能源价格通胀水平最高，其次是服务价格、食品和非能源工业品价格。</div>
+    <div class="impact">油价虽然暴跌了，但欧元区通胀还在走高——能源价格的传导有滞后效应。欧央行降息空间被压缩，对欧洲经济是坏消息。欧股今日涨（DAX+2.38%）更多是跟随美股大盘情绪，通胀压力并未解除。</div>
+  </div>
+
+  <div class="news imp3">
+    <div class="nt">🔵 三井化学计划收购JSR：超1.3万亿日元，日本化学行业史上最大并购</div>
+    <div class="nd">据日经中文网报道，日本三井化学将收购JSR。计划以超过1.3万亿日元（约合人民币547亿元）的价格从JIC手中收购。JSR在光刻胶领域全球第二（仅次于东京应化），是半导体关键材料供应商。</div>
+    <div class="impact">半导体材料整合加速——日本在光刻胶、光刻设备、硅片等上游材料的垄断地位进一步巩固。对中国半导体自主可控是长期压力，但也倒逼国产替代加速。南大光电、晶瑞电材等国产光刻胶概念值得关注。</div>
+  </div>
+
+  <div class="news imp3">
+    <div class="nt">🔵 SpaceX与高通达成移动通信合作：星链移动服务核心网络</div>
+    <div class="nd">SpaceX宣布与高通达成多年期合作协议，高通将为星链移动服务提供核心网络技术。这套网络将"对星链的卫星能力形成补充"。财务条款未披露。</div>
+    <div class="impact">卫星互联网进入"天地一体"阶段——SpaceX负责天上，高通负责地面。这对传统电信运营商是长期威胁，但对卫星通信产业链是利好。国内卫星互联网概念（中国卫通、中国卫星）可能跟涨。</div>
+  </div>
+</section>
+
+<!-- 五维度分析 -->
+<section class="sec" id="rating">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#e8f5e9;">🎯</div>
+    <div class="sec-title">五维度分析</div>
+    <div class="sec-note">评级+一句话</div>
+  </div>
+
+  <div class="rating-card">
+    <div class="rc-head">
+      <div class="rc-ico">📰</div>
+      <div class="rc-title">消息面</div>
+      <div class="rc-stars">★★★★☆</div>
+    </div>
+    <div class="rc-text">美伊停战预期油价暴跌8%+民主党横扫两院+日韩存储崩+光伏涨停潮——地缘风险释放+板块轮动加速，消息面偏多但分化严重。</div>
+  </div>
+
+  <div class="rating-card">
+    <div class="rc-head">
+      <div class="rc-ico">😟</div>
+      <div class="rc-title">情绪面</div>
+      <div class="rc-stars">★★★★☆</div>
+    </div>
+    <div class="rc-text">4869只上涨+86涨停+0跌停+低开高走——外围暴跌A股独立行，抄底资金积极。但创业板盘中涨超3%回落到0.87%，高位有分歧。</div>
+  </div>
+
+  <div class="rating-card">
+    <div class="rc-head">
+      <div class="rc-ico">📊</div>
+      <div class="rc-title">技术面</div>
+      <div class="rc-stars">★★★☆☆</div>
+    </div>
+    <div class="rc-text">沪指+0.10%卡在3690未突破3700，深成指+1.19%、科创50+1.68%成长强于价值。连续两日2万亿+成交活跃，但3700-3750压力位仍需放量突破。</div>
+  </div>
+
+  <div class="rating-card">
+    <div class="rc-head">
+      <div class="rc-ico">🏛️</div>
+      <div class="rc-title">政策面</div>
+      <div class="rc-stars">★★★★★</div>
+    </div>
+    <div class="rc-text">民主党横扫→IRA补贴保留→光伏新能源直接受益+央行回购再贷款利率1%托底+银行间市场支持先进制造业+首批18只主动ETF募360亿——政策面持续友好。</div>
+  </div>
+
+  <div class="rating-card">
+    <div class="rc-head">
+      <div class="rc-ico">💰</div>
+      <div class="rc-title">资金面</div>
+      <div class="rc-stars">★★★★☆</div>
+    </div>
+    <div class="rc-text">成交2.12万亿+主力净流入415亿+半导体/光伏/电池三大板块净流入120亿+宁德时代/阳光电源/中微公司各获10亿级别净流入——资金从"昨日半导体"切向"今日光伏新能源"，轮动加速。</div>
+  </div>
+</section>
+
+<!-- 涨跌对比 -->
+<section class="sec" id="compare">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#fff3e0;">📊</div>
+    <div class="sec-title">涨跌对比</div>
+    <div class="sec-note">Chart.js</div>
+  </div>
+  <div class="chart-wrap">
+    <canvas id="compareChart"></canvas>
+  </div>
+</section>
+
+<!-- 产业热力图 -->
+<section class="sec" id="industry">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#e3f2fd;">🔥</div>
+    <div class="sec-title">产业热力图</div>
+    <div class="sec-note">六大产业</div>
+  </div>
+  <div class="heat-grid">
+    <div class="heat up1">
+      <div class="hn">光伏设备</div>
+      <div class="hv">+6.23%</div>
+    </div>
+    <div class="heat up1">
+      <div class="hn">新能源电池</div>
+      <div class="hv">+4.85%</div>
+    </div>
+    <div class="heat up2">
+      <div class="hn">贵金属</div>
+      <div class="hv">+3.72%</div>
+    </div>
+    <div class="heat up2">
+      <div class="hn">能源金属</div>
+      <div class="hv">+3.15%</div>
+    </div>
+    <div class="heat up3">
+      <div class="hn">数字媒体</div>
+      <div class="hv">+2.48%</div>
+    </div>
+    <div class="heat dn1">
+      <div class="hn">CPO/光通信</div>
+      <div class="hv">-3.86%</div>
+    </div>
+  </div>
+</section>
+
+<!-- 付费引导卡片 -->
+<section class="sec" id="subscribe">
+  <div class="pay-card">
+    <div class="pc-title">💎 想看完整深度分析？加入知识星球</div>
+    <p style="font-size:13px; line-height:1.8; margin-bottom:14px; color:rgba(255,255,255,.85);">
+      <strong>付费版是完整版</strong>——包含今日速览、全球市场、环球要闻（和免费版完全一致，不用来回翻网页），再加上这些深度内容：
+    </p>
+    <ul class="pc-list">
+      <li><strong>五维度深度分析</strong>：消息面/情绪面/技术面/政策面/资金面，每个维度5-7条数据+推理过程+结论（免费版只有评级+一句话）</li>
+      <li><strong>资金面明细</strong>：北向资金+南向资金+主力资金分级（超大单/大单/中单/小单）+行业净流入/流出TOP5+两融余额（免费版没有）</li>
+      <li><strong>板块热力图</strong>：10大板块涨跌格局+底部详细格局总结（免费版只有6个产业）</li>
+      <li><strong>焦点个股</strong>：16个chip卡片（A股+港股+海外）+底部"三个对比"深度callout（免费版没有）</li>
+      <li><strong>大宗商品</strong>：18行详细表格（能源+贵金属+基本金属+汇率+利率）+四段解读（免费版没有）</li>
+      <li><strong>产业高频数据</strong>：6个产业卡片，每卡6条量化数据（产量/出货量/库存/价格/产能利用率/订单）+底部"三条产业链信号"（免费版没有）</li>
+      <li><strong>策略研判</strong>：短期+中期+长期（3-6月）判断+9个方向标签+7条风险清单（免费版没有）</li>
+    </ul>
+    <p style="font-size:12.5px; line-height:1.8; margin-top:14px; color:rgba(255,255,255,.7);">
+      另外还包含：每日问答（机构大户最关心的问题）+ 今日投票（市场情绪风向标）
+    </p>
+    <a href="https://wx.zsxq.com/group/88884524422882" target="_blank" class="pc-btn">💎 加入知识星球 · 看完整版</a>
+  </div>
+</section>
+
+<!-- 今日问答 -->
+<section class="sec" id="qa">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#f3e5f5;">❓</div>
+    <div class="sec-title">今日问答</div>
+    <div class="sec-note">机构最关心</div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q">Q1：油价暴跌8%，能化跌停潮，是抄底机会还是继续跌？</div>
+    <div class="a">短期看，地缘溢价被集中挤出，SC原油一天跌掉10%属于恐慌性抛售。但特朗普的"何时结束由我决定"+伊朗7项条件→实际停战还有变数。如果停战落空，油价可能反弹20-30%。如果能落实，WTI可能下探80美元。建议观望，不急着抄底。</div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q">Q2：光伏涨停潮能持续吗？IRA补贴保留意味着什么？</div>
+    <div class="a">IRA补贴保留是中长期利好——美国光伏装机预期上修，中国光伏出口受益。叠加Q3国内装机+38%+反内卷政策，光伏板块有基本面支撑。但涨停潮后短线获利盘会兑现，建议关注龙头（阳光电源、宁德时代、迈为股份）回调后的机会，不追涨停板。</div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q">Q3：KOSPI崩5.28%，存储芯片的超级周期结束了？</div>
+    <div class="a">短期是"买预期卖事实"——Q3业绩炸裂已price in，民主党胜选→AI监管收紧→数据中心建设放缓→存储需求预期下修。但HBM供不应求的格局没变，SK海力士Q3利润+632%是实打实的业绩。中期看存储周期还在，但估值需要消化。建议等KOSPI企稳后再考虑布局。</div>
+  </div>
+</section>
+
+<!-- 今日投票 -->
+<section class="sec" id="poll">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:#e8f5e9;">🗳️</div>
+    <div class="sec-title">今日投票</div>
+    <div class="sec-note">市场情绪</div>
+  </div>
+
+  <div class="poll-card">
+    <div class="pt">油价暴跌8%+A股独立行，你认为明天沪指能破3700？</div>
+    <div class="poll-opt">
+      <div class="po-text">能，放量突破3700</div>
+      <div class="po-pct">35%</div>
+    </div>
+    <div class="poll-opt">
+      <div class="po-text">在3680-3700区间震荡</div>
+      <div class="po-pct">45%</div>
+    </div>
+    <div class="poll-opt">
+      <div class="po-text">不能，回踩3650支撑</div>
+      <div class="po-pct">20%</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">📊 每日全球股市观察 · 2026年11月5日</div>
+  <p>数据来源：新浪财经、东方财富、Wind、Bloomberg、Reuters、CNBC、FT、WSJ</p>
+  <p>更新时间：每个交易日 18:00 CST</p>
+  <p style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,.1);">
+    <strong>免责声明</strong>：本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。
+  </p>
+  <p style="margin-top:12px;">
+    <a href="https://wx.zsxq.com/group/88884524422882" target="_blank">💎 加入知识星球看完整版</a> · 
+    <a href="https://lu890121-maker.github.io/stock-daily/">🌐 网页版</a>
+  </p>
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+  const ctx = document.getElementById('compareChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['沪指', '深成指', '创业板', '科创50', '恒指', '恒生科技', '日经', 'KOSPI', '道指', '标普', '纳指', '费半'],
+      datasets: [{
+        label: '涨跌幅 (%)',
+        data: [0.10, 1.19, 0.87, 1.68, 3.67, 5.55, -1.79, -5.28, 3.03, 1.58, 1.44, -3.13],
+        backgroundColor: function(ctx) {
+          const value = ctx.raw;
+          return value >= 0 ? 'rgba(232, 72, 85, 0.8)' : 'rgba(18, 160, 92, 0.8)';
+        },
+        borderColor: function(ctx) {
+          const value = ctx.raw;
+          return value >= 0 ? 'rgb(232, 72, 85)' : 'rgb(18, 160, 92)';
+        },
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: '全球主要指数涨跌幅对比',
+          font: { size: 14, weight: 'bold' }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: false,
+          grid: { color: 'rgba(0,0,0,0.05)' }
+        },
+        x: {
+          grid: { display: false }
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>
