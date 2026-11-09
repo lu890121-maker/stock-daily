@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日全球股市观察 | 2026年11月6日</title>
+<title>每日全球股市观察 | 2026年11月9日</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -153,8 +153,6 @@
   .dim-h { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
   .dim-h .e { font-size:18px; } .dim-h .t { font-size:15px; font-weight:800; letter-spacing:-.2px; }
   .dim-h .score { margin-left:auto; font-size:11px; font-weight:600; color:#7c8698; }
-  .dim .conclusion { margin-top:12px; padding:10px 13px; background:rgba(255,255,255,.65); border-radius:8px; font-size:12.5px; color:#4a5568; line-height:1.8; }
-  .dim .conclusion b { color:#c9313e; }
 
   .chart-wrap { background:#fafbfd; border:1px solid #e8ecf3; border-radius:12px; padding:16px; }
   canvas { max-width:100%; }
@@ -196,13 +194,37 @@
   .vote-opt .radio { width:16px; height:16px; border:2px solid #c9d1e0; border-radius:50%; flex-shrink:0; }
   .vote-opt .txt { font-size:13px; color:#3d4660; }
 
+  .summary-text { font-size:14px; line-height:2; color:#3d4660; }
+  .summary-text b { color:#1a2233; }
+
+  .pay-teaser { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+  .pay-teaser .pt-card { background:#fafbfd; border:1px solid #e8ecf3; border-radius:11px; padding:14px; }
+  .pay-teaser .pt-card .pt-t { font-size:12px; font-weight:700; color:#3b6fe0; margin-bottom:6px; }
+  .pay-teaser .pt-card .pt-d { font-size:11.5px; color:#5a6678; line-height:1.7; }
+  .pay-teaser .pt-card.locked { border-color:#ffd700; background:linear-gradient(135deg,#fffdf5,#fff9e8); }
+  .pay-teaser .pt-card.locked .pt-t { color:#b8690f; }
+
+  .pay-modules { background:#f7f9fc; border-radius:12px; padding:16px 18px; margin-top:16px; }
+  .pay-modules .pm-title { font-size:13px; font-weight:700; color:#5a6678; margin-bottom:10px; }
+  .pay-modules .pm-list { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .pay-modules .pm-item { background:#fff; border:1px solid #e8ecf3; border-radius:8px; padding:10px; text-align:center; font-size:11.5px; font-weight:600; color:#3d4660; }
+
   footer { padding:30px 26px; background:#131a2e; color:rgba(255,255,255,.5); font-size:11px; line-height:1.8; text-align:center; }
   footer a { color:rgba(255,255,255,.7); text-decoration:none; }
 
-  @media (max-width:480px) {
+  @media (max-width: 480px) {
+    .hero { padding:30px 18px 26px; }
     .hero h1 { font-size:22px; }
-    .idx-grid { grid-template-columns:repeat(2,1fr); }
+    .sec { padding:24px 16px; }
+    .idx-grid { grid-template-columns:repeat(2,1fr); gap:6px; }
+    .idx { padding:10px 8px 9px; }
+    .idx .v { font-size:14px; }
+    .statbar { grid-template-columns:repeat(2,1fr); }
     .heat-grid { grid-template-columns:1fr; }
+    .pay-teaser { grid-template-columns:1fr; }
+    .pay-modules .pm-list { grid-template-columns:repeat(2,1fr); }
+    .sub-banner { flex-direction:column; text-align:center; }
+    .sub-banner .sb-btns { flex-direction:row; }
   }
 </style>
 </head>
@@ -216,8 +238,8 @@
     <div class="l2">付费版：完整版·今日速览+五维度深挖+策略研判</div>
   </div>
   <div class="sb-btns">
-    <a href="https://lu890121-maker.github.io/stock-daily/" class="sb-btn free">⭐订阅免费版</a>
-    <a href="https://wx.zsxq.com" class="sb-btn paid">💎加入知识星球</a>
+    <a class="sb-btn free" href="https://lu890121-maker.github.io/stock-daily/">⭐订阅免费版</a>
+    <a class="sb-btn paid" href="https://t.zsxq.com/0b6iaIa">💎加入知识星球</a>
   </div>
 </div>
 
@@ -228,491 +250,401 @@
   <a href="#news">环球要闻</a>
   <a href="#dims">五维度分析</a>
   <a href="#chart">涨跌对比</a>
-  <a href="#heat">产业热力图</a>
+  <a href="#industry">产业热力图</a>
   <a href="#qa">今日问答</a>
   <a href="#vote">今日投票</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
   <div class="hero-inner">
-    <span class="kicker">每日全球股市观察</span>
-    <h1>
-      美股崩盘传导全球<br>
-      纳指<em>-5.52%</em>创19个月最大跌幅<br>
-      日韩股市触发熔断<br>
-      A股跟跌沪指<em>-1.10%</em>创业板<em>-3.96%</em>
-    </h1>
-    <p class="sub">AI军备竞赛反噬 · 费城半导体-7% · 日经进入技术性熊市 · KOSPI崩6%触发熔断</p>
+    <div class="kicker">DAILY MARKET OBSERVER</div>
+    <h1>缩量分化<em>3100股下跌</em><br>机器人概念逆势爆发<br>非农超预期<i>加息预期升温</i><br>美伊谈判<em>破冰信号</em></h1>
+    <div class="sub">沪指+0.32%守住3660 · 成交1.48万亿缩量1752亿 · 日经反弹+2.33% · 现货黄金重回4100美元</div>
     <div class="datebar">
-      <span>2026年11月6日 周四</span>
+      <span>2026年11月9日 · 周一</span>
       <span class="pulse"><span class="dot"></span>数据截至 16:00 CST</span>
     </div>
   </div>
-</section>
+</div>
 
 <!-- 今日核心摘要 -->
-<section class="sec" id="summary">
+<div class="sec">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#fff0dc;">📋</div>
+    <div class="sec-ico" style="background:#f5f8ff;color:#3b6fe0;">📝</div>
     <div class="sec-title">今日核心摘要</div>
   </div>
-  <p style="font-size:13.5px; line-height:1.9; color:#3d4660; margin-bottom:14px;">
-    <b>美股昨夜崩盘，AI军备竞赛反噬。</b>纳指-5.52%创19个月最大单日跌幅，较10月高点回落超10%正式进入技术性回调。道指-3.44%报51523，标普-4.36%创2025年4月以来最大跌幅。费城半导体-7%领跌——Arm、高通业绩指引不及预期，市场对AI行业盈利前景产生怀疑。马斯克等五大科技富豪身价单日缩水超1500亿美元。
-  </p>
-  <p style="font-size:13.5px; line-height:1.9; color:#3d4660; margin-bottom:14px;">
-    <b>日韩股市崩盘，KOSPI触发熔断。</b>日经225-5.96%报57435，较6月高点回调20%正式进入技术性熊市。软银-14%、东京电子-13%。韩国KOSPI-6.02%报5060，盘中跌超8%触发熔断机制交易暂停20分钟。SK海力士-12%、三星电子-10%——存储芯片全线溃败。
-  </p>
-  <p style="font-size:13.5px; line-height:1.9; color:#3d4660;">
-    <b>A股跟跌但相对抗跌。</b>沪指-1.10%报3649，深成指-2.57%报11176，创业板-3.96%报2465，科创50-2.60%报1253。成交1.66万亿缩量4602亿，超4700只个股下跌。PCB概念股领跌（东山精密跌停），电力板块逆势走强。外围崩盘A股跌幅远小于日韩——政策底+估值底双重支撑。
-  </p>
-</section>
+  <div class="summary-text">
+    <p><b>指数分化，缩量博弈。</b>沪指+0.32%勉强收红报3661，深成指和创业板均-0.27%冲高回落。成交1.48万亿较上周五再缩1752亿——连续缩量说明资金观望情绪浓厚。超3100只个股下跌，涨跌比2242:3148，赚钱效应一般。但涨停57家、仅2家跌停——结构性行情还在，只是不在你的持仓里。</p>
+    <p><b>机器人+煤炭+燃气三线并进。</b>人形机器人概念全天强势——上纬新材20%涨停、锋龙股份尾盘封板、宇树科技+9%创2.5个月新高。三星/SK海力士/美光与SEMI磋商晶圆厂机器人充电标准化，产业催化持续。煤炭板块高开高走（郑州煤电、安泰集团涨停），PPI数据显示煤炭开采+36.6%。燃气板块受伊拉克气田遇袭刺激爆发（东方环宇、胜通能源涨停）。</p>
+    <p><b>外围：非农炸裂+美伊破冰+芯片反弹。</b>美国10月非农+16.5万远超预期（预期6.5万），失业率降至4.1%，12月加息25bp概率升至八成。但美伊谈判出现破冰信号——卡塔尔称取得重大进展，特朗普称重启军事打击可能性"极低"，WTI全周暴跌12.76%至90.83美元。芯片股技术性反弹——费半+4.2%、AMD+11%。日经+2.33%反弹，但KOSPI-0.81%仍在低位。</p>
+  </div>
+</div>
 
 <!-- A股速览 -->
-<section class="sec" id="a-stock">
+<div class="sec" id="a-stock">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#ffe4e6;">📊</div>
+    <div class="sec-ico" style="background:#fff0f0;color:#e84855;">📊</div>
     <div class="sec-title">A股速览</div>
-    <span class="sec-note">11月6日 收盘</span>
+    <div class="sec-note">收盘 16:00 CST</div>
   </div>
   <div class="idx-grid">
-    <div class="idx down">
+    <div class="idx up">
       <div class="n">上证指数</div>
-      <div class="v">3649.18</div>
-      <div class="c">-1.10%</div>
+      <div class="v">3,661</div>
+      <div class="c">+0.32%</div>
     </div>
     <div class="idx down">
       <div class="n">深证成指</div>
-      <div class="v">11175.78</div>
-      <div class="c">-2.57%</div>
+      <div class="v">11,146</div>
+      <div class="c">-0.27%</div>
     </div>
     <div class="idx down">
       <div class="n">创业板指</div>
-      <div class="v">2465.23</div>
-      <div class="c">-3.96%</div>
+      <div class="v">2,459</div>
+      <div class="c">-0.27%</div>
     </div>
-    <div class="idx down">
+    <div class="idx up">
       <div class="n">科创50</div>
-      <div class="v">1253.20</div>
-      <div class="c">-2.60%</div>
+      <div class="v">1,259</div>
+      <div class="c">+0.44%</div>
     </div>
   </div>
   <div class="statbar">
-    <div class="stat">
-      <div class="k">成交额</div>
-      <div class="v" style="color:#e84855;">1.66万亿</div>
-    </div>
-    <div class="stat">
-      <div class="k">较昨日</div>
-      <div class="v" style="color:#12a05c;">缩量4602亿</div>
-    </div>
-    <div class="stat">
-      <div class="k">涨停</div>
-      <div class="v" style="color:#e84855;">~30家</div>
-    </div>
-    <div class="stat">
-      <div class="k">下跌家数</div>
-      <div class="v" style="color:#12a05c;">4700+</div>
-    </div>
+    <div class="stat"><div class="k">成交额</div><div class="v">1.48万亿</div></div>
+    <div class="stat"><div class="k">较上日</div><div class="v" style="color:#12a05c;">缩量1752亿</div></div>
+    <div class="stat"><div class="k">涨停</div><div class="v" style="color:#e84855;">57家</div></div>
+    <div class="stat"><div class="k">下跌家数</div><div class="v" style="color:#12a05c;">3148只</div></div>
   </div>
-</section>
+</div>
 
 <!-- 全球市场 -->
-<section class="sec" id="global">
+<div class="sec" id="global">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#e2ecfd;">🌏</div>
+    <div class="sec-ico" style="background:#f0f5ff;color:#3b6fe0;">🌏</div>
     <div class="sec-title">全球市场</div>
-    <span class="sec-note">数据截至16:00</span>
   </div>
   <div class="mkt-legend">
-    <span><span class="dot close"></span>收盘数据</span>
-    <span>亚太：11月6日收盘</span>
-    <span>美股：11月5日收盘（昨夜）</span>
-    <span>欧股：11月5日收盘</span>
+    <span><span class="dot close"></span>已收盘</span>
+    <span>亚太：今日收盘 | 美股/欧股：上周五收盘</span>
   </div>
 
-  <div class="grp-title">🇭🇰 港股</div>
+  <div class="grp-title">🇭🇰 港股 · 今日收盘</div>
   <table class="tbl">
     <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
-    <tr class="hot"><td>恒生指数</td><td>24481.86</td><td class="down">-1.27%</td></tr>
-    <tr><td>恒生科技</td><td>4078.23</td><td class="down">-1.83%</td></tr>
+    <tr><td>恒生指数</td><td>24,449</td><td class="down">-0.13%</td></tr>
+    <tr class="hot"><td>恒生科技</td><td>4,041</td><td class="down">-0.92%</td></tr>
   </table>
 
-  <div class="grp-title">🇯🇵🇰🇷 日韩</div>
+  <div class="grp-title">🇯🇵🇰🇷 日韩 · 今日收盘</div>
   <table class="tbl">
     <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
-    <tr class="hot"><td>日经225</td><td>57434.77</td><td class="down">-5.96%</td></tr>
-    <tr class="hot"><td>KOSPI</td><td>5059.65</td><td class="down">-6.02%</td></tr>
+    <tr class="hot"><td>日经225</td><td>58,776</td><td class="up">+2.33%</td></tr>
+    <tr><td>KOSPI</td><td>5,019</td><td class="down">-0.81%</td></tr>
   </table>
 
-  <div class="grp-title">🇺🇸 美股（昨夜）</div>
+  <div class="grp-title">🇺🇸 美股 · 上周五收盘</div>
   <table class="tbl">
     <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
-    <tr class="hot"><td>道琼斯</td><td>51523.06</td><td class="down">-3.44%</td></tr>
-    <tr class="hot"><td>标普500</td><td>~7356</td><td class="down">-4.36%</td></tr>
-    <tr class="hot"><td>纳斯达克</td><td>~24307</td><td class="down">-5.52%</td></tr>
-    <tr><td>费城半导体</td><td>-</td><td class="down">-7%+</td></tr>
+    <tr><td>道琼斯</td><td>51,286</td><td class="down">-0.46%</td></tr>
+    <tr><td>标普500</td><td>7,377</td><td class="up">+0.31%</td></tr>
+    <tr class="hot"><td>纳斯达克</td><td>24,579</td><td class="up">+1.09%</td></tr>
+    <tr class="hot"><td>费城半导体</td><td>—</td><td class="up">+4.20%</td></tr>
   </table>
 
-  <div class="grp-title">🇪🇺 欧股</div>
+  <div class="grp-title">🇪🇺 欧股 · 上周五收盘</div>
   <table class="tbl">
     <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
-    <tr><td>英国富时100</td><td>10782.66</td><td class="down">-0.43%</td></tr>
-    <tr><td>德国DAX</td><td>低开-1.3%</td><td class="down">调整中</td></tr>
-    <tr><td>法国CAC40</td><td>-</td><td class="down">调整中</td></tr>
+    <tr><td>德国DAX</td><td>25,820</td><td class="down">-1.92%</td></tr>
+    <tr><td>法国CAC40</td><td>8,139</td><td class="down">-0.81%</td></tr>
+    <tr><td>英国富时100</td><td>10,674</td><td class="down">-1.01%</td></tr>
   </table>
-</section>
+</div>
 
 <!-- 环球要闻 -->
-<section class="sec" id="news">
+<div class="sec" id="news">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#eae4fb;">📰</div>
+    <div class="sec-ico" style="background:#fff9f0;color:#f0932b;">📰</div>
     <div class="sec-title">环球要闻</div>
-    <span class="sec-note">9条</span>
+    <div class="sec-note">9条</div>
   </div>
   <div class="news-legend">
-    <span><span class="tag a">极重要</span>4条</span>
-    <span><span class="tag b">重要</span>3条</span>
-    <span><span class="tag c">关注</span>2条</span>
+    <span><span class="tag a">极重要</span> 4条</span>
+    <span><span class="tag b">重要</span> 3条</span>
+    <span><span class="tag c">关注</span> 2条</span>
   </div>
 
-  <!-- 极重要 1 -->
+  <!-- 1 -->
   <div class="news a">
-    <div class="news-top">
-      <span class="tag a">极重要</span>
-      <span class="src intl">Bloomberg</span>
-      <span class="src intl">CNBC</span>
-      <span class="src">Reuters</span>
-    </div>
-    <h3>美股崩盘：纳指-5.52%创19个月最大跌幅，进入技术性回调</h3>
-    <p>美东时间11月5日，美股遭遇猛烈抛售。纳斯达克综合指数暴跌5.52%，较10月6日创下的历史收盘高点回落超过10%，正式进入技术性回调区间。标普500指数-4.36%创2025年4月以来最大单日跌幅，道指-3.44%报51523。费城半导体指数-7%领跌全场。</p>
-    <p><b>说人话：</b>Arm、高通业绩指引不及预期，市场对AI行业盈利前景产生怀疑。马斯克等五大科技富豪身价单日缩水超1500亿美元。AI军备竞赛的反噬来了——烧钱速度超过变现能力，投资者开始用脚投票。</p>
-    <div class="impact">🔍 影响：科技股估值逻辑正在重构。从"不惜代价投AI"转向"AI必须证明ROI"。费半-7%说明市场对半导体周期的担忧已经从存储蔓延到算力芯片。</div>
+    <div class="news-top"><span class="tag a">极重要</span><span class="src">新华财经</span><span class="src">华尔街见闻</span><span class="src">Bloomberg</span></div>
+    <h3>美国10月非农+16.5万远超预期，12月加息预期飙至八成</h3>
+    <p>美国10月非农就业新增16.5万人，远超市场预期的6.5万人，失业率从4.2%降至4.1%。"新美联储通讯社"提示AI抛售或成政策变量。旧金山联储主席戴利明确表示进一步收紧政策的可能性较大，科技股下跌未改变其加息倾向。</p>
+    <div class="impact">💬 <b>说人话：</b>就业数据炸裂→加息预期飙升→美元反弹+美债收益率上行。市场此前押注暂停加息的逻辑被一棒打碎。对A股来说，外资流出压力加大，但A股今天没跟——说明内部逻辑在主导。</div>
   </div>
 
-  <!-- 极重要 2 -->
+  <!-- 2 -->
   <div class="news a">
-    <div class="news-top">
-      <span class="tag a">极重要</span>
-      <span class="src intl">NHK</span>
-      <span class="src intl">Reuters</span>
-      <span class="src">财联社</span>
-    </div>
-    <h3>日韩股市崩盘：日经-5.96%进入技术性熊市，KOSPI-6.02%触发熔断</h3>
-    <p>11月6日，日经225指数暴跌5.96%报57435点，较今年6月创下的高点累计回落20%，正式进入技术性熊市区间。软银集团-14%、东京电子-13%。韩国KOSPI指数-6.02%报5060点，盘中一度跌超8%触发熔断机制，交易暂停20分钟。SK海力士-12%、三星电子-10%。</p>
-    <p><b>说人话：</b>美股科技崩盘传导+AI投资回报质疑+存储芯片周期见顶担忧，三重利空共振。日本央行货币政策收紧预期也在压制风险偏好。韩国存储双雄暴跌带崩全场——SK海力士Q3利润+632%又怎样？"买预期卖事实"的剧本已经演了第三幕。</p>
-    <div class="impact">🔍 影响：日韩股市进入技术性熊市，全球风险偏好急剧收缩。A股虽然跟跌但跌幅远小于日韩——政策底+估值底双重支撑，外资流出压力可控。</div>
+    <div class="news-top"><span class="tag a">极重要</span><span class="src intl">华尔街见闻</span><span class="src">Reuters</span><span class="src">新华社</span></div>
+    <h3>美伊谈判破冰：卡塔尔称取得重大进展，特朗普称"重启打击可能性极低"</h3>
+    <p>卡塔尔方面称美伊谈判取得重大进展，美方斡旋已升至政府最高级，副总统万斯深度介入推动与伊达成新协议。特朗普周日表示，若谈判取得进展，重启军事打击的可能性"极低"。WTI原油全周暴跌12.76%至90.83美元，布伦特全周跌13.32%。</p>
+    <div class="impact">💬 <b>说人话：</b>油价一周跌了13%——从105美元砸到90美元。如果美伊真能停火，油价还有下行空间。对国内来说，原油成本下降利好化工、航空、物流，但煤炭板块的"能源替代"逻辑也在减弱。今天煤炭涨可能是最后的倔强。</div>
   </div>
 
-  <!-- 极重要 3 -->
+  <!-- 3 -->
   <div class="news a">
-    <div class="news-top">
-      <span class="tag a">极重要</span>
-      <span class="src intl">WSJ</span>
-      <span class="src intl">Bloomberg</span>
-      <span class="src">新浪财经</span>
-    </div>
-    <h3>AI军备竞赛反噬：Arm、高通业绩指引不及预期，费城半导体-7%</h3>
-    <p>Arm Holdings和高通公布的业绩及前瞻指引表现不佳，再度引发市场对AI行业盈利前景的担忧。费城半导体指数单日跌幅超过7%，成为主要指数中表现最弱的一环。英伟达、AMD、博通等算力芯片全线大跌。</p>
-    <p><b>说人话：</b>AI芯片的"供不应求"叙事开始松动。Arm的授权收入增速放缓，高通的手机芯片库存积压——下游需求没有上游想象的那么强。市场从"AI无限乐观"转向"AI必须证明ROI"。</p>
-    <div class="impact">🔍 影响：半导体周期可能从"结构性牛市"转向"周期性调整"。存储芯片已经先跌为敬，算力芯片跟进——下一个轮到谁？光通信？设备？</div>
+    <div class="news-top"><span class="tag a">极重要</span><span class="src">新华社</span><span class="src">国务院</span></div>
+    <h3>国常会：完善资本市场稳市机制，加快"六张网"建设</h3>
+    <p>国务院常务会议提出完善资本市场稳市机制，增强股市内在稳定性。同时加快重大项目和"六张网"（路网、水网、电网、算力网、AI网、通信网）建设实施进度。</p>
+    <div class="impact">💬 <b>说人话：</b>"稳市机制"四个字就是告诉市场——别慌，政策底还在。"六张网"概念今天算力、通信、6G板块确实在涨。但量能萎缩到1.48万亿，说明资金在等更明确的信号。</div>
   </div>
 
-  <!-- 极重要 4 -->
+  <!-- 4 -->
   <div class="news a">
-    <div class="news-top">
-      <span class="tag a">极重要</span>
-      <span class="src intl">FT</span>
-      <span class="src intl">Bloomberg</span>
-      <span class="src">财联社</span>
-    </div>
-    <h3>马斯克等五大科技富豪身价单日缩水超1500亿美元</h3>
-    <p>美股崩盘导致科技富豪身价大幅缩水。马斯克、贝索斯、扎克伯格、黄仁勋、巴尔默等五大科技富豪单日合计损失超1500亿美元。特斯拉、亚马逊、Meta、英伟达、微软等权重股全线大跌。</p>
-    <p><b>说人话：</b>富豪们的财富缩水只是表象，背后是市场对"AI改变一切"叙事的信心动摇。当AI烧钱速度超过收入增长，当算力芯片的供不应求变成供过于求——估值逻辑必须重构。</p>
-    <div class="impact">🔍 影响：科技股的"信仰溢价"正在被挤出。从"市梦率"回归"市盈率"，从"不惜代价投AI"转向"AI必须证明ROI"。这是健康调整还是熊市起点？取决于接下来两个季度的财报。</div>
+    <div class="news-top"><span class="tag a">极重要</span><span class="src">华尔街见闻</span><span class="src">Reuters</span><span class="src">FT</span></div>
+    <h3>也门局势骤然升温：胡塞导弹袭沙特利雅得，阿美石油公司大楼受损</h3>
+    <p>周末也门局势突然恶化。胡塞武装称也门遭沙特空袭致22死30伤；沙特周日拦截胡塞导弹，但利雅得金融区遭袭，阿美石油公司大楼受损。中东地缘风险再度升温。</p>
+    <div class="impact">💬 <b>说人话：</b>虽然美伊在谈，但中东的代理人战争没停。阿美石油大楼被炸→如果沙特报复升级→油价可能反弹。今天WTI小幅+0.34%就是市场在定价这个风险。</div>
   </div>
 
-  <!-- 重要 1 -->
+  <!-- 5 -->
   <div class="news b">
-    <div class="news-top">
-      <span class="tag b">重要</span>
-      <span class="src">新浪财经</span>
-      <span class="src">财联社</span>
-    </div>
-    <h3>A股跟跌但相对抗跌：沪指-1.10%报3649，创业板-3.96%报2465</h3>
-    <p>受美股崩盘传导，A股三大指数集体低开。沪指-1.10%报3649，深成指-2.57%报11176，创业板-3.96%报2465，科创50-2.60%报1253。成交1.66万亿缩量4602亿，超4700只个股下跌。PCB概念股领跌（东山精密跌停），电力板块逆势走强。</p>
-    <p><b>说人话：</b>外围崩盘A股跌幅远小于日韩——政策底+估值底双重支撑。但4700股下跌说明恐慌情绪仍在蔓延。电力板块逆势走强是防御信号——资金从"进攻"切回"防御"。</p>
-    <div class="impact">🔍 影响：A股的相对抗跌不代表安全。如果美股继续下跌，A股的"独立行情"能撑多久？关注北向资金动向和成交量变化。</div>
+    <div class="news-top"><span class="tag b">重要</span><span class="src">央行</span><span class="src">外汇局</span></div>
+    <h3>央行连续24个月增持黄金，10月增购83万盎司，外储34052亿美元</h3>
+    <p>中国10月末外汇储备34052亿美元，较9月增加49亿美元。黄金储备达7830万盎司，环比增加83万盎司，连续第24个月增持。10月增持步伐明显加快。</p>
+    <div class="impact">💬 <b>说人话：</b>央行在持续"去美元化"。黄金从3000美元涨到4000美元的过程中，央行一直在买。今天现货黄金重回4100美元——各国央行购金是长期支撑。</div>
   </div>
 
-  <!-- 重要 2 -->
+  <!-- 6 -->
   <div class="news b">
-    <div class="news-top">
-      <span class="tag b">重要</span>
-      <span class="src">新浪财经</span>
-      <span class="src">财联社</span>
-    </div>
-    <h3>港股调整：恒指-1.27%报24482，恒生科技-1.83%报4078</h3>
-    <p>受纳指大跌拖累，港股市场出现调整。恒生指数-1.27%报24482，恒生科技-1.83%报4078。科网股领跌——网易、美团、阿里、腾讯均跌超2%。港交所-2.28%，前三季度溢利创新高但股价反应平淡。</p>
-    <p><b>说人话：</b>港股跟跌不跟涨的老毛病又犯了。昨日恒生科技+5.55%创年内最大单日涨幅，今天-1.83%吐回一部分。科网股的估值修复行情还没走完，但短期受外围拖累。</p>
-    <div class="impact">🔍 影响：港股估值仍处历史低位，南向资金半日回流超21.7亿港元——机构在抄底，散户在割肉。中期修复逻辑未变，短期警惕波动。</div>
+    <div class="news-top"><span class="tag b">重要</span><span class="src">韩联社</span><span class="src intl">韩国财政部</span></div>
+    <h3>韩国紧急救市：豁免券商140%信用担保比例三个月</h3>
+    <p>韩国财政部、金融委员会、金融监督院及韩国央行举行紧急会议，宣布豁免券商140%信用融资担保比例维持义务，为期三个月（11月9日起实施），防止股价急跌触发大规模强制平仓。</p>
+    <div class="impact">💬 <b>说人话：</b>韩国在防"爆仓连锁反应"。KOSPI上周暴跌6%触发熔断，今天继续跌0.81%。豁免担保比例=给券商松绑=不让散户被强平。但这招治标不治本，存储芯片的基本面问题没解决。</div>
   </div>
 
-  <!-- 重要 3 -->
+  <!-- 7 -->
   <div class="news b">
-    <div class="news-top">
-      <span class="tag b">重要</span>
-      <span class="src intl">Bloomberg</span>
-      <span class="src">金投网</span>
-    </div>
-    <h3>油价企稳黄金震荡：WTI 91美元，黄金4087-4107美元区间</h3>
-    <p>国际油价低位企稳。WTI原油91.30美元（日内+0.11%），布伦特99.45美元（日内+0.15%）。现货黄金开盘4087.60美元，最高触及4106.90美元，最低4037.38美元，在4000-4100美元区间震荡。</p>
-    <p><b>说人话：</b>油价从昨日暴跌8%后企稳——美伊停战预期消化后，市场重新评估实际供需。黄金在4000美元上方拉锯——避险需求vs美联储鹰派+美债收益率高企，多空博弈激烈。</p>
-    <div class="impact">🔍 影响：油价企稳缓解通胀担忧，但黄金震荡说明市场对"避险"和"通胀"的定价还在摇摆。关注美联储下一步动作。</div>
+    <div class="news-top"><span class="tag b">重要</span><span class="src">上海微电子</span><span class="src">新华社</span></div>
+    <h3>重大突破：上海微电子展示中国新一代光刻机模型</h3>
+    <p>上海微电子展示中国新一代光刻机模型，为前道光刻装备自主化阶段性成果。这是国产光刻机在先进制程领域的重要进展。</p>
+    <div class="impact">💬 <b>说人话：</b>光刻机国产化是"卡脖子"清单上最核心的环节。每次有进展都会刺激半导体设备板块。但距离量产还有距离，市场短期炒预期、中期看验证。</div>
   </div>
 
-  <!-- 关注 1 -->
+  <!-- 8 -->
   <div class="news c">
-    <div class="news-top">
-      <span class="tag c">关注</span>
-      <span class="src">新浪财经</span>
-      <span class="src">财联社</span>
-    </div>
-    <h3>PCB概念股领跌：东山精密跌停，生益电子、世运电路跌逾8%</h3>
-    <p>PCB（印制电路板）概念股跌幅明显。东山精密跌停，生益电子、世运电路跌逾8%。算力硬件、半导体芯片板块整体承压。</p>
-    <p><b>说人话：</b>PCB是AI算力硬件的核心环节，昨日涨停潮今天跌停——典型的高位获利了结。资金从"算力硬件"切向"电力防御"，风格切换信号明确。</p>
-    <div class="impact">🔍 影响：算力硬件的短期调整可能持续。但中长期看，AI数据中心的建设需求没有消失——只是从"预期驱动"转向"业绩验证"。</div>
+    <div class="news-top"><span class="tag c">关注</span><span class="src intl">日本国会</span><span class="src">NHK</span></div>
+    <h3>日本通过食品消费税减税法案，2027年4月起税率降至1%</h3>
+    <p>日本国会众议院表决通过食品消费税减税法案。自2027年4月起两年内，食品消费税率由现行8%下调至1%。表决前多名自民党议员退席离场。</p>
+    <div class="impact">💬 <b>说人话：</b>高市早苗的"积极财政"路线在落地。减税→刺激消费→但财政赤字扩大→日债收益率可能上行→日元承压。今天日经+2.33%反弹，部分在定价减税利好。</div>
   </div>
 
-  <!-- 关注 2 -->
+  <!-- 9 -->
   <div class="news c">
-    <div class="news-top">
-      <span class="tag c">关注</span>
-      <span class="src">新浪财经</span>
-      <span class="src">财联社</span>
-    </div>
-    <h3>电力板块逆势走强：新能股份、立新能源涨停，华能水电涨超3%</h3>
-    <p>电力板块盘中走强。新能股份、立新能源涨停，华能水电、华能国际涨超3%。在市场普跌中，电力板块成为少数红盘板块之一。</p>
-    <p><b>说人话：</b>电力是典型的防御板块——经济预期悲观时资金涌入公用事业避险。新能股份、立新能源涨停说明资金在"新能源+电力"的交叉点找机会。</p>
-    <div class="impact">🔍 影响：电力板块走强是市场风险偏好下降的信号。如果科技股继续调整，防御板块可能成为短期避风港。</div>
+    <div class="news-top"><span class="tag c">关注</span><span class="src">WSJ</span><span class="src intl">Reuters</span></div>
+    <h3>民主党计划调查苹果、Meta和马斯克，硅谷盟友面临"清算"</h3>
+    <p>美国民主党正计划采取行动扭转特朗普关税政策，首要目标是取消对加拿大产品关税。同时民主党计划调查苹果、Meta等科技巨头以及马斯克等特朗普盟友。</p>
+    <div class="impact">💬 <b>说人话：</b>美国内政斗争升级。如果民主党真对科技巨头动手→监管风险升温→科技股估值承压。这也是上周纳指-3.37%的深层原因之一。</div>
   </div>
-</section>
+</div>
 
 <!-- 五维度分析 -->
-<section class="sec" id="dims">
+<div class="sec" id="dims">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#fff0dc;">🎯</div>
+    <div class="sec-ico" style="background:#f8f5ff;color:#6a4bb8;">🔍</div>
     <div class="sec-title">五维度分析</div>
-    <span class="sec-note">评级+一句话</span>
+    <div class="sec-note">简版</div>
   </div>
 
   <div class="dim d1">
-    <div class="dim-h">
-      <span class="e">📡</span>
-      <span class="t">消息面</span>
-      <span class="score">⭐⭐ (2/5)</span>
-    </div>
-    <div class="conclusion">美股崩盘+日韩熔断，外围利空密集。A股相对抗跌但4700股下跌说明恐慌情绪蔓延。<b>短期消息面偏空。</b></div>
+    <div class="dim-h"><span class="e">📰</span><span class="t">消息面</span><span class="score">⭐⭐⭐⭐ 偏多</span></div>
+    <p style="font-size:13px;color:#4a5568;line-height:1.8;">国常会稳市+央行增持黄金+美伊破冰+上海微电子光刻机突破——利好密度不低，但量能萎缩说明资金在等更确定的催化。</p>
   </div>
 
   <div class="dim d2">
-    <div class="dim-h">
-      <span class="e">🌡️</span>
-      <span class="t">情绪面</span>
-      <span class="score">⭐⭐ (2/5)</span>
-    </div>
-    <div class="conclusion">成交1.66万亿缩量4602亿，4700股下跌。电力板块走强是防御信号——资金从"进攻"切回"防御"。<b>情绪偏谨慎。</b></div>
+    <div class="dim-h"><span class="e">🎭</span><span class="t">情绪面</span><span class="score">⭐⭐⭐ 中性偏弱</span></div>
+    <p style="font-size:13px;color:#4a5568;line-height:1.8;">成交1.48万亿连续缩量，3100股下跌但57家涨停——结构性行情延续，但整体赚钱效应一般。市场在犹豫。</p>
   </div>
 
   <div class="dim d3">
-    <div class="dim-h">
-      <span class="e">📐</span>
-      <span class="t">技术面</span>
-      <span class="score">⭐⭐⭐ (3/5)</span>
-    </div>
-    <div class="conclusion">沪指3649接近前期支撑位，创业板2465跌破2500关口。如果美股继续下跌，A股可能测试3600支撑。<b>技术面中性偏弱。</b></div>
+    <div class="dim-h"><span class="e">📐</span><span class="t">技术面</span><span class="score">⭐⭐⭐ 中性</span></div>
+    <p style="font-size:13px;color:#4a5568;line-height:1.8;">沪指3660附近窄幅震荡，上方3700压力明显，下方3630支撑有效。创业板冲高回落，短期在2450-2500区间磨。</p>
   </div>
 
   <div class="dim d4">
-    <div class="dim-h">
-      <span class="e">🏛️</span>
-      <span class="t">政策面</span>
-      <span class="score">⭐⭐⭐⭐ (4/5)</span>
-    </div>
-    <div class="conclusion">央行千亿互换便利+下调再贷款利率至1%，政策底信号明确。监管层在"外围崩盘"节点出手托底意图明显。<b>政策面偏多。</b></div>
+    <div class="dim-h"><span class="e">🏛️</span><span class="t">政策面</span><span class="score">⭐⭐⭐⭐ 偏多</span></div>
+    <p style="font-size:13px;color:#4a5568;line-height:1.8;">国常会"稳市机制"+央行增持黄金+韩国救市——全球政策底信号明确。但美联储加息预期升温是外部变量。</p>
   </div>
 
   <div class="dim d5">
-    <div class="dim-h">
-      <span class="e">💰</span>
-      <span class="t">资金面</span>
-      <span class="score">⭐⭐⭐ (3/5)</span>
-    </div>
-    <div class="conclusion">成交缩量4602亿至1.66万亿，主力资金流向待观察。南向资金半日回流超21.7亿港元——机构在抄底。<b>资金面中性。</b></div>
+    <div class="dim-h"><span class="e">💰</span><span class="t">资金面</span><span class="score">⭐⭐⭐ 中性</span></div>
+    <p style="font-size:13px;color:#4a5568;line-height:1.8;">主力净流入131.58亿——电子+73亿、机械设备+46亿领涨，电力设备-34亿领跌。量能萎缩至1.48万亿，观望情绪浓。</p>
   </div>
-</section>
+</div>
 
-<!-- 涨跌对比图 -->
-<section class="sec" id="chart">
+<!-- 涨跌对比 -->
+<div class="sec" id="chart">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#e2ecfd;">📈</div>
+    <div class="sec-ico" style="background:#f0fff5;color:#12a05c;">📊</div>
     <div class="sec-title">涨跌对比</div>
-    <span class="sec-note">全球主要指数</span>
   </div>
   <div class="chart-wrap">
-    <canvas id="changeChart" height="280"></canvas>
+    <canvas id="compChart" height="260"></canvas>
   </div>
-</section>
+</div>
 
 <!-- 产业热力图 -->
-<section class="sec" id="heat">
+<div class="sec" id="industry">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#eae4fb;">🔥</div>
-    <div class="sec-title">六大产业热力图</div>
-    <span class="sec-note">今日表现</span>
+    <div class="sec-ico" style="background:#fff0f0;color:#e84855;">🔥</div>
+    <div class="sec-title">产业热力图</div>
+    <div class="sec-note">今日主线</div>
   </div>
   <div class="heat-grid">
-    <div class="heat-card down">
-      <div class="hc-n">半导体</div>
-      <div class="hc-v">-4%+</div>
-      <div class="hc-d">费半-7%传导，算力硬件领跌</div>
-    </div>
-    <div class="heat-card down">
-      <div class="hc-n">PCB/算力</div>
-      <div class="hc-v">-5%+</div>
-      <div class="hc-d">东山精密跌停，生益电子-8%</div>
+    <div class="heat-card up">
+      <div class="hc-n">人形机器人</div>
+      <div class="hc-v">+9%+</div>
+      <div class="hc-d">宇树科技领涨 · 上纬新材20%涨停 · 20+股涨停</div>
     </div>
     <div class="heat-card up">
-      <div class="hc-n">电力</div>
-      <div class="hc-v">+2%+</div>
-      <div class="hc-d">新能股份涨停，防御板块走强</div>
-    </div>
-    <div class="heat-card down">
-      <div class="hc-n">消费电子</div>
-      <div class="hc-v">-3%+</div>
-      <div class="hc-d">苹果产业链跟跌美股</div>
-    </div>
-    <div class="heat-card down">
-      <div class="hc-n">新能源</div>
-      <div class="hc-v">-2%+</div>
-      <div class="hc-d">光伏昨日涨停潮今日回调</div>
+      <div class="hc-n">煤炭开采</div>
+      <div class="hc-v">PPI+36.6%</div>
+      <div class="hc-d">郑州煤电涨停 · 安泰集团涨停 · 云煤能源涨停</div>
     </div>
     <div class="heat-card up">
-      <div class="hc-n">种子/农业</div>
-      <div class="hc-v">+1%+</div>
-      <div class="hc-d">种子生产板块领涨两市</div>
+      <div class="hc-n">燃气</div>
+      <div class="hc-v">遇袭催化</div>
+      <div class="hc-d">东方环宇涨停 · 胜通能源涨停 · 伊拉克气田遇袭</div>
+    </div>
+    <div class="heat-card up">
+      <div class="hc-n">元件/CCL</div>
+      <div class="hc-v">+73亿净流入</div>
+      <div class="hc-d">松下工厂爆炸→高端覆铜板供给收缩</div>
+    </div>
+    <div class="heat-card down">
+      <div class="hc-n">光伏设备</div>
+      <div class="hc-v">持续走低</div>
+      <div class="hc-d">时创能源领跌 · 阳光电源走弱 · 资金流出</div>
+    </div>
+    <div class="heat-card down">
+      <div class="hc-n">能源金属</div>
+      <div class="hc-v">高开低走</div>
+      <div class="hc-d">融捷股份、盛新锂能、天齐锂业跌幅居前</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- 付费引导卡片 -->
-<section class="sec">
+<!-- 付费引导 -->
+<div class="sec">
   <div class="pay-card">
-    <h3>💎 想看完整版？</h3>
-    <p>
-      <b>免费版</b>给你核心数据+简版分析<br>
-      <b>付费版</b>是完整版——今日速览+五维度深挖+板块热力图+焦点个股+大宗商品+产业高频+策略研判<br>
-      <span style="color:#FFD700;">付费用户打开就能看完整天发生了什么，不用回去翻网页</span>
-    </p>
-    <a href="https://wx.zsxq.com" class="btn">加入知识星球 →</a>
+    <h3>🔒 五维度深度分析 · 完整版</h3>
+    <p>免费版只有一句评级。付费版给完整的推理过程、数据支撑和结论。<br>付费版是「完整版」——包含今日速览+全球市场+环球要闻+五维度深挖+策略研判，打开就能看全，不用来回翻网页。</p>
+    <div class="pay-teaser" style="text-align:left;">
+      <div class="pt-card">
+        <div class="pt-t">📰 消息面</div>
+        <div class="pt-d">免费版：⭐⭐⭐⭐ 偏多<br>付费版：9条消息逐条拆解+影响推演+哪些板块受益/受损</div>
+      </div>
+      <div class="pt-card">
+        <div class="pt-t">🎭 情绪面</div>
+        <div class="pt-d">免费版：⭐⭐⭐ 中性偏弱<br>付费版：涨跌停比/量能变化/恐慌贪婪指数/资金博弈路径</div>
+      </div>
+      <div class="pt-card">
+        <div class="pt-t">📐 技术面</div>
+        <div class="pt-d">免费版：⭐⭐⭐ 中性<br>付费版：支撑/压力位+MACD/KDJ信号+量价关系+形态研判</div>
+      </div>
+      <div class="pt-card">
+        <div class="pt-t">🏛️ 政策面</div>
+        <div class="pt-d">免费版：⭐⭐⭐⭐ 偏多<br>付费版：政策原文解读+历史复盘+受益方向+时间窗口</div>
+      </div>
+      <div class="pt-card">
+        <div class="pt-t">💰 资金面</div>
+        <div class="pt-d">免费版：⭐⭐⭐ 中性<br>付费版：北向/南向/主力三路拆解+行业净流入TOP5+两融变化</div>
+      </div>
+      <div class="pt-card locked">
+        <div class="pt-t">💎 另外还包含</div>
+        <div class="pt-d">板块热力图·焦点个股·大宗商品18项·产业高频数据·策略研判·每日问答</div>
+      </div>
+    </div>
+    <a class="btn" href="https://t.zsxq.com/0b6iaIa">💎 加入知识星球 · 看完整版</a>
   </div>
-</section>
+</div>
 
 <!-- 今日问答 -->
-<section class="sec" id="qa">
+<div class="sec" id="qa">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#fff0dc;">❓</div>
+    <div class="sec-ico" style="background:#f5f8ff;color:#3b6fe0;">❓</div>
     <div class="sec-title">今日问答</div>
   </div>
   <div class="qa-item">
-    <div class="qa-q">Q：美股崩盘会持续多久？A股能独善其身吗？</div>
-    <div class="qa-a">A：美股短期调整可能持续1-2周，关键看接下来两个季度的财报能否证明AI的ROI。A股的"独立行情"取决于政策力度和北向资金动向——如果央行继续托底+外资不大幅流出，A股跌幅会远小于日韩。</div>
+    <div class="qa-q">Q：缩量到1.48万亿，是底部信号还是下跌中继？</div>
+    <div class="qa-a">A：缩量本身不是底部信号，"缩量+止跌+放量反弹"才是。目前1.48万亿还在缩量通道中，需要等量能企稳（连续3天站上1.6万亿）才能确认底部。历史上每次地量之后还有更低——2024年9月的1.2万亿→10月才迎来反弹。现在别急着抄底，等量。</div>
   </div>
   <div class="qa-item">
-    <div class="qa-q">Q：半导体周期见顶了吗？现在该割肉还是抄底？</div>
-    <div class="qa-a">A：存储芯片已经先跌为敬，算力芯片跟进——但AI数据中心的建设需求没有消失，只是从"预期驱动"转向"业绩验证"。短期调整可能持续，但中长期逻辑未变。如果你是长线投资者，逢低布局；如果是短线，等企稳信号再进场。</div>
+    <div class="qa-q">Q：机器人概念能持续吗？</div>
+    <div class="qa-a">A：短期看催化密度——三星/SK海力士/美光与SEMI磋商晶圆厂机器人标准化，宇树科技产业链持续出货。中期看业绩验证——上纬新材、锋龙股份这些涨停的，Q4业绩能不能兑现是关键。如果只是一轮游炒作，下周就会分化。目前看，产业趋势确定但估值已不便宜。</div>
   </div>
   <div class="qa-item">
-    <div class="qa-q">Q：电力板块走强，是短期避险还是长期机会？</div>
-    <div class="qa-a">A：短期是避险——经济预期悲观时资金涌入公用事业。但中长期看，新能源电力（光伏、风电、储能）的政策支持没有消失，只是从"补贴驱动"转向"市场化竞争"。如果你看好能源转型，电力板块的回调是布局机会。</div>
+    <div class="qa-q">Q：美联储12月加息概率八成，A股扛得住吗？</div>
+    <div class="qa-a">A：扛得住扛不住不取决于美联储，取决于国内政策对冲力度。如果国常会"稳市机制"落地为具体措施（比如降准、降息、扩大互换便利），A股可以独立。如果只有口号没有行动，12月加息落地前后会有压力。历史上2022年加息周期A股跟跌，但2024年A股已经走出独立行情——关键看内部逻辑。</div>
   </div>
-</section>
+</div>
 
 <!-- 今日投票 -->
-<section class="sec" id="vote">
+<div class="sec" id="vote">
   <div class="sec-head">
-    <div class="sec-ico" style="background:#e2ecfd;">🗳️</div>
+    <div class="sec-ico" style="background:#fff9f0;color:#f0932b;">🗳️</div>
     <div class="sec-title">今日投票</div>
   </div>
   <div class="vote-wrap">
-    <div class="vote-q">美股崩盘+日韩熔断，你认为A股下周会？</div>
-    <div class="vote-opt">
-      <div class="radio"></div>
-      <div class="txt">跟跌测试3600支撑</div>
-    </div>
-    <div class="vote-opt">
-      <div class="radio"></div>
-      <div class="txt">横盘震荡等外围企稳</div>
-    </div>
-    <div class="vote-opt">
-      <div class="radio"></div>
-      <div class="txt">政策托底独立反弹</div>
-    </div>
-    <div class="vote-opt">
-      <div class="radio"></div>
-      <div class="txt">不确定，观望</div>
-    </div>
+    <div class="vote-q">你认为本周A股走势会是？</div>
+    <div class="vote-opt"><div class="radio"></div><div class="txt">A. 放量反弹，站上3700</div></div>
+    <div class="vote-opt"><div class="radio"></div><div class="txt">B. 继续缩量震荡，3630-3700区间</div></div>
+    <div class="vote-opt"><div class="radio"></div><div class="txt">C. 跌破3630，向下寻支撑</div></div>
+    <div class="vote-opt"><div class="radio"></div><div class="txt">D. 不关心，反正满仓躺平</div></div>
   </div>
-</section>
+</div>
 
 <footer>
-  <p><b>每日全球股市观察</b> · 2026年11月6日</p>
-  <p>数据来源：Reuters / Bloomberg / CNBC / WSJ / FT / 新浪财经 / 财联社 / 金投网</p>
-  <p>数据截至：2026年11月6日 16:00 CST</p>
-  <p style="margin-top:10px;">
-    <a href="https://lu890121-maker.github.io/stock-daily/">免费版</a> · 
-    <a href="https://wx.zsxq.com">知识星球（付费版）</a>
-  </p>
-  <p style="margin-top:10px; font-size:10px;">本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。</p>
+  <p><b>每日全球股市观察</b> · 2026年11月9日</p>
+  <p>数据来源：新华社 · 央行 · 外汇局 · 华尔街见闻 · 新华财经 · 金投网 · 证券时报 · Reuters · Bloomberg · FT · CNBC · WSJ · 韩联社 · NHK</p>
+  <p style="margin-top:10px;"><a href="https://lu890121-maker.github.io/stock-daily/">免费订阅</a> · <a href="https://t.zsxq.com/0b6iaIa">知识星球</a> · <a href="https://mp.weixin.qq.com/s?__biz=MzI0NTU2MjA4NQ==">公众号</a></p>
+  <p style="margin-top:10px;color:rgba(255,255,255,.35);">本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。</p>
 </footer>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-const ctx = document.getElementById('changeChart').getContext('2d');
+const ctx = document.getElementById('compChart').getContext('2d');
 new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['日经225', 'KOSPI', '纳指', '标普500', '道指', '恒生科技', '恒指', '深成指', '科创50', '沪指', '富时100'],
+    labels: ['沪指','深成指','创业板','科创50','恒指','恒生科技','日经','KOSPI','道指','标普','纳指','费半'],
     datasets: [{
       label: '涨跌幅 %',
-      data: [-5.96, -6.02, -5.52, -4.36, -3.44, -1.83, -1.27, -2.57, -2.60, -1.10, -0.43],
+      data: [0.32,-0.27,-0.27,0.44,-0.13,-0.92,2.33,-0.81,-0.46,0.31,1.09,4.20],
       backgroundColor: ctx => {
         const v = ctx.raw;
-        return v < 0 ? '#12a05c' : '#e84855';
+        return v > 0 ? 'rgba(232,72,85,0.75)' : 'rgba(18,160,92,0.75)';
       },
-      borderRadius: 6,
+      borderRadius: 5,
+      borderSkipped: false,
     }]
   },
   options: {
     responsive: true,
     plugins: {
       legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: ctx => `${ctx.raw.toFixed(2)}%`
-        }
-      }
+      tooltip: { callbacks: { label: ctx => ctx.raw.toFixed(2) + '%' } }
     },
     scales: {
       y: {
         beginAtZero: true,
         grid: { color: '#e8ecf3' },
-        ticks: { callback: v => v + '%' }
+        ticks: { callback: v => v + '%', font: { size: 11 } }
       },
       x: {
-        grid: { display: false }
+        grid: { display: false },
+        ticks: { font: { size: 10.5 } }
       }
     }
   }
